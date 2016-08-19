@@ -6,8 +6,8 @@
 [![Platform](https://img.shields.io/cocoapods/p/Tutti.svg?style=flat)](http://cocoapods.org/pods/Tutti)
 
 
-Tutti is a Swift library that can be used to create iOS tutorials and onboarding
-experieces. It's currently limited to the functionality I need in my own apps. I
+Tutti is a Swift library that can be used to create tutorials and onboarding in
+iOS apps. It is currently limited to the functionality I need in my own apps. I
 will extend it as those apps become more sophisticated over time.
 
 
