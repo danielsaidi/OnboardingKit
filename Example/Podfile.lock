@@ -1,0 +1,16 @@
+PODS:
+  - Tutti (0.1.0)
+
+DEPENDENCIES:
+  - Tutti (from `../`)
+
+EXTERNAL SOURCES:
+  Tutti:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Tutti: 3c55892c7e73b2936ed668559dc3e01c51aebb61
+
+PODFILE CHECKSUM: ca1da26b7645611166dbe74d79a9e19e015ba0c5
+
+COCOAPODS: 1.0.1
