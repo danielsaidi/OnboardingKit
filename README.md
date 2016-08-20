@@ -94,19 +94,18 @@ compile properly.
 
 ## Requirements
 
+Tutti requires iOS 8 or later.
+
+
+
+## CocoaPods
+
 Tutti is available through [CocoaPods](http://cocoapods.org). To add it to your
 project, simply add the following line to your Podfile:
 
 ```ruby
 pod "Tutti"
 ```
-
-
-
-## CocoaPods
-
-Tutti will be added to CocoaPods as soon as it is used by emoji apps that
-are live on the app store.
 
 
 
