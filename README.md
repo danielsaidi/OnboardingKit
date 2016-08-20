@@ -94,7 +94,12 @@ compile properly.
 
 ## Requirements
 
-Tutti requires iOS 8 or later.
+Tutti is available through [CocoaPods](http://cocoapods.org). To add it to your
+project, simply add the following line to your Podfile:
+
+```ruby
+pod "Tutti"
+```
 
 
 
