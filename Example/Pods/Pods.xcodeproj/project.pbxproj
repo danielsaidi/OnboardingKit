@@ -23,7 +23,6 @@
 		BA488B6D7A7DB13389F4350FC822CE17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		BCEED631AB7D53C7133B20E6B0C2E8AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		E6A5D482C9275C62C62D329BD8F4800C /* UIView_Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CF8829947F5B075E40C7567A92175 /* UIView_Frame.swift */; };
-		E6CCB19154F3BED66C49EA5121C25743 /* TutorialAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A1C6147399FDC4FD84765B02CB6CC /* TutorialAnimation.swift */; };
 		FCF84AA315901F9096F19D392B2C4A00 /* Pods-Tutti_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E32B3DAFC7034780A25444B53C3C4C8 /* Pods-Tutti_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -76,7 +75,6 @@
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D3F46659B43EA666486B2852B61807E8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC699E70D38625C09FE6B391EC893AA1 /* TutorialBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TutorialBase.swift; sourceTree = "<group>"; };
-		E29A1C6147399FDC4FD84765B02CB6CC /* TutorialAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TutorialAnimation.swift; sourceTree = "<group>"; };
 		E8FC464AD3C5D9546DC31A60D08FA6F8 /* Pods-Tutti_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tutti_Tests-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,7 +252,6 @@
 		C5FBF0188C7C846804A7675C197D67CE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				E29A1C6147399FDC4FD84765B02CB6CC /* TutorialAnimation.swift */,
 				A561416F6A2FAAA9CE2C218E32ABCF6D /* TutorialViewController.swift */,
 			);
 			path = Presentation;
@@ -412,7 +409,6 @@
 				28FB21C307269946B78FF5483C505949 /* LocalizationBasedTutorial.swift in Sources */,
 				AF7E97F0475091900E6208AF170995D9 /* Translate.swift in Sources */,
 				76BA4A203B8A0B17EDA656F7609FBEDC /* Tutorial.swift in Sources */,
-				E6CCB19154F3BED66C49EA5121C25743 /* TutorialAnimation.swift in Sources */,
 				7831FB7043CBC9C371F6C56A674B7C39 /* TutorialBase.swift in Sources */,
 				B4B7BFF92B25381140DBD90B86CB47B3 /* TutorialViewController.swift in Sources */,
 				7968EC1B1D3E8B77C53EEAB970474ED3 /* Tutti-dummy.m in Sources */,
