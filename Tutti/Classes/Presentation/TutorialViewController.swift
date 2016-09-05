@@ -9,7 +9,7 @@
 import UIKit
 
 
-@objc public protocol TutorialViewControllerDelegate {
+public protocol TutorialViewControllerDelegate : class {
     func tutorialViewController(tutorial: TutorialViewController, didTriggerAction action: String)
     func tutorialViewControllerDidFinish(tutorial: TutorialViewController)
 }
@@ -169,14 +169,9 @@ public class TutorialViewController: UIViewController {
     }
     
     public func refreshImageView() {
-        let key = tutorial!.getResourceName("image")
-        if (translationExists(key)) {
-            let imageName = translate(key)
-            let image = UIImage(named: imageName)
-            imageView?.image = image
-        } else {
-            imageView?.image = nil
-        }
+        let key = tutorial!.getResourceName("")
+        let image = UIImage(named: key)
+        imageView?.image = image
     }
     
     public func refreshPageControl() {
