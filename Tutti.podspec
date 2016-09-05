@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Tutti'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'Tutti can be used to create iOS tutorials and onboarding experieces.'
 
   s.description      = <<-DESC

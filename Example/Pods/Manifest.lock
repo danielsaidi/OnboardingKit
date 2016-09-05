@@ -1,15 +1,15 @@
 PODS:
-  - Tutti (0.1.0)
+  - Tutti (0.2.1)
 
 DEPENDENCIES:
   - Tutti (from `../`)
 
 EXTERNAL SOURCES:
   Tutti:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Tutti: 3c55892c7e73b2936ed668559dc3e01c51aebb61
+  Tutti: b12bf172ea46a9420321f56bcb964ae4a42d3908
 
 PODFILE CHECKSUM: ca1da26b7645611166dbe74d79a9e19e015ba0c5
 
