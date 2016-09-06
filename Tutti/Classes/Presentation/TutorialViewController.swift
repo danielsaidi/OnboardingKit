@@ -170,6 +170,7 @@ public class TutorialViewController: UIViewController {
     
     public func refreshImageView() {
         let key = tutorial!.getResourceName("")
+        print(key)
         let image = UIImage(named: key)
         imageView?.image = image
     }
@@ -181,14 +182,14 @@ public class TutorialViewController: UIViewController {
     }
     
     public func refreshTextView() {
-        let key = tutorial!.getResourceName("text")
+        let key = tutorial.getResourceName("text")
         if (translationExists(key)) {
             textView?.text = translate(key)
         }
     }
     
     public func refreshTitleLabel() {
-        let key = tutorial!.getResourceName("title")
+        let key = tutorial.getResourceName("title")
         if (translationExists(key)) {
             titleLabel?.text = translate(key)
         }

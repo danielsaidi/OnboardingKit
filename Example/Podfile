@@ -6,6 +6,5 @@ target 'Tutti_Example' do
   target 'Tutti_Tests' do
     inherit! :search_paths
 
-    
   end
 end
