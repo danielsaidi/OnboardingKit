@@ -48,12 +48,12 @@ open class TutorialViewController: UIViewController {
     
     fileprivate func setupSwipeGestures() {
         if (swipeable) {
-            setupSwipeGestureWithDirection(.left)
-            setupSwipeGestureWithDirection(.right)
+            setupSwipeGesture(withDirection: .left)
+            setupSwipeGesture(withDirection: .right)
         }
     }
     
-    fileprivate func setupSwipeGestureWithDirection(_ direction: UISwipeGestureRecognizerDirection) {
+    fileprivate func setupSwipeGesture(withDirection direction: UISwipeGestureRecognizerDirection) {
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
         swipe.direction = direction
         view.isUserInteractionEnabled = true
@@ -118,7 +118,7 @@ open class TutorialViewController: UIViewController {
     
     // MARK: Public methods
     
-    open func animateClose(_ completion: @escaping () -> ()) {
+    open func animateClose(completion: @escaping () -> ()) {
         let anim = { self.view.alpha = 0.0 }
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: anim) { finished in
             completion()
@@ -126,11 +126,11 @@ open class TutorialViewController: UIViewController {
     }
     
     open func animateNext() {
-        animatePagination(true)
+        animatePagination(next: true)
     }
     
     open func animatePrevious() {
-        animatePagination(false)
+        animatePagination(next: false)
     }
     
     open func animateShow() {
@@ -148,54 +148,54 @@ open class TutorialViewController: UIViewController {
     }
     
     open func refresh() {
-        refreshImageView()
-        refreshTitleLabel()
-        refreshTextView()
-        refreshButton(closeButton, withIdentifier: "close")
-        refreshButton(previousButton, withIdentifier: "previous")
-        refreshButton(nextButton, withIdentifier: "next")
-        refreshButton(proceedButton, withIdentifier: "proceed")
+        refresh(imageView)
+        refresh(titleLabel: titleLabel)
+        refresh(textView: textView)
+        refresh(button: closeButton, withIdentifier: "close")
+        refresh(button: previousButton, withIdentifier: "previous")
+        refresh(button: nextButton, withIdentifier: "next")
+        refresh(button: proceedButton, withIdentifier: "proceed")
         previousButton?.isHidden = tutorial!.isFirstPage
         nextButton?.isHidden = tutorial!.isLastPage
         proceedButton?.isHidden = !tutorial!.isLastPage
-        refreshPageControl()
+        refresh(pageControl: pageControl)
     }
     
-    open func refreshButton(_ button: UIButton!, withIdentifier identifier: String) {
-        let key = tutorial!.getResourceName(identifier)
+    open func refresh(button: UIButton?, withIdentifier identifier: String) {
+        let key = tutorial!.getResourceName(key: identifier)
         if (translationExists(key)) {
             button?.setTitle(translate(key), for: UIControlState())
         }
     }
     
-    open func refreshImageView() {
-        let key = tutorial!.getResourceName("")
+    open func refresh(_ imageView: UIImageView?) {
+        let key = tutorial!.getResourceName(key: "")
         print(key)
         let image = UIImage(named: key)
         imageView?.image = image
     }
     
-    open func refreshPageControl() {
+    open func refresh(pageControl: UIPageControl?) {
         pageControl?.isHidden = tutorial.pageCount < 2;
         pageControl?.currentPage = tutorial.currentPageIndex
         pageControl?.numberOfPages = tutorial.pageCount
     }
     
-    open func refreshTextView() {
-        let key = tutorial.getResourceName("text")
+    open func refresh(textView: UITextView?) {
+        let key = tutorial.getResourceName(key: "text")
         if (translationExists(key)) {
             textView?.text = translate(key)
         }
     }
     
-    open func refreshTitleLabel() {
-        let key = tutorial.getResourceName("title")
+    open func refresh(titleLabel: UILabel?) {
+        let key = tutorial.getResourceName(key: "title")
         if (translationExists(key)) {
             titleLabel?.text = translate(key)
         }
     }
     
-    open func showTutorial(_ tutorial: Tutorial, inView view: UIView) -> Bool {
+    open func show(tutorial: Tutorial, in view: UIView) -> Bool {
         if (tutorial.hasBeenDisplayed) {
             delegate?.tutorialViewControllerDidFinish(self)
             return false
@@ -212,7 +212,7 @@ open class TutorialViewController: UIViewController {
     
     // MARK: Private functions
     
-    open func animatePagination(_ next: Bool) {
+    open func animatePagination(next: Bool) {
         let animation = CATransition()
         animation.duration = 0.5
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)

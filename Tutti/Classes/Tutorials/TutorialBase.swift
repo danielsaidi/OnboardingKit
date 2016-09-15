@@ -57,11 +57,11 @@ open class TutorialBase: NSObject, Tutorial {
     
     // MARK: Public functions
 
-    open func getResourceName(_ key: String) -> String {
-        return getResourceName(key, forPageIndex: currentPageIndex)
+    open func getResourceName(key: String) -> String {
+        return getResourceName(key: key, forPageIndex: currentPageIndex)
     }
     
-    open func getResourceName(_ key: String, forPageIndex index: Int) -> String {
+    open func getResourceName(key: String, forPageIndex index: Int) -> String {
         var result = "tutorial_\(identifier)_\(index)"
         if (key.characters.count > 0) {
             result += "_\(key)"

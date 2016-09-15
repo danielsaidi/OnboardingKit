@@ -27,9 +27,9 @@ open class LocalizationBasedTutorial: TutorialBase {
         var proceed = true
         while (proceed) {
             pageIndex += 1
-            let titleKey = super.getResourceName("title", forPageIndex: pageIndex)
+            let titleKey = super.getResourceName(key: "title", forPageIndex: pageIndex)
             let titleExists = translationExists(titleKey)
-            let textKey = super.getResourceName("text", forPageIndex: pageIndex)
+            let textKey = super.getResourceName(key: "text", forPageIndex: pageIndex)
             let textExists = translationExists(textKey)
             proceed = titleExists || textExists
         }

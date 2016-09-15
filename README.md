@@ -58,7 +58,7 @@ popover over a button, tutorial sequences etc. Feel free to contribute!
 ### TutorialViewController
 
 The `TutorialViewController` class can be used to show a tutorial anywhere. Use
-`showTutorial(...)` to show a tutorial, then bind the various IBActions to your
+`show(tutorial:in)` to show a tutorial, then bind the various IBActions to your
 view. `next`, `proceed` and `previous` navigate through the pages of a tutorial.
 While `next` does not go past the last page, `proceed` automatically closes the
 tutorial after the last page. `close` automatically marks a tutorial as already
