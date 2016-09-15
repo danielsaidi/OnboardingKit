@@ -6,19 +6,8 @@
 [![Platform](https://img.shields.io/cocoapods/p/Tutti.svg?style=flat)](http://cocoapods.org/pods/Tutti)
 
 
-Tutti is a Swift library that can be used to create tutorials and onboarding in
-iOS. It is currently limited to the functionality I need in my own apps. I will
-extend it as those apps become more sophisticated over time.
-
-
-
-## Getting started
-
-I have currently not had time to setup a demo that shows how you build a custom
-tutorial on top of this library. For now, have a look at the code.
-
-Feel free to create a demo project for this project, that demonstrates how this
-library can be used to create great tutorials and onboarding experiences.
+Tutti is a Swift library that can be used to manage tutorials and onboarding in
+iOS. It is currently limited to the functionality I need in my own apps.
 
 
 
@@ -84,11 +73,12 @@ and `animatePrevious` functions to customize these animations.
 
 ## Example
 
-To run the demo project, clone the repo, and run `pod install` from the Example
-directory before running the app.
+I have currently not had time to setup a demo that shows how you build a custom
+tutorial on top of this library. For now, have a look at the code.
 
-For now, the demo project is empty and is only used to verify that the pod will
-compile properly.
+To run the demo project, clone the repo, and run `pod install` from the Example
+directory before building. For now, the example project is empty, and only used
+to verify that the pod compiles properly.
 
 
 
@@ -106,6 +96,16 @@ project, simply add the following line to your Podfile:
 ```ruby
 pod "Tutti"
 ```
+
+If you want to try out the new Swift 3 version of Tutti, grab the swift3 branch
+instead of master:
+
+```ruby
+pod "Tutti", :git => 'https://github.com/danielsaidi/Tutti.git', :branch => 'swift3'
+```
+
+The upcoming 0.3.0 version will use Swift 3. When that happens, this guide will
+instruct you on how to use the Swift 2 version instead. 
 
 
 
