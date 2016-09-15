@@ -8,10 +8,10 @@
 
 import Foundation
 
-func translate(key: String) -> String {
+func translate(_ key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }
 
-func translationExists(key: String) -> Bool {
+func translationExists(_ key: String) -> Bool {
     return translate(key) != key
 }

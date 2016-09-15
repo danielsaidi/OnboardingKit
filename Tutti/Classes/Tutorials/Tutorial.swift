@@ -18,7 +18,7 @@ import UIKit
     var isLastPage: Bool { get }
     var pageCount: Int { get }
     
-    func getResourceName(key: String) -> String
+    func getResourceName(_ key: String) -> String
     func next() -> Bool
     func previous() -> Bool
 }

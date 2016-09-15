@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class LocalizationBasedTutorial: TutorialBase {
+open class LocalizationBasedTutorial: TutorialBase {
    
     
     // MARK: Initialization
@@ -22,7 +22,7 @@ public class LocalizationBasedTutorial: TutorialBase {
     
     // MARK: Private methods
     
-    private func resolvePageCount() -> Int {
+    fileprivate func resolvePageCount() -> Int {
         var pageIndex = -1
         var proceed = true
         while (proceed) {

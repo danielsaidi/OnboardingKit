@@ -10,17 +10,17 @@ import UIKit
 
 public extension UIView {
     
-    public func fadeInWithDuration(duration: NSTimeInterval) {
+    public func fadeInWithDuration(_ duration: TimeInterval) {
         alpha = 0
         let animations = { self.alpha = 1 }
-        UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: animations) {
+        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(), animations: animations) {
             completed in
         }
     }
     
-    public func fadeOutWithDuration(duration: NSTimeInterval) {
+    public func fadeOutWithDuration(_ duration: TimeInterval) {
         let animations = { self.alpha = 0 }
-        UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: animations) {
+        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(), animations: animations) {
             completed in
         }
     }

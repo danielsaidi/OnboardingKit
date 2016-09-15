@@ -14,7 +14,7 @@ public extension UIView {
         get {
             let size = frame.size
             let origin = frame.origin
-            return CGRectMake(origin.x, origin.y - size.height, size.width, size.height)
+            return CGRect(x: origin.x, y: origin.y - size.height, width: size.width, height: size.height)
         }
     }
     
@@ -22,7 +22,7 @@ public extension UIView {
         get {
             let size = frame.size
             let origin = frame.origin
-            return CGRectMake(origin.x, origin.y + size.height, size.width, size.height)
+            return CGRect(x: origin.x, y: origin.y + size.height, width: size.width, height: size.height)
         }
     }
     
@@ -30,7 +30,7 @@ public extension UIView {
         get {
             let size = frame.size
             let origin = frame.origin
-            return CGRectMake(origin.x - size.width, origin.y, size.width, size.height)
+            return CGRect(x: origin.x - size.width, y: origin.y, width: size.width, height: size.height)
         }
     }
     
@@ -38,7 +38,7 @@ public extension UIView {
         get {
             let size = frame.size
             let origin = frame.origin
-            return CGRectMake(origin.x + size.width, origin.y, size.width, size.height)
+            return CGRect(x: origin.x + size.width, y: origin.y, width: size.width, height: size.height)
         }
     }
 }

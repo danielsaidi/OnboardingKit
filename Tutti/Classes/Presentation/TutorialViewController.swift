@@ -10,30 +10,30 @@ import UIKit
 
 
 public protocol TutorialViewControllerDelegate : class {
-    func tutorialViewController(tutorial: TutorialViewController, didTriggerAction action: String)
-    func tutorialViewControllerDidFinish(tutorial: TutorialViewController)
+    func tutorialViewController(_ tutorial: TutorialViewController, didTriggerAction action: String)
+    func tutorialViewControllerDidFinish(_ tutorial: TutorialViewController)
 }
 
 
 public enum TutorialViewControllerSwipeRightBehavior { case
-    Next,
-    Proceed
+    next,
+    proceed
 }
 
 
 
-public class TutorialViewController: UIViewController {
+open class TutorialViewController: UIViewController {
     
     
     // MARK: View lifecycle
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupAutoresizing()
         setupSwipeGestures()
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refresh()
     }
@@ -42,21 +42,21 @@ public class TutorialViewController: UIViewController {
     
     // MARK: Setup
     
-    private func setupAutoresizing() {
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight, .FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
+    fileprivate func setupAutoresizing() {
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
     }
     
-    private func setupSwipeGestures() {
+    fileprivate func setupSwipeGestures() {
         if (swipeable) {
-            setupSwipeGestureWithDirection(.Left)
-            setupSwipeGestureWithDirection(.Right)
+            setupSwipeGestureWithDirection(.left)
+            setupSwipeGestureWithDirection(.right)
         }
     }
     
-    private func setupSwipeGestureWithDirection(direction: UISwipeGestureRecognizerDirection) {
+    fileprivate func setupSwipeGestureWithDirection(_ direction: UISwipeGestureRecognizerDirection) {
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
         swipe.direction = direction
-        view.userInteractionEnabled = true
+        view.isUserInteractionEnabled = true
         view.addGestureRecognizer(swipe)
     }
     
@@ -64,31 +64,31 @@ public class TutorialViewController: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet public weak var closeButton: UIButton!
-    @IBOutlet public weak var containerView: UIView!
-    @IBOutlet public weak var imageView: UIImageView!
-    @IBOutlet public weak var nextButton: UIButton!
-    @IBOutlet public weak var pageControl: UIPageControl!
-    @IBOutlet public weak var previousButton: UIButton!
-    @IBOutlet public weak var proceedButton: UIButton!
-    @IBOutlet public weak var textView: UITextView!
-    @IBOutlet public weak var titleLabel: UILabel!
+    @IBOutlet open weak var closeButton: UIButton!
+    @IBOutlet open weak var containerView: UIView!
+    @IBOutlet open weak var imageView: UIImageView!
+    @IBOutlet open weak var nextButton: UIButton!
+    @IBOutlet open weak var pageControl: UIPageControl!
+    @IBOutlet open weak var previousButton: UIButton!
+    @IBOutlet open weak var proceedButton: UIButton!
+    @IBOutlet open weak var textView: UITextView!
+    @IBOutlet open weak var titleLabel: UILabel!
     
     
     
     // MARK: Properties
     
-    public weak var delegate: TutorialViewControllerDelegate?
+    open weak var delegate: TutorialViewControllerDelegate?
     
-    public var tutorial: Tutorial!
-    public var swipeable = false
-    public var swipeRightBehavior = TutorialViewControllerSwipeRightBehavior.Next
+    open var tutorial: Tutorial!
+    open var swipeable = false
+    open var swipeRightBehavior = TutorialViewControllerSwipeRightBehavior.next
     
     
     
     // MARK: Actions
     
-    @IBAction public func close(sender: AnyObject) {
+    @IBAction open func close(_ sender: AnyObject) {
         tutorial.hasBeenDisplayed = true
         animateClose { 
             self.view.removeFromSuperview()
@@ -96,21 +96,21 @@ public class TutorialViewController: UIViewController {
         }
     }
     
-    @IBAction public func next(sender: AnyObject) {
+    @IBAction open func next(_ sender: AnyObject) {
         if (tutorial.next()) {
             animateNext()
             refresh()
         }
     }
     
-    @IBAction public func previous(sender: AnyObject) {
+    @IBAction open func previous(_ sender: AnyObject) {
         if (tutorial.previous()) {
             animatePrevious()
             refresh()
         }
     }
     
-    @IBAction public func proceed(sender: AnyObject) {
+    @IBAction open func proceed(_ sender: AnyObject) {
         tutorial.isLastPage ? close(sender) : next(sender)
     }
     
@@ -118,36 +118,36 @@ public class TutorialViewController: UIViewController {
     
     // MARK: Public methods
     
-    public func animateClose(completion: () -> ()) {
+    open func animateClose(_ completion: @escaping () -> ()) {
         let anim = { self.view.alpha = 0.0 }
-        UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseOut, animations: anim) { finished in
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: anim) { finished in
             completion()
         }
     }
     
-    public func animateNext() {
+    open func animateNext() {
         animatePagination(true)
     }
     
-    public func animatePrevious() {
+    open func animatePrevious() {
         animatePagination(false)
     }
     
-    public func animateShow() {
+    open func animateShow() {
         self.view.alpha = 0.0
         let anim = { self.view.alpha = 1.0 }
-        UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseOut, animations: anim) { finished in }
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: anim) { finished in }
     }
     
-    public func handleSwipe(swipe: UISwipeGestureRecognizer) {
-        if (swipe.direction == .Left) {
-            swipeRightBehavior == .Proceed ? proceed(swipe) : next(swipe)
-        } else if (swipe.direction == .Right) {
+    open func handleSwipe(_ swipe: UISwipeGestureRecognizer) {
+        if (swipe.direction == .left) {
+            swipeRightBehavior == .proceed ? proceed(swipe) : next(swipe)
+        } else if (swipe.direction == .right) {
             previous(swipe)
         }
     }
     
-    public func refresh() {
+    open func refresh() {
         refreshImageView()
         refreshTitleLabel()
         refreshTextView()
@@ -155,47 +155,47 @@ public class TutorialViewController: UIViewController {
         refreshButton(previousButton, withIdentifier: "previous")
         refreshButton(nextButton, withIdentifier: "next")
         refreshButton(proceedButton, withIdentifier: "proceed")
-        previousButton?.hidden = tutorial!.isFirstPage
-        nextButton?.hidden = tutorial!.isLastPage
-        proceedButton?.hidden = !tutorial!.isLastPage
+        previousButton?.isHidden = tutorial!.isFirstPage
+        nextButton?.isHidden = tutorial!.isLastPage
+        proceedButton?.isHidden = !tutorial!.isLastPage
         refreshPageControl()
     }
     
-    public func refreshButton(button: UIButton!, withIdentifier identifier: String) {
+    open func refreshButton(_ button: UIButton!, withIdentifier identifier: String) {
         let key = tutorial!.getResourceName(identifier)
         if (translationExists(key)) {
-            button?.setTitle(translate(key), forState: .Normal)
+            button?.setTitle(translate(key), for: UIControlState())
         }
     }
     
-    public func refreshImageView() {
+    open func refreshImageView() {
         let key = tutorial!.getResourceName("")
         print(key)
         let image = UIImage(named: key)
         imageView?.image = image
     }
     
-    public func refreshPageControl() {
-        pageControl?.hidden = tutorial.pageCount < 2;
+    open func refreshPageControl() {
+        pageControl?.isHidden = tutorial.pageCount < 2;
         pageControl?.currentPage = tutorial.currentPageIndex
         pageControl?.numberOfPages = tutorial.pageCount
     }
     
-    public func refreshTextView() {
+    open func refreshTextView() {
         let key = tutorial.getResourceName("text")
         if (translationExists(key)) {
             textView?.text = translate(key)
         }
     }
     
-    public func refreshTitleLabel() {
+    open func refreshTitleLabel() {
         let key = tutorial.getResourceName("title")
         if (translationExists(key)) {
             titleLabel?.text = translate(key)
         }
     }
     
-    public func showTutorial(tutorial: Tutorial, inView view: UIView) -> Bool {
+    open func showTutorial(_ tutorial: Tutorial, inView view: UIView) -> Bool {
         if (tutorial.hasBeenDisplayed) {
             delegate?.tutorialViewControllerDidFinish(self)
             return false
@@ -212,12 +212,12 @@ public class TutorialViewController: UIViewController {
     
     // MARK: Private functions
     
-    public func animatePagination(next: Bool) {
+    open func animatePagination(_ next: Bool) {
         let animation = CATransition()
         animation.duration = 0.5
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.type = kCATransitionPush
         animation.subtype = next ? kCATransitionFromRight : kCATransitionFromLeft
-        containerView.layer.addAnimation(animation, forKey: nil)
+        containerView.layer.add(animation, forKey: nil)
     }
 }

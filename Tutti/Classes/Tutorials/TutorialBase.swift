@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TutorialBase: NSObject, Tutorial {
+open class TutorialBase: NSObject, Tutorial {
     
 
     // MARK: Initialization
@@ -22,34 +22,34 @@ public class TutorialBase: NSObject, Tutorial {
     
     // MARK: Properties
     
-    public let identifier: String
+    open let identifier: String
     
-    public var currentPageIndex = 0
+    open var currentPageIndex = 0
     
-    public var hasBeenDisplayed: Bool {
+    open var hasBeenDisplayed: Bool {
         get { return getDisplayStatus() }
         set { setDisplayStatus(newValue) }
     }
 
-    public var isFirstPage: Bool {
+    open var isFirstPage: Bool {
         get { return currentPageIndex == 0 }
     }
 
-    public var isLastPage: Bool {
+    open var isLastPage: Bool {
         get { return pageCount == 0 || currentPageIndex == pageCount - 1 }
     }
 
-    public var pageCount = 0
+    open var pageCount = 0
     
     
     
     // MARK: Private properties
     
-    private var settings: NSUserDefaults {
-        get { return NSUserDefaults.standardUserDefaults() }
+    fileprivate var settings: UserDefaults {
+        get { return UserDefaults.standard }
     }
     
-    private var defaultsKey: String {
+    fileprivate var defaultsKey: String {
         get { return "tutorial_displayed_\(identifier)" }
     }
     
@@ -57,11 +57,11 @@ public class TutorialBase: NSObject, Tutorial {
     
     // MARK: Public functions
 
-    public func getResourceName(key: String) -> String {
+    open func getResourceName(_ key: String) -> String {
         return getResourceName(key, forPageIndex: currentPageIndex)
     }
     
-    public func getResourceName(key: String, forPageIndex index: Int) -> String {
+    open func getResourceName(_ key: String, forPageIndex index: Int) -> String {
         var result = "tutorial_\(identifier)_\(index)"
         if (key.characters.count > 0) {
             result += "_\(key)"
@@ -69,13 +69,13 @@ public class TutorialBase: NSObject, Tutorial {
         return result
     }
     
-    public func next() -> Bool {
+    open func next() -> Bool {
         let nextIsPossible = !isLastPage
         currentPageIndex += nextIsPossible ? 1 : 0
         return nextIsPossible
     }
     
-    public func previous() -> Bool {
+    open func previous() -> Bool {
         let previousIsPossible = !isFirstPage
         currentPageIndex -= previousIsPossible ? 1 : 0
         return previousIsPossible
@@ -85,12 +85,12 @@ public class TutorialBase: NSObject, Tutorial {
     
     // MARK: Private functions
     
-    private func getDisplayStatus() -> Bool {
-        return settings.boolForKey(defaultsKey)
+    fileprivate func getDisplayStatus() -> Bool {
+        return settings.bool(forKey: defaultsKey)
     }
     
-    private func setDisplayStatus(status: Bool) {
-        settings.setBool(status, forKey: defaultsKey)
+    fileprivate func setDisplayStatus(_ status: Bool) {
+        settings.set(status, forKey: defaultsKey)
         settings.synchronize()
     }
 }

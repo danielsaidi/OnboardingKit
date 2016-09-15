@@ -10,13 +10,13 @@ import UIKit
 
 public extension UIView {
     
-    public func moveToCenter(center: CGPoint, withDuration duration: Double, options: UIViewAnimationOptions, completion:((Bool) -> Void)?) {
+    public func moveToCenter(_ center: CGPoint, withDuration duration: Double, options: UIViewAnimationOptions, completion:((Bool) -> Void)?) {
         let anim = { self.center = center }
-        UIView.animateWithDuration(duration, delay: 0, options: options, animations: anim, completion: completion)
+        UIView.animate(withDuration: duration, delay: 0, options: options, animations: anim, completion: completion)
     }
     
-    public func moveToFrame(frame: CGRect, withDuration duration: Double, options: UIViewAnimationOptions, completion:((Bool) -> Void)?) {
+    public func moveToFrame(_ frame: CGRect, withDuration duration: Double, options: UIViewAnimationOptions, completion:((Bool) -> Void)?) {
         let anim = { self.frame = frame }
-        UIView.animateWithDuration(duration, delay: 0, options: options, animations: anim, completion: completion)
+        UIView.animate(withDuration: duration, delay: 0, options: options, animations: anim, completion: completion)
     }
 }
