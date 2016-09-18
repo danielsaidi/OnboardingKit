@@ -170,7 +170,6 @@ open class TutorialViewController: UIViewController {
     
     open func refresh(_ imageView: UIImageView?) {
         let key = tutorial!.getResourceName(key: "")
-        print(key)
         let image = UIImage(named: key)
         imageView?.image = image
     }
