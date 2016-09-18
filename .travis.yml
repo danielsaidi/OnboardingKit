@@ -11,6 +11,6 @@ before_install:
   - brew outdated xctool || brew upgrade xctool
 
 script:
-  - xcodebuild -workspace "Example/Tutti.xcworkspace" -scheme "Tutti-Example" -sdk "iphonesimulator" | xcpretty -c
+  - set -o pipefail && xcodebuild -workspace "Example/Tutti.xcworkspace" -scheme "Tutti-Example" -sdk "iphonesimulator" | xcpretty -c
   - pod lib lint
 
