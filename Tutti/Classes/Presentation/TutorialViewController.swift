@@ -207,6 +207,7 @@ open class TutorialViewController: UIViewController {
         }
         
         self.tutorial = tutorial
+        self.view.frame = view.bounds
         view.addSubview(self.view)
         refresh()
         animateShow()
