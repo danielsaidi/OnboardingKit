@@ -15,6 +15,7 @@
 		453D9ED51DFD6F2900A87555 /* LocalizationBasedTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D9ECB1DFD6BEB00A87555 /* LocalizationBasedTutorial.swift */; };
 		453D9ED61DFD6F2900A87555 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D9ECC1DFD6BEB00A87555 /* Tutorial.swift */; };
 		453D9ED71DFD6F2900A87555 /* TutorialBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D9ECD1DFD6BEB00A87555 /* TutorialBase.swift */; };
+		453D9EDA1DFD809400A87555 /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D9ED81DFD805000A87555 /* TutorialPresenter.swift */; };
 		5CB03F8D07808A506DCA1525A704DDD2 /* Tutti-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 68D8153438DDFC111C7CF0DBD5B1EA7A /* Tutti-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		731E597D00E9F63A329E9E932DBD47E2 /* Tutti-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 803938E4924BE9A6C32FB91A6637EF98 /* Tutti-dummy.m */; };
 		90C4770CCE180C40B9E253BCB79C9416 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836582A01F5681156C0E6CE8E06C0A95 /* TutorialViewController.swift */; };
@@ -48,6 +49,7 @@
 		453D9ECB1DFD6BEB00A87555 /* LocalizationBasedTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationBasedTutorial.swift; sourceTree = "<group>"; };
 		453D9ECC1DFD6BEB00A87555 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		453D9ECD1DFD6BEB00A87555 /* TutorialBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialBase.swift; sourceTree = "<group>"; };
+		453D9ED81DFD805000A87555 /* TutorialPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
 		4CBF12DFD2592708C07495119835E7E3 /* Pods-Tutti_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tutti_Example-umbrella.h"; sourceTree = "<group>"; };
 		4DE4F5D8D66C8A935D068A18552B0112 /* Pods-Tutti_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tutti_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		4E1AE41819C12F23D66490E1861C47E7 /* Pods-Tutti_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tutti_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				836582A01F5681156C0E6CE8E06C0A95 /* TutorialViewController.swift */,
+				453D9ED81DFD805000A87555 /* TutorialPresenter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				453D9ED31DFD6F2900A87555 /* Hint.swift in Sources */,
 				04E80025CDCF5BA6CB240D0D0E476619 /* Translate.swift in Sources */,
 				90C4770CCE180C40B9E253BCB79C9416 /* TutorialViewController.swift in Sources */,
+				453D9EDA1DFD809400A87555 /* TutorialPresenter.swift in Sources */,
 				453D9ED71DFD6F2900A87555 /* TutorialBase.swift in Sources */,
 				731E597D00E9F63A329E9E932DBD47E2 /* Tutti-dummy.m in Sources */,
 				453D9ED61DFD6F2900A87555 /* Tutorial.swift in Sources */,

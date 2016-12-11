@@ -80,7 +80,7 @@ open class TutorialViewController: UIViewController {
     // MARK: Actions
     
     @IBAction open func close(_ sender: AnyObject) {
-        guard var tutorial = tutorial else { return }
+        guard let tutorial = tutorial else { return }
         tutorial.hasBeenDisplayed = true
         animateClose { 
             self.view.removeFromSuperview()
@@ -149,6 +149,20 @@ open class TutorialViewController: UIViewController {
         }
     }
     
+    open func present(tutorial: Tutorial, in view: UIView) -> Bool {
+        if (tutorial.hasBeenDisplayed) {
+            delegate?.tutorialViewControllerDidFinish(self)
+            return false
+        }
+        
+        self.tutorial = tutorial
+        self.view.frame = view.bounds
+        view.addSubview(self.view)
+        refresh()
+        animateShow()
+        return true
+    }
+    
     open func refresh() {
         guard let tutorial = tutorial else { return }
         refresh(imageView)
@@ -198,20 +212,6 @@ open class TutorialViewController: UIViewController {
         if (translationExists(key)) {
             titleLabel?.text = translate(key)
         }
-    }
-    
-    open func show(tutorial: Tutorial, in view: UIView) -> Bool {
-        if (tutorial.hasBeenDisplayed) {
-            delegate?.tutorialViewControllerDidFinish(self)
-            return false
-        }
-        
-        self.tutorial = tutorial
-        self.view.frame = view.bounds
-        view.addSubview(self.view)
-        refresh()
-        animateShow()
-        return true
     }
 }
 
