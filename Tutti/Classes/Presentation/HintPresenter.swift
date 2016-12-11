@@ -1,5 +1,5 @@
 //
-//  TutorialPresenter.swift
+//  HintPresenter.swift
 //  Tutti
 //
 //  Created by Daniel Saidi on 2016-12-11.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol TutorialPresenter: class {
-
-    func present(tutorial: Tutorial, in view: UIView) -> Bool
+public protocol HintPresenter: class {
+    
+    func present(hint: Hint, from view: UIView) -> Bool
 }
