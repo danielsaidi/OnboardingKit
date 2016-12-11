@@ -6,6 +6,19 @@
 //  Copyright (c) 2016 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ This class that can be used to display tutorials. It is
+ a very basic one with little customization options, but
+ it will get you up and running quickly.
+ 
+ The difference between next and proceed is that proceed
+ will move next until the last page, then close the view
+ controller, while next will do nothing if called on the
+ last page.
+ 
+ */
+
 import UIKit
 
 
@@ -25,39 +38,16 @@ public enum TutorialViewControllerSwipeRightBehavior { case
 open class TutorialViewController: UIViewController {
     
     
-    // MARK: View lifecycle
+    // MARK: View Controller Lifecycle
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        setupAutoresizing()
-        setupSwipeGestures()
+        setup()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refresh()
-    }
-    
-    
-    
-    // MARK: Setup
-    
-    fileprivate func setupAutoresizing() {
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
-    }
-    
-    fileprivate func setupSwipeGestures() {
-        if (swipeable) {
-            setupSwipeGesture(withDirection: .left)
-            setupSwipeGesture(withDirection: .right)
-        }
-    }
-    
-    fileprivate func setupSwipeGesture(withDirection direction: UISwipeGestureRecognizerDirection) {
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
-        swipe.direction = direction
-        view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(swipe)
     }
     
     
@@ -80,16 +70,17 @@ open class TutorialViewController: UIViewController {
     
     open weak var delegate: TutorialViewControllerDelegate?
     
-    open var tutorial: Tutorial?
-    open var swipeable = false
+    open var isSwipeable = true
     open var swipeRightBehavior = TutorialViewControllerSwipeRightBehavior.next
+    
+    fileprivate var tutorial: Tutorial?
     
     
     
     // MARK: Actions
     
     @IBAction open func close(_ sender: AnyObject) {
-        guard let tutorial = tutorial else { return }
+        guard var tutorial = tutorial else { return }
         tutorial.hasBeenDisplayed = true
         animateClose { 
             self.view.removeFromSuperview()
@@ -129,6 +120,15 @@ open class TutorialViewController: UIViewController {
     
     open func animateNext() {
         animatePagination(next: true)
+    }
+    
+    open func animatePagination(next: Bool) {
+        let animation = CATransition()
+        animation.duration = 0.5
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.type = kCATransitionPush
+        animation.subtype = next ? kCATransitionFromRight : kCATransitionFromLeft
+        containerView?.layer.add(animation, forKey: nil)
     }
     
     open func animatePrevious() {
@@ -213,17 +213,33 @@ open class TutorialViewController: UIViewController {
         animateShow()
         return true
     }
+}
+
+
+
+// MARK: - Setup
+
+fileprivate extension TutorialViewController {
     
+    func setup() {
+        setupAutoresizing()
+        setupSwipeGestures()
+    }
     
+    func setupAutoresizing() {
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
+    }
     
-    // MARK: Private functions
+    func setupSwipeGestures() {
+        guard isSwipeable else { return }
+        setupSwipeGesture(withDirection: .left)
+        setupSwipeGesture(withDirection: .right)
+    }
     
-    open func animatePagination(next: Bool) {
-        let animation = CATransition()
-        animation.duration = 0.5
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionPush
-        animation.subtype = next ? kCATransitionFromRight : kCATransitionFromLeft
-        containerView?.layer.add(animation, forKey: nil)
+    func setupSwipeGesture(withDirection direction: UISwipeGestureRecognizerDirection) {
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        swipe.direction = direction
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(swipe)
     }
 }

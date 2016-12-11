@@ -1,13 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'Tutti'
-  s.version          = '0.3.0'
+  s.version          = '0.5.0'
   s.summary          = 'Tutti can be used to create iOS tutorials and onboarding experieces.'
 
   s.description      = <<-DESC
 Tutti is a Swift library that can be used to create iOS tutorials and onboarding experieces.
-It is currently limited to the functionality I need in my own iOS apps, which include a set
-of tutorials as well as a 
-
                        DESC
 
   s.homepage         = 'https://github.com/danielsaidi/Tutti'
