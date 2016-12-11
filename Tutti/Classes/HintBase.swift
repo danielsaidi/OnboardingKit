@@ -13,7 +13,7 @@ open class HintBase: NSObject, Hint {
     
     // MARK: - Initialization
     
-    init(identifier: String, text: String) {
+    public init(identifier: String, text: String) {
         self.identifier = identifier
         self.text = text
     }
