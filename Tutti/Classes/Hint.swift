@@ -21,5 +21,5 @@ public protocol Hint: class {
     var identifier: String { get }
     
     var hasBeenDisplayed: Bool { get set }
-    var message: String { get }
+    var text: String { get }
 }

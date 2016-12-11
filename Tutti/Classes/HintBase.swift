@@ -13,9 +13,9 @@ open class HintBase: NSObject, Hint {
     
     // MARK: - Initialization
     
-    init(identifier: String, message: String) {
+    init(identifier: String, text: String) {
         self.identifier = identifier
-        self.message = message
+        self.text = text
     }
     
 
@@ -23,7 +23,7 @@ open class HintBase: NSObject, Hint {
     // MARK: Public Properties
     
     public let identifier: String
-    public let message: String
+    public let text: String
 }
 
 
