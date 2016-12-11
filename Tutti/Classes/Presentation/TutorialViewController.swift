@@ -22,12 +22,6 @@
 import UIKit
 
 
-public protocol TutorialViewControllerDelegate : class {
-    func tutorialViewController(_ tutorial: TutorialViewController, didTriggerAction action: String)
-    func tutorialViewControllerDidFinish(_ tutorial: TutorialViewController)
-}
-
-
 public enum TutorialViewControllerSwipeRightBehavior { case
     next,
     proceed
@@ -35,7 +29,7 @@ public enum TutorialViewControllerSwipeRightBehavior { case
 
 
 
-open class TutorialViewController: UIViewController {
+open class TutorialViewController: UIViewController, TutorialPresenter {
     
     
     // MARK: View Controller Lifecycle
@@ -68,7 +62,7 @@ open class TutorialViewController: UIViewController {
     
     // MARK: Properties
     
-    open weak var delegate: TutorialViewControllerDelegate?
+    open weak var delegate: TutorialPresenterDelegate?
     
     open var isSwipeable = true
     open var swipeRightBehavior = TutorialViewControllerSwipeRightBehavior.next
@@ -84,7 +78,7 @@ open class TutorialViewController: UIViewController {
         tutorial.hasBeenDisplayed = true
         animateClose { 
             self.view.removeFromSuperview()
-            self.delegate?.tutorialViewControllerDidFinish(self)
+            self.delegate?.tutorialDidFinish(tutorial)
         }
     }
     
@@ -151,7 +145,7 @@ open class TutorialViewController: UIViewController {
     
     open func present(tutorial: Tutorial, in view: UIView) -> Bool {
         if (tutorial.hasBeenDisplayed) {
-            delegate?.tutorialViewControllerDidFinish(self)
+            self.delegate?.tutorialDidFinish(tutorial)
             return false
         }
         

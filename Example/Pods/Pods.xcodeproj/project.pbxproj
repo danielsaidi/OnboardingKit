@@ -233,10 +233,10 @@
 		A4CF5C7688B1518EBE758830EE19B88B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				836582A01F5681156C0E6CE8E06C0A95 /* TutorialViewController.swift */,
-				453D9ED81DFD805000A87555 /* TutorialPresenter.swift */,
 				453D9EDB1DFD84C600A87555 /* HintPresenter.swift */,
 				453D9EDD1DFD852000A87555 /* HintPresenterBase.swift */,
+				453D9ED81DFD805000A87555 /* TutorialPresenter.swift */,
+				836582A01F5681156C0E6CE8E06C0A95 /* TutorialViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";

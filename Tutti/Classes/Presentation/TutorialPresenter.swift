@@ -8,7 +8,15 @@
 
 import UIKit
 
+
+public protocol TutorialPresenterDelegate : class {
+    func tutorialDidFinish(_ tutorial: Tutorial)
+}
+
+
 public protocol TutorialPresenter: class {
 
+    weak var delegate: TutorialPresenterDelegate? { get set }
+    
     func present(tutorial: Tutorial, in view: UIView) -> Bool
 }
