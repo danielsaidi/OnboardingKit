@@ -10,5 +10,6 @@ import UIKit
 
 public protocol HintPresenter: class {
     
+    func dismissCurrentHint()
     func present(hint: Hint, from view: UIView) -> Bool
 }
