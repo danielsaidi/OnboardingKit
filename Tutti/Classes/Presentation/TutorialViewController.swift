@@ -28,7 +28,6 @@ public enum TutorialViewControllerSwipeRightBehavior { case
 }
 
 
-
 open class TutorialViewController: UIViewController, TutorialPresenter {
     
     
