@@ -1,0 +1,66 @@
+fastlane_version "1.32.3"
+
+default_platform :ios
+
+
+platform :ios do
+
+  
+
+  # Build ======================
+
+  desc "Build the app"
+  lane :build do
+    gym(
+      clean: true,
+      scheme: "Tutti-Example",
+      workspace: "Example/Tutti.xcworkspace"
+    )
+  end
+
+
+
+  # Version =====================
+
+  desc "Create a new version"
+  lane :version do |options|
+    ensure_git_status_clean
+    ensure_git_branch(branch: 'master')
+    #test
+    
+    version = version_bump_podspec(path: "Tutti.podspec", version_number: options[:name])
+
+    increment_build_number(build_number: version)
+
+    git_commit(
+      path: [
+        "Tutti.podspec",
+        "Example/Pods/",
+        "Fastlane/"],
+      message: "Bump to #{version}"
+    )
+
+    add_git_tag(tag: version)
+    push_git_tags()
+    reset_git_repo
+  end
+
+  
+
+  # Test =======================
+
+  desc "Run unit tests"
+  lane :test do
+
+    # To try this from the terminal, run:
+    # scan --workspace "Example/Tutti.xcworkspace" --scheme "Tutti-Example"
+
+    scan(
+      workspace: "Example/Tutti.xcworkspace",
+      scheme: "Tutti-Example",
+      devices: ["iPhone 6s"]
+    )    
+  end
+  
+end
+
