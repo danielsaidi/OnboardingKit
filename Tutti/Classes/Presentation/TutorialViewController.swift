@@ -134,7 +134,7 @@ open class TutorialViewController: UIViewController, TutorialPresenter {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: anim) { finished in }
     }
     
-    open func handleSwipe(_ swipe: UISwipeGestureRecognizer) {
+    @objc open func handleSwipe(_ swipe: UISwipeGestureRecognizer) {
         if (swipe.direction == .left) {
             swipeRightBehavior == .proceed ? proceed(swipe) : next(swipe)
         } else if (swipe.direction == .right) {
