@@ -1,0 +1,16 @@
+# references:
+# * http://www.objc.io/issue-6/travis-ci.html
+# * https://github.com/supermarin/xcpretty#usage
+
+osx_image: xcode8
+language: objective-c
+
+before_install:
+  - brew update
+  - gem install cocoapods --pre
+  - brew outdated xctool || brew upgrade xctool
+
+script:
+  - set -o pipefail && xcodebuild -workspace "Example/Tutti.xcworkspace" -scheme "Tutti-Example" -sdk "iphonesimulator" | xcpretty -c
+  - pod lib lint
+

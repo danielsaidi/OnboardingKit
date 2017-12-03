@@ -1,6 +1,0 @@
-framework module Tutti {
-  umbrella header "Tutti-umbrella.h"
-
-  export *
-  module * { export * }
-}

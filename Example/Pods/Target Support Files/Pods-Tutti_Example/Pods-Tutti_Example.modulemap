@@ -1,6 +1,0 @@
-framework module Pods_Tutti_Example {
-  umbrella header "Pods-Tutti_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}
