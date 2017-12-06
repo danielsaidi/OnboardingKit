@@ -2,7 +2,7 @@
 //  TutorialTests.swift
 //  TuttiTests
 //
-//  Created by Saidi Daniel (BookBeat) on 2017-12-06.
+//  Created by Daniel Saidi on 2017-12-06.
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
@@ -34,9 +34,9 @@ class TutorialTests: QuickSpec {
         
         describe("is first page") {
             
-            it("is always false if page count is zero") {
+            it("is true if page count is zero") {
                 let tutorial = TestTutorial(currentPage: 0, pageCount: 0)
-                expect(tutorial.isFirstPage).to(beFalse())
+                expect(tutorial.isFirstPage).to(beTrue())
             }
             
             it("is true if current page index is zero") {
@@ -53,9 +53,9 @@ class TutorialTests: QuickSpec {
         
         describe("is last page") {
             
-            it("is always false if page count is zero") {
+            it("is true if page count is zero") {
                 let tutorial = TestTutorial(currentPage: 0, pageCount: 0)
-                expect(tutorial.isLastPage).to(beFalse())
+                expect(tutorial.isLastPage).to(beTrue())
             }
             
             it("is true if current page is only page") {

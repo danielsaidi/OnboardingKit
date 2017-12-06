@@ -9,7 +9,7 @@
 /*
  
  This is a simple implementation of the `Tutorial` protocol.
- You can use it as it is or as a base class for your custom
+ You can use it as it is, or as a base class for any custom
  tutorials.
  
  */
@@ -23,9 +23,11 @@ open class StandardTutorial: Tutorial {
     
     public init(
         identifier: String,
-        userId: String? = nil) {
+        userId: String? = nil,
+        keySegmentSeparator: String = "_") {
         self.identifier = identifier
         self.userId = userId
+        self.keySegmentSeparator = keySegmentSeparator
     }
     
     
@@ -35,7 +37,9 @@ open class StandardTutorial: Tutorial {
     public let userId: String?
     
     public fileprivate(set) var currentPageIndex = 0
-    public fileprivate(set) var pageCount = 0
+    public var pageCount = 0
+    
+    fileprivate let keySegmentSeparator: String
     
     
     // MARK: Public functions
@@ -57,9 +61,10 @@ open class StandardTutorial: Tutorial {
     }
     
     open func resourceName(for key: String, pageIndex index: Int) -> String {
-        let trimmed = key.trimmingCharacters(in: .whitespacesAndNewlines)
-        let resourceKey = trimmed.isEmpty ? "" : "_\(trimmed)"
-        return "tutorial_\(identifier)_\(index)\(resourceKey)"
+        let key = key.trimmingCharacters(in: .whitespaces)
+        var segments = ["tutorial", identifier, "\(index)"]
+        if key.count > 0 { segments.append(key) }
+        return segments.joined(separator: keySegmentSeparator)
     }
 }
 

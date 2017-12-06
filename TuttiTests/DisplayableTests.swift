@@ -2,7 +2,7 @@
 //  DisplayableTests.swift
 //  TuttiTests
 //
-//  Created by Saidi Daniel (BookBeat) on 2017-12-06.
+//  Created by Daniel Saidi on 2017-12-06.
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 

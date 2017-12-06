@@ -41,12 +41,12 @@ public protocol Tutorial: Displayable {
 public extension Tutorial {
 
     public var isFirstPage: Bool {
-        guard pageCount > 0 else { return false }
+        guard pageCount > 0 else { return true }
         return currentPageIndex == 0
     }
     
     public var isLastPage: Bool {
-        guard pageCount > 0 else { return false }
+        guard pageCount > 0 else { return true }
         return currentPageIndex == pageCount - 1
     }
 }
