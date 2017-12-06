@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4512F3681FD886880062AEB7 /* DisplayableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4512F3671FD886880062AEB7 /* DisplayableTests.swift */; };
+		4512F36C1FD8877C0062AEB7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512F36A1FD8877C0062AEB7 /* Nimble.framework */; };
+		4512F36D1FD8877C0062AEB7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512F36B1FD8877C0062AEB7 /* Quick.framework */; };
+		4512F36F1FD8878C0062AEB7 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4512F36A1FD8877C0062AEB7 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4512F3701FD8878C0062AEB7 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4512F36B1FD8877C0062AEB7 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4537E8831FD3DF950007501C /* Tutti.h in Headers */ = {isa = PBXBuildFile; fileRef = 4537E8811FD3DF950007501C /* Tutti.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4537E8901FD3DFAC0007501C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E88F1FD3DFAC0007501C /* AppDelegate.swift */; };
 		4537E8921FD3DFAC0007501C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8911FD3DFAC0007501C /* ViewController.swift */; };
 		4537E8951FD3DFAC0007501C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4537E8931FD3DFAC0007501C /* Main.storyboard */; };
 		4537E8971FD3DFAC0007501C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4537E8961FD3DFAC0007501C /* Assets.xcassets */; };
 		4537E89A1FD3DFAC0007501C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */; };
-		4537E8A61FD3DFC40007501C /* TuttiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8A51FD3DFC40007501C /* TuttiTests.swift */; };
 		4537E8A81FD3DFC40007501C /* Tutti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4537E87E1FD3DF950007501C /* Tutti.framework */; };
 		4537E8B11FD431A90007501C /* StandardHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8B01FD431A90007501C /* StandardHint.swift */; };
 		4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710C1FD7BF9A00462ECD /* Tutorial.swift */; };
@@ -32,7 +36,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4512F36E1FD887820062AEB7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4512F36F1FD8878C0062AEB7 /* Nimble.framework in CopyFiles */,
+				4512F3701FD8878C0062AEB7 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4512F3671FD886880062AEB7 /* DisplayableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayableTests.swift; sourceTree = "<group>"; };
+		4512F36A1FD8877C0062AEB7 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		4512F36B1FD8877C0062AEB7 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		4537E87E1FD3DF950007501C /* Tutti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tutti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4537E8811FD3DF950007501C /* Tutti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tutti.h; sourceTree = "<group>"; };
 		4537E8821FD3DF950007501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,7 +65,6 @@
 		4537E8991FD3DFAC0007501C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4537E89B1FD3DFAC0007501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4537E8A31FD3DFC40007501C /* TuttiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuttiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4537E8A51FD3DFC40007501C /* TuttiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuttiTests.swift; sourceTree = "<group>"; };
 		4537E8A71FD3DFC40007501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4537E8B01FD431A90007501C /* StandardHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHint.swift; sourceTree = "<group>"; };
 		4552710C1FD7BF9A00462ECD /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
@@ -72,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4512F36C1FD8877C0062AEB7 /* Nimble.framework in Frameworks */,
+				4512F36D1FD8877C0062AEB7 /* Quick.framework in Frameworks */,
 				4537E8A81FD3DFC40007501C /* Tutti.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4512F3691FD8877C0062AEB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4512F36A1FD8877C0062AEB7 /* Nimble.framework */,
+				4512F36B1FD8877C0062AEB7 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4537E8741FD3DF950007501C = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +117,7 @@
 				4537E88E1FD3DFAC0007501C /* TuttiExample */,
 				4537E8A41FD3DFC40007501C /* TuttiTests */,
 				4537E87F1FD3DF950007501C /* Products */,
+				4512F3691FD8877C0062AEB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,7 +134,7 @@
 		4537E8801FD3DF950007501C /* Tutti */ = {
 			isa = PBXGroup;
 			children = (
-				458021E71FD7B60F00CE157F /* Common */,
+				458021E81FD7B61D00CE157F /* Displayable.swift */,
 				4537E8AF1FD4318F0007501C /* Tutorials */,
 				4537E8AE1FD431890007501C /* Hints */,
 				4537E8811FD3DF950007501C /* Tutti.h */,
@@ -127,8 +159,8 @@
 		4537E8A41FD3DFC40007501C /* TuttiTests */ = {
 			isa = PBXGroup;
 			children = (
-				4537E8A51FD3DFC40007501C /* TuttiTests.swift */,
 				4537E8A71FD3DFC40007501C /* Info.plist */,
+				4512F3671FD886880062AEB7 /* DisplayableTests.swift */,
 			);
 			path = TuttiTests;
 			sourceTree = "<group>";
@@ -149,14 +181,6 @@
 				4552710E1FD7C18A00462ECD /* StandardTutorial.swift */,
 			);
 			path = Tutorials;
-			sourceTree = "<group>";
-		};
-		458021E71FD7B60F00CE157F /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				458021E81FD7B61D00CE157F /* Displayable.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +239,7 @@
 				4537E89F1FD3DFC40007501C /* Sources */,
 				4537E8A01FD3DFC40007501C /* Frameworks */,
 				4537E8A11FD3DFC40007501C /* Resources */,
+				4512F36E1FD887820062AEB7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -324,7 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4537E8A61FD3DFC40007501C /* TuttiTests.swift in Sources */,
+				4512F3681FD886880062AEB7 /* DisplayableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +577,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TuttiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.TuttiTests;
@@ -567,6 +596,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TuttiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.TuttiTests;
