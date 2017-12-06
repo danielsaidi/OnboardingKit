@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TuttiExample
 //
-//  Created by Saidi Daniel (BookBeat) on 2017-12-03.
+//  Created by Daniel Saidi on 2017-12-03.
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
