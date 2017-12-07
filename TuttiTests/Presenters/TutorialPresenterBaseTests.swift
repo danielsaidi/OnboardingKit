@@ -48,4 +48,3 @@ class TutorialPresenterBaseTests: QuickSpec {
         }
     }
 }
-
