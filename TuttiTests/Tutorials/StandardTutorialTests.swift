@@ -17,19 +17,18 @@ class StandardTutorialTests: QuickSpec {
         func createTutorial(
             pageCount: Int = 0,
             keySegmentSeparator: String? = nil) -> StandardTutorial {
-            let tutorial = StandardTutorial(
+            return StandardTutorial(
                 identifier: "foo",
+                pageCount: pageCount,
                 userId: "bar")
-            tutorial.pageCount = pageCount
-            return tutorial
         }
         
         func createTutorial(keySegmentSeparator: String) -> StandardTutorial {
-            let tutorial = StandardTutorial(
+            return StandardTutorial(
                 identifier: "foo",
+                pageCount: 0,
                 userId: "bar",
                 keySegmentSeparator: keySegmentSeparator)
-            return tutorial
         }
         
         describe("creating a standard tutorial") {

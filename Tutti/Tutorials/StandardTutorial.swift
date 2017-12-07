@@ -23,9 +23,11 @@ open class StandardTutorial: Tutorial {
     
     public init(
         identifier: String,
+        pageCount: Int,
         userId: String? = nil,
         keySegmentSeparator: String = "_") {
         self.identifier = identifier
+        self.pageCount = pageCount
         self.userId = userId
         self.keySegmentSeparator = keySegmentSeparator
     }
@@ -34,10 +36,10 @@ open class StandardTutorial: Tutorial {
     // MARK: - Properties
     
     public let identifier: String
+    public var pageCount: Int
     public let userId: String?
     
     public fileprivate(set) var currentPageIndex = 0
-    public var pageCount = 0
     
     fileprivate let keySegmentSeparator: String
     

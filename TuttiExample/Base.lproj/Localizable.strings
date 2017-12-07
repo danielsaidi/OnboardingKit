@@ -1,0 +1,20 @@
+/* 
+  Localized.strings
+  Tutti
+
+  Created by Daniel Saidi on 2017-12-07.
+  Copyright © 2017 Daniel Saidi. All rights reserved.
+*/
+
+"tutorial_test_onePage_0_title" = "Title";
+"tutorial_test_sixPage_0_title" = "Title 1";
+"tutorial_test_sixPage_1_title" = "Title 2";
+"tutorial_test_sixPage_2_title" = "Title 3";
+"tutorial_test_sixPage_3_title" = "Title 4";
+"tutorial_test_sixPage_4_title" = "Title 5";
+"tutorial_test_sixPage_5_title" = "Title 6";
+"tutorial*test*customKeySegmentSeparator*0*title" = "Title 1";
+"tutorial*test*customKeySegmentSeparator*1*title" = "Title 2";
+"tutorial_test_customPageIndicator_0_foo" = "Title 1";
+"tutorial_test_customPageIndicator_1_foo" = "Title 2";
+"tutorial_test_customPageIndicator_2_foo" = "Title 3";

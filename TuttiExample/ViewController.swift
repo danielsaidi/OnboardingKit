@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        print(NSLocalizedString("tutorial_onePage_0_title", comment: ""))
     }
 
     override func didReceiveMemoryWarning() {
