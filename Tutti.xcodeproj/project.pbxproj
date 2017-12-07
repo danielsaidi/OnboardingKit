@@ -36,6 +36,9 @@
 		45A102931FD939CA0032884A /* TutorialPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102911FD939CA0032884A /* TutorialPresenterBase.swift */; };
 		45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102921FD939CA0032884A /* TutorialPresenter.swift */; };
 		45A102961FD93AE60032884A /* TutorialPresenterBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */; };
+		45A1029A1FD941600032884A /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102991FD941600032884A /* TutorialViewController.swift */; };
+		45A1029C1FD941CE0032884A /* TutorialViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1029B1FD941CE0032884A /* TutorialViewControllerPresenter.swift */; };
+		45B3AD531FDA0955005C590C /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3AD521FDA0955005C590C /* TutorialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,9 @@
 		45A102911FD939CA0032884A /* TutorialPresenterBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenterBase.swift; sourceTree = "<group>"; };
 		45A102921FD939CA0032884A /* TutorialPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
 		45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenterBaseTests.swift; sourceTree = "<group>"; };
+		45A102991FD941600032884A /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		45A1029B1FD941CE0032884A /* TutorialViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewControllerPresenter.swift; sourceTree = "<group>"; };
+		45B3AD521FDA0955005C590C /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +177,8 @@
 				45A102971FD9402B0032884A /* Presenters */,
 				4537E8AF1FD4318F0007501C /* Tutorials */,
 				4537E8811FD3DF950007501C /* Tutti.h */,
+				45B3AD541FDA09EF005C590C /* ViewControllers */,
+				45B3AD511FDA0945005C590C /* Views */,
 			);
 			path = Tutti;
 			sourceTree = "<group>";
@@ -245,6 +253,7 @@
 				45A1028D1FD937800032884A /* HintPresenterBase.swift */,
 				45A102921FD939CA0032884A /* TutorialPresenter.swift */,
 				45A102911FD939CA0032884A /* TutorialPresenterBase.swift */,
+				45A1029B1FD941CE0032884A /* TutorialViewControllerPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -256,6 +265,22 @@
 				45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		45B3AD511FDA0945005C590C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45B3AD521FDA0955005C590C /* TutorialView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		45B3AD541FDA09EF005C590C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				45A102991FD941600032884A /* TutorialViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
+				45B3AD531FDA0955005C590C /* TutorialView.swift in Sources */,
 				45A1028E1FD937800032884A /* HintPresenterBase.swift in Sources */,
 				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
 				45A102761FD921E70032884A /* LocalizationBasedTutorial.swift in Sources */,
@@ -415,7 +441,9 @@
 				4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */,
 				4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */,
 				4537E8B11FD431A90007501C /* StandardHint.swift in Sources */,
+				45A1029A1FD941600032884A /* TutorialViewController.swift in Sources */,
 				458021E91FD7B61D00CE157F /* Displayable.swift in Sources */,
+				45A1029C1FD941CE0032884A /* TutorialViewControllerPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

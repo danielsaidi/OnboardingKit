@@ -20,9 +20,9 @@ open class HintPresenterBase: HintPresenter {
     public init() { }
     
 
-    public func dismiss(hint: Hint) { }
+    open func dismiss(hint: Hint) { }
     
-    public func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool {
+    open func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool {
         if hint.hasBeenDisplayed { return false }
         var hint = hint
         hint.hasBeenDisplayed = true

@@ -20,9 +20,9 @@ open class TutorialPresenterBase: TutorialPresenter {
     public init() { }
     
 
-    public func dismiss(tutorial: Tutorial) { }
+    open func dismiss(tutorial: Tutorial) { }
     
-    public func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) -> Bool {
+    open func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) -> Bool {
         if tutorial.hasBeenDisplayed { return false }
         var tutorial = tutorial
         tutorial.hasBeenDisplayed = true

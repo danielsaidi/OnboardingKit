@@ -39,7 +39,7 @@ open class StandardTutorial: Tutorial {
     public var pageCount: Int
     public let userId: String?
     
-    public fileprivate(set) var currentPageIndex = 0
+    public var currentPageIndex = 0
     
     fileprivate let keySegmentSeparator: String
     

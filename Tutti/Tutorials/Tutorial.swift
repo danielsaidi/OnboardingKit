@@ -27,7 +27,7 @@ import Foundation
 
 public protocol Tutorial: Displayable {
 
-    var currentPageIndex: Int { get }
+    var currentPageIndex: Int { get set }
     var pageCount: Int { get }
     
     func loadNextPage() -> Bool

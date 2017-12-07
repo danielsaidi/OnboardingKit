@@ -45,19 +45,6 @@ open class TutorialViewController: UIViewController, TutorialPresenter {
     
     
     
-    // MARK: Outlets
-    
-    @IBOutlet open weak var closeButton: UIButton?
-    @IBOutlet open weak var containerView: UIView?
-    @IBOutlet open weak var imageView: UIImageView?
-    @IBOutlet open weak var nextButton: UIButton?
-    @IBOutlet open weak var pageControl: UIPageControl?
-    @IBOutlet open weak var previousButton: UIButton?
-    @IBOutlet open weak var proceedButton: UIButton?
-    @IBOutlet open weak var textView: UITextView?
-    @IBOutlet open weak var titleLabel: UILabel?
-    
-    
     
     // MARK: Properties
     
@@ -156,56 +143,7 @@ open class TutorialViewController: UIViewController, TutorialPresenter {
         return true
     }
     
-    open func refresh() {
-        guard let tutorial = tutorial else { return }
-        refresh(imageView)
-        refresh(titleLabel: titleLabel)
-        refresh(textView: textView)
-        refresh(button: closeButton, withIdentifier: "close")
-        refresh(button: previousButton, withIdentifier: "previous")
-        refresh(button: nextButton, withIdentifier: "next")
-        refresh(button: proceedButton, withIdentifier: "proceed")
-        previousButton?.isHidden = tutorial.isFirstPage
-        nextButton?.isHidden = tutorial.isLastPage
-        proceedButton?.isHidden = !tutorial.isLastPage
-        refresh(pageControl: pageControl)
-    }
     
-    open func refresh(button: UIButton?, withIdentifier identifier: String) {
-        let key = tutorial!.getResourceName(key: identifier)
-        if (translationExists(key)) {
-            button?.setTitle(translate(key), for: UIControlState())
-        }
-    }
-    
-    open func refresh(_ imageView: UIImageView?) {
-        let key = tutorial!.getResourceName(key: "")
-        let image = UIImage(named: key)
-        imageView?.image = image
-    }
-    
-    open func refresh(pageControl: UIPageControl?) {
-        guard let tutorial = tutorial else { return }
-        pageControl?.isHidden = tutorial.pageCount < 2;
-        pageControl?.currentPage = tutorial.currentPageIndex
-        pageControl?.numberOfPages = tutorial.pageCount
-    }
-    
-    open func refresh(textView: UITextView?) {
-        guard let tutorial = tutorial else { return }
-        let key = tutorial.getResourceName(key: "text")
-        if (translationExists(key)) {
-            textView?.text = translate(key)
-        }
-    }
-    
-    open func refresh(titleLabel: UILabel?) {
-        guard let tutorial = tutorial else { return }
-        let key = tutorial.getResourceName(key: "title")
-        if (translationExists(key)) {
-            titleLabel?.text = translate(key)
-        }
-    }
 }
 
 
