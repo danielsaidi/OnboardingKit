@@ -30,6 +30,12 @@
 		45A102761FD921E70032884A /* LocalizationBasedTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102751FD921E70032884A /* LocalizationBasedTutorial.swift */; };
 		45A102781FD925F70032884A /* LocalizationBasedTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102771FD925F70032884A /* LocalizationBasedTutorialTests.swift */; };
 		45A102821FD92CE50032884A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A102841FD92CE50032884A /* Localizable.strings */; };
+		45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1028B1FD935AA0032884A /* HintPresenter.swift */; };
+		45A1028E1FD937800032884A /* HintPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1028D1FD937800032884A /* HintPresenterBase.swift */; };
+		45A102901FD938860032884A /* HintPresenterBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1028F1FD938860032884A /* HintPresenterBaseTests.swift */; };
+		45A102931FD939CA0032884A /* TutorialPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102911FD939CA0032884A /* TutorialPresenterBase.swift */; };
+		45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102921FD939CA0032884A /* TutorialPresenter.swift */; };
+		45A102961FD93AE60032884A /* TutorialPresenterBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +96,12 @@
 		45A102751FD921E70032884A /* LocalizationBasedTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationBasedTutorial.swift; sourceTree = "<group>"; };
 		45A102771FD925F70032884A /* LocalizationBasedTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationBasedTutorialTests.swift; sourceTree = "<group>"; };
 		45A102851FD92D060032884A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45A1028B1FD935AA0032884A /* HintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPresenter.swift; sourceTree = "<group>"; };
+		45A1028D1FD937800032884A /* HintPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPresenterBase.swift; sourceTree = "<group>"; };
+		45A1028F1FD938860032884A /* HintPresenterBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPresenterBaseTests.swift; sourceTree = "<group>"; };
+		45A102911FD939CA0032884A /* TutorialPresenterBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenterBase.swift; sourceTree = "<group>"; };
+		45A102921FD939CA0032884A /* TutorialPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
+		45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenterBaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				458021EA1FD7B87E00CE157F /* Hint.swift */,
+				45A1028B1FD935AA0032884A /* HintPresenter.swift */,
+				45A1028D1FD937800032884A /* HintPresenterBase.swift */,
 				4537E8B01FD431A90007501C /* StandardHint.swift */,
 			);
 			path = Hints;
@@ -202,6 +216,8 @@
 				45A102751FD921E70032884A /* LocalizationBasedTutorial.swift */,
 				4552710E1FD7C18A00462ECD /* StandardTutorial.swift */,
 				4552710C1FD7BF9A00462ECD /* Tutorial.swift */,
+				45A102921FD939CA0032884A /* TutorialPresenter.swift */,
+				45A102911FD939CA0032884A /* TutorialPresenterBase.swift */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -209,6 +225,7 @@
 		45A1026D1FD892490032884A /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
+				45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */,
 				45A102771FD925F70032884A /* LocalizationBasedTutorialTests.swift */,
 				45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */,
 				45A1026E1FD892560032884A /* TutorialTests.swift */,
@@ -219,6 +236,7 @@
 		45A102701FD89CC70032884A /* Hints */ = {
 			isa = PBXGroup;
 			children = (
+				45A1028F1FD938860032884A /* HintPresenterBaseTests.swift */,
 				45A102711FD8A2E60032884A /* StandardHintTests.swift */,
 			);
 			path = Hints;
@@ -372,7 +390,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
+				45A1028E1FD937800032884A /* HintPresenterBase.swift in Sources */,
+				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
 				45A102761FD921E70032884A /* LocalizationBasedTutorial.swift in Sources */,
+				45A102931FD939CA0032884A /* TutorialPresenterBase.swift in Sources */,
 				458021EB1FD7B87E00CE157F /* Hint.swift in Sources */,
 				4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */,
 				4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */,
@@ -397,7 +419,9 @@
 				4512F3681FD886880062AEB7 /* DisplayableTests.swift in Sources */,
 				45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */,
 				45A102741FD8A4FA0032884A /* StandardTutorialTests.swift in Sources */,
+				45A102961FD93AE60032884A /* TutorialPresenterBaseTests.swift in Sources */,
 				45A102781FD925F70032884A /* LocalizationBasedTutorialTests.swift in Sources */,
+				45A102901FD938860032884A /* HintPresenterBaseTests.swift in Sources */,
 				45A1026F1FD892560032884A /* TutorialTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
