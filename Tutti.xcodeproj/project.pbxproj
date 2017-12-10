@@ -22,6 +22,7 @@
 		4537E8B11FD431A90007501C /* StandardHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8B01FD431A90007501C /* StandardHint.swift */; };
 		4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710C1FD7BF9A00462ECD /* Tutorial.swift */; };
 		4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710E1FD7C18A00462ECD /* StandardTutorial.swift */; };
+		457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457046721FDDC15A00D16844 /* UIScrollView+Page.swift */; };
 		458021E91FD7B61D00CE157F /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021E81FD7B61D00CE157F /* Displayable.swift */; };
 		458021EB1FD7B87E00CE157F /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021EA1FD7B87E00CE157F /* Hint.swift */; };
 		45A1026F1FD892560032884A /* TutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1026E1FD892560032884A /* TutorialTests.swift */; };
@@ -38,7 +39,7 @@
 		45A102961FD93AE60032884A /* TutorialPresenterBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */; };
 		45A1029A1FD941600032884A /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102991FD941600032884A /* TutorialViewController.swift */; };
 		45A1029C1FD941CE0032884A /* TutorialViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1029B1FD941CE0032884A /* TutorialViewControllerPresenter.swift */; };
-		45B3AD531FDA0955005C590C /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3AD521FDA0955005C590C /* TutorialView.swift */; };
+		45B3AD531FDA0955005C590C /* TutorialPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3AD521FDA0955005C590C /* TutorialPageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		4537E8B01FD431A90007501C /* StandardHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHint.swift; sourceTree = "<group>"; };
 		4552710C1FD7BF9A00462ECD /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		4552710E1FD7C18A00462ECD /* StandardTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorial.swift; sourceTree = "<group>"; };
+		457046721FDDC15A00D16844 /* UIScrollView+Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Page.swift"; sourceTree = "<group>"; };
 		458021E81FD7B61D00CE157F /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		458021EA1FD7B87E00CE157F /* Hint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
 		45A1026E1FD892560032884A /* TutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTests.swift; sourceTree = "<group>"; };
@@ -107,7 +109,7 @@
 		45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenterBaseTests.swift; sourceTree = "<group>"; };
 		45A102991FD941600032884A /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		45A1029B1FD941CE0032884A /* TutorialViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewControllerPresenter.swift; sourceTree = "<group>"; };
-		45B3AD521FDA0955005C590C /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		45B3AD521FDA0955005C590C /* TutorialPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 		4537E8801FD3DF950007501C /* Tutti */ = {
 			isa = PBXGroup;
 			children = (
+				457046711FDDC14B00D16844 /* Extension */,
 				458021E81FD7B61D00CE157F /* Displayable.swift */,
 				4537E8AE1FD431890007501C /* Hints */,
 				4537E8821FD3DF950007501C /* Info.plist */,
@@ -228,6 +231,14 @@
 			path = Tutorials;
 			sourceTree = "<group>";
 		};
+		457046711FDDC14B00D16844 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				457046721FDDC15A00D16844 /* UIScrollView+Page.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		45A1026D1FD892490032884A /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,7 +281,7 @@
 		45B3AD511FDA0945005C590C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				45B3AD521FDA0955005C590C /* TutorialView.swift */,
+				45B3AD521FDA0955005C590C /* TutorialPageCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,13 +443,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
-				45B3AD531FDA0955005C590C /* TutorialView.swift in Sources */,
+				45B3AD531FDA0955005C590C /* TutorialPageCell.swift in Sources */,
 				45A1028E1FD937800032884A /* HintPresenterBase.swift in Sources */,
 				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
 				45A102761FD921E70032884A /* LocalizationBasedTutorial.swift in Sources */,
 				45A102931FD939CA0032884A /* TutorialPresenterBase.swift in Sources */,
 				458021EB1FD7B87E00CE157F /* Hint.swift in Sources */,
 				4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */,
+				457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */,
 				4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */,
 				4537E8B11FD431A90007501C /* StandardHint.swift in Sources */,
 				45A1029A1FD941600032884A /* TutorialViewController.swift in Sources */,
