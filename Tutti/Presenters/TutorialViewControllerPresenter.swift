@@ -52,7 +52,10 @@ open class TutorialViewControllerPresenter: TutorialPresenterBase {
             let to = self.tutorialViewController
             else { return false }
         to.tutorial = tutorial
-        to.modalPresentationStyle = .overCurrentContext
+        to.transitioningDelegate = to
+        //to.transitioningDelegate = TutorialViewControllerTransition()
+        /*to.modalPresentationStyle = .overCurrentContext
+        to.modalTransitionStyle = .crossDissolve*/
         vc.present(to, animated: true, completion: nil)
         return true
     }

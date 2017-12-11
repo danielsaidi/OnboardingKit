@@ -43,6 +43,8 @@ open class TutorialViewController: UIViewController, UICollectionViewDataSource,
     
     // MARK: - Properties
     
+    open var transition = FadeInTransition()
+    
     open var tutorial: Tutorial?
     
     open var cellReuseIdentifier = "TutorialPageCell"
@@ -151,5 +153,21 @@ extension TutorialViewController: UIScrollViewDelegate {
             pageControl?.currentPage = page
             update()
         }
+    }
+}
+
+
+// MARK: - UIViewControllerTransitioningDelegate
+
+extension TutorialViewController: UIViewControllerTransitioningDelegate {
+    
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = true
+        return transition
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = false
+        return transition
     }
 }
