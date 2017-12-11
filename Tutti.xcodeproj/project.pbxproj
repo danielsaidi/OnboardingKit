@@ -22,13 +22,17 @@
 		4537E8B11FD431A90007501C /* StandardHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8B01FD431A90007501C /* StandardHint.swift */; };
 		4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710C1FD7BF9A00462ECD /* Tutorial.swift */; };
 		4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710E1FD7C18A00462ECD /* StandardTutorial.swift */; };
+		4562D1A91FDDC37F000069F3 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562D1A81FDDC37F000069F3 /* EasyTipView.framework */; };
+		4562D1AA1FDDC37F000069F3 /* EasyTipView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4562D1A81FDDC37F000069F3 /* EasyTipView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */; };
+		4562D1B31FDDCC41000069F3 /* EasyTipViewHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */; };
 		457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457046721FDDC15A00D16844 /* UIScrollView+Page.swift */; };
 		458021E91FD7B61D00CE157F /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021E81FD7B61D00CE157F /* Displayable.swift */; };
 		458021EB1FD7B87E00CE157F /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021EA1FD7B87E00CE157F /* Hint.swift */; };
 		45A1026F1FD892560032884A /* TutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1026E1FD892560032884A /* TutorialTests.swift */; };
 		45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102711FD8A2E60032884A /* StandardHintTests.swift */; };
 		45A102741FD8A4FA0032884A /* StandardTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */; };
-		45A102761FD921E70032884A /* LocalizationBasedTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102751FD921E70032884A /* LocalizationBasedTutorial.swift */; };
+		45A102761FD921E70032884A /* LocalizedTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102751FD921E70032884A /* LocalizedTutorial.swift */; };
 		45A102781FD925F70032884A /* LocalizationBasedTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102771FD925F70032884A /* LocalizationBasedTutorialTests.swift */; };
 		45A102821FD92CE50032884A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A102841FD92CE50032884A /* Localizable.strings */; };
 		45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1028B1FD935AA0032884A /* HintPresenter.swift */; };
@@ -44,6 +48,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		4537E8A91FD3DFC40007501C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4537E8751FD3DF950007501C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4537E87D1FD3DF950007501C;
+			remoteInfo = Tutti;
+		};
+		4562D1AF1FDDCA47000069F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4537E8751FD3DF950007501C /* Project object */;
 			proxyType = 1;
@@ -71,6 +82,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		457046771FDDC33D00D16844 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4562D1AA1FDDC37F000069F3 /* EasyTipView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -92,13 +114,16 @@
 		4537E8B01FD431A90007501C /* StandardHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHint.swift; sourceTree = "<group>"; };
 		4552710C1FD7BF9A00462ECD /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		4552710E1FD7C18A00462ECD /* StandardTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorial.swift; sourceTree = "<group>"; };
+		4562D1A81FDDC37F000069F3 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
+		4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTipViewHintPresenter.swift; sourceTree = "<group>"; };
 		457046721FDDC15A00D16844 /* UIScrollView+Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Page.swift"; sourceTree = "<group>"; };
 		458021E81FD7B61D00CE157F /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		458021EA1FD7B87E00CE157F /* Hint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
 		45A1026E1FD892560032884A /* TutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTests.swift; sourceTree = "<group>"; };
 		45A102711FD8A2E60032884A /* StandardHintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHintTests.swift; sourceTree = "<group>"; };
 		45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorialTests.swift; sourceTree = "<group>"; };
-		45A102751FD921E70032884A /* LocalizationBasedTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationBasedTutorial.swift; sourceTree = "<group>"; };
+		45A102751FD921E70032884A /* LocalizedTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedTutorial.swift; sourceTree = "<group>"; };
 		45A102771FD925F70032884A /* LocalizationBasedTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationBasedTutorialTests.swift; sourceTree = "<group>"; };
 		45A102851FD92D060032884A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45A1028B1FD935AA0032884A /* HintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPresenter.swift; sourceTree = "<group>"; };
@@ -124,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4562D1A91FDDC37F000069F3 /* EasyTipView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +182,7 @@
 				4537E88E1FD3DFAC0007501C /* TuttiExample */,
 				4537E8A41FD3DFC40007501C /* TuttiTests */,
 				4537E87F1FD3DF950007501C /* Products */,
+				4562D1A81FDDC37F000069F3 /* EasyTipView.framework */,
 				4512F3691FD8877C0062AEB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -189,13 +216,15 @@
 		4537E88E1FD3DFAC0007501C /* TuttiExample */ = {
 			isa = PBXGroup;
 			children = (
+				4562D1B11FDDCC2F000069F3 /* Presenters */,
 				4537E88F1FD3DFAC0007501C /* AppDelegate.swift */,
-				4537E8911FD3DFAC0007501C /* ViewController.swift */,
-				4537E8931FD3DFAC0007501C /* Main.storyboard */,
 				4537E8961FD3DFAC0007501C /* Assets.xcassets */,
-				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
 				4537E89B1FD3DFAC0007501C /* Info.plist */,
+				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
 				45A102841FD92CE50032884A /* Localizable.strings */,
+				4537E8931FD3DFAC0007501C /* Main.storyboard */,
+				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
+				4537E8911FD3DFAC0007501C /* ViewController.swift */,
 			);
 			path = TuttiExample;
 			sourceTree = "<group>";
@@ -224,11 +253,19 @@
 		4537E8AF1FD4318F0007501C /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
-				45A102751FD921E70032884A /* LocalizationBasedTutorial.swift */,
+				45A102751FD921E70032884A /* LocalizedTutorial.swift */,
 				4552710E1FD7C18A00462ECD /* StandardTutorial.swift */,
 				4552710C1FD7BF9A00462ECD /* Tutorial.swift */,
 			);
 			path = Tutorials;
+			sourceTree = "<group>";
+		};
+		4562D1B11FDDCC2F000069F3 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		457046711FDDC14B00D16844 /* Extension */ = {
@@ -333,10 +370,12 @@
 				4537E8891FD3DFAC0007501C /* Sources */,
 				4537E88A1FD3DFAC0007501C /* Frameworks */,
 				4537E88B1FD3DFAC0007501C /* Resources */,
+				457046771FDDC33D00D16844 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4562D1B01FDDCA47000069F3 /* PBXTargetDependency */,
 			);
 			name = TuttiExample;
 			productName = TuttiExample;
@@ -422,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45A102821FD92CE50032884A /* Localizable.strings in Resources */,
+				4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */,
 				4537E89A1FD3DFAC0007501C /* LaunchScreen.storyboard in Resources */,
 				4537E8971FD3DFAC0007501C /* Assets.xcassets in Resources */,
 				4537E8951FD3DFAC0007501C /* Main.storyboard in Resources */,
@@ -446,7 +486,7 @@
 				45B3AD531FDA0955005C590C /* TutorialPageCell.swift in Sources */,
 				45A1028E1FD937800032884A /* HintPresenterBase.swift in Sources */,
 				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
-				45A102761FD921E70032884A /* LocalizationBasedTutorial.swift in Sources */,
+				45A102761FD921E70032884A /* LocalizedTutorial.swift in Sources */,
 				45A102931FD939CA0032884A /* TutorialPresenterBase.swift in Sources */,
 				458021EB1FD7B87E00CE157F /* Hint.swift in Sources */,
 				4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */,
@@ -463,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4562D1B31FDDCC41000069F3 /* EasyTipViewHintPresenter.swift in Sources */,
 				4537E8921FD3DFAC0007501C /* ViewController.swift in Sources */,
 				4537E8901FD3DFAC0007501C /* AppDelegate.swift in Sources */,
 			);
@@ -489,6 +530,11 @@
 			isa = PBXTargetDependency;
 			target = 4537E87D1FD3DF950007501C /* Tutti */;
 			targetProxy = 4537E8A91FD3DFC40007501C /* PBXContainerItemProxy */;
+		};
+		4562D1B01FDDCA47000069F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4537E87D1FD3DF950007501C /* Tutti */;
+			targetProxy = 4562D1AF1FDDCA47000069F3 /* PBXContainerItemProxy */;
 		};
 		45A1028A1FD9310C0032884A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -689,6 +735,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TuttiExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.TuttiExample;
@@ -704,6 +754,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TuttiExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.TuttiExample;

@@ -35,6 +35,8 @@ open class StandardTutorial: Tutorial {
     
     // MARK: - Properties
     
+    public weak var presenter: TutorialPresenter?
+    
     public let identifier: String
     public var pageCount: Int
     public let userId: String?

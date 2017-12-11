@@ -49,10 +49,11 @@ open class TutorialViewControllerPresenter: TutorialPresenterBase {
     open override func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) -> Bool {
         guard
             super.present(tutorial: tutorial, in: vc, from: view),
-            let tutorialViewController = self.tutorialViewController
+            let to = self.tutorialViewController
             else { return false }
-        tutorialViewController.tutorial = tutorial
-        vc.present(tutorialViewController, animated: true, completion: nil)
+        to.tutorial = tutorial
+        to.modalPresentationStyle = .overCurrentContext
+        vc.present(to, animated: true, completion: nil)
         return true
     }
 }

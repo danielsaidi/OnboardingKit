@@ -1,5 +1,5 @@
 //
-//  LocalizationBasedTutorial.swift
+//  LocalizedTutorial.swift
 //  Tutti
 //
 //  Created by Daniel Saidi on 2017-12-07.
@@ -36,7 +36,7 @@
 
 import Foundation
 
-open class LocalizationBasedTutorial: StandardTutorial {
+open class LocalizedTutorial: StandardTutorial {
     
     
     // MARK: - Initialization
@@ -64,7 +64,7 @@ open class LocalizationBasedTutorial: StandardTutorial {
 
 // MARK: - Private Functions
 
-fileprivate extension LocalizationBasedTutorial {
+fileprivate extension LocalizedTutorial {
     
     func resolvePageCount() -> Int {
         var pageIndex = 0

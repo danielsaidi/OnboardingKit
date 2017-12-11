@@ -70,18 +70,26 @@ open class TutorialViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet open weak var previousButton: UIButton?
     
     
+    // MARK: - Actions
+    
+    @IBAction func dismissTutorial(_ sender: Any) {
+        guard let tutorial = tutorial else { return }
+        tutorial.presenter?.dismiss(tutorial: tutorial)
+    }
+    
+    
     // MARK: - Update Functions
     
     open func update() {
         guard let tutorial = tutorial else { return }
-        update(button: closeButton, withIdentifier: "close", for: tutorial)
-        update(button: previousButton, withIdentifier: "previous", for: tutorial)
-        update(button: nextButton, withIdentifier: "next", for: tutorial)
+        update(button: closeButton, id: "close", for: tutorial)
+        update(button: previousButton, id: "previous", for: tutorial)
+        update(button: nextButton, id: "next", for: tutorial)
         previousButton?.isHidden = tutorial.isFirstPage
         nextButton?.isHidden = tutorial.isLastPage
     }
     
-    open func update(button: UIButton?, withIdentifier id: String, for tutorial: Tutorial) {
+    open func update(button: UIButton?, id: String, for tutorial: Tutorial) {
         let key = tutorial.resourceName(for: id)
         button?.setTitle(translate(key), for: .normal)
     }

@@ -16,15 +16,21 @@
 import UIKit
 
 open class HintPresenterBase: HintPresenter {
+
+    
+    // MARK: - Initialization
     
     public init() { }
     
 
+    // MARK: - Public Functions
+    
     open func dismiss(hint: Hint) { }
     
     open func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool {
         if hint.hasBeenDisplayed { return false }
         var hint = hint
+        hint.presenter = self
         hint.hasBeenDisplayed = true
         return true
     }

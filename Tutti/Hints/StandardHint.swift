@@ -32,6 +32,8 @@ open class StandardHint: Hint {
     
     // MARK: - Properties
     
+    public weak var presenter: HintPresenter?
+    
     public let identifier: String
     public let text: String
     public let userId: String?

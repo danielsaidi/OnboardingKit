@@ -21,11 +21,15 @@
  `HintPresenterBase` base class, which handles display state
  when presenting and dismissing hints.
  
+ IMPORTANT: Keep a strong reference to your presenter, since
+ it may otherwise be deallocated. This may cause the dismiss
+ to fail.
+ 
  */
 
 import UIKit
 
-public protocol HintPresenter {
+public protocol HintPresenter: class {
     
     func dismiss(hint: Hint)
     func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool

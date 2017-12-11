@@ -17,14 +17,20 @@ import UIKit
 
 open class TutorialPresenterBase: TutorialPresenter {
     
+    
+    // MARK: - Initialization
+    
     public init() { }
     
+    
+    // MARK: - Public Functions
 
     open func dismiss(tutorial: Tutorial) { }
     
     open func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) -> Bool {
         if tutorial.hasBeenDisplayed { return false }
         var tutorial = tutorial
+        tutorial.presenter = self
         tutorial.hasBeenDisplayed = true
         return true
     }

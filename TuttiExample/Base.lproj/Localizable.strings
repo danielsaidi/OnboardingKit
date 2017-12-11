@@ -6,6 +6,10 @@
   Copyright © 2017 Daniel Saidi. All rights reserved.
 */
 
+"tutorial_basic_0_title" = "Welcome to this app";
+"tutorial_basic_0_text" = "If you add more pages to this tutorial and add more translations in Localizable.strings, you'll have yourself a multi-page tutorial.";
+"tutorial_basic_0_close" = "X";
+
 "tutorial_test_onePage_0_title" = "Title";
 "tutorial_test_sixPage_0_title" = "Title 1";
 "tutorial_test_sixPage_1_title" = "Title 2";

@@ -26,6 +26,8 @@
 import Foundation
 
 public protocol Tutorial: Displayable {
+    
+    weak var presenter: TutorialPresenter? { get set }
 
     var currentPageIndex: Int { get set }
     var pageCount: Int { get }

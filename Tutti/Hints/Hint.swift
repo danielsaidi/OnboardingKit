@@ -21,5 +21,7 @@ import Foundation
 
 public protocol Hint: Displayable {
     
+    weak var presenter: HintPresenter? { get set }
+    
     var text: String { get }
 }

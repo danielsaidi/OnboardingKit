@@ -21,11 +21,15 @@
  `TutorialPresenterBase`, which handles display state when a
  tutorial is presented and dismissed.
  
+ IMPORTANT: Keep a strong reference to your presenter, since
+ it may otherwise be deallocated. This may cause the dismiss
+ to fail.
+ 
  */
 
 import UIKit
 
-public protocol TutorialPresenter {
+public protocol TutorialPresenter: class {
     
     func dismiss(tutorial: Tutorial)
     func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) -> Bool
