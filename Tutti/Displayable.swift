@@ -35,7 +35,7 @@ extension Displayable {
     }
     
     var settingsKey: String {
-        let key = "com.danielsaidi.Tutti.\(identifier)"
+        let key = "com.Tutti.\(identifier)"
         guard let userId = userId else { return key }
         return "\(key).\(userId)"
     }

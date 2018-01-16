@@ -27,7 +27,7 @@ class DisplayableTests: QuickSpec {
         
         var displayable: TestDisplayable!
         
-        func set(key: String, to bool: Bool) {
+        func set(key: String, toDisplayState bool: Bool) {
             let defaults = UserDefaults.standard
             defaults.set(bool, forKey: key)
             defaults.synchronize()
@@ -36,14 +36,14 @@ class DisplayableTests: QuickSpec {
         
         context("user-unspecific") {
         
-            let key = "com.danielsaidi.Tutti.foo"
+            let key = "com.Tutti.foo"
             
             beforeEach {
                 displayable = TestDisplayable(userId: nil)
             }
             
             afterEach {
-                set(key: key, to: false)
+                set(key: key, toDisplayState: false)
             }
             
             describe("displayed state") {
@@ -54,12 +54,12 @@ class DisplayableTests: QuickSpec {
                 
                 it("is false if user defaults has no matching key") {
                     displayable.hasBeenDisplayed = true
-                    set(key: key, to: false)
+                    set(key: key, toDisplayState: false)
                     expect(displayable.hasBeenDisplayed).to(beFalse())
                 }
                 
                 it("is true if user defaults has matching key") {
-                    set(key: key, to: true)
+                    set(key: key, toDisplayState: true)
                     expect(displayable.hasBeenDisplayed).to(beTrue())
                 }
                 
@@ -80,14 +80,14 @@ class DisplayableTests: QuickSpec {
         
         context("user-specific") {
             
-            let key = "com.danielsaidi.Tutti.foo.bar"
+            let key = "com.Tutti.foo.bar"
             
             beforeEach {
                 displayable = TestDisplayable(userId: "bar")
             }
             
             afterEach {
-                set(key: key, to: false)
+                set(key: key, toDisplayState: false)
             }
             
             describe("displayed state") {
@@ -98,12 +98,12 @@ class DisplayableTests: QuickSpec {
                 
                 it("is false if user defaults has no matching key") {
                     displayable.hasBeenDisplayed = true
-                    set(key: key, to: false)
+                    set(key: key, toDisplayState: false)
                     expect(displayable.hasBeenDisplayed).to(beFalse())
                 }
                 
                 it("is true if user defaults has matching key") {
-                    set(key: key, to: true)
+                    set(key: key, toDisplayState: true)
                     expect(displayable.hasBeenDisplayed).to(beTrue())
                 }
                 

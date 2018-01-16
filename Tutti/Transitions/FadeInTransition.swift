@@ -33,13 +33,10 @@ open class FadeInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     open func animateTransition(using context: UIViewControllerContextTransitioning) {
         guard
             let fromView = context.view(forKey: .from),
-            let toView = context.view(forKey: .to),
-            let toVc = context.viewController(forKey: .to)
+            let toView = context.view(forKey: .to)
             else { return }
         
         let containerView = context.containerView
-        toVc.modalPresentationStyle = .overCurrentContext
-        
         if isPresenting {
             containerView.addSubview(toView)
         }

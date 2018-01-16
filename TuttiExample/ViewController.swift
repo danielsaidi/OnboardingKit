@@ -12,10 +12,27 @@ import Tutti
 
 class ViewController: UIViewController {
 
+    
+    // MARK: - View Controller Lifecycle
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("HEJ")
+    }
+    
+    
+    // MARK: - Menu alternatives
+    
+    enum ListOption: String {
+        case
+        hint,
+        tutorial,
+        tutorial_user1,
+        tutorial_user2,
+        tutorial_l10n,
+        reset
+        
+        var name: String { return rawValue }
     }
     
     
@@ -37,14 +54,24 @@ class ViewController: UIViewController {
         ]
     }
     
-    let rows = [
-        (id: "hint", title: "Show a quick hint"),
-        (id: "tutorial", title: "Show basic tutorial"),
-        (id: "tutorial_user1", title: "Show basic tutorial for user #1"),
-        (id: "tutorial_user2", title: "Show basic tutorial for user #2"),
-        (id: "tutorial_l10n", title: "Show localized tutorial"),
-        (id: "reset", title: "Reset display state")
-    ]
+    fileprivate lazy var rows = {[
+        (id: hintId, title: "Show a quick hint"),
+        (id: tutorialId, title: "Show basic tutorial"),
+        (id: tutorialId_user1, title: "Show basic tutorial for user #1"),
+        (id: tutorialId_user2, title: "Show basic tutorial for user #2"),
+        (id: tutorialId_l10n, title: "Show localized tutorial"),
+        (id: resetId, title: "Reset display state")
+    ]}()
+    
+    
+    // MARK: - IDs
+    
+    fileprivate let hintId = "hint"
+    fileprivate let tutorialId = "tutorial"
+    fileprivate let tutorialId_user1 = "tutorial_user1"
+    fileprivate let tutorialId_user2 = "tutorial_user2"
+    fileprivate let tutorialId_l10n = "tutorial_l10n"
+    fileprivate let resetId = "reset"
     
     
     // MARK: - Outlets

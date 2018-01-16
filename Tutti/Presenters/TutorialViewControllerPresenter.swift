@@ -35,7 +35,7 @@ open class TutorialViewControllerPresenter: TutorialPresenterBase {
     
     fileprivate weak var presentingViewController: UIViewController?
     fileprivate weak var tutorialViewController: TutorialViewController?
-    
+
     
     // MARK: - Public Functions
     
@@ -53,9 +53,6 @@ open class TutorialViewControllerPresenter: TutorialPresenterBase {
             else { return false }
         to.tutorial = tutorial
         to.transitioningDelegate = to
-        //to.transitioningDelegate = TutorialViewControllerTransition()
-        /*to.modalPresentationStyle = .overCurrentContext
-        to.modalTransitionStyle = .crossDissolve*/
         vc.present(to, animated: true, completion: nil)
         return true
     }
