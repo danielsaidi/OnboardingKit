@@ -19,11 +19,11 @@ import Quick
 import Nimble
 import Tutti
 
-class LocalizationBasedTutorialTests: QuickSpec {
+class LocalizedTutorialTests: QuickSpec {
     
     override func spec() {
         
-        describe("creating a localization-based tutorial") {
+        describe("creating a localized tutorial") {
             
             it("has zero pages if no translation was found") {
                 let tutorial = LocalizedTutorial(

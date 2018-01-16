@@ -19,7 +19,7 @@
 
 import Foundation
 
-public protocol Displayable {
+public protocol Displayable: class {
 
     var identifier: String { get }
     var userId: String? { get }

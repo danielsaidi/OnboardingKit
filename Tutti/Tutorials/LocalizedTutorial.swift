@@ -43,8 +43,8 @@ open class LocalizedTutorial: StandardTutorial {
     
     public init(
         identifier: String,
-        pageIndicationKey: String = "title",
         userId: String? = nil,
+        pageIndicationKey: String = "title",
         keySegmentSeparator: String = "_") {
         self.pageIndicationKey = pageIndicationKey
         super.init(

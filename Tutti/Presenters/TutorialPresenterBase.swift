@@ -29,7 +29,6 @@ open class TutorialPresenterBase: TutorialPresenter {
     
     open func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) -> Bool {
         if tutorial.hasBeenDisplayed { return false }
-        var tutorial = tutorial
         tutorial.presenter = self
         tutorial.hasBeenDisplayed = true
         return true

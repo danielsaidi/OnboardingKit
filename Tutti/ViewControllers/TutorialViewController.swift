@@ -19,12 +19,9 @@
  To modify how the view controller updates its content, just
  subclass it and override any of the `update` functions.
  
- The `collectionView` will register and dequeue cells with a
- `TutorialPageCell` identifier. This means that you must add
- a `TutorialPageCell` xib to the app and have it inherit the
- `TutorialPageCell`. For more information on how to subclass
- `TutorialPageCell` or completely replace it, have a look in
- the `TutorialPageCell` class documentation.
+ The `collectionView` will register and dequeue cells of the
+ `cellType` property type. The app must have a xib file with
+ this type's name (by default `TutorialViewControllerCell`).
  
  */
 
@@ -43,11 +40,15 @@ open class TutorialViewController: UIViewController, UICollectionViewDataSource,
     
     // MARK: - Properties
     
+    open var cellType: UICollectionViewCell.Type = TutorialViewControllerCell.self
+    
     open var transition = FadeInTransition()
     
     open var tutorial: Tutorial?
     
-    open var cellReuseIdentifier = "TutorialPageCell"
+    fileprivate var cellReuseIdentifier: String {
+        return String(describing: cellType)
+    }
     
     
     // MARK: Outlets
@@ -59,9 +60,8 @@ open class TutorialViewController: UIViewController, UICollectionViewDataSource,
             guard let view = collectionView else { return }
             view.delegate = self
             view.dataSource = self
-            let id = cellReuseIdentifier
-            let nib = UINib(nibName: id, bundle: nil)
-            view.register(nib, forCellWithReuseIdentifier: id)
+            let nib = UINib(nibName: cellReuseIdentifier, bundle: nil)
+            view.register(nib, forCellWithReuseIdentifier: cellReuseIdentifier)
         }
     }
     
@@ -125,18 +125,19 @@ open class TutorialViewController: UIViewController, UICollectionViewDataSource,
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let id = cellReuseIdentifier
-        return collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
+        return collectionView.dequeueReusableCell(
+            withReuseIdentifier: cellReuseIdentifier,
+            for: indexPath)
     }
     
     
     // MARK: - UICollectionViewDelegate
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
         
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 }

@@ -1,5 +1,5 @@
 //
-//  TutorialPageCell.swift
+//  TutorialViewControllerCell.swift
 //  Tutti
 //
 //  Created by Daniel Saidi on 2017-12-08.
@@ -29,7 +29,7 @@
 
 import UIKit
 
-open class TutorialPageCell: UICollectionViewCell {
+open class TutorialViewControllerCell: UICollectionViewCell {
 
     
     // MARK: - Outlets
