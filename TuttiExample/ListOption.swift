@@ -13,9 +13,8 @@ enum ListOption {
     hint,
     reset,
     spacer,
-    tutorial,
-    tutorial_l10n,
-    tutorial_user(id: String)
+    tutorial(userId: String?),
+    tutorial_l10n(userId: String?)
 }
 
 
@@ -28,9 +27,16 @@ extension ListOption {
         case .hint: return "Show a quick hint"
         case .reset: return "Reset display state"
         case .spacer: return ""
-        case .tutorial: return "Show a basic hint"
-        case .tutorial_l10n: return "Show a localization-based tutorial"
-        case .tutorial_user(let userId): return "Show a quick tutorial for user \(userId)"
+        case .tutorial(_): return "Show a quick tutorial\(userSuffix)"
+        case .tutorial_l10n(_): return "Show a localized tutorial\(userSuffix)"
+        }
+    }
+    
+    var userSuffix: String {
+        switch self {
+        case .tutorial(let userId): return userId == nil ? "" : "for user \(userId ?? "")"
+        case .tutorial_l10n(let userId): return userId == nil ? "" : "for user \(userId ?? "")"
+        default: return ""
         }
     }
 }

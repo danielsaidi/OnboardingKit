@@ -21,14 +21,11 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    fileprivate let options: [ListOption] = [
-        .hint,
-        .tutorial,
-        .tutorial_user(id: "1"),
-        .tutorial_user(id: "2"),
-        .tutorial_l10n,
-        .spacer,
-        .reset
+    fileprivate let sections: [(title: String, options: [ListOption])] = [
+        ("Hint", [.hint]),
+        ("Basic tutorial", [.tutorial(userId: nil), .tutorial(userId: "1"), .tutorial(userId: "2")]),
+        ("Localized tutorial", [.tutorial_l10n(userId: nil), .tutorial_l10n(userId: "1"), .tutorial_l10n(userId: "2")]),
+        ("Reset", [.reset])
     ]
     
     
@@ -71,7 +68,7 @@ fileprivate extension ViewController {
     }
     
     func getLocalizedTutorial(forUser userId: String?) -> Tutorial {
-        return StandardTutorial(identifier: "tutorial_l10n", pageCount: 1, userId: userId)
+        return LocalizedTutorial(identifier: "tutorial_l10n", userId: userId)
     }
     
     func getTutorial(forUser userId: String?) -> Tutorial {
@@ -102,13 +99,14 @@ fileprivate extension ViewController {
     
     func showTutorial(forUser userId: String?, from view: UIView) {
         let tutorial = getTutorial(forUser: userId)
+        if tutorial.hasBeenDisplayed { return alertAlreadyDisplayedTutorial() }
         let vc = TutorialViewController(nibName: nil, bundle: nil)
         tutorialPresenter = TutorialViewControllerPresenter(vc: vc)
         _ = tutorialPresenter?.present(tutorial: tutorial, in: self, from: view)
     }
     
     func showLocalizedTutorial(forUser userId: String?, from view: UIView) {
-        let tutorial = LocalizedTutorial(identifier: "basicTutorial")
+        let tutorial = getLocalizedTutorial(forUser: userId)
         if tutorial.hasBeenDisplayed { return alertAlreadyDisplayedTutorial() }
         let vc = TutorialViewController(nibName: nil, bundle: nil)
         tutorialPresenter = TutorialViewControllerPresenter(vc: vc)
@@ -122,15 +120,19 @@ fileprivate extension ViewController {
 extension ViewController: UITableViewDataSource {
     
     func listOption(at indexPath: IndexPath) -> ListOption {
-        return options[indexPath.row]
+        return sections[indexPath.section].options[indexPath.row]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
+        return sections[section].options.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].title
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -157,9 +159,8 @@ extension ViewController: UITableViewDelegate {
         case .hint: showHint(forUser: nil, from: cell)
         case .reset: resetDisplayState()
         case .spacer: break
-        case .tutorial: showTutorial(forUser: nil, from: cell)
-        case .tutorial_l10n: showLocalizedTutorial(forUser: nil, from: cell)
-        case .tutorial_user(let id): showTutorial(forUser: id, from: cell)
+        case .tutorial(let userId): showTutorial(forUser: userId, from: cell)
+        case .tutorial_l10n(let userId): showLocalizedTutorial(forUser: userId, from: cell)
         }
     }
 }
