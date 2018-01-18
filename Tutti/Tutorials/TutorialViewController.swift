@@ -40,7 +40,7 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     open var cellType: UICollectionViewCell.Type = TutorialViewControllerCell.self
     
-    open var transition = FadeInTransition()
+    open var transition: TutorialTransition = FadeInTransition()
     
     open var tutorial: Tutorial?
     

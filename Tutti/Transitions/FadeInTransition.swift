@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class FadeInTransition: NSObject, UIViewControllerAnimatedTransitioning {
+open class FadeInTransition: NSObject, TutorialTransition {
     
     
     // MARK: - Initialization
@@ -20,8 +20,8 @@ open class FadeInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     // MARK: - Properties
     
-    var duration = 0.35
-    var isPresenting = true
+    public var duration = 0.35
+    public var isPresenting = true
     
     
     // MARK: - Public Functions
