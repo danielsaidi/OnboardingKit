@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import Tutti
 
-fileprivate class TestTutorial: Tutorial {
+private class TestTutorial: Tutorial {
     
     init(currentPage: Int, pageCount: Int) {
         self.currentPageIndex = currentPage
@@ -78,4 +78,3 @@ class TutorialTests: QuickSpec {
         }
     }
 }
-

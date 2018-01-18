@@ -71,4 +71,3 @@ open class StandardTutorial: Tutorial {
         return segments.joined(separator: keySegmentSeparator)
     }
 }
-

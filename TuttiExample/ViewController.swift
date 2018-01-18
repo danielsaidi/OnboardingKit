@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     fileprivate let sections: [(title: String, options: [ListOption])] = [
         ("Hint", [.hint]),
         ("Basic tutorial", [.tutorial(userId: nil), .tutorial(userId: "1"), .tutorial(userId: "2")]),
-        ("Localized tutorial", [.tutorial_l10n(userId: nil), .tutorial_l10n(userId: "1"), .tutorial_l10n(userId: "2")]),
+        ("Localized tutorial", [.localizedTutorial(userId: nil), .localizedTutorial(userId: "1"), .localizedTutorial(userId: "2")]),
         ("Reset", [.reset])
     ]
     
@@ -163,8 +163,7 @@ extension ViewController: UITableViewDelegate {
         case .reset: resetDisplayState()
         case .spacer: break
         case .tutorial(let userId): showTutorial(forUser: userId, from: cell)
-        case .tutorial_l10n(let userId): showLocalizedTutorial(forUser: userId, from: cell)
+        case .localizedTutorial(let userId): showLocalizedTutorial(forUser: userId, from: cell)
         }
     }
 }
-

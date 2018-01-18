@@ -21,7 +21,7 @@
 
 import UIKit
 
-
+/*
 public enum TutorialViewControllerSwipeRightBehavior { case
     next,
     proceed
@@ -42,8 +42,6 @@ open class TutorialViewController: UIViewController, TutorialPresenter {
         super.viewWillAppear(animated)
         refresh()
     }
-    
-    
     
     
     // MARK: Properties
@@ -174,3 +172,4 @@ fileprivate extension TutorialViewController {
         view.addGestureRecognizer(swipe)
     }
 }
+*/

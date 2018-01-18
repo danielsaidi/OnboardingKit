@@ -9,7 +9,7 @@
 import UIKit
 
 
-public protocol TutorialPresenterDelegate : class {
+public protocol TutorialPresenterDelegate: class {
     
     func tutorialDidFinish(_ tutorial: Tutorial)
 }

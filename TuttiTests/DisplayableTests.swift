@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import Tutti
 
-fileprivate class TestDisplayable: Displayable {
+private class TestDisplayable: Displayable {
     
     init(userId: String?) {
         self.userId = userId

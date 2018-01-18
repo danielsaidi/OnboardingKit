@@ -98,20 +98,20 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     open func update() {
         guard let tutorial = tutorial else { return }
-        update(button: closeButton, id: "close", for: tutorial)
-        update(button: previousButton, id: "previous", for: tutorial)
-        update(button: nextButton, id: "next", for: tutorial)
+        update(button: closeButton, buttonId: "close", for: tutorial)
+        update(button: previousButton, buttonId: "previous", for: tutorial)
+        update(button: nextButton, buttonId: "next", for: tutorial)
         previousButton?.isHidden = tutorial.isFirstPage
         nextButton?.isHidden = tutorial.isLastPage
     }
     
-    open func update(button: UIButton?, id: String, for tutorial: Tutorial) {
-        let key = tutorial.resourceName(for: id)
+    open func update(button: UIButton?, buttonId: String, for tutorial: Tutorial) {
+        let key = tutorial.resourceName(for: buttonId)
         button?.setTitle(translate(key), for: .normal)
     }
     
     open func update(pageControl: UIPageControl?, for tutorial: Tutorial) {
-        pageControl?.isHidden = tutorial.pageCount < 2;
+        pageControl?.isHidden = tutorial.pageCount < 2
         pageControl?.currentPage = tutorial.currentPageIndex
         pageControl?.numberOfPages = tutorial.pageCount
     }

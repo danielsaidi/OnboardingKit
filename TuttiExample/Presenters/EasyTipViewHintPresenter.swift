@@ -19,7 +19,5 @@ class EasyTipViewHintPresenter: HintPresenter {
         return true
     }
     
-    func dismiss(hint: Hint) {
-        // TODO
-    }
+    func dismiss(hint: Hint) { }
 }

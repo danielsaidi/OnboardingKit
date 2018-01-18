@@ -49,7 +49,7 @@ open class FadeInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animate(
             withDuration: duration,
             animations: { fadeView.alpha = finalAlpha },
-            completion: { completed in
+            completion: { _ in
                 context.completeTransition(true)
                 containerView.insertSubview(fromView, belowSubview: toView)
             }
