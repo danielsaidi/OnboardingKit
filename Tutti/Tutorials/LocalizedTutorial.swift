@@ -9,21 +9,18 @@
 /*
  
  This class automatically generates a multi-page tutorial by
- using available language keys in the current app. It's just
- a convenience layer ontop `StandardTutorial`, if you do not
- want to have to keep the page count in sync when adding new
- page translations to `Localized.strings`.
+ using available language keys in the current app.
  
  When initialized, this class will start at page index 0 and
  look for the existence of a `pageIndicationKey` translation
- key in `Localized.strings` for that page. It will then bump
- the index until it can not find one for a certain page. You
- will then have a tutorial the correct number of pages.
+ in `Localized.strings` for that page. It will then bump the
+ index until it cannot find a translation for a certain page.
+ You will then have a correctly setup tutorial.
  
  The default key indicator value is `title`, and the default
  key segment separator is `_` but you can use any values you
- like. However, if you use the defaults, a tutorial with the
- identifier "myTutorial" will get two pages if the following
+ like. If you use these values, however, a tutorial with the
+ identifier `myTutorial` will get two pages if the following
  language keys exist in `Localized.strings`:
  
  * tutorial_myTutorial_0_title

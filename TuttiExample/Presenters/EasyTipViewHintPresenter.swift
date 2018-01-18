@@ -10,13 +10,16 @@ import UIKit
 import Tutti
 import EasyTipView
 
-class EasyTipViewHintPresenter: HintPresenterBase {
+class EasyTipViewHintPresenter: HintPresenter {
 
-    override func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool {
-        guard super.present(hint: hint, in: vc, from: view) else { return false }
+    func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool {
+        if hint.hasBeenDisplayed { return false }
+        hint.hasBeenDisplayed = true
         EasyTipView.show(forView: view, text: hint.text)
         return true
     }
     
-    override func dismiss(hint: Hint) { }
+    func dismiss(hint: Hint) {
+        // TODO
+    }
 }

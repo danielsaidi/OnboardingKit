@@ -8,26 +8,24 @@
 
 /*
  
- This base view controller can be used to display a tutorial
- and its pages in a side-swiping, paged collection view.
- 
- To use this class in your app, create a xib or a storyboard
- view controller that inherits this class. Setup any outlets
- you want to use by connecting them as usual. Have a look in
- the example app for a demo.
+ This view controller is a `TutorialPresenter` that displays
+ multi-page tutorials in a horizontal, paged collection view.
+ To use it, create a xib or storyboard view controller. Make
+ it inherit this class, then setup any outlets as usual.
  
  To modify how the view controller updates its content, just
- subclass it and override any of the `update` functions.
+ subclass it and override any functions needed.
  
  The `collectionView` will register and dequeue cells of the
  `cellType` property type. The app must have a xib file with
- this type's name (by default `TutorialViewControllerCell`).
+ this type name (by default `TutorialViewControllerCell`) to
+ be order to dequeue cells for the collection view.
  
  */
 
 import UIKit
 
-open class TutorialViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+open class TutorialViewController: UIViewController, TutorialPresenter, UICollectionViewDataSource, UICollectionViewDelegate {
     
     
     // MARK: View Controller Lifecycle
@@ -76,7 +74,23 @@ open class TutorialViewController: UIViewController, UICollectionViewDataSource,
     
     @IBAction func dismissTutorial(_ sender: Any) {
         guard let tutorial = tutorial else { return }
-        tutorial.presenter?.dismiss(tutorial: tutorial)
+        dismiss(tutorial: tutorial)
+    }
+    
+    
+    // MARK: - TutorialPresenter Functions
+    
+    open func dismiss(tutorial: Tutorial) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    open func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) -> Bool {
+        if tutorial.hasBeenDisplayed { return false }
+        tutorial.hasBeenDisplayed = true
+        self.tutorial = tutorial
+        transitioningDelegate = self
+        vc.present(self, animated: true, completion: nil)
+        return true
     }
     
     

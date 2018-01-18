@@ -37,13 +37,8 @@
 		45A102781FD925F70032884A /* LocalizedTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102771FD925F70032884A /* LocalizedTutorialTests.swift */; };
 		45A102821FD92CE50032884A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A102841FD92CE50032884A /* Localizable.strings */; };
 		45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1028B1FD935AA0032884A /* HintPresenter.swift */; };
-		45A1028E1FD937800032884A /* HintPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1028D1FD937800032884A /* HintPresenterBase.swift */; };
-		45A102901FD938860032884A /* HintPresenterBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1028F1FD938860032884A /* HintPresenterBaseTests.swift */; };
-		45A102931FD939CA0032884A /* TutorialPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102911FD939CA0032884A /* TutorialPresenterBase.swift */; };
 		45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102921FD939CA0032884A /* TutorialPresenter.swift */; };
-		45A102961FD93AE60032884A /* TutorialPresenterBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */; };
 		45A1029A1FD941600032884A /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102991FD941600032884A /* TutorialViewController.swift */; };
-		45A1029C1FD941CE0032884A /* TutorialViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1029B1FD941CE0032884A /* TutorialViewControllerPresenter.swift */; };
 		45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */; };
 		45E9EEBA200E79FA00CEEBFF /* ListOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9EEB9200E79FA00CEEBFF /* ListOption.swift */; };
 /* End PBXBuildFile section */
@@ -130,13 +125,8 @@
 		45A102771FD925F70032884A /* LocalizedTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedTutorialTests.swift; sourceTree = "<group>"; };
 		45A102851FD92D060032884A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45A1028B1FD935AA0032884A /* HintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPresenter.swift; sourceTree = "<group>"; };
-		45A1028D1FD937800032884A /* HintPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPresenterBase.swift; sourceTree = "<group>"; };
-		45A1028F1FD938860032884A /* HintPresenterBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPresenterBaseTests.swift; sourceTree = "<group>"; };
-		45A102911FD939CA0032884A /* TutorialPresenterBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenterBase.swift; sourceTree = "<group>"; };
 		45A102921FD939CA0032884A /* TutorialPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
-		45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenterBaseTests.swift; sourceTree = "<group>"; };
 		45A102991FD941600032884A /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
-		45A1029B1FD941CE0032884A /* TutorialViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewControllerPresenter.swift; sourceTree = "<group>"; };
 		45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewControllerCell.swift; sourceTree = "<group>"; };
 		45E9EEB9200E79FA00CEEBFF /* ListOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,12 +198,9 @@
 				457046711FDDC14B00D16844 /* Extension */,
 				4537E8AE1FD431890007501C /* Hints */,
 				4537E8821FD3DF950007501C /* Info.plist */,
-				45A102971FD9402B0032884A /* Presenters */,
 				4562D1B61FDE5CEE000069F3 /* Transitions */,
 				4537E8AF1FD4318F0007501C /* Tutorials */,
 				4537E8811FD3DF950007501C /* Tutti.h */,
-				45B3AD541FDA09EF005C590C /* ViewControllers */,
-				45B3AD511FDA0945005C590C /* Views */,
 			);
 			path = Tutti;
 			sourceTree = "<group>";
@@ -225,7 +212,7 @@
 				4537E8961FD3DFAC0007501C /* Assets.xcassets */,
 				45E9EEB9200E79FA00CEEBFF /* ListOption.swift */,
 				4562D1B11FDDCC2F000069F3 /* Presenters */,
-				45E9EEBB200E7D8C00CEEBFF /* Storyboards */,
+				45E9EEBB200E7D8C00CEEBFF /* UI */,
 				45E9EEBC200E7DAA00CEEBFF /* Supporting Files */,
 				4537E8911FD3DFAC0007501C /* ViewController.swift */,
 			);
@@ -238,7 +225,6 @@
 				4512F3671FD886880062AEB7 /* DisplayableTests.swift */,
 				45A102701FD89CC70032884A /* Hints */,
 				4537E8A71FD3DFC40007501C /* Info.plist */,
-				45A102981FD940390032884A /* Presenters */,
 				45A1026D1FD892490032884A /* Tutorials */,
 			);
 			path = TuttiTests;
@@ -248,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				458021EA1FD7B87E00CE157F /* Hint.swift */,
+				45A1028B1FD935AA0032884A /* HintPresenter.swift */,
 				4537E8B01FD431A90007501C /* StandardHint.swift */,
 			);
 			path = Hints;
@@ -259,6 +246,9 @@
 				45A102751FD921E70032884A /* LocalizedTutorial.swift */,
 				4552710E1FD7C18A00462ECD /* StandardTutorial.swift */,
 				4552710C1FD7BF9A00462ECD /* Tutorial.swift */,
+				45A102921FD939CA0032884A /* TutorialPresenter.swift */,
+				45A102991FD941600032884A /* TutorialViewController.swift */,
+				45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -305,51 +295,14 @@
 			path = Hints;
 			sourceTree = "<group>";
 		};
-		45A102971FD9402B0032884A /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				45A1028B1FD935AA0032884A /* HintPresenter.swift */,
-				45A1028D1FD937800032884A /* HintPresenterBase.swift */,
-				45A102921FD939CA0032884A /* TutorialPresenter.swift */,
-				45A102911FD939CA0032884A /* TutorialPresenterBase.swift */,
-				45A1029B1FD941CE0032884A /* TutorialViewControllerPresenter.swift */,
-			);
-			path = Presenters;
-			sourceTree = "<group>";
-		};
-		45A102981FD940390032884A /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				45A1028F1FD938860032884A /* HintPresenterBaseTests.swift */,
-				45A102951FD93AE60032884A /* TutorialPresenterBaseTests.swift */,
-			);
-			path = Presenters;
-			sourceTree = "<group>";
-		};
-		45B3AD511FDA0945005C590C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		45B3AD541FDA09EF005C590C /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				45A102991FD941600032884A /* TutorialViewController.swift */,
-				45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		45E9EEBB200E7D8C00CEEBFF /* Storyboards */ = {
+		45E9EEBB200E7D8C00CEEBFF /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
 				4537E8931FD3DFAC0007501C /* Main.storyboard */,
 				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
 			);
-			path = Storyboards;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		45E9EEBC200E7DAA00CEEBFF /* Supporting Files */ = {
@@ -514,10 +467,8 @@
 			files = (
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
 				45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */,
-				45A1028E1FD937800032884A /* HintPresenterBase.swift in Sources */,
 				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
 				45A102761FD921E70032884A /* LocalizedTutorial.swift in Sources */,
-				45A102931FD939CA0032884A /* TutorialPresenterBase.swift in Sources */,
 				458021EB1FD7B87E00CE157F /* Hint.swift in Sources */,
 				4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */,
 				457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */,
@@ -526,7 +477,6 @@
 				45A1029A1FD941600032884A /* TutorialViewController.swift in Sources */,
 				458021E91FD7B61D00CE157F /* Displayable.swift in Sources */,
 				4562D1B81FDE5D13000069F3 /* FadeInTransition.swift in Sources */,
-				45A1029C1FD941CE0032884A /* TutorialViewControllerPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,9 +498,7 @@
 				4512F3681FD886880062AEB7 /* DisplayableTests.swift in Sources */,
 				45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */,
 				45A102741FD8A4FA0032884A /* StandardTutorialTests.swift in Sources */,
-				45A102961FD93AE60032884A /* TutorialPresenterBaseTests.swift in Sources */,
 				45A102781FD925F70032884A /* LocalizedTutorialTests.swift in Sources */,
-				45A102901FD938860032884A /* HintPresenterBaseTests.swift in Sources */,
 				45A1026F1FD892560032884A /* TutorialTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

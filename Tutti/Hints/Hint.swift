@@ -9,19 +9,14 @@
 /*
  
  A hint is a simple message that is intended to be displayed
- only once. It is perfect for quick onboarding, like showing
- users how a certain part of a UI works.
- 
- `StandardHint` provides you with a simple implementation of
- this protocol.
+ once. It's perfect for quick onboarding, like showing users
+ how certain parts of a UI works.
  
  */
 
 import Foundation
 
 public protocol Hint: Displayable {
-    
-    weak var presenter: HintPresenter? { get set }
     
     var text: String { get }
 }

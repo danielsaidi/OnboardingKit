@@ -1,5 +1,5 @@
 //
-//  Hint.swift
+//  StandardHint.swift
 //  Tutti
 //
 //  Created by Daniel Saidi on 2017-12-03.
@@ -9,7 +9,7 @@
 /*
  
  This is a very simple implementation of the `Hint` protocol.
- You can use it as it is or as a base class for custom hints.
+ Use it as is, or as a base class for your own custom hints.
  
  */
 

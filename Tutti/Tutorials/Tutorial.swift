@@ -8,18 +8,16 @@
 
 /*
 
- Unlike hints, tutorials are single- or multi-page guides. A
- tutorial can be used to introduce users to an entire app or
- to features that requires more info than just a single line
- of text. Like hints, tutorials are intended to be displayed
- only once.
+ A tutorial is a single or multi page guide that is intended
+ to display more information than a quick hint. It's perfect
+ for a rich modal screen or a multi page guide that explains
+ how an entire app works. Like hints, tutorials are intended
+ to be displayed once.
  
- The `resourceName(for:)` function should return valid names
- for localized strings, images etc. The function should also
- take the current page into consideration.
- 
- `StandardTutorial` provides you with a small implementation
- of this protocol.
+ When implementing this protocol, `resourceName(for)` should
+ return valid localized strings keys, image names etc. While
+ the example app only uses localized strings and images, you
+ can use this to identify movie clips, Lottie animations etc.
  
  */
 
@@ -27,8 +25,6 @@ import Foundation
 
 public protocol Tutorial: Displayable {
     
-    weak var presenter: TutorialPresenter? { get set }
-
     var currentPageIndex: Int { get set }
     var pageCount: Int { get }
     

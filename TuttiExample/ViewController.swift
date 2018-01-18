@@ -93,24 +93,27 @@ fileprivate extension ViewController {
     
     func showHint(forUser userId: String?, from view: UIView) {
         let hint = getHint(forUser: userId)
-        if hint.hasBeenDisplayed { return alertAlreadyDisplayedHint() }
-        _ = hintPresenter.present(hint: hint, in: self, from: view)
+        if !hintPresenter.present(hint: hint, in: self, from: view) {
+            alertAlreadyDisplayedHint()
+        }
     }
     
     func showTutorial(forUser userId: String?, from view: UIView) {
         let tutorial = getTutorial(forUser: userId)
-        if tutorial.hasBeenDisplayed { return alertAlreadyDisplayedTutorial() }
-        let vc = TutorialViewController(nibName: nil, bundle: nil)
-        tutorialPresenter = TutorialViewControllerPresenter(vc: vc)
-        _ = tutorialPresenter?.present(tutorial: tutorial, in: self, from: view)
+        let presenter = TutorialViewController(nibName: nil, bundle: nil)
+        if !presenter.present(tutorial: tutorial, in: self, from: view) {
+            alertAlreadyDisplayedTutorial()
+        }
+        tutorialPresenter = presenter
     }
     
     func showLocalizedTutorial(forUser userId: String?, from view: UIView) {
         let tutorial = getLocalizedTutorial(forUser: userId)
-        if tutorial.hasBeenDisplayed { return alertAlreadyDisplayedTutorial() }
-        let vc = TutorialViewController(nibName: nil, bundle: nil)
-        tutorialPresenter = TutorialViewControllerPresenter(vc: vc)
-        _ = tutorialPresenter?.present(tutorial: tutorial, in: self, from: view)
+        let presenter = TutorialViewController(nibName: nil, bundle: nil)
+        if !presenter.present(tutorial: tutorial, in: self, from: view) {
+            alertAlreadyDisplayedTutorial()
+        }
+        tutorialPresenter = presenter
     }
 }
 
