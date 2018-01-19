@@ -72,7 +72,7 @@ fileprivate extension ViewController {
     }
     
     func getTutorial(forUser userId: String?) -> Tutorial {
-        return StandardTutorial(identifier: "tutorial", pageCount: 1, userId: userId)
+        return StandardTutorial(identifier: "tutorial", pageCount: 3, userId: userId)
     }
 
     func resetDisplayState() {

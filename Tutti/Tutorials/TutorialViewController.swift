@@ -25,7 +25,7 @@
 
 import UIKit
 
-open class TutorialViewController: UIViewController, TutorialPresenter, UICollectionViewDataSource, UICollectionViewDelegate {
+open class TutorialViewController: UIViewController, TutorialPresenter, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
     // MARK: View Controller Lifecycle
@@ -44,8 +44,12 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     open var tutorial: Tutorial?
     
-    fileprivate var cellReuseIdentifier: String {
+    fileprivate var cellClassName: String {
         return String(describing: cellType)
+    }
+    
+    fileprivate var cellReuseIdentifier: String {
+        return cellClassName
     }
     
     
@@ -55,11 +59,14 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     @IBOutlet open weak var collectionView: UICollectionView? {
         didSet {
-            guard let view = collectionView else { return }
-            view.delegate = self
-            view.dataSource = self
-            let nib = UINib(nibName: cellReuseIdentifier, bundle: nil)
-            view.register(nib, forCellWithReuseIdentifier: cellReuseIdentifier)
+            collectionView?.delegate = self
+            collectionView?.dataSource = self
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            collectionView?.collectionViewLayout = layout
+            let reuseId = cellReuseIdentifier
+            let nib = UINib(nibName: cellClassName, bundle: nil)
+            collectionView?.register(nib, forCellWithReuseIdentifier: reuseId)
         }
     }
     
@@ -97,27 +104,32 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     // MARK: - Update Functions
     
     open func update() {
-        guard let tutorial = tutorial else { return }
-        update(button: closeButton, buttonId: "close", for: tutorial)
-        update(button: previousButton, buttonId: "previous", for: tutorial)
-        update(button: nextButton, buttonId: "next", for: tutorial)
-        previousButton?.isHidden = tutorial.isFirstPage
-        nextButton?.isHidden = tutorial.isLastPage
+        updateCollectionView()
+        updatePageControl()
+        update(button: closeButton, buttonId: "close")
+        update(button: previousButton, buttonId: "previous")
+        update(button: nextButton, buttonId: "next")
+        previousButton?.isHidden = tutorial?.isFirstPage ?? true
+        nextButton?.isHidden = tutorial?.isLastPage ?? true
     }
     
-    open func update(button: UIButton?, buttonId: String, for tutorial: Tutorial) {
+    open func update(button: UIButton?, buttonId: String) {
+        guard let tutorial = tutorial else { return }
         let key = tutorial.resourceName(for: buttonId)
         button?.setTitle(translate(key), for: .normal)
     }
     
-    open func update(pageControl: UIPageControl?, for tutorial: Tutorial) {
+    open func updateCollectionView() {
+        collectionView?.showsHorizontalScrollIndicator = false
+        collectionView?.showsVerticalScrollIndicator = false
+        collectionView?.isPagingEnabled = true
+    }
+    
+    open func updatePageControl() {
+        guard let tutorial = tutorial else { return }
         pageControl?.isHidden = tutorial.pageCount < 2
         pageControl?.currentPage = tutorial.currentPageIndex
         pageControl?.numberOfPages = tutorial.pageCount
-    }
-    
-    open func update(scrollView: UIScrollView?, for tutorial: Tutorial) {
-        scrollView?.isPagingEnabled = true
     }
     
     

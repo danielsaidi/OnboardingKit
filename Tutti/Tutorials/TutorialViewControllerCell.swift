@@ -19,11 +19,7 @@
  If you want to subclass this class (to be able to show more
  information), just create a custom class that inherits this
  class (together with a xib), then set the view controller's
- `cellNibName` property to the name of your custom class.
- 
- If you want to use a completely different cell class in the
- app, override the `collectionView(cellForItemAt:)` function
- and return any cell you like.
+ `cellType` property to your custom class type.
  
  */
 
