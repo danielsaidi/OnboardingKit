@@ -22,9 +22,9 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     fileprivate let sections: [(title: String, options: [ListOption])] = [
-        ("Hint", [.hint]),
-        ("Basic tutorial", [.tutorial(userId: nil), .tutorial(userId: "1"), .tutorial(userId: "2")]),
-        ("Localized tutorial", [.localizedTutorial(userId: nil), .localizedTutorial(userId: "1"), .localizedTutorial(userId: "2")]),
+        ("Hint", [.hint(userId: nil), .hint(userId: "user")]),
+        ("Tutorial", [.tutorial(userId: nil), .tutorial(userId: "user")]),
+        ("Localized tutorial", [.localizedTutorial(userId: nil), .localizedTutorial(userId: "user")]),
         ("Reset", [.reset])
     ]
     
@@ -78,14 +78,11 @@ fileprivate extension ViewController {
     func resetDisplayState() {
         let displayables: [Displayable] = [
             getHint(forUser: nil),
-            getHint(forUser: "1"),
-            getHint(forUser: "2"),
+            getHint(forUser: "user"),
             getTutorial(forUser: nil),
-            getTutorial(forUser: "1"),
-            getTutorial(forUser: "2"),
+            getTutorial(forUser: "user"),
             getLocalizedTutorial(forUser: nil),
-            getLocalizedTutorial(forUser: "1"),
-            getLocalizedTutorial(forUser: "2")
+            getLocalizedTutorial(forUser: "user")
         ]
         displayables.forEach { $0.hasBeenDisplayed = false }
         alert(title: "Done!", message: "All hints and tutorials are now set to not displayed")
@@ -159,9 +156,8 @@ extension ViewController: UITableViewDelegate {
         let option = listOption(at: indexPath)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         switch option {
-        case .hint: showHint(forUser: nil, from: cell)
+        case .hint(let userId): showHint(forUser: userId, from: cell)
         case .reset: resetDisplayState()
-        case .spacer: break
         case .tutorial(let userId): showTutorial(forUser: userId, from: cell)
         case .localizedTutorial(let userId): showLocalizedTutorial(forUser: userId, from: cell)
         }

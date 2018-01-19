@@ -10,9 +10,8 @@ import UIKit
 
 enum ListOption {
     case
-    hint,
+    hint(userId: String?),
     reset,
-    spacer,
     tutorial(userId: String?),
     localizedTutorial(userId: String?)
 }
@@ -24,19 +23,29 @@ extension ListOption {
     
     var title: String {
         switch self {
-        case .hint: return "Show a quick hint"
-        case .reset: return "Reset display state"
-        case .spacer: return ""
-        case .tutorial: return "Show a quick tutorial\(userSuffix)"
-        case .localizedTutorial: return "Show a localized tutorial\(userSuffix)"
+        case .hint: return "Show hint\(userSuffix)"
+        case .reset: return "Reset display memory"
+        case .tutorial: return "Show tutorial\(userSuffix)"
+        case .localizedTutorial: return "Show localized tutorial\(userSuffix)"
         }
     }
     
     var userSuffix: String {
         switch self {
-        case .tutorial(let userId): return userId == nil ? "" : "for user \(userId ?? "")"
-        case .localizedTutorial(let userId): return userId == nil ? "" : "for user \(userId ?? "")"
+        case .hint(let userId): return userSuffix(for: userId)
+        case .tutorial(let userId): return userSuffix(for: userId)
+        case .localizedTutorial(let userId): return userSuffix(for: userId)
         default: return ""
         }
+    }
+}
+
+
+// MARK: - Private Functions
+
+fileprivate extension ListOption {
+    
+    func userSuffix(for userId: String?) -> String {
+        return userId == nil ? "" : " for \"\(userId ?? "")\""
     }
 }
