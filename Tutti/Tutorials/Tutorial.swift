@@ -26,6 +26,7 @@ import Foundation
 public protocol Tutorial: Onboarding {
     
     var currentPageIndex: Int { get set }
+    var keySegmentSeparator: String { get }
     var pageCount: Int { get }
     
     func loadNextPage() -> Bool
@@ -46,5 +47,25 @@ public extension Tutorial {
     public var isLastPage: Bool {
         guard pageCount > 0 else { return true }
         return currentPageIndex == pageCount - 1
+    }
+}
+
+
+// MARK: - Public Functions
+
+public extension Tutorial {
+    
+    public func string(for key: String, at pageIndex: Int) -> String {
+        var page = pageIndex
+        
+        while page > 0 {
+            let resource = resourceName(for: key, at: page)
+            if translationExists(for: resource) {
+                return translate(resource)
+            }
+            page -= 1
+        }
+        
+        return ""
     }
 }

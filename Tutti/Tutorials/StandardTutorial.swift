@@ -35,15 +35,12 @@ open class StandardTutorial: Tutorial {
     
     // MARK: - Properties
     
-    public weak var presenter: TutorialPresenter?
-    
     public let identifier: String
+    public let keySegmentSeparator: String
     public var pageCount: Int
     public let userId: String?
     
     public var currentPageIndex = 0
-    
-    fileprivate let keySegmentSeparator: String
     
     
     // MARK: Public functions

@@ -10,44 +10,29 @@ import Quick
 import Nimble
 import Tutti
 
-private class TestTutorial: Tutorial {
-    
-    init(currentPage: Int, pageCount: Int) {
-        self.currentPageIndex = currentPage
-        self.pageCount = pageCount
-    }
-    
-    let identifier = "foo"
-    let userId: String? = "bar"
-    
-    var currentPageIndex: Int
-    var pageCount: Int
-    
-    func loadNextPage() -> Bool { return false }
-    func loadPreviousPage() -> Bool { return false }
-    func resourceName(for key: String, at pageIndex: Int) -> String { return "" }
-}
-
-
 class TutorialTests: QuickSpec {
     
     override func spec() {
         
+        func getTutorial(_ pageCount: Int, _ pageIndex: Int) -> Tutorial {
+            let tutorial = StandardTutorial(identifier: "foo", pageCount: pageCount)
+            tutorial.currentPageIndex = pageIndex
+            return tutorial
+        }
+        
+        
         describe("is first page") {
             
             it("is true if page count is zero") {
-                let tutorial = TestTutorial(currentPage: 0, pageCount: 0)
-                expect(tutorial.isFirstPage).to(beTrue())
+                expect(getTutorial(0, 0).isFirstPage).to(beTrue())
             }
             
             it("is true if current page index is zero") {
-                let tutorial = TestTutorial(currentPage: 0, pageCount: 1)
-                expect(tutorial.isFirstPage).to(beTrue())
+                expect(getTutorial(1, 0).isFirstPage).to(beTrue())
             }
             
             it("is false if current page index is not zero") {
-                let tutorial = TestTutorial(currentPage: 1, pageCount: 1)
-                expect(tutorial.isFirstPage).to(beFalse())
+                expect(getTutorial(2, 1).isFirstPage).to(beFalse())
             }
         }
         
@@ -55,23 +40,19 @@ class TutorialTests: QuickSpec {
         describe("is last page") {
             
             it("is true if page count is zero") {
-                let tutorial = TestTutorial(currentPage: 0, pageCount: 0)
-                expect(tutorial.isLastPage).to(beTrue())
+                expect(getTutorial(0, 0).isLastPage).to(beTrue())
             }
             
             it("is true if current page is only page") {
-                let tutorial = TestTutorial(currentPage: 0, pageCount: 1)
-                expect(tutorial.isLastPage).to(beTrue())
+                expect(getTutorial(1, 0).isLastPage).to(beTrue())
+            }
+            
+            it("is true if current page index is last") {
+                expect(getTutorial(2, 1).isLastPage).to(beTrue())
             }
             
             it("is false if current page index is not last") {
-                let tutorial = TestTutorial(currentPage: 0, pageCount: 2)
-                expect(tutorial.isLastPage).to(beFalse())
-            }
-            
-            it("is false if current page index is last") {
-                let tutorial = TestTutorial(currentPage: 1, pageCount: 2)
-                expect(tutorial.isLastPage).to(beTrue())
+                expect(getTutorial(2, 0).isLastPage).to(beFalse())
             }
         }
     }
