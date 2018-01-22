@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Tutti.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4537E88C1FD3DFAC0007501C"
+               BuildableName = "TuttiExample.app"
+               BlueprintName = "TuttiExample"
+               ReferencedContainer = "container:Tutti.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
