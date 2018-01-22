@@ -18,11 +18,13 @@ class StandardHintTests: QuickSpec {
             
             it("sets all properties") {
                 let hint = StandardHint(
-                    identifier: "foo",
+                    identifier: "hint",
+                    title: "foo",
                     text: "bar",
                     userId: "baz")
                 
-                expect(hint.identifier).to(equal("foo"))
+                expect(hint.identifier).to(equal("hint"))
+                expect(hint.title).to(equal("foo"))
                 expect(hint.text).to(equal("bar"))
                 expect(hint.userId).to(equal("baz"))
             }

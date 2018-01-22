@@ -18,5 +18,6 @@ import Foundation
 
 public protocol Hint: Onboarding {
     
+    var title: String { get }
     var text: String { get }
 }

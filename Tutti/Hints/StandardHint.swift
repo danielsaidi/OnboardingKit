@@ -9,7 +9,6 @@
 /*
  
  This is a very simple implementation of the `Hint` protocol.
- Use it as is, or as a base class for your own custom hints.
  
  */
 
@@ -22,9 +21,11 @@ open class StandardHint: Hint {
     
     public init(
         identifier: String,
+        title: String,
         text: String,
         userId: String? = nil) {
         self.identifier = identifier
+        self.title = title
         self.text = text
         self.userId = userId
     }
@@ -36,5 +37,6 @@ open class StandardHint: Hint {
     
     public let identifier: String
     public let text: String
+    public let title: String
     public let userId: String?
 }

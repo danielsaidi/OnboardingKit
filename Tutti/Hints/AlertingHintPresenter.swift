@@ -39,7 +39,7 @@ public class AlertingHintPresenter: HintPresenter {
 fileprivate extension AlertingHintPresenter {
     
     func alert(_ hint: Hint, in vc: UIViewController) {
-        let alert = UIAlertController(title: nil, message: hint.text, preferredStyle: .alert)
+        let alert = UIAlertController(title: hint.title, message: hint.text, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(ok)
         vc.present(alert, animated: true, completion: nil)

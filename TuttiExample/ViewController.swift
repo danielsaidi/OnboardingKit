@@ -63,7 +63,7 @@ fileprivate extension ViewController {
     }
     
     func getHint(forUser userId: String?) -> Hint {
-        return StandardHint(identifier: "hint", text: "This is a quick hint. It will only be displayed once.", userId: userId)
+        return StandardHint(identifier: "hint", title: "Hint, hint!", text: "This is a quick hint. It will only be displayed once.", userId: userId)
     }
     
     func getLocalizedTutorial(forUser userId: String?) -> Tutorial {
