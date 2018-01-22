@@ -74,15 +74,15 @@
                 <constraint firstItem="dAw-7g-M10" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="1Pe-sC-H9b"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zZQ-LN-m5x" secondAttribute="bottom" constant="20" id="3Ic-g7-bve"/>
                 <constraint firstItem="Qto-vF-Flo" firstAttribute="centerX" secondItem="pzv-lu-gK5" secondAttribute="centerX" id="7zJ-td-DPQ"/>
+                <constraint firstItem="zZQ-LN-m5x" firstAttribute="centerY" secondItem="Qto-vF-Flo" secondAttribute="centerY" id="A70-wb-xly"/>
                 <constraint firstItem="zZQ-LN-m5x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="K59-HW-g7W"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pzv-lu-gK5" secondAttribute="trailing" id="Lrp-Um-zW9"/>
-                <constraint firstItem="Qto-vF-Flo" firstAttribute="centerY" secondItem="zZQ-LN-m5x" secondAttribute="centerY" id="OvU-6o-Bu3"/>
-                <constraint firstItem="zZQ-LN-m5x" firstAttribute="top" secondItem="pzv-lu-gK5" secondAttribute="bottom" constant="20" id="Pg4-hM-ziv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dAw-7g-M10" secondAttribute="trailing" constant="20" id="Qmo-9j-ojJ"/>
                 <constraint firstItem="pzv-lu-gK5" firstAttribute="top" secondItem="dAw-7g-M10" secondAttribute="bottom" constant="20" id="Td0-VM-BzI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BhW-er-PVL" secondAttribute="trailing" constant="20" id="XGe-G2-0H6"/>
-                <constraint firstItem="BhW-er-PVL" firstAttribute="bottom" secondItem="zZQ-LN-m5x" secondAttribute="bottom" id="ZgV-Tf-UY3"/>
+                <constraint firstItem="BhW-er-PVL" firstAttribute="centerY" secondItem="Qto-vF-Flo" secondAttribute="centerY" id="l3l-bc-f0m"/>
                 <constraint firstItem="pzv-lu-gK5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qLD-00-Ft3"/>
+                <constraint firstItem="Qto-vF-Flo" firstAttribute="top" secondItem="pzv-lu-gK5" secondAttribute="bottom" constant="20" id="yL6-wD-Jtr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="24.5" y="51.5"/>

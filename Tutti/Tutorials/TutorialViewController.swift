@@ -119,11 +119,9 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     open func update() {
         updateCollectionView()
         updatePageControl()
-        update(button: closeButton, buttonId: "close")
-        update(button: previousButton, buttonId: "previous")
-        update(button: nextButton, buttonId: "next")
-        previousButton?.isHidden = tutorial?.isFirstPage ?? true
-        nextButton?.isHidden = tutorial?.isLastPage ?? true
+        updateNextButton()
+        updatePreviousButton()
+        updateCloseButton()
     }
     
     open func update(button: UIButton?, buttonId: String) {
@@ -133,10 +131,19 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
         button?.setTitle(translate(key), for: .normal)
     }
     
+    open func updateCloseButton() {
+        update(button: closeButton, buttonId: "close")
+    }
+    
     open func updateCollectionView() {
         collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.isPagingEnabled = true
+    }
+    
+    open func updateNextButton() {
+        nextButton?.isHidden = tutorial?.isLastPage ?? true
+        update(button: nextButton, buttonId: "next")
     }
     
     open func updatePageControl() {
@@ -144,6 +151,11 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
         pageControl?.isHidden = tutorial.pageCount < 2
         pageControl?.currentPage = tutorial.currentPageIndex
         pageControl?.numberOfPages = tutorial.pageCount
+    }
+    
+    open func updatePreviousButton() {
+        previousButton?.isHidden = tutorial?.isFirstPage ?? true
+        update(button: previousButton, buttonId: "previous")
     }
     
     open func updateTutorial(with scrollView: UIScrollView) {
