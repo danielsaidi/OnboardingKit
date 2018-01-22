@@ -218,10 +218,13 @@
 			children = (
 				4537E88F1FD3DFAC0007501C /* AppDelegate.swift */,
 				4537E8961FD3DFAC0007501C /* Assets.xcassets */,
+				4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */,
+				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
 				45E9EEB9200E79FA00CEEBFF /* ListOption.swift */,
-				4562D1B11FDDCC2F000069F3 /* Presenters */,
-				45E9EEBB200E7D8C00CEEBFF /* UI */,
+				4537E8931FD3DFAC0007501C /* Main.storyboard */,
 				45E9EEBC200E7DAA00CEEBFF /* Supporting Files */,
+				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
+				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
 				4537E8911FD3DFAC0007501C /* ViewController.swift */,
 			);
 			path = TuttiExample;
@@ -261,14 +264,6 @@
 			path = Tutorials;
 			sourceTree = "<group>";
 		};
-		4562D1B11FDDCC2F000069F3 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */,
-			);
-			path = Presenters;
-			sourceTree = "<group>";
-		};
 		4562D1B61FDE5CEE000069F3 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,17 +297,6 @@
 				45A102711FD8A2E60032884A /* StandardHintTests.swift */,
 			);
 			path = Hints;
-			sourceTree = "<group>";
-		};
-		45E9EEBB200E7D8C00CEEBFF /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
-				4537E8931FD3DFAC0007501C /* Main.storyboard */,
-				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
-				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		45E9EEBC200E7DAA00CEEBFF /* Supporting Files */ = {
