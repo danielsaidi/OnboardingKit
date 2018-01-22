@@ -42,6 +42,8 @@
 		45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102921FD939CA0032884A /* TutorialPresenter.swift */; };
 		45A1029A1FD941600032884A /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102991FD941600032884A /* TutorialViewController.swift */; };
 		45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */; };
+		45CE37A520163F8A003384C2 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 45CE37A320163F8A003384C2 /* Cartfile */; };
+		45CE37A620163F8A003384C2 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 45CE37A420163F8A003384C2 /* Cartfile.private */; };
 		45E9EEBA200E79FA00CEEBFF /* ListOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9EEB9200E79FA00CEEBFF /* ListOption.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +134,8 @@
 		45A102921FD939CA0032884A /* TutorialPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
 		45A102991FD941600032884A /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewControllerCell.swift; sourceTree = "<group>"; };
+		45CE37A320163F8A003384C2 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		45CE37A420163F8A003384C2 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
 		45E9EEB9200E79FA00CEEBFF /* ListOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -314,6 +318,8 @@
 		45E9EEBC200E7DAA00CEEBFF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				45CE37A320163F8A003384C2 /* Cartfile */,
+				45CE37A420163F8A003384C2 /* Cartfile.private */,
 				4537E89B1FD3DFAC0007501C /* Info.plist */,
 				45A102841FD92CE50032884A /* Localizable.strings */,
 			);
@@ -450,8 +456,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45CE37A520163F8A003384C2 /* Cartfile in Resources */,
 				4587F64220122EE30040E0D2 /* TutorialViewControllerCell.xib in Resources */,
 				45A102821FD92CE50032884A /* Localizable.strings in Resources */,
+				45CE37A620163F8A003384C2 /* Cartfile.private in Resources */,
 				4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */,
 				4537E89A1FD3DFAC0007501C /* LaunchScreen.storyboard in Resources */,
 				4537E8971FD3DFAC0007501C /* Assets.xcassets in Resources */,
