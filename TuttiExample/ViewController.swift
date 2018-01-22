@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EasyTipView
 import Tutti
 
 class ViewController: UIViewController {
