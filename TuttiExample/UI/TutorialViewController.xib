@@ -21,14 +21,13 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" alpha="0.59999999999999998" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAw-7g-M10">
-                    <rect key="frame" x="278" y="40" width="77" height="36"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                    <state key="normal" title="IB: Close">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAw-7g-M10">
+                    <rect key="frame" x="315" y="40" width="40" height="40"/>
+                    <state key="normal" image="button_close">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -36,7 +35,7 @@
                     </connections>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="pzv-lu-gK5">
-                    <rect key="frame" x="0.0" y="96" width="375" height="495"/>
+                    <rect key="frame" x="0.0" y="100" width="375" height="490"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mMm-xw-0SO">
                         <size key="itemSize" width="50" height="50"/>
@@ -45,20 +44,18 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZQ-LN-m5x">
-                    <rect key="frame" x="20" y="611" width="66" height="36"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                    <state key="normal" title="IB: Prev">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZQ-LN-m5x">
+                    <rect key="frame" x="20" y="610" width="22" height="37"/>
+                    <state key="normal" image="button_previous">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="showPreviousPage:" destination="-1" eventType="touchUpInside" id="xHh-02-MJb"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhW-er-PVL">
-                    <rect key="frame" x="286" y="611" width="69" height="36"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                    <state key="normal" title="IB: Next">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhW-er-PVL">
+                    <rect key="frame" x="333" y="610" width="22" height="37"/>
+                    <state key="normal" image="button_next">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -66,10 +63,10 @@
                     </connections>
                 </button>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Qto-vF-Flo">
-                    <rect key="frame" x="168" y="611" width="39" height="37"/>
+                    <rect key="frame" x="168" y="610" width="39" height="37"/>
                 </pageControl>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="dAw-7g-M10" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="1Pe-sC-H9b"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zZQ-LN-m5x" secondAttribute="bottom" constant="20" id="3Ic-g7-bve"/>
@@ -88,4 +85,9 @@
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="button_close" width="40" height="40"/>
+        <image name="button_next" width="22" height="37"/>
+        <image name="button_previous" width="22" height="37"/>
+    </resources>
 </document>
