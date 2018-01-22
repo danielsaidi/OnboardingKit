@@ -6,19 +6,27 @@
   Copyright © 2017 Daniel Saidi. All rights reserved.
 */
 
-"tutorial_basic_0_title" = "Welcome to this app";
-"tutorial_basic_0_text" = "If you add more pages to this tutorial and add more translations in Localizable.strings, you'll have yourself a multi-page tutorial.";
-"tutorial_basic_0_close" = "X";
+"tutorial_standard_0_title" = "Standard tutorial";
+"tutorial_standard_0_text" = "This is a standard tutorial. It requires manual setup, but will translate components using localized strings.";
+"tutorial_standard_0_close" = "X";
+"tutorial_standard_0_previous" = "<";
+"tutorial_standard_0_next" = ">";
 
-"tutorial_test_onePage_0_title" = "Title";
-"tutorial_test_sixPage_0_title" = "Title 1";
-"tutorial_test_sixPage_1_title" = "Title 2";
-"tutorial_test_sixPage_2_title" = "Title 3";
-"tutorial_test_sixPage_3_title" = "Title 4";
-"tutorial_test_sixPage_4_title" = "Title 5";
-"tutorial_test_sixPage_5_title" = "Title 6";
-"tutorial*test*customKeySegmentSeparator*0*title" = "Title 1";
-"tutorial*test*customKeySegmentSeparator*1*title" = "Title 2";
-"tutorial_test_customPageIndicator_0_foo" = "Title 1";
-"tutorial_test_customPageIndicator_1_foo" = "Title 2";
-"tutorial_test_customPageIndicator_2_foo" = "Title 3";
+"tutorial_standard_1_title" = "Manual page count";
+"tutorial_standard_1_text" = "If you add more pages in Localizable.strings, you must manually adjust the page count when creating the tutorial.";
+
+"tutorial_standard_2_title" = "That's it";
+"tutorial_standard_2_text" = "You have now seen all pages in this tutorial. Press the top right x to close the tutorial.";
+
+
+"tutorial_localized_0_title" = "Localized tutorial";
+"tutorial_localized_0_text" = "This is a localized tutorial. It will automatically configure itself using available localized keys.";
+"tutorial_localized_0_close" = "X";
+
+"tutorial_localized_1_title" = "Automatic page count";
+"tutorial_localized_1_text" = "If you add more pages in Localizable.strings, the tutorial will automatically set its page count to the correct value.";
+"tutorial_localized_1_close" = "X";
+
+"tutorial_localized_2_title" = "That's it";
+"tutorial_localized_2_text" = "You have now seen all pages in this tutorial. Press the top right x to close the tutorial.";
+"tutorial_localized_2_close" = "X";

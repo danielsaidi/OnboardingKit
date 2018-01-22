@@ -60,13 +60,9 @@ open class StandardTutorial: Tutorial {
         return true
     }
     
-    open func resourceName(for key: String) -> String {
-        return resourceName(for: key, pageIndex: currentPageIndex)
-    }
-    
-    open func resourceName(for key: String, pageIndex index: Int) -> String {
+    open func resourceName(for key: String, at pageIndex: Int) -> String {
         let key = key.trimmingCharacters(in: .whitespaces)
-        var segments = ["tutorial", identifier, "\(index)"]
+        var segments = ["tutorial", identifier, "\(pageIndex)"]
         if key.count > 0 { segments.append(key) }
         return segments.joined(separator: keySegmentSeparator)
     }

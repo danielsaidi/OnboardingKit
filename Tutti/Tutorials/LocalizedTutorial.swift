@@ -65,14 +65,14 @@ fileprivate extension LocalizedTutorial {
     
     func resolvePageCount() -> Int {
         var pageIndex = 0
-        while translationExists(for: resourceName(for: pageIndex)) {
+        while translationExists(for: resourceName(forPage: pageIndex)) {
             pageIndex += 1
         }
         return pageIndex
     }
     
-    func resourceName(for pageIndex: Int) -> String {
-        return resourceName(for: pageIndicationKey, pageIndex: pageIndex)
+    func resourceName(forPage index: Int) -> String {
+        return resourceName(for: pageIndicationKey, at: index)
     }
     
     func translationExists(for key: String) -> Bool {

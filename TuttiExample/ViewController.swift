@@ -68,11 +68,11 @@ fileprivate extension ViewController {
     }
     
     func getLocalizedTutorial(forUser userId: String?) -> Tutorial {
-        return LocalizedTutorial(identifier: "tutorial_l10n", userId: userId)
+        return LocalizedTutorial(identifier: "localized", userId: userId)
     }
     
     func getTutorial(forUser userId: String?) -> Tutorial {
-        return StandardTutorial(identifier: "tutorial", pageCount: 3, userId: userId)
+        return StandardTutorial(identifier: "standard", pageCount: 3, userId: userId)
     }
 
     func resetDisplayState() {

@@ -16,6 +16,13 @@
  add a `TutorialPageCell` xib to your app and tell it to use
  this class, then connect the outlets you want to use.
  
+ When update is called with a tutorial, the cell will update
+ the following components with their respective keys:
+ 
+ * Title label (key: "title")
+ * Text view (key: "text")
+ * Image view (key: "", which means the current page id)
+ 
  If you want to subclass this class (to be able to show more
  information), just create a custom class that inherits this
  class (together with a xib), then set the view controller's
@@ -37,25 +44,25 @@ open class TutorialViewControllerCell: UICollectionViewCell {
     
     // MARK: - Public Functions
     
-    open func update(with tutorial: Tutorial) {
-        update(titleLabel: titleLabel, for: tutorial)
-        update(textView: textView, for: tutorial)
-        update(imageView: imageView, for: tutorial)
+    open func update(with tutorial: Tutorial, at pageIndex: Int) {
+        update(titleLabel: titleLabel, for: tutorial, at: pageIndex)
+        update(textView: textView, for: tutorial, at: pageIndex)
+        update(imageView: imageView, for: tutorial, at: pageIndex)
     }
     
-    open func update(imageView: UIImageView?, for tutorial: Tutorial) {
-        let imageName = tutorial.resourceName(for: "")
+    open func update(imageView: UIImageView?, for tutorial: Tutorial, at pageIndex: Int) {
+        let imageName = tutorial.resourceName(for: "", at: pageIndex)
         let image = UIImage(named: imageName)
         imageView?.image = image
     }
     
-    open func update(textView: UITextView?, for tutorial: Tutorial) {
-        let key = tutorial.resourceName(for: "text")
+    open func update(textView: UITextView?, for tutorial: Tutorial, at pageIndex: Int) {
+        let key = tutorial.resourceName(for: "text", at: pageIndex)
         textView?.text = NSLocalizedString(key, comment: "")
     }
     
-    open func update(titleLabel: UILabel?, for tutorial: Tutorial) {
-        let key = tutorial.resourceName(for: "title")
+    open func update(titleLabel: UILabel?, for tutorial: Tutorial, at pageIndex: Int) {
+        let key = tutorial.resourceName(for: "title", at: pageIndex)
         titleLabel?.text = NSLocalizedString(key, comment: "")
     }
 }

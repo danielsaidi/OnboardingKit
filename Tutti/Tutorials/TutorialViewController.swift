@@ -44,6 +44,9 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     open var tutorial: Tutorial?
     
+    
+    // MARK: - Private Properties
+    
     fileprivate var cellClassName: String {
         return String(describing: cellType)
     }
@@ -84,6 +87,13 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
         dismiss(tutorial: tutorial)
     }
     
+    @IBAction func showNextPage(_ sender: Any) {
+        
+    }
+    
+    @IBAction func showPreviousPage(_ sender: Any) {
+    }
+    
     
     // MARK: - TutorialPresenter Functions
     
@@ -115,7 +125,8 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     open func update(button: UIButton?, buttonId: String) {
         guard let tutorial = tutorial else { return }
-        let key = tutorial.resourceName(for: buttonId)
+        let index = tutorial.currentPageIndex
+        let key = tutorial.resourceName(for: buttonId, at: index)
         button?.setTitle(translate(key), for: .normal)
     }
     
@@ -151,9 +162,16 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(
-            withReuseIdentifier: cellReuseIdentifier,
-            for: indexPath)
+        let id = cellReuseIdentifier
+        return collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard
+            let tutorial = tutorial,
+            let cell = cell as? TutorialViewControllerCell
+            else { return }
+        cell.update(with: tutorial, at: indexPath.row)
     }
     
     
@@ -173,13 +191,10 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
 
 extension TutorialViewController: UIScrollViewDelegate {
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = scrollView.currentPage
-        if page != tutorial?.currentPageIndex {
-            tutorial?.currentPageIndex = page
-            pageControl?.currentPage = page
-            update()
-        }
+        tutorial?.currentPageIndex = page
+        update()
     }
 }
 
