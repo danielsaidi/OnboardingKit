@@ -31,6 +31,7 @@ class StandardTutorialTests: QuickSpec {
                 keySegmentSeparator: keySegmentSeparator)
         }
         
+        
         describe("creating a standard tutorial") {
             
             it("sets all properties") {
@@ -92,7 +93,30 @@ class StandardTutorialTests: QuickSpec {
         
         describe("resource name") {
             
-            it("omits empty key") {
+            it("ignores empty key") {
+                let name = createTutorial().resourceName(for: "")
+                expect(name).to(equal("tutorial_foo"))
+            }
+            
+            it("adds non-empty key") {
+                let name = createTutorial().resourceName(for: "bar")
+                expect(name).to(equal("tutorial_foo_bar"))
+            }
+            
+            it("applies current page index") {
+                let name = createTutorial().resourceName(for: "bar")
+                expect(name).to(equal("tutorial_foo_bar"))
+            }
+            
+            it("uses custom key segment separator") {
+                let name = createTutorial(keySegmentSeparator: "===").resourceName(for: "bar")
+                expect(name).to(equal("tutorial===foo===bar"))
+            }
+        }
+        
+        describe("resource name at page index") {
+            
+            it("ignores empty key") {
                 let tutorial = createTutorial()
                 let name = tutorial.resourceName(for: "", at: 0)
                 expect(name).to(equal("tutorial_foo_0"))

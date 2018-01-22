@@ -30,6 +30,7 @@ public protocol Tutorial: Onboarding {
     
     func loadNextPage() -> Bool
     func loadPreviousPage() -> Bool
+    func resourceName(for key: String) -> String
     func resourceName(for key: String, at pageIndex: Int) -> String
 }
 
@@ -70,7 +71,6 @@ public extension Tutorial {
     
     public func string(for key: String, at pageIndex: Int) -> String {
         var page = pageIndex
-        
         while page > 0 {
             let resource = resourceName(for: key, at: page)
             if translationExists(for: resource) {
