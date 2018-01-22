@@ -8,15 +8,9 @@
 
 "tutorial_standard_0_title" = "Standard tutorial";
 "tutorial_standard_0_text" = "This is a standard tutorial. It requires manual setup, but will translate components using localized strings.";
-"tutorial_standard_0_close" = "X";
-"tutorial_standard_0_previous" = "<";
-"tutorial_standard_0_next" = ">";
 
 "tutorial_standard_1_title" = "Manual page count";
 "tutorial_standard_1_text" = "If you add more pages in Localizable.strings, you must manually adjust the page count when creating the tutorial.";
-"tutorial_standard_1_close" = "X";
-"tutorial_standard_1_previous" = "<";
-"tutorial_standard_1_next" = ">";
 
 "tutorial_standard_2_title" = "That's it";
 "tutorial_standard_2_text" = "You have now seen all pages in this tutorial. Press the top right x to close the tutorial.";
@@ -24,15 +18,12 @@
 
 "tutorial_localized_0_title" = "Localized tutorial";
 "tutorial_localized_0_text" = "This is a localized tutorial. It will automatically configure itself using available localized keys.";
-"tutorial_localized_0_close" = "X";
 
 "tutorial_localized_1_title" = "Automatic page count";
 "tutorial_localized_1_text" = "If you add more pages in Localizable.strings, the tutorial will automatically set its page count to the correct value.";
-"tutorial_localized_1_close" = "X";
 
 "tutorial_localized_2_title" = "That's it";
 "tutorial_localized_2_text" = "You have now seen all pages in this tutorial. Press the top right x to close the tutorial.";
-"tutorial_localized_2_close" = "X";
 
 
 /* Test data */

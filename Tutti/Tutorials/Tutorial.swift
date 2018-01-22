@@ -63,22 +63,3 @@ public extension Tutorial {
         return translate(key) != key
     }
 }
-
-
-// MARK: - Public Functions
-
-public extension Tutorial {
-    
-    public func string(for key: String, at pageIndex: Int) -> String {
-        var page = pageIndex
-        while page > 0 {
-            let resource = resourceName(for: key, at: page)
-            if translationExists(for: resource) {
-                return translate(resource)
-            }
-            page -= 1
-        }
-        
-        return ""
-    }
-}

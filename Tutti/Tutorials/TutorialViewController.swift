@@ -124,16 +124,7 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
         updateCloseButton()
     }
     
-    open func update(button: UIButton?, buttonId: String) {
-        guard let tutorial = tutorial else { return }
-        let index = tutorial.currentPageIndex
-        let key = tutorial.resourceName(for: buttonId, at: index)
-        button?.setTitle(tutorial.translate(key), for: .normal)
-    }
-    
-    open func updateCloseButton() {
-        update(button: closeButton, buttonId: "close")
-    }
+    open func updateCloseButton() { }
     
     open func updateCollectionView() {
         collectionView?.showsHorizontalScrollIndicator = false
@@ -143,7 +134,6 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     open func updateNextButton() {
         nextButton?.isHidden = tutorial?.isLastPage ?? true
-        update(button: nextButton, buttonId: "next")
     }
     
     open func updatePageControl() {
@@ -155,7 +145,6 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     open func updatePreviousButton() {
         previousButton?.isHidden = tutorial?.isFirstPage ?? true
-        update(button: previousButton, buttonId: "previous")
     }
     
     open func updateTutorial(with scrollView: UIScrollView) {
