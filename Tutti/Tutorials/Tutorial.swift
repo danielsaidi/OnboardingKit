@@ -30,7 +30,6 @@ public protocol Tutorial: Onboarding {
     
     func loadNextPage() -> Bool
     func loadPreviousPage() -> Bool
-    func resourceName(for key: String) -> String
     func resourceName(for key: String, at pageIndex: Int) -> String
 }
 

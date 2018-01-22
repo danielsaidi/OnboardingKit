@@ -57,13 +57,6 @@ open class StandardTutorial: Tutorial {
         return true
     }
     
-    open func resourceName(for key: String) -> String {
-        let key = key.trimmingCharacters(in: .whitespaces)
-        var segments = ["tutorial", identifier]
-        if key.count > 0 { segments.append(key) }
-        return segments.joined(separator: keySegmentSeparator)
-    }
-    
     open func resourceName(for key: String, at pageIndex: Int) -> String {
         let key = key.trimmingCharacters(in: .whitespaces)
         var segments = ["tutorial", identifier, "\(pageIndex)"]
