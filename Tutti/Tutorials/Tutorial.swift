@@ -34,10 +34,10 @@ public protocol Tutorial: Onboarding {
 }
 
 
-// MARK: - Public Functions
+// MARK: - Public Properties
 
 public extension Tutorial {
-
+    
     public var isFirstPage: Bool {
         guard pageCount > 0 else { return true }
         return currentPageIndex == 0

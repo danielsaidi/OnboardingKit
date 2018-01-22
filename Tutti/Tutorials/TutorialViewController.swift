@@ -128,7 +128,7 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
         guard let tutorial = tutorial else { return }
         let index = tutorial.currentPageIndex
         let key = tutorial.resourceName(for: buttonId, at: index)
-        button?.setTitle(translate(key), for: .normal)
+        button?.setTitle(tutorial.translate(key), for: .normal)
     }
     
     open func updateCloseButton() {
@@ -161,13 +161,6 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     open func updateTutorial(with scrollView: UIScrollView) {
         tutorial?.currentPageIndex = scrollView.pageIndex
         update()
-    }
-    
-    
-    // MARK: - Public Functions
-    
-    open func translate(_ key: String) -> String {
-        return NSLocalizedString(key, comment: "")
     }
     
     

@@ -8,12 +8,13 @@
 
 /*
  
- The `Onboarding` protocol is implemented by both `Tutorial`
- and `Hint`. It helps to determine if a tutorial or hint has
- been displayed.
+ This `Onboarding` protocol is implemented by both `Tutorial`
+ and `Hint`. It helps keeping track of if a tutorial or hint
+ has been displayed or not. If the optional `userId` is used,
+ `hasBeenDisplayed` will be unique for every new user.
  
- If the optional `userId` is set, `hasBeenDisplayed` will be
- unique for every new user.
+ `Onboarding` also provides translation functionality, which
+ can be used by the various hints, tutorials and presenters.
  
  */
 
@@ -52,5 +53,19 @@ public extension Onboarding {
             settings.set(newValue, forKey: settingsKey)
             settings.synchronize()
         }
+    }
+}
+
+
+// MARK: - Public Functions
+
+public extension Onboarding {
+    
+    public func translate(_ key: String) -> String {
+        return NSLocalizedString(key, comment: "")
+    }
+    
+    public  func translationExists(for key: String) -> Bool {
+        return translate(key) != key
     }
 }

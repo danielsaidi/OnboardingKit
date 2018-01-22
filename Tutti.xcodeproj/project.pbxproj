@@ -198,10 +198,10 @@
 		4537E8801FD3DF950007501C /* Tutti */ = {
 			isa = PBXGroup;
 			children = (
-				458021E81FD7B61D00CE157F /* Onboarding.swift */,
 				457046711FDDC14B00D16844 /* Extension */,
 				4537E8AE1FD431890007501C /* Hints */,
 				4537E8821FD3DF950007501C /* Info.plist */,
+				458021E81FD7B61D00CE157F /* Onboarding.swift */,
 				4562D1B61FDE5CEE000069F3 /* Transitions */,
 				4537E8AF1FD4318F0007501C /* Tutorials */,
 				4537E8811FD3DF950007501C /* Tutti.h */,
@@ -226,9 +226,9 @@
 		4537E8A41FD3DFC40007501C /* TuttiTests */ = {
 			isa = PBXGroup;
 			children = (
-				4512F3671FD886880062AEB7 /* OnboardingTests.swift */,
 				45A102701FD89CC70032884A /* Hints */,
 				4537E8A71FD3DFC40007501C /* Info.plist */,
+				4512F3671FD886880062AEB7 /* OnboardingTests.swift */,
 				45A1026D1FD892490032884A /* Tutorials */,
 			);
 			path = TuttiTests;

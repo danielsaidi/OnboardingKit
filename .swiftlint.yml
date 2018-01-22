@@ -19,5 +19,6 @@ function_parameter_count:
 
 variable_name:
   excluded:
+    - id
     - ok
     - vc

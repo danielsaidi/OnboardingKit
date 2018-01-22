@@ -74,9 +74,4 @@ fileprivate extension LocalizedTutorial {
     func resourceName(forPage index: Int) -> String {
         return resourceName(for: pageIndicationKey, at: index)
     }
-    
-    func translationExists(for key: String) -> Bool {
-        let result = NSLocalizedString(key, comment: "")
-        return result != key
-    }
 }
