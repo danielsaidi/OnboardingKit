@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4512F3681FD886880062AEB7 /* DisplayableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4512F3671FD886880062AEB7 /* DisplayableTests.swift */; };
+		4512F3681FD886880062AEB7 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4512F3671FD886880062AEB7 /* OnboardingTests.swift */; };
 		4512F36C1FD8877C0062AEB7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512F36A1FD8877C0062AEB7 /* Nimble.framework */; };
 		4512F36D1FD8877C0062AEB7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512F36B1FD8877C0062AEB7 /* Quick.framework */; };
 		4512F36F1FD8878C0062AEB7 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4512F36A1FD8877C0062AEB7 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -28,7 +28,7 @@
 		4562D1B31FDDCC41000069F3 /* EasyTipViewHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */; };
 		4562D1B81FDE5D13000069F3 /* FadeInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */; };
 		457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457046721FDDC15A00D16844 /* UIScrollView+Page.swift */; };
-		458021E91FD7B61D00CE157F /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021E81FD7B61D00CE157F /* Displayable.swift */; };
+		458021E91FD7B61D00CE157F /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021E81FD7B61D00CE157F /* Onboarding.swift */; };
 		458021EB1FD7B87E00CE157F /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021EA1FD7B87E00CE157F /* Hint.swift */; };
 		4587F63E201135170040E0D2 /* TutorialTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587F63D201135170040E0D2 /* TutorialTransition.swift */; };
 		4587F64220122EE30040E0D2 /* TutorialViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */; };
@@ -95,7 +95,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4512F3671FD886880062AEB7 /* DisplayableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayableTests.swift; sourceTree = "<group>"; };
+		4512F3671FD886880062AEB7 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		4512F36A1FD8877C0062AEB7 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		4512F36B1FD8877C0062AEB7 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		4537E87E1FD3DF950007501C /* Tutti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tutti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +118,7 @@
 		4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTipViewHintPresenter.swift; sourceTree = "<group>"; };
 		4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInTransition.swift; sourceTree = "<group>"; };
 		457046721FDDC15A00D16844 /* UIScrollView+Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Page.swift"; sourceTree = "<group>"; };
-		458021E81FD7B61D00CE157F /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
+		458021E81FD7B61D00CE157F /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		458021EA1FD7B87E00CE157F /* Hint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
 		4587F63D201135170040E0D2 /* TutorialTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTransition.swift; sourceTree = "<group>"; };
 		4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewControllerCell.xib; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		4537E8801FD3DF950007501C /* Tutti */ = {
 			isa = PBXGroup;
 			children = (
-				458021E81FD7B61D00CE157F /* Displayable.swift */,
+				458021E81FD7B61D00CE157F /* Onboarding.swift */,
 				457046711FDDC14B00D16844 /* Extension */,
 				4537E8AE1FD431890007501C /* Hints */,
 				4537E8821FD3DF950007501C /* Info.plist */,
@@ -226,7 +226,7 @@
 		4537E8A41FD3DFC40007501C /* TuttiTests */ = {
 			isa = PBXGroup;
 			children = (
-				4512F3671FD886880062AEB7 /* DisplayableTests.swift */,
+				4512F3671FD886880062AEB7 /* OnboardingTests.swift */,
 				45A102701FD89CC70032884A /* Hints */,
 				4537E8A71FD3DFC40007501C /* Info.plist */,
 				45A1026D1FD892490032884A /* Tutorials */,
@@ -501,7 +501,7 @@
 				4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */,
 				4537E8B11FD431A90007501C /* StandardHint.swift in Sources */,
 				45A1029A1FD941600032884A /* TutorialViewController.swift in Sources */,
-				458021E91FD7B61D00CE157F /* Displayable.swift in Sources */,
+				458021E91FD7B61D00CE157F /* Onboarding.swift in Sources */,
 				4562D1B81FDE5D13000069F3 /* FadeInTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,7 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4512F3681FD886880062AEB7 /* DisplayableTests.swift in Sources */,
+				4512F3681FD886880062AEB7 /* OnboardingTests.swift in Sources */,
 				45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */,
 				45A102741FD8A4FA0032884A /* StandardTutorialTests.swift in Sources */,
 				45A102781FD925F70032884A /* LocalizedTutorialTests.swift in Sources */,

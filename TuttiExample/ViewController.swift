@@ -76,7 +76,7 @@ fileprivate extension ViewController {
     }
 
     func resetDisplayState() {
-        let displayables: [Displayable] = [
+        let onboardings: [Onboarding] = [
             getHint(forUser: nil),
             getHint(forUser: "user"),
             getTutorial(forUser: nil),
@@ -84,7 +84,7 @@ fileprivate extension ViewController {
             getLocalizedTutorial(forUser: nil),
             getLocalizedTutorial(forUser: "user")
         ]
-        displayables.forEach { $0.hasBeenDisplayed = false }
+        onboardings.forEach { $0.hasBeenDisplayed = false }
         alert(title: "Done!", message: "All hints and tutorials are now set to not displayed")
     }
     

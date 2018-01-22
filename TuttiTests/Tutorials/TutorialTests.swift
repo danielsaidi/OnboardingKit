@@ -17,8 +17,6 @@ private class TestTutorial: Tutorial {
         self.pageCount = pageCount
     }
     
-    weak var presenter: TutorialPresenter?
-    
     let identifier = "foo"
     let userId: String? = "bar"
     
@@ -27,7 +25,7 @@ private class TestTutorial: Tutorial {
     
     func loadNextPage() -> Bool { return false }
     func loadPreviousPage() -> Bool { return false }
-    func resourceName(for key: String) -> String { return "" }
+    func resourceName(for key: String, at pageIndex: Int) -> String { return "" }
 }
 
 

@@ -39,7 +39,7 @@ class LocalizedTutorialTests: QuickSpec {
             
             it("has multiple pages if a translation sequence was found") {
                 let tutorial = LocalizedTutorial(
-                    identifier: "test_sixPage")
+                    identifier: "test_sixPages")
                 expect(tutorial.pageCount).to(equal(6))
             }
             
@@ -53,8 +53,8 @@ class LocalizedTutorialTests: QuickSpec {
             it("uses custom page indicator key") {
                 let tutorial = LocalizedTutorial(
                     identifier: "test_customPageIndicator",
-                    pageIndicationKey: "foo")
-                expect(tutorial.pageCount).to(equal(3))
+                    pageIndicationKey: "page")
+                expect(tutorial.pageCount).to(equal(2))
             }
         }
     }

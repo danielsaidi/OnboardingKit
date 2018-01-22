@@ -94,27 +94,25 @@ class StandardTutorialTests: QuickSpec {
             
             it("omits empty key") {
                 let tutorial = createTutorial()
-                let name = tutorial.resourceName(for: "")
+                let name = tutorial.resourceName(for: "", at: 0)
                 expect(name).to(equal("tutorial_foo_0"))
             }
             
             it("adds non-empty key") {
                 let tutorial = createTutorial()
-                let name = tutorial.resourceName(for: "bar")
+                let name = tutorial.resourceName(for: "bar", at: 0)
                 expect(name).to(equal("tutorial_foo_0_bar"))
             }
             
             it("applies current page index") {
                 let tutorial = createTutorial(pageCount: 3)
-                _ = tutorial.loadNextPage()
-                _ = tutorial.loadNextPage()
-                let name = tutorial.resourceName(for: "bar")
+                let name = tutorial.resourceName(for: "bar", at: 2)
                 expect(name).to(equal("tutorial_foo_2_bar"))
             }
             
             it("uses custom key segment separator") {
                 let tutorial = createTutorial(keySegmentSeparator: "===")
-                let name = tutorial.resourceName(for: "bar")
+                let name = tutorial.resourceName(for: "bar", at: 0)
                 expect(name).to(equal("tutorial===foo===0===bar"))
             }
         }

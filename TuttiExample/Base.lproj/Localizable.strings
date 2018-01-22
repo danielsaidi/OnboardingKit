@@ -30,3 +30,21 @@
 "tutorial_localized_2_title" = "That's it";
 "tutorial_localized_2_text" = "You have now seen all pages in this tutorial. Press the top right x to close the tutorial.";
 "tutorial_localized_2_close" = "X";
+
+
+/* Test data */
+
+"tutorial_test_onePage_0_title" = "";
+
+"tutorial_test_sixPages_0_title" = "";
+"tutorial_test_sixPages_1_title" = "";
+"tutorial_test_sixPages_2_title" = "";
+"tutorial_test_sixPages_3_title" = "";
+"tutorial_test_sixPages_4_title" = "";
+"tutorial_test_sixPages_5_title" = "";
+
+"tutorial*test*customKeySegmentSeparator*0*title" = "";
+"tutorial*test*customKeySegmentSeparator*1*title" = "";
+
+"tutorial_test_customPageIndicator_0_page" = "";
+"tutorial_test_customPageIndicator_1_page" = "";

@@ -23,7 +23,7 @@
 
 import Foundation
 
-public protocol Tutorial: Displayable {
+public protocol Tutorial: Onboarding {
     
     var currentPageIndex: Int { get set }
     var pageCount: Int { get }

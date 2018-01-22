@@ -1,5 +1,5 @@
 //
-//  Displayable.swift
+//  Onboarding.swift
 //  Tutti
 //
 //  Created by Daniel Saidi on 2017-12-06.
@@ -8,18 +8,18 @@
 
 /*
  
- The `Displayable` protocol is implemented by `Tutorial` and
- `Hint`. It helps determining if a tutorial or hint has been
- displayed to the current user.
+ The `Onboarding` protocol is implemented by both `Tutorial`
+ and `Hint`. It helps to determine if a tutorial or hint has
+ been displayed.
  
  If the optional `userId` is set, `hasBeenDisplayed` will be
- false for every new user.
+ unique for every new user.
  
  */
 
 import Foundation
 
-public protocol Displayable: class {
+public protocol Onboarding: class {
 
     var identifier: String { get }
     var userId: String? { get }
@@ -28,7 +28,7 @@ public protocol Displayable: class {
 
 // MARK: - Internal Properties
 
-extension Displayable {
+extension Onboarding {
 
     var settings: UserDefaults {
         return UserDefaults.standard
@@ -44,7 +44,7 @@ extension Displayable {
 
 // MARK: - Public Properties
 
-public extension Displayable {
+public extension Onboarding {
     
     public var hasBeenDisplayed: Bool {
         get { return settings.bool(forKey: settingsKey) }

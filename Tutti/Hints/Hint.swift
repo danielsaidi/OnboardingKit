@@ -16,7 +16,7 @@
 
 import Foundation
 
-public protocol Hint: Displayable {
+public protocol Hint: Onboarding {
     
     var text: String { get }
 }

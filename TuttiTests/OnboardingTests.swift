@@ -1,5 +1,5 @@
 //
-//  DisplayableTests.swift
+//  OnboardingTests.swift
 //  TuttiTests
 //
 //  Created by Daniel Saidi on 2017-12-06.
@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import Tutti
 
-private class TestDisplayable: Displayable {
+private class TestOnboarding: Onboarding {
     
     init(userId: String?) {
         self.userId = userId
@@ -21,11 +21,11 @@ private class TestDisplayable: Displayable {
 }
 
 
-class DisplayableTests: QuickSpec {
+class OnboardingTests: QuickSpec {
     
     override func spec() {
         
-        var displayable: TestDisplayable!
+        var onboarding: TestOnboarding!
         
         func set(key: String, toDisplayState bool: Bool) {
             let defaults = UserDefaults.standard
@@ -39,7 +39,7 @@ class DisplayableTests: QuickSpec {
             let key = "com.Tutti.foo"
             
             beforeEach {
-                displayable = TestDisplayable(userId: nil)
+                onboarding = TestOnboarding(userId: nil)
             }
             
             afterEach {
@@ -49,30 +49,30 @@ class DisplayableTests: QuickSpec {
             describe("displayed state") {
                 
                 it("is false by default") {
-                    expect(displayable.hasBeenDisplayed).to(beFalse())
+                    expect(onboarding.hasBeenDisplayed).to(beFalse())
                 }
                 
                 it("is false if user defaults has no matching key") {
-                    displayable.hasBeenDisplayed = true
+                    onboarding.hasBeenDisplayed = true
                     set(key: key, toDisplayState: false)
-                    expect(displayable.hasBeenDisplayed).to(beFalse())
+                    expect(onboarding.hasBeenDisplayed).to(beFalse())
                 }
                 
                 it("is true if user defaults has matching key") {
                     set(key: key, toDisplayState: true)
-                    expect(displayable.hasBeenDisplayed).to(beTrue())
+                    expect(onboarding.hasBeenDisplayed).to(beTrue())
                 }
                 
                 it("is shared with another user-unspecific instance") {
-                    displayable.hasBeenDisplayed = true
-                    let anotherDisplayable = TestDisplayable(userId: nil)
-                    expect(anotherDisplayable.hasBeenDisplayed).to(beTrue())
+                    onboarding.hasBeenDisplayed = true
+                    let anotherOnboarding = TestOnboarding(userId: nil)
+                    expect(anotherOnboarding.hasBeenDisplayed).to(beTrue())
                 }
                 
                 it("is not shared with a user-specific instance") {
-                    displayable.hasBeenDisplayed = true
-                    let anotherDisplayable = TestDisplayable(userId: "bar")
-                    expect(anotherDisplayable.hasBeenDisplayed).to(beFalse())
+                    onboarding.hasBeenDisplayed = true
+                    let anotherOnboarding = TestOnboarding(userId: "bar")
+                    expect(anotherOnboarding.hasBeenDisplayed).to(beFalse())
                 }
             }
         }
@@ -83,7 +83,7 @@ class DisplayableTests: QuickSpec {
             let key = "com.Tutti.foo.bar"
             
             beforeEach {
-                displayable = TestDisplayable(userId: "bar")
+                onboarding = TestOnboarding(userId: "bar")
             }
             
             afterEach {
@@ -93,36 +93,36 @@ class DisplayableTests: QuickSpec {
             describe("displayed state") {
                 
                 it("is false by default") {
-                    expect(displayable.hasBeenDisplayed).to(beFalse())
+                    expect(onboarding.hasBeenDisplayed).to(beFalse())
                 }
                 
                 it("is false if user defaults has no matching key") {
-                    displayable.hasBeenDisplayed = true
+                    onboarding.hasBeenDisplayed = true
                     set(key: key, toDisplayState: false)
-                    expect(displayable.hasBeenDisplayed).to(beFalse())
+                    expect(onboarding.hasBeenDisplayed).to(beFalse())
                 }
                 
                 it("is true if user defaults has matching key") {
                     set(key: key, toDisplayState: true)
-                    expect(displayable.hasBeenDisplayed).to(beTrue())
+                    expect(onboarding.hasBeenDisplayed).to(beTrue())
                 }
                 
                 it("is not shared with a user-unspecific instance") {
-                    displayable.hasBeenDisplayed = true
-                    let anotherDisplayable = TestDisplayable(userId: nil)
-                    expect(anotherDisplayable.hasBeenDisplayed).to(beFalse())
+                    onboarding.hasBeenDisplayed = true
+                    let anotherOnboarding = TestOnboarding(userId: nil)
+                    expect(anotherOnboarding.hasBeenDisplayed).to(beFalse())
                 }
                 
                 it("is shared with another same user-specific instance") {
-                    displayable.hasBeenDisplayed = true
-                    let anotherDisplayable = TestDisplayable(userId: "bar")
-                    expect(anotherDisplayable.hasBeenDisplayed).to(beTrue())
+                    onboarding.hasBeenDisplayed = true
+                    let anotherOnboarding = TestOnboarding(userId: "bar")
+                    expect(anotherOnboarding.hasBeenDisplayed).to(beTrue())
                 }
                 
                 it("is not shared with another different user-specific instance") {
-                    displayable.hasBeenDisplayed = true
-                    let anotherDisplayable = TestDisplayable(userId: "barr")
-                    expect(anotherDisplayable.hasBeenDisplayed).to(beFalse())
+                    onboarding.hasBeenDisplayed = true
+                    let anotherOnboarding = TestOnboarding(userId: "barr")
+                    expect(anotherOnboarding.hasBeenDisplayed).to(beFalse())
                 }
             }
         }
