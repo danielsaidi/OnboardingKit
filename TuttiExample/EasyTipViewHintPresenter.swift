@@ -1,32 +1,29 @@
 //
 //  EasyTipViewHintPresenter.swift
-//  TuttiExample
+//  Tutti
 //
-//  Created by Daniel Saidi on 2017-12-10.
-//  Copyright © 2017 Daniel Saidi. All rights reserved.
+//  Created by Daniel Saidi on 2018-01-22.
+//  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
 /*
  
- To enable this presenter, follow the steps below (read more
- on why this presenter is initially disabled further down):
+ This hint presenter can display hints with the `EasyTipView`
+ Swift library (`https://github.com/teodorpatras/EasyTipView`).
  
-  * Uncomment the `EasyTipView` import
-  * Remove the `alert` line above `EasyTipView.show(...)`
-  * Uncomment the `EasyTipView.show(...)` line
+ To use this hint presenter, you must first add `EasyTipView`
+ to your app, with e.g. Carthage or CocoaPods. You must then
+ uncomment the disabled lines below and remove the alert one.
  
- I had to disable this presenter, since I have problems with
- `EasyTipView` when Carthage fetches and builds Tutti. Since
- the unit test suite requires localized strings from the app,
- the app must be built together with the Tutti library. This
- fails, however, since the internal `EasyTipView` dependency
- is not checked out, which cause the app to not compile. The
- `EasyTipView` dependency can be made public, but this still
- does not solve the problem, since it is not properly linked.
- For now, I solved this by disabling the parts that requires
- `EasyTipView`. If you checkout the example from GitHub, you
- can just enable the lines, since EasyTipView is checked out
- together with the source code.
+ This presenter is not added to `Tutti`, since it requires a
+ dependency to `EasyTipView`. Instead, if you want to use it,
+ just copy this class to any app that uses `EasyTipView`.
+ 
+ To enable this presenter in the `Tutti` demo app, just open
+ the `Cartfile` and uncomment the commented out `EasyTipView`
+ line, run `carthage update --platform ios` then finally add
+ `EasyTipView` to the app. You should then be able to enable
+ the disabled lines below and run the app.
  
  */
 
@@ -34,27 +31,15 @@ import UIKit
 import Tutti
 //import EasyTipView
 
-class EasyTipViewHintPresenter: HintPresenter {
-
-    func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool {
+public class EasyTipViewHintPresenter: HintPresenter {
+    
+    public func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool {
         if hint.hasBeenDisplayed { return false }
+        _ = AlertingHintPresenter().present(hint: hint, in: vc, from: view)
         hint.hasBeenDisplayed = true
-        alertWarning(in: vc)
         //EasyTipView.show(forView: view, text: hint.text)
         return true
     }
     
-    func dismiss(hint: Hint) { }
-}
-
-fileprivate extension EasyTipViewHintPresenter {
-    
-    func alertWarning(in vc: UIViewController) {
-        let title = "You must enable EasyTipViewHintPresenter"
-        let message = "Check the EasyTipViewHintPresenter.swift file for instructions on how to enable this presenter."
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(ok)
-        vc.present(alert, animated: true, completion: nil)
-    }
+    public func dismiss(hint: Hint) { }
 }

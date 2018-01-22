@@ -1,5 +1,5 @@
 //
-//  ListOption.swift
+//  ViewControllerListOption.swift
 //  TuttiExample
 //
 //  Created by Daniel Saidi on 2018-01-16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ListOption {
+enum ViewControllerListOption {
     case
     hint(userId: String?),
     reset,
@@ -19,7 +19,7 @@ enum ListOption {
 
 // MARK: - Public Functions
 
-extension ListOption {
+extension ViewControllerListOption {
     
     var title: String {
         switch self {
@@ -43,7 +43,7 @@ extension ListOption {
 
 // MARK: - Private Functions
 
-fileprivate extension ListOption {
+fileprivate extension ViewControllerListOption {
     
     func userSuffix(for userId: String?) -> String {
         return userId == nil ? "" : " for \"\(userId ?? "")\""

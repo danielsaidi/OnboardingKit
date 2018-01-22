@@ -25,7 +25,6 @@
 		4562D1A91FDDC37F000069F3 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562D1A81FDDC37F000069F3 /* EasyTipView.framework */; };
 		4562D1AA1FDDC37F000069F3 /* EasyTipView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4562D1A81FDDC37F000069F3 /* EasyTipView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */; };
-		4562D1B31FDDCC41000069F3 /* EasyTipViewHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */; };
 		4562D1B81FDE5D13000069F3 /* FadeInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */; };
 		457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457046721FDDC15A00D16844 /* UIScrollView+Page.swift */; };
 		458021E91FD7B61D00CE157F /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021E81FD7B61D00CE157F /* Onboarding.swift */; };
@@ -44,7 +43,9 @@
 		45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */; };
 		45CE37A520163F8A003384C2 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 45CE37A320163F8A003384C2 /* Cartfile */; };
 		45CE37A620163F8A003384C2 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 45CE37A420163F8A003384C2 /* Cartfile.private */; };
-		45E9EEBA200E79FA00CEEBFF /* ListOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9EEB9200E79FA00CEEBFF /* ListOption.swift */; };
+		45CE37AF201670F9003384C2 /* AlertingHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CE37AE201670F9003384C2 /* AlertingHintPresenter.swift */; };
+		45CE37B220169ADE003384C2 /* EasyTipViewHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CE37B02016805C003384C2 /* EasyTipViewHintPresenter.swift */; };
+		45E9EEBA200E79FA00CEEBFF /* ViewControllerListOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9EEB9200E79FA00CEEBFF /* ViewControllerListOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,7 +118,6 @@
 		4552710E1FD7C18A00462ECD /* StandardTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorial.swift; sourceTree = "<group>"; };
 		4562D1A81FDDC37F000069F3 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
 		4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
-		4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTipViewHintPresenter.swift; sourceTree = "<group>"; };
 		4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInTransition.swift; sourceTree = "<group>"; };
 		457046721FDDC15A00D16844 /* UIScrollView+Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Page.swift"; sourceTree = "<group>"; };
 		458021E81FD7B61D00CE157F /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
@@ -136,7 +136,9 @@
 		45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewControllerCell.swift; sourceTree = "<group>"; };
 		45CE37A320163F8A003384C2 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		45CE37A420163F8A003384C2 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
-		45E9EEB9200E79FA00CEEBFF /* ListOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOption.swift; sourceTree = "<group>"; };
+		45CE37AE201670F9003384C2 /* AlertingHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertingHintPresenter.swift; sourceTree = "<group>"; };
+		45CE37B02016805C003384C2 /* EasyTipViewHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTipViewHintPresenter.swift; sourceTree = "<group>"; };
+		45E9EEB9200E79FA00CEEBFF /* ViewControllerListOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerListOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,14 +220,14 @@
 			children = (
 				4537E88F1FD3DFAC0007501C /* AppDelegate.swift */,
 				4537E8961FD3DFAC0007501C /* Assets.xcassets */,
-				4562D1B21FDDCC41000069F3 /* EasyTipViewHintPresenter.swift */,
+				45CE37B02016805C003384C2 /* EasyTipViewHintPresenter.swift */,
 				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
-				45E9EEB9200E79FA00CEEBFF /* ListOption.swift */,
 				4537E8931FD3DFAC0007501C /* Main.storyboard */,
 				45E9EEBC200E7DAA00CEEBFF /* Supporting Files */,
 				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
 				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
 				4537E8911FD3DFAC0007501C /* ViewController.swift */,
+				45E9EEB9200E79FA00CEEBFF /* ViewControllerListOption.swift */,
 			);
 			path = TuttiExample;
 			sourceTree = "<group>";
@@ -244,6 +246,7 @@
 		4537E8AE1FD431890007501C /* Hints */ = {
 			isa = PBXGroup;
 			children = (
+				45CE37AE201670F9003384C2 /* AlertingHintPresenter.swift */,
 				458021EA1FD7B87E00CE157F /* Hint.swift */,
 				45A1028B1FD935AA0032884A /* HintPresenter.swift */,
 				4537E8B01FD431A90007501C /* StandardHint.swift */,
@@ -483,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
+				45CE37AF201670F9003384C2 /* AlertingHintPresenter.swift in Sources */,
 				45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */,
 				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
 				45A102761FD921E70032884A /* LocalizedTutorial.swift in Sources */,
@@ -502,10 +506,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4562D1B31FDDCC41000069F3 /* EasyTipViewHintPresenter.swift in Sources */,
+				45CE37B220169ADE003384C2 /* EasyTipViewHintPresenter.swift in Sources */,
 				4537E8921FD3DFAC0007501C /* ViewController.swift in Sources */,
 				4537E8901FD3DFAC0007501C /* AppDelegate.swift in Sources */,
-				45E9EEBA200E79FA00CEEBFF /* ListOption.swift in Sources */,
+				45E9EEBA200E79FA00CEEBFF /* ViewControllerListOption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

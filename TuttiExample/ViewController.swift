@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    fileprivate let sections: [(title: String, options: [ListOption])] = [
+    fileprivate let sections: [(title: String, options: [ViewControllerListOption])] = [
         ("Hint", [.hint(userId: nil), .hint(userId: "user")]),
         ("Tutorial", [.tutorial(userId: nil), .tutorial(userId: "user")]),
         ("Localized tutorial", [.localizedTutorial(userId: nil), .localizedTutorial(userId: "user")]),
@@ -118,7 +118,7 @@ fileprivate extension ViewController {
 
 extension ViewController: UITableViewDataSource {
     
-    func listOption(at indexPath: IndexPath) -> ListOption {
+    func listOption(at indexPath: IndexPath) -> ViewControllerListOption {
         return sections[indexPath.section].options[indexPath.row]
     }
     
