@@ -120,37 +120,5 @@ class OnboardingTests: QuickSpec {
                 }
             }
         }
-        
-        
-        describe("translate") {
-            
-            it("returns translated key") {
-                let onboarding = getOnboarding(id: "foo", userId: nil)
-                let translation = onboarding.translate("tutorial_standard_0_title")
-                expect(translation).to(equal("Standard tutorial"))
-            }
-            
-            it("returns key if translation does not exist") {
-                let onboarding = getOnboarding(id: "foo", userId: nil)
-                let translation = onboarding.translate("foo")
-                expect(translation).to(equal("foo"))
-            }
-        }
-        
-        
-        describe("translation exists") {
-            
-            it("returns true if key exists") {
-                let onboarding = getOnboarding(id: "foo", userId: nil)
-                let exists = onboarding.translationExists(for: "tutorial_standard_0_title")
-                expect(exists).to(beTrue())
-            }
-            
-            it("returns false if key does not exist") {
-                let onboarding = getOnboarding(id: "foo", userId: nil)
-                let exists = onboarding.translationExists(for: "foo")
-                expect(exists).to(beFalse())
-            }
-        }
     }
 }

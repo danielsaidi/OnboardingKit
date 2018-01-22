@@ -13,9 +13,6 @@
  has been displayed or not. If the optional `userId` is used,
  `hasBeenDisplayed` will be unique for every new user.
  
- `Onboarding` also provides translation functionality, which
- can be used by the various hints, tutorials and presenters.
- 
  */
 
 import Foundation
@@ -53,19 +50,5 @@ public extension Onboarding {
             settings.set(newValue, forKey: settingsKey)
             settings.synchronize()
         }
-    }
-}
-
-
-// MARK: - Public Functions
-
-public extension Onboarding {
-    
-    public func translate(_ key: String) -> String {
-        return NSLocalizedString(key, comment: "")
-    }
-    
-    public  func translationExists(for key: String) -> Bool {
-        return translate(key) != key
     }
 }

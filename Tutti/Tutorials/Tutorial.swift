@@ -10,9 +10,8 @@
 
  A tutorial is a single or multi page guide that is intended
  to display more information than a quick hint. It's perfect
- for a rich modal screen or a multi page guide that explains
- how an entire app works. Like hints, tutorials are intended
- to be displayed once.
+ for a rich modal screen or a multi page guide that onboards
+ new users. Tutorials are intended to be displayed once.
  
  When implementing this protocol, `resourceName(for)` should
  return valid localized strings keys, image names etc. While
@@ -47,6 +46,20 @@ public extension Tutorial {
     public var isLastPage: Bool {
         guard pageCount > 0 else { return true }
         return currentPageIndex == pageCount - 1
+    }
+}
+
+
+// MARK: - Translation Functions
+
+public extension Tutorial {
+    
+    public func translate(_ key: String) -> String {
+        return NSLocalizedString(key, comment: "")
+    }
+    
+    public  func translationExists(for key: String) -> Bool {
+        return translate(key) != key
     }
 }
 
