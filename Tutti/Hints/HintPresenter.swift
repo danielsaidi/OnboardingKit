@@ -8,14 +8,12 @@
 
 /*
  
- Hint presenters can be used to present hints to an app user.
- By separating hints from their presentations, a hint can be
- presented in many different ways.
+ Tutti hint presenters can be used to present hints to users.
  
- Tutti does not (yet) come with any presenter, since the way
- hints are presented can differ greatly between apps. I will
- hopefully add one later, but until I do, check out the demo
- app, where I use an external library to create a presenter.
+ Tutti does not yet come with any built-in presenters, but I
+ will try to add some later. Until then, you can have a look
+ at the example app, where I use a 3rd party lib to create a
+ simple hint presenter.
  
  */
 

@@ -88,10 +88,13 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     }
     
     @IBAction func showNextPage(_ sender: Any) {
-        
+        guard let view = collectionView else { return }
+        view.setPageIndex(view.pageIndex + 1, animated: true)
     }
     
     @IBAction func showPreviousPage(_ sender: Any) {
+        guard let view = collectionView else { return }
+        view.setPageIndex(view.pageIndex - 1, animated: true)
     }
     
     
@@ -143,6 +146,11 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
         pageControl?.numberOfPages = tutorial.pageCount
     }
     
+    open func updateTutorial(with scrollView: UIScrollView) {
+        tutorial?.currentPageIndex = scrollView.pageIndex
+        update()
+    }
+    
     
     // MARK: - Public Functions
     
@@ -192,9 +200,11 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
 extension TutorialViewController: UIScrollViewDelegate {
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let page = scrollView.currentPage
-        tutorial?.currentPageIndex = page
-        update()
+        updateTutorial(with: scrollView)
+    }
+    
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        updateTutorial(with: scrollView)
     }
 }
 

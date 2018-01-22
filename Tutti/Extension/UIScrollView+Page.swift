@@ -10,8 +10,14 @@ import UIKit
 
 extension UIScrollView {
 
-    var currentPage: Int {
+    var pageIndex: Int {
         let width = frame.size.width
         return Int((contentOffset.x + (0.5 * width)) / width)
+    }
+    
+    func setPageIndex(_ index: Int, animated: Bool) {
+        let width = frame.size.width
+        let point = CGPoint(x: CGFloat(index) * width, y: 0)
+        setContentOffset(point, animated: animated)
     }
 }

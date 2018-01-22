@@ -8,13 +8,13 @@
 
 /*
  
- Tutorial presenters are used to present tutorials to a user.
- By separating tutorials from their presentations, tutorials
- can be presented in many different ways.
+ Tutti tutorial presenters can be used to present a tutorial
+ to users.
  
- Tutti comes with a view controller presenter, which you can
- use to quickly get started. However, you will probably want
- to create custom presenters in your various apps.
+ Tutti comes with a built-in presenter, which you can use in
+ your app with some setup. Have a look at the example app to
+ see how I use `TutorialViewController` to setup a scrolling,
+ full screen tutorial.
  
  */
 
