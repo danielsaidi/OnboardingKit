@@ -1,4 +1,6 @@
-# Tutti
+<p align="center">
+    <img src ="Resources/Logo.png" />
+</p>
 
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![GitHub version](https://badge.fury.io/gh/danielsaidi%2FTutti.svg)](http://badge.fury.io/gh/danielsaidi%2FTutti)
