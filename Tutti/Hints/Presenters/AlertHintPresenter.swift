@@ -8,15 +8,11 @@
 
 /*
  
- This hint presenter displays hints with standard iOS alerts.
- It's mostly meant to be used as a temporary presenter while
- you work on adding a real presenter to your app. It is also
- a fallback presenter that is used by the nice, but disabled
- `EasyTipViewHintPresenter` in the demo app until you follow
- the instructions and add `EasyTipView` to the app. Try that.
- 
- Never ever use this presenter in a real world app. You must
- do better than this. Life is not a game! Come on!
+ This presenter displays hints with a standard alerts. It is
+ mostly meant to be used as a temporary presenter, while you
+ work on adding a real presenter to your app. Never ever use
+ this presenter in a real world app. You must do better than
+ this. Life is not a game! Come on!
  
  */
 

@@ -35,6 +35,10 @@
 		458021EB1FD7B87E00CE157F /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021EA1FD7B87E00CE157F /* Hint.swift */; };
 		4587F63E201135170040E0D2 /* TutorialTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587F63D201135170040E0D2 /* TutorialTransition.swift */; };
 		4587F64220122EE30040E0D2 /* TutorialViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */; };
+		459F38AC2030E5DB0092297A /* CalloutHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38AB2030E5DB0092297A /* CalloutHintPresenter.swift */; };
+		459F38AF2030E5F30092297A /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38AE2030E5F30092297A /* CalloutView.swift */; };
+		459F38B32030E86B0092297A /* CalloutViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38B22030E86B0092297A /* CalloutViewExtensions.swift */; };
+		459F38B52030EC7F0092297A /* ViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38B42030EC7F0092297A /* ViewController+Appearance.swift */; };
 		45A1026F1FD892560032884A /* TutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1026E1FD892560032884A /* TutorialTests.swift */; };
 		45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102711FD8A2E60032884A /* StandardHintTests.swift */; };
 		45A102741FD8A4FA0032884A /* StandardTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */; };
@@ -47,7 +51,7 @@
 		45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */; };
 		45CE37A520163F8A003384C2 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 45CE37A320163F8A003384C2 /* Cartfile */; };
 		45CE37A620163F8A003384C2 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 45CE37A420163F8A003384C2 /* Cartfile.private */; };
-		45CE37AF201670F9003384C2 /* AlertingHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CE37AE201670F9003384C2 /* AlertingHintPresenter.swift */; };
+		45CE37AF201670F9003384C2 /* AlertHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CE37AE201670F9003384C2 /* AlertHintPresenter.swift */; };
 		45CE37B220169ADE003384C2 /* EasyTipViewHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CE37B02016805C003384C2 /* EasyTipViewHintPresenter.swift */; };
 		45E9EEBA200E79FA00CEEBFF /* TableViewOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9EEB9200E79FA00CEEBFF /* TableViewOption.swift */; };
 /* End PBXBuildFile section */
@@ -132,6 +136,10 @@
 		458021EA1FD7B87E00CE157F /* Hint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
 		4587F63D201135170040E0D2 /* TutorialTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTransition.swift; sourceTree = "<group>"; };
 		4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewControllerCell.xib; sourceTree = "<group>"; };
+		459F38AB2030E5DB0092297A /* CalloutHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutHintPresenter.swift; sourceTree = "<group>"; };
+		459F38AE2030E5F30092297A /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
+		459F38B22030E86B0092297A /* CalloutViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutViewExtensions.swift; sourceTree = "<group>"; };
+		459F38B42030EC7F0092297A /* ViewController+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Appearance.swift"; sourceTree = "<group>"; };
 		45A1026E1FD892560032884A /* TutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTests.swift; sourceTree = "<group>"; };
 		45A102711FD8A2E60032884A /* StandardHintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHintTests.swift; sourceTree = "<group>"; };
 		45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorialTests.swift; sourceTree = "<group>"; };
@@ -144,7 +152,7 @@
 		45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewControllerCell.swift; sourceTree = "<group>"; };
 		45CE37A320163F8A003384C2 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		45CE37A420163F8A003384C2 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
-		45CE37AE201670F9003384C2 /* AlertingHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertingHintPresenter.swift; sourceTree = "<group>"; };
+		45CE37AE201670F9003384C2 /* AlertHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHintPresenter.swift; sourceTree = "<group>"; };
 		45CE37B02016805C003384C2 /* EasyTipViewHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTipViewHintPresenter.swift; sourceTree = "<group>"; };
 		45E9EEB9200E79FA00CEEBFF /* TableViewOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				457046711FDDC14B00D16844 /* Extension */,
+				459F38AD2030E5E10092297A /* External */,
 				4537E8AE1FD431890007501C /* Hints */,
 				4537E8821FD3DF950007501C /* Info.plist */,
 				458021E81FD7B61D00CE157F /* Onboarding.swift */,
@@ -250,6 +259,7 @@
 				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
 				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
 				4537E8911FD3DFAC0007501C /* ViewController.swift */,
+				459F38B42030EC7F0092297A /* ViewController+Appearance.swift */,
 				45352D7B2030D30400A0F890 /* ViewController+Hints.swift */,
 				45352D772030D15400A0F890 /* ViewController+TableView.swift */,
 				45352D792030D28F00A0F890 /* ViewController+Tutorials.swift */,
@@ -272,9 +282,9 @@
 		4537E8AE1FD431890007501C /* Hints */ = {
 			isa = PBXGroup;
 			children = (
-				45CE37AE201670F9003384C2 /* AlertingHintPresenter.swift */,
 				458021EA1FD7B87E00CE157F /* Hint.swift */,
 				45A1028B1FD935AA0032884A /* HintPresenter.swift */,
+				459F38B02030E6A90092297A /* Presenters */,
 				4537E8B01FD431A90007501C /* StandardHint.swift */,
 			);
 			path = Hints;
@@ -284,11 +294,10 @@
 			isa = PBXGroup;
 			children = (
 				45A102751FD921E70032884A /* LocalizedTutorial.swift */,
+				459F38B12030E7410092297A /* Presenters */,
 				4552710E1FD7C18A00462ECD /* StandardTutorial.swift */,
 				4552710C1FD7BF9A00462ECD /* Tutorial.swift */,
 				45A102921FD939CA0032884A /* TutorialPresenter.swift */,
-				45A102991FD941600032884A /* TutorialViewController.swift */,
-				45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -308,6 +317,33 @@
 				457046721FDDC15A00D16844 /* UIScrollView+Page.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		459F38AD2030E5E10092297A /* External */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		459F38B02030E6A90092297A /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				45CE37AE201670F9003384C2 /* AlertHintPresenter.swift */,
+				459F38AB2030E5DB0092297A /* CalloutHintPresenter.swift */,
+				459F38AE2030E5F30092297A /* CalloutView.swift */,
+				459F38B22030E86B0092297A /* CalloutViewExtensions.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		459F38B12030E7410092297A /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				45A102991FD941600032884A /* TutorialViewController.swift */,
+				45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		45A1026D1FD892490032884A /* Tutorials */ = {
@@ -515,11 +551,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				459F38AC2030E5DB0092297A /* CalloutHintPresenter.swift in Sources */,
+				459F38B32030E86B0092297A /* CalloutViewExtensions.swift in Sources */,
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
-				45CE37AF201670F9003384C2 /* AlertingHintPresenter.swift in Sources */,
+				45CE37AF201670F9003384C2 /* AlertHintPresenter.swift in Sources */,
 				45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */,
 				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
 				45A102761FD921E70032884A /* LocalizedTutorial.swift in Sources */,
+				459F38AF2030E5F30092297A /* CalloutView.swift in Sources */,
 				458021EB1FD7B87E00CE157F /* Hint.swift in Sources */,
 				4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */,
 				457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */,
@@ -537,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45CE37B220169ADE003384C2 /* EasyTipViewHintPresenter.swift in Sources */,
+				459F38B52030EC7F0092297A /* ViewController+Appearance.swift in Sources */,
 				4537E8921FD3DFAC0007501C /* ViewController.swift in Sources */,
 				45352D7A2030D28F00A0F890 /* ViewController+Tutorials.swift in Sources */,
 				45352D7C2030D30400A0F890 /* ViewController+Hints.swift in Sources */,

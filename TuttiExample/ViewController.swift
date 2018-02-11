@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     // MARK: - Dependencies
     
-    let hintPresenter = EasyTipViewHintPresenter()
+    let hintPresenter = CalloutHintPresenter()
     var tutorialPresenter: TutorialPresenter?
     
     
@@ -42,6 +42,14 @@ class ViewController: UIViewController {
             view.dataSource = self
             view.delegate = self
         }
+    }
+    
+    
+    // MARK: - Overrides
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        applyAppearance()
     }
 }
 
