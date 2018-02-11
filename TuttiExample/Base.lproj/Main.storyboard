@@ -59,7 +59,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tutti Example" id="bcz-ik-k01"/>
+                    <navigationItem key="navigationItem" title="Tutti Example" id="bcz-ik-k01">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="button_account" style="plain" id="blb-Le-017">
+                            <connections>
+                                <action selector="setupUser:" destination="BYZ-38-t0r" id="fgv-Kt-P1x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="E1t-7H-AOY" id="PqW-wt-rlr"/>
                     </connections>
@@ -87,4 +93,7 @@
             <point key="canvasLocation" x="-276" y="118"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button_account" width="24" height="24"/>
+    </resources>
 </document>

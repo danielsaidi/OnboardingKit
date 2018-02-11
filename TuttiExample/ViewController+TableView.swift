@@ -13,19 +13,15 @@ import UIKit
 extension ViewController: UITableViewDataSource {
     
     func listOption(at indexPath: IndexPath) -> TableViewOption {
-        return sections[indexPath.section].options[indexPath.row]
+        return options[indexPath.row]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].options.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section].title
+        return options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,10 +46,10 @@ extension ViewController: UITableViewDelegate {
         let option = listOption(at: indexPath)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         switch option {
-        case .hint(let userId): showHint(forUser: userId, from: cell)
+        case .hint: showHint(forUser: userId, from: cell)
         case .reset: resetDisplayState()
-        case .tutorial(let userId): showTutorial(forUser: userId, from: cell)
-        case .localizedTutorial(let userId): showLocalizedTutorial(forUser: userId, from: cell)
+        case .tutorial: showTutorial(forUser: userId, from: cell)
+        case .localizedTutorial: showLocalizedTutorial(forUser: userId, from: cell)
         }
     }
 }

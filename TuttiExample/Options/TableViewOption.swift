@@ -10,10 +10,10 @@ import UIKit
 
 enum TableViewOption {
     case
-    hint(userId: String?),
+    hint,
     reset,
-    tutorial(userId: String?),
-    localizedTutorial(userId: String?)
+    tutorial,
+    localizedTutorial
 }
 
 
@@ -23,10 +23,10 @@ extension TableViewOption {
     
     var title: String {
         switch self {
-        case .hint: return "Show hint\(userSuffix)"
+        case .hint: return "Show hint"
         case .reset: return "Reset display state"
-        case .tutorial: return "Show tutorial\(userSuffix)"
-        case .localizedTutorial: return "Show localized tutorial\(userSuffix)"
+        case .tutorial: return "Show standard tutorial"
+        case .localizedTutorial: return "Show localized tutorial"
         }
     }
     
@@ -37,24 +37,5 @@ extension TableViewOption {
         case .tutorial: return "Tutorials are single or multi page guides that are intended to display more information than a quick hint. They are perfect for modal screens or multi page guides."
         case .localizedTutorial: return "Localized tutorials automatically generate themselved by using available language keys in the current app. This saves you a lot of time and hassle."
         }
-    }
-    
-    var userSuffix: String {
-        switch self {
-        case .hint(let userId): return userSuffix(for: userId)
-        case .tutorial(let userId): return userSuffix(for: userId)
-        case .localizedTutorial(let userId): return userSuffix(for: userId)
-        default: return ""
-        }
-    }
-}
-
-
-// MARK: - Private Functions
-
-fileprivate extension TableViewOption {
-    
-    func userSuffix(for userId: String?) -> String {
-        return userId == nil ? "" : " for \"\(userId ?? "")\""
     }
 }

@@ -27,12 +27,11 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    let sections: [(title: String, options: [TableViewOption])] = [
-        ("Hint", [.hint(userId: nil), .hint(userId: "user")]),
-        ("Tutorial", [.tutorial(userId: nil), .tutorial(userId: "user")]),
-        ("Localized tutorial", [.localizedTutorial(userId: nil), .localizedTutorial(userId: "user")]),
-        ("Reset", [.reset])
-    ]
+    var options: [TableViewOption] {
+        return [.hint, .tutorial, .localizedTutorial, .reset]
+    }
+    
+    var userId: String?
     
     
     // MARK: - Outlets
@@ -47,9 +46,25 @@ class ViewController: UIViewController {
 }
 
 
+// MARK: - Actions
+
+extension ViewController {
+    
+    @IBAction func setupUser(_ sender: Any) {
+        setupUser()
+    }
+}
+
+
 // MARK: - Public Functions
 
 extension ViewController {
+    
+    func alert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
     func alertAlreadyDisplayed(title: String) {
         alert(title: title, message: "Press 'reset' to reset its display state. You can then display it again.")
@@ -57,26 +72,11 @@ extension ViewController {
     
     func resetDisplayState() {
         let onboardings: [Onboarding] = [
-            getHint(forUser: nil),
-            getHint(forUser: "user"),
-            getTutorial(forUser: nil),
-            getTutorial(forUser: "user"),
-            getLocalizedTutorial(forUser: nil),
-            getLocalizedTutorial(forUser: "user")
+            getHint(forUser: userId),
+            getTutorial(forUser: userId),
+            getLocalizedTutorial(forUser: userId)
         ]
         onboardings.forEach { $0.hasBeenDisplayed = false }
         alert(title: "Done!", message: "All hints and tutorials are now set to not displayed")
-    }
-}
-
-
-// MARK: - Private Functions
-
-fileprivate extension ViewController {
-    
-    func alert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 }

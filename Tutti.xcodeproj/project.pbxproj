@@ -17,6 +17,7 @@
 		45352D7C2030D30400A0F890 /* ViewController+Hints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D7B2030D30400A0F890 /* ViewController+Hints.swift */; };
 		45352D892030DAB300A0F890 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 45352D872030DAB300A0F890 /* .travis.yml */; };
 		45352D8A2030DAB300A0F890 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 45352D882030DAB300A0F890 /* .swiftlint.yml */; };
+		45352D912030DEF100A0F890 /* ViewController+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D902030DEF100A0F890 /* ViewController+User.swift */; };
 		4537E8831FD3DF950007501C /* Tutti.h in Headers */ = {isa = PBXBuildFile; fileRef = 4537E8811FD3DF950007501C /* Tutti.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4537E8901FD3DFAC0007501C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E88F1FD3DFAC0007501C /* AppDelegate.swift */; };
 		4537E8921FD3DFAC0007501C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8911FD3DFAC0007501C /* ViewController.swift */; };
@@ -108,6 +109,7 @@
 		45352D7B2030D30400A0F890 /* ViewController+Hints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Hints.swift"; sourceTree = "<group>"; };
 		45352D872030DAB300A0F890 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		45352D882030DAB300A0F890 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		45352D902030DEF100A0F890 /* ViewController+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+User.swift"; sourceTree = "<group>"; };
 		4537E87E1FD3DF950007501C /* Tutti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tutti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4537E8811FD3DF950007501C /* Tutti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tutti.h; sourceTree = "<group>"; };
 		4537E8821FD3DF950007501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				45352D7B2030D30400A0F890 /* ViewController+Hints.swift */,
 				45352D772030D15400A0F890 /* ViewController+TableView.swift */,
 				45352D792030D28F00A0F890 /* ViewController+Tutorials.swift */,
+				45352D902030DEF100A0F890 /* ViewController+User.swift */,
 			);
 			path = TuttiExample;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				45352D7A2030D28F00A0F890 /* ViewController+Tutorials.swift in Sources */,
 				45352D7C2030D30400A0F890 /* ViewController+Hints.swift in Sources */,
 				4537E8901FD3DFAC0007501C /* AppDelegate.swift in Sources */,
+				45352D912030DEF100A0F890 /* ViewController+User.swift in Sources */,
 				45352D782030D15400A0F890 /* ViewController+TableView.swift in Sources */,
 				45E9EEBA200E79FA00CEEBFF /* TableViewOption.swift in Sources */,
 			);
