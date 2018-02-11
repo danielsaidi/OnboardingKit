@@ -10,7 +10,6 @@ import Quick
 import Nimble
 import Tutti
 
-
 class OnboardingTests: QuickSpec {
     
     override func spec() {

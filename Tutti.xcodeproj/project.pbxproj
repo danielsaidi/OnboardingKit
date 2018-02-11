@@ -12,6 +12,11 @@
 		4512F36D1FD8877C0062AEB7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512F36B1FD8877C0062AEB7 /* Quick.framework */; };
 		4512F36F1FD8878C0062AEB7 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4512F36A1FD8877C0062AEB7 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4512F3701FD8878C0062AEB7 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4512F36B1FD8877C0062AEB7 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45352D782030D15400A0F890 /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D772030D15400A0F890 /* ViewController+TableView.swift */; };
+		45352D7A2030D28F00A0F890 /* ViewController+Tutorials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D792030D28F00A0F890 /* ViewController+Tutorials.swift */; };
+		45352D7C2030D30400A0F890 /* ViewController+Hints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D7B2030D30400A0F890 /* ViewController+Hints.swift */; };
+		45352D892030DAB300A0F890 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 45352D872030DAB300A0F890 /* .travis.yml */; };
+		45352D8A2030DAB300A0F890 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 45352D882030DAB300A0F890 /* .swiftlint.yml */; };
 		4537E8831FD3DF950007501C /* Tutti.h in Headers */ = {isa = PBXBuildFile; fileRef = 4537E8811FD3DF950007501C /* Tutti.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4537E8901FD3DFAC0007501C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E88F1FD3DFAC0007501C /* AppDelegate.swift */; };
 		4537E8921FD3DFAC0007501C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8911FD3DFAC0007501C /* ViewController.swift */; };
@@ -43,7 +48,7 @@
 		45CE37A620163F8A003384C2 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 45CE37A420163F8A003384C2 /* Cartfile.private */; };
 		45CE37AF201670F9003384C2 /* AlertingHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CE37AE201670F9003384C2 /* AlertingHintPresenter.swift */; };
 		45CE37B220169ADE003384C2 /* EasyTipViewHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CE37B02016805C003384C2 /* EasyTipViewHintPresenter.swift */; };
-		45E9EEBA200E79FA00CEEBFF /* ViewControllerListOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9EEB9200E79FA00CEEBFF /* ViewControllerListOption.swift */; };
+		45E9EEBA200E79FA00CEEBFF /* TableViewOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9EEB9200E79FA00CEEBFF /* TableViewOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +103,11 @@
 		4512F3671FD886880062AEB7 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		4512F36A1FD8877C0062AEB7 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		4512F36B1FD8877C0062AEB7 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		45352D772030D15400A0F890 /* ViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
+		45352D792030D28F00A0F890 /* ViewController+Tutorials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Tutorials.swift"; sourceTree = "<group>"; };
+		45352D7B2030D30400A0F890 /* ViewController+Hints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Hints.swift"; sourceTree = "<group>"; };
+		45352D872030DAB300A0F890 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
+		45352D882030DAB300A0F890 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		4537E87E1FD3DF950007501C /* Tutti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tutti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4537E8811FD3DF950007501C /* Tutti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tutti.h; sourceTree = "<group>"; };
 		4537E8821FD3DF950007501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,7 +144,7 @@
 		45CE37A420163F8A003384C2 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
 		45CE37AE201670F9003384C2 /* AlertingHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertingHintPresenter.swift; sourceTree = "<group>"; };
 		45CE37B02016805C003384C2 /* EasyTipViewHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTipViewHintPresenter.swift; sourceTree = "<group>"; };
-		45E9EEB9200E79FA00CEEBFF /* ViewControllerListOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerListOption.swift; sourceTree = "<group>"; };
+		45E9EEB9200E79FA00CEEBFF /* TableViewOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +182,22 @@
 				4512F36B1FD8877C0062AEB7 /* Quick.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45352D7F2030D93400A0F890 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				45E9EEB9200E79FA00CEEBFF /* TableViewOption.swift */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		45352D8F2030DB1800A0F890 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				45CE37B02016805C003384C2 /* EasyTipViewHintPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		4537E8741FD3DF950007501C = {
@@ -216,12 +242,15 @@
 				4537E8961FD3DFAC0007501C /* Assets.xcassets */,
 				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
 				4537E8931FD3DFAC0007501C /* Main.storyboard */,
-				45CE37B32016A4E2003384C2 /* Presenters */,
+				45352D7F2030D93400A0F890 /* Options */,
+				45352D8F2030DB1800A0F890 /* Presenters */,
 				45E9EEBC200E7DAA00CEEBFF /* Supporting Files */,
 				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
 				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
 				4537E8911FD3DFAC0007501C /* ViewController.swift */,
-				45E9EEB9200E79FA00CEEBFF /* ViewControllerListOption.swift */,
+				45352D7B2030D30400A0F890 /* ViewController+Hints.swift */,
+				45352D772030D15400A0F890 /* ViewController+TableView.swift */,
+				45352D792030D28F00A0F890 /* ViewController+Tutorials.swift */,
 			);
 			path = TuttiExample;
 			sourceTree = "<group>";
@@ -296,17 +325,11 @@
 			path = Hints;
 			sourceTree = "<group>";
 		};
-		45CE37B32016A4E2003384C2 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				45CE37B02016805C003384C2 /* EasyTipViewHintPresenter.swift */,
-			);
-			name = Presenters;
-			sourceTree = "<group>";
-		};
 		45E9EEBC200E7DAA00CEEBFF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				45352D882030DAB300A0F890 /* .swiftlint.yml */,
+				45352D872030DAB300A0F890 /* .travis.yml */,
 				45CE37A320163F8A003384C2 /* Cartfile */,
 				45CE37A420163F8A003384C2 /* Cartfile.private */,
 				4537E89B1FD3DFAC0007501C /* Info.plist */,
@@ -445,9 +468,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45352D8A2030DAB300A0F890 /* .swiftlint.yml in Resources */,
 				45CE37A520163F8A003384C2 /* Cartfile in Resources */,
 				4587F64220122EE30040E0D2 /* TutorialViewControllerCell.xib in Resources */,
 				45A102821FD92CE50032884A /* Localizable.strings in Resources */,
+				45352D892030DAB300A0F890 /* .travis.yml in Resources */,
 				45CE37A620163F8A003384C2 /* Cartfile.private in Resources */,
 				4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */,
 				4537E89A1FD3DFAC0007501C /* LaunchScreen.storyboard in Resources */,
@@ -510,8 +535,11 @@
 			files = (
 				45CE37B220169ADE003384C2 /* EasyTipViewHintPresenter.swift in Sources */,
 				4537E8921FD3DFAC0007501C /* ViewController.swift in Sources */,
+				45352D7A2030D28F00A0F890 /* ViewController+Tutorials.swift in Sources */,
+				45352D7C2030D30400A0F890 /* ViewController+Hints.swift in Sources */,
 				4537E8901FD3DFAC0007501C /* AppDelegate.swift in Sources */,
-				45E9EEBA200E79FA00CEEBFF /* ViewControllerListOption.swift in Sources */,
+				45352D782030D15400A0F890 /* ViewController+TableView.swift in Sources */,
+				45E9EEBA200E79FA00CEEBFF /* TableViewOption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

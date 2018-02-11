@@ -14,7 +14,7 @@ class StandardHintTests: QuickSpec {
     
     override func spec() {
         
-        describe("creating a standard hint") {
+        describe("when created") {
             
             it("sets all properties") {
                 let hint = StandardHint(
