@@ -9,7 +9,7 @@
 import Foundation
 
 
-// MARK: - UIBarItem extension -
+// MARK: - UIBarItem extension
 
 extension UIBarItem {
     
@@ -22,7 +22,7 @@ extension UIBarItem {
 }
 
 
-// MARK: - UIView extension -
+// MARK: - UIView extension
 
 extension UIView {
     
@@ -44,7 +44,7 @@ extension UIView {
 }
 
 
-// MARK: - CGRect extension -
+// MARK: - CGRect extension
 
 extension CGRect {
     

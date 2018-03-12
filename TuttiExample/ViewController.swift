@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     // MARK: - Dependencies
     
-    let hintPresenter = CalloutHintPresenter()
+    let hintPresenter: HintPresenter = CalloutHintPresenter()
     var tutorialPresenter: TutorialPresenter?
     
     

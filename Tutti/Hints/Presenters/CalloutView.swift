@@ -1,10 +1,17 @@
 /*
  
  This class is forked from the EasyTipView GitHub repository.
- I had to fork it, since I could not find a way for the demo
- app to have more dependencies than the library.
+ I decided to fork it and add it to this library, since this
+ reduces further dependencies. I also had problems using the
+ external library in the example app, and also couldn't find
+ a nice way to provide an fully working, built-in presenter.
  
- The repo can be found at: https://github.com/teodorpatras/EasyTipView
+ The original repository can be found at:
+ https://github.com/teodorpatras/EasyTipView
+ 
+ The rest of the file is the original implementation besides
+ a couple of renamings. For more information about the Tutti
+ specifics, checkout the `CalloutHintPresenter` class docs.
  
  */
 
@@ -31,6 +38,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+
 import UIKit
 
 public protocol CalloutViewDelegate: class {

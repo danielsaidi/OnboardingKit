@@ -8,7 +8,8 @@
 
 /*
  
- This is a very simple implementation of the `Hint` protocol.
+ This is a very simple, standard implementation of the `Hint`
+ protocol.
  
  */
 

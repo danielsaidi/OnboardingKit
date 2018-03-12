@@ -11,21 +11,30 @@
  This presenter displays hints using a speech bubble that is
  pointing at the target view.
  
- The `BubbleView` class is a fork of the great `EasyTipView`
- GitHub repo. I had to fork it, since I could not find a way
- for the demo app to have more dependencies than the library.
+ This presenter uses `CalloutView`, which is a plain fork of
+ the great `EasyTipView` GitHub repo. For more details about
+ this library, checkout the `CalloutView` class.
  
- The `BubbleView` class comes with all the bells and whisles
- from `CalloutView`, for instance its great appearance setup.
- For more info on how style `BubbleView`, just check out the
- readme at https://github.com/teodorpatras/CalloutView.
+ `EasyTipView` provides extensive appearance support. I have
+ ported this as well, so you can use `globalPreferences` for
+ styling these bubbles just as you would do with EasyTipView.
+ Checkout https://github.com/teodorpatras/EasyTipView to see
+ the various options you have, or checkout the demo app.
  
  */
 
 
 import UIKit
 
-public class CalloutHintPresenter: UIImageView {
+public class CalloutHintPresenter: HintPresenter {
+    
+    
+    // MARK: - Initialization
+    
+    public init() {}
+    
+    
+    // MARK: - Public Functions
 
     public func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool {
         if hint.hasBeenDisplayed { return false }
