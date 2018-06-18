@@ -25,7 +25,7 @@ public protocol DeferredOnboarding: Onboarding {
 
 // MARK: - Internal Properties
 
-private extension DeferredOnboarding {
+extension DeferredOnboarding {
     
     var registeredPresentationAttempts: Int {
         get { return persistence.integer(forKey: registeredPresentationAttemptsKey) }
@@ -43,11 +43,11 @@ private extension DeferredOnboarding {
 public extension DeferredOnboarding {
     
     var remainingPresentationAttempts: Int {
-        return requiredPresentationAttempts - registeredPresentationAttempts
+        return max(0, requiredPresentationAttempts - registeredPresentationAttempts)
     }
     
     var shouldBePresented: Bool {
-        return !hasBeenDisplayed && requiredPresentationAttempts == 0
+        return !hasBeenDisplayed && remainingPresentationAttempts == 0
     }
 }
 

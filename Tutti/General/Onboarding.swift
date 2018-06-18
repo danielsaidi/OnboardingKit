@@ -30,7 +30,7 @@ public protocol Onboarding: class {
 extension Onboarding {
 
     var hasBeenDisplayedKey: String {
-        return persistence.key(for: self, objectKey: "hasBeenDisplayedKey", userId: userId)
+        return persistence.key(for: self, objectKey: "hasBeenDisplayed", userId: userId)
     }
 }
 

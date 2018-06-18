@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4512F3681FD886880062AEB7 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4512F3671FD886880062AEB7 /* OnboardingTests.swift */; };
 		4512F36C1FD8877C0062AEB7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512F36A1FD8877C0062AEB7 /* Nimble.framework */; };
 		4512F36D1FD8877C0062AEB7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512F36B1FD8877C0062AEB7 /* Quick.framework */; };
 		4512F36F1FD8878C0062AEB7 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4512F36A1FD8877C0062AEB7 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -28,6 +27,11 @@
 		4537E8A81FD3DFC40007501C /* Tutti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4537E87E1FD3DF950007501C /* Tutti.framework */; };
 		4537E8B11FD431A90007501C /* StandardHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8B01FD431A90007501C /* StandardHint.swift */; };
 		453EF4AC20D7F17800C56DEB /* OnboardingPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453EF4AB20D7F17800C56DEB /* OnboardingPersistence.swift */; };
+		453EF4B020D84B1100C56DEB /* MockOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453EF4AF20D84B1100C56DEB /* MockOnboarding.swift */; };
+		453EF4B220D84B6800C56DEB /* MockOnboardingPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453EF4B120D84B6800C56DEB /* MockOnboardingPersistence.swift */; };
+		453EF4B420D84C6200C56DEB /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453EF4B320D84C6200C56DEB /* OnboardingTests.swift */; };
+		453EF4B620D84C7100C56DEB /* MockDeferredOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453EF4B520D84C7100C56DEB /* MockDeferredOnboarding.swift */; };
+		453EF4BA20D8510500C56DEB /* DeferredOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453EF4B920D8510500C56DEB /* DeferredOnboardingTests.swift */; };
 		4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710C1FD7BF9A00462ECD /* Tutorial.swift */; };
 		4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710E1FD7C18A00462ECD /* StandardTutorial.swift */; };
 		4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */; };
@@ -109,7 +113,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4512F3671FD886880062AEB7 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		4512F36A1FD8877C0062AEB7 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		4512F36B1FD8877C0062AEB7 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		452F92BE20D7D73C00B0A05D /* DeferredOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferredOnboarding.swift; sourceTree = "<group>"; };
@@ -133,6 +136,11 @@
 		4537E8A71FD3DFC40007501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4537E8B01FD431A90007501C /* StandardHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHint.swift; sourceTree = "<group>"; };
 		453EF4AB20D7F17800C56DEB /* OnboardingPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPersistence.swift; sourceTree = "<group>"; };
+		453EF4AF20D84B1100C56DEB /* MockOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboarding.swift; sourceTree = "<group>"; };
+		453EF4B120D84B6800C56DEB /* MockOnboardingPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboardingPersistence.swift; sourceTree = "<group>"; };
+		453EF4B320D84C6200C56DEB /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
+		453EF4B520D84C7100C56DEB /* MockDeferredOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDeferredOnboarding.swift; sourceTree = "<group>"; };
+		453EF4B920D8510500C56DEB /* DeferredOnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferredOnboardingTests.swift; sourceTree = "<group>"; };
 		4552710C1FD7BF9A00462ECD /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		4552710E1FD7C18A00462ECD /* StandardTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorial.swift; sourceTree = "<group>"; };
 		4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
@@ -200,14 +208,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		452F92BD20D7D71E00B0A05D /* Common */ = {
+		452F92BD20D7D71E00B0A05D /* General */ = {
 			isa = PBXGroup;
 			children = (
 				452F92BE20D7D73C00B0A05D /* DeferredOnboarding.swift */,
 				458021E81FD7B61D00CE157F /* Onboarding.swift */,
 				453EF4AB20D7F17800C56DEB /* OnboardingPersistence.swift */,
 			);
-			path = Common;
+			path = General;
 			sourceTree = "<group>";
 		};
 		45352D7F2030D93400A0F890 /* Options */ = {
@@ -242,8 +250,8 @@
 		4537E8801FD3DF950007501C /* Tutti */ = {
 			isa = PBXGroup;
 			children = (
-				452F92BD20D7D71E00B0A05D /* Common */,
 				457046711FDDC14B00D16844 /* Extensions */,
+				452F92BD20D7D71E00B0A05D /* General */,
 				4537E8AE1FD431890007501C /* Hints */,
 				4537E8821FD3DF950007501C /* Info.plist */,
 				4562D1B61FDE5CEE000069F3 /* Transitions */,
@@ -277,9 +285,9 @@
 		4537E8A41FD3DFC40007501C /* TuttiTests */ = {
 			isa = PBXGroup;
 			children = (
+				453EF4AD20D84AFA00C56DEB /* General */,
 				45A102701FD89CC70032884A /* Hints */,
 				4537E8A71FD3DFC40007501C /* Info.plist */,
-				4512F3671FD886880062AEB7 /* OnboardingTests.swift */,
 				45A1026D1FD892490032884A /* Tutorials */,
 			);
 			path = TuttiTests;
@@ -306,6 +314,26 @@
 				45A102921FD939CA0032884A /* TutorialPresenter.swift */,
 			);
 			path = Tutorials;
+			sourceTree = "<group>";
+		};
+		453EF4AD20D84AFA00C56DEB /* General */ = {
+			isa = PBXGroup;
+			children = (
+				453EF4B920D8510500C56DEB /* DeferredOnboardingTests.swift */,
+				453EF4AE20D84AFF00C56DEB /* Mocks */,
+				453EF4B320D84C6200C56DEB /* OnboardingTests.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		453EF4AE20D84AFF00C56DEB /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				453EF4B520D84C7100C56DEB /* MockDeferredOnboarding.swift */,
+				453EF4AF20D84B1100C56DEB /* MockOnboarding.swift */,
+				453EF4B120D84B6800C56DEB /* MockOnboardingPersistence.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		4562D1B61FDE5CEE000069F3 /* Transitions */ = {
@@ -591,10 +619,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4512F3681FD886880062AEB7 /* OnboardingTests.swift in Sources */,
+				453EF4B220D84B6800C56DEB /* MockOnboardingPersistence.swift in Sources */,
 				45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */,
 				45A102741FD8A4FA0032884A /* StandardTutorialTests.swift in Sources */,
 				45A102781FD925F70032884A /* LocalizedTutorialTests.swift in Sources */,
+				453EF4BA20D8510500C56DEB /* DeferredOnboardingTests.swift in Sources */,
+				453EF4B020D84B1100C56DEB /* MockOnboarding.swift in Sources */,
+				453EF4B420D84C6200C56DEB /* OnboardingTests.swift in Sources */,
+				453EF4B620D84C7100C56DEB /* MockDeferredOnboarding.swift in Sources */,
 				45A1026F1FD892560032884A /* TutorialTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
