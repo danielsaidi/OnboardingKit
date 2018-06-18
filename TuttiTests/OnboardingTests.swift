@@ -27,7 +27,7 @@ class OnboardingTests: QuickSpec {
         }
         
         
-        context("user-unspecific onboarding") {
+        context("user unspecific onboarding") {
         
             let key = "com.Tutti.foo"
             
@@ -71,7 +71,7 @@ class OnboardingTests: QuickSpec {
         }
         
         
-        context("user-specific onboarding") {
+        context("user specific onboarding") {
             
             let key = "com.Tutti.foo.bar"
             

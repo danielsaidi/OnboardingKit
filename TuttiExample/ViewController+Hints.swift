@@ -21,8 +21,9 @@ extension ViewController {
     
     func showHint(forUser userId: String?, from view: UIView) {
         let hint = getHint(forUser: userId)
-        if !hintPresenter.present(hint: hint, in: self, from: view) {
-            alertAlreadyDisplayedHint()
+        if hint.hasBeenDisplayed {
+            return alertAlreadyDisplayedHint()
         }
+        hint.present(with: hintPresenter, in: self, from: view)
     }
 }

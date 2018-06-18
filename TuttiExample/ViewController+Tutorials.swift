@@ -25,19 +25,17 @@ extension ViewController {
     
     func showLocalizedTutorial(forUser userId: String?, from view: UIView) {
         let tutorial = getLocalizedTutorial(forUser: userId)
+        if tutorial.hasBeenDisplayed { return alertAlreadyDisplayedTutorial() }
         let presenter = TutorialViewController(nibName: nil, bundle: nil)
-        if !presenter.present(tutorial: tutorial, in: self, from: view) {
-            alertAlreadyDisplayedTutorial()
-        }
+        tutorial.present(with: presenter, in: self, from: view)
         tutorialPresenter = presenter
     }
     
     func showTutorial(forUser userId: String?, from view: UIView) {
         let tutorial = getTutorial(forUser: userId)
+        if tutorial.hasBeenDisplayed { return alertAlreadyDisplayedTutorial() }
         let presenter = TutorialViewController(nibName: nil, bundle: nil)
-        if !presenter.present(tutorial: tutorial, in: self, from: view) {
-            alertAlreadyDisplayedTutorial()
-        }
+        tutorial.present(with: presenter, in: self, from: view)
         tutorialPresenter = presenter
     }
 }

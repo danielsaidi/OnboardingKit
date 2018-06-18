@@ -23,5 +23,5 @@ import UIKit
 public protocol TutorialPresenter: class {
     
     func dismiss(tutorial: Tutorial)
-    func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) -> Bool
+    func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView)
 }

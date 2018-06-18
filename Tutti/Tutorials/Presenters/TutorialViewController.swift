@@ -104,13 +104,10 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
         dismiss(animated: true, completion: nil)
     }
     
-    open func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) -> Bool {
-        if tutorial.hasBeenDisplayed { return false }
-        tutorial.hasBeenDisplayed = true
+    open func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) {
         self.tutorial = tutorial
         transitioningDelegate = self
         vc.present(self, animated: true, completion: nil)
-        return true
     }
     
     

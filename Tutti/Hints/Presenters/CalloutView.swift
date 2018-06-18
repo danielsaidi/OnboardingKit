@@ -1,8 +1,7 @@
 /*
  
- This class is forked from the EasyTipView GitHub repository.
- I decided to fork it and add it to this library, since this
- reduces further dependencies. I also had problems using the
+ This class is forked from the EasyTipView repository. I did
+ add it to this library since I had problems using the
  external library in the example app, and also couldn't find
  a nice way to provide an fully working, built-in presenter.
  

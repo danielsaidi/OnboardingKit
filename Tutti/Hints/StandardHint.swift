@@ -24,11 +24,13 @@ open class StandardHint: Hint {
         identifier: String,
         title: String,
         text: String,
-        userId: String? = nil) {
+        userId: String? = nil,
+        persistence: OnboardingPersistence = UserDefaults.standard) {
         self.identifier = identifier
         self.title = title
         self.text = text
         self.userId = userId
+        self.persistence = persistence
     }
     
     
@@ -40,4 +42,15 @@ open class StandardHint: Hint {
     public let text: String
     public let title: String
     public let userId: String?
+    
+    public let persistence: OnboardingPersistence
+    
+    
+    // MARK: - Public Functions
+    
+    public func present(with presenter: HintPresenter, in vc: UIViewController, from view: UIView) {
+        if hasBeenDisplayed { return }
+        hasBeenDisplayed = true
+        presenter.present(hint: self, in: vc, from: view)
+    }
 }

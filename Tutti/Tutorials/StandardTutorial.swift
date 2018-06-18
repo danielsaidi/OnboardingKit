@@ -9,8 +9,7 @@
 /*
  
  This is a simple implementation of the `Tutorial` protocol.
- You can use it as it is, or as a base class for any custom
- tutorials.
+ You can use it as is or as a base for any custom tutorials.
  
  */
 
@@ -25,11 +24,13 @@ open class StandardTutorial: Tutorial {
         identifier: String,
         pageCount: Int,
         userId: String? = nil,
-        keySegmentSeparator: String = "_") {
+        keySegmentSeparator: String = "_",
+        persistence: OnboardingPersistence = UserDefaults.standard) {
         self.identifier = identifier
         self.pageCount = pageCount
         self.userId = userId
         self.keySegmentSeparator = keySegmentSeparator
+        self.persistence = persistence
     }
     
     
@@ -41,6 +42,8 @@ open class StandardTutorial: Tutorial {
     public let userId: String?
     
     public var currentPageIndex = 0
+    
+    public var persistence: OnboardingPersistence
     
     
     // MARK: Public functions
@@ -55,6 +58,12 @@ open class StandardTutorial: Tutorial {
         if isFirstPage { return false }
         currentPageIndex -= 1
         return true
+    }
+    
+    open func present(with presenter: TutorialPresenter, in vc: UIViewController, from view: UIView) {
+        if hasBeenDisplayed { return }
+        hasBeenDisplayed = true
+        presenter.present(tutorial: self, in: vc, from: view)
     }
     
     open func resourceName(for key: String, at pageIndex: Int) -> String {

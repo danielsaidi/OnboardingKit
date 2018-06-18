@@ -12,6 +12,7 @@
 		4512F36D1FD8877C0062AEB7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512F36B1FD8877C0062AEB7 /* Quick.framework */; };
 		4512F36F1FD8878C0062AEB7 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4512F36A1FD8877C0062AEB7 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4512F3701FD8878C0062AEB7 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4512F36B1FD8877C0062AEB7 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		452F92BF20D7D73C00B0A05D /* DeferredOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452F92BE20D7D73C00B0A05D /* DeferredOnboarding.swift */; };
 		45352D782030D15400A0F890 /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D772030D15400A0F890 /* ViewController+TableView.swift */; };
 		45352D7A2030D28F00A0F890 /* ViewController+Tutorials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D792030D28F00A0F890 /* ViewController+Tutorials.swift */; };
 		45352D7C2030D30400A0F890 /* ViewController+Hints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D7B2030D30400A0F890 /* ViewController+Hints.swift */; };
@@ -26,6 +27,7 @@
 		4537E89A1FD3DFAC0007501C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */; };
 		4537E8A81FD3DFC40007501C /* Tutti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4537E87E1FD3DF950007501C /* Tutti.framework */; };
 		4537E8B11FD431A90007501C /* StandardHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8B01FD431A90007501C /* StandardHint.swift */; };
+		453EF4AC20D7F17800C56DEB /* OnboardingPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453EF4AB20D7F17800C56DEB /* OnboardingPersistence.swift */; };
 		4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710C1FD7BF9A00462ECD /* Tutorial.swift */; };
 		4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710E1FD7C18A00462ECD /* StandardTutorial.swift */; };
 		4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */; };
@@ -110,6 +112,7 @@
 		4512F3671FD886880062AEB7 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		4512F36A1FD8877C0062AEB7 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		4512F36B1FD8877C0062AEB7 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		452F92BE20D7D73C00B0A05D /* DeferredOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferredOnboarding.swift; sourceTree = "<group>"; };
 		45352D772030D15400A0F890 /* ViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
 		45352D792030D28F00A0F890 /* ViewController+Tutorials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Tutorials.swift"; sourceTree = "<group>"; };
 		45352D7B2030D30400A0F890 /* ViewController+Hints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Hints.swift"; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 		4537E8A31FD3DFC40007501C /* TuttiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuttiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4537E8A71FD3DFC40007501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4537E8B01FD431A90007501C /* StandardHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHint.swift; sourceTree = "<group>"; };
+		453EF4AB20D7F17800C56DEB /* OnboardingPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPersistence.swift; sourceTree = "<group>"; };
 		4552710C1FD7BF9A00462ECD /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		4552710E1FD7C18A00462ECD /* StandardTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorial.swift; sourceTree = "<group>"; };
 		4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
@@ -196,6 +200,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		452F92BD20D7D71E00B0A05D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				452F92BE20D7D73C00B0A05D /* DeferredOnboarding.swift */,
+				458021E81FD7B61D00CE157F /* Onboarding.swift */,
+				453EF4AB20D7F17800C56DEB /* OnboardingPersistence.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		45352D7F2030D93400A0F890 /* Options */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,11 +242,10 @@
 		4537E8801FD3DF950007501C /* Tutti */ = {
 			isa = PBXGroup;
 			children = (
-				457046711FDDC14B00D16844 /* Extension */,
-				459F38AD2030E5E10092297A /* External */,
+				452F92BD20D7D71E00B0A05D /* Common */,
+				457046711FDDC14B00D16844 /* Extensions */,
 				4537E8AE1FD431890007501C /* Hints */,
 				4537E8821FD3DF950007501C /* Info.plist */,
-				458021E81FD7B61D00CE157F /* Onboarding.swift */,
 				4562D1B61FDE5CEE000069F3 /* Transitions */,
 				4537E8AF1FD4318F0007501C /* Tutorials */,
 				4537E8811FD3DF950007501C /* Tutti.h */,
@@ -304,19 +317,12 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
-		457046711FDDC14B00D16844 /* Extension */ = {
+		457046711FDDC14B00D16844 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				457046721FDDC15A00D16844 /* UIScrollView+Page.swift */,
 			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		459F38AD2030E5E10092297A /* External */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = External;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		459F38B02030E6A90092297A /* Presenters */ = {
@@ -549,6 +555,8 @@
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
 				45CE37AF201670F9003384C2 /* AlertHintPresenter.swift in Sources */,
 				45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */,
+				453EF4AC20D7F17800C56DEB /* OnboardingPersistence.swift in Sources */,
+				452F92BF20D7D73C00B0A05D /* DeferredOnboarding.swift in Sources */,
 				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
 				45A102761FD921E70032884A /* LocalizedTutorial.swift in Sources */,
 				459F38AF2030E5F30092297A /* CalloutView.swift in Sources */,

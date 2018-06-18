@@ -22,22 +22,12 @@ public class AlertingHintPresenter: HintPresenter {
     
     public init() {}
     
-    public func present(hint: Hint, in vc: UIViewController, from view: UIView) -> Bool {
-        if hint.hasBeenDisplayed { return false }
-        hint.hasBeenDisplayed = true
-        alert(hint, in: vc)
-        return true
-    }
-    
-    public func dismiss(hint: Hint) { }
-}
-
-fileprivate extension AlertingHintPresenter {
-    
-    func alert(_ hint: Hint, in vc: UIViewController) {
+    public func present(hint: Hint, in vc: UIViewController, from view: UIView) {
         let alert = UIAlertController(title: hint.title, message: hint.text, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(ok)
         vc.present(alert, animated: true, completion: nil)
     }
+    
+    public func dismiss(hint: Hint) { }
 }
