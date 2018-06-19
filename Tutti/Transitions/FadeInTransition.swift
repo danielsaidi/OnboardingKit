@@ -14,6 +14,7 @@ open class FadeInTransition: NSObject, TutorialTransition {
     // MARK: - Initialization
     
     public init(fadeDuration: Double = 0.35) {
+        super.init()
         self.duration = fadeDuration
     }
     
@@ -25,10 +26,6 @@ open class FadeInTransition: NSObject, TutorialTransition {
     
     
     // MARK: - Public Functions
-    
-    open func transitionDuration(using context: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return duration
-    }
     
     open func animateTransition(using context: UIViewControllerContextTransitioning) {
         guard
@@ -54,5 +51,9 @@ open class FadeInTransition: NSObject, TutorialTransition {
                 containerView.insertSubview(fromView, belowSubview: toView)
             }
         )
+    }
+    
+    open func transitionDuration(using context: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return duration
     }
 }
