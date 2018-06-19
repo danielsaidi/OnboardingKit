@@ -1,16 +1,18 @@
 /*
  
- This class is forked from the EasyTipView repository. I did
- add it to this library since I had problems using the
- external library in the example app, and also couldn't find
- a nice way to provide an fully working, built-in presenter.
+ This class is forked from EasyTipView. I added it like this,
+ since I had problems using the external library in the demo
+ app and also couldn't find a way to provide a fully working,
+ built-in presenter. The original repository can be found at:
  
- The original repository can be found at:
  https://github.com/teodorpatras/EasyTipView
  
  The rest of the file is the original implementation besides
- a couple of renamings. For more information about the Tutti
- specifics, checkout the `CalloutHintPresenter` class docs.
+ a couple of renamings.
+ 
+ Since the class is unchanged from the original `EasyTipView`
+ class, checkout the original repo for more info on how skin
+ the callout views in your app.
  
  */
 
@@ -254,38 +256,30 @@ open class CalloutView: UIView {
     
     // MARK: - Lazy variables -
     
-    fileprivate lazy var textSize: CGSize = {
-        
-        [unowned self] in
-        
+    fileprivate lazy var textSize: CGSize = { [unowned self] in
         var attributes = [NSAttributedStringKey.font: self.preferences.drawing.font]
-        
         var textSize = self.text.boundingRect(with: CGSize(width: self.preferences.positioning.maxWidth, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil).size
-        
         textSize.width = ceil(textSize.width)
         textSize.height = ceil(textSize.height)
-        
         if textSize.width < self.preferences.drawing.arrowWidth {
             textSize.width = self.preferences.drawing.arrowWidth
         }
-        
         return textSize
         }()
     
-    fileprivate lazy var contentSize: CGSize = {
-        
-        [unowned self] in
-        
-        var contentSize = CGSize(width: self.textSize.width + self.preferences.positioning.textHInset * 2 + self.preferences.positioning.bubbleHInset * 2, height: self.textSize.height + self.preferences.positioning.textVInset * 2 + self.preferences.positioning.bubbleVInset * 2 + self.preferences.drawing.arrowHeight)
-        
-        return contentSize
-        }()
+    fileprivate lazy var contentSize: CGSize = { [unowned self] in
+        return CGSize(
+            width: textSize.width + preferences.positioning.textHInset * 2 + preferences.positioning.bubbleHInset * 2,
+            height: textSize.height + preferences.positioning.textVInset * 2 + preferences.positioning.bubbleVInset * 2 + preferences.drawing.arrowHeight
+        )}()
     
-    // MARK: - Static variables -
+    
+    // MARK: - Static variables
     
     open static var globalPreferences = Preferences()
     
-    // MARK: - Initializer -
+    
+    // MARK: - Initializer
     
     public init (text: String, preferences: Preferences = CalloutView.globalPreferences, delegate: CalloutViewDelegate? = nil) {
         

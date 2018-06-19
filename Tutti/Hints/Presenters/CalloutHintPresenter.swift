@@ -9,10 +9,9 @@
 /*
  
  This presenter displays hints using a bubble that points at
- to target view.
- 
- This presenter uses a fork of the superb `EasyTipView` repo.
- For more details about, checkout the `CalloutView` class.
+ to target view. For more information about how to customize
+ the appearance of a callout view, checkout the `CalloutView`
+ class documentation.
  
  */
 

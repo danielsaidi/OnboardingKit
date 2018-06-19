@@ -18,7 +18,7 @@
  
  */
 
-import Foundation
+import UIKit
 
 public protocol Hint: Onboarding {
     

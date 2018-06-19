@@ -9,11 +9,12 @@
 /*
  
  This is a very simple, standard implementation of the `Hint`
- protocol.
+ protocol. You can use it as is or inherit it to create your
+ own specific hint types.
  
  */
 
-import Foundation
+import UIKit
 
 open class StandardHint: Hint {
     
@@ -34,16 +35,17 @@ open class StandardHint: Hint {
     }
     
     
-    // MARK: - Properties
+    // MARK: - Dependencies
     
-    public weak var presenter: HintPresenter?
+    public let persistence: OnboardingPersistence
+    
+    
+    // MARK: - Properties
     
     public let identifier: String
     public let text: String
     public let title: String
     public let userId: String?
-    
-    public let persistence: OnboardingPersistence
     
     
     // MARK: - Public Functions

@@ -10,6 +10,9 @@ import Tutti
 
 class MockOnboardingPersistence: OnboardingPersistence {
     
+    
+    // MARK: - Mock Properties
+    
     var boolValues = [String: Bool]()
     var intValues = [String: Int]()
     
@@ -20,6 +23,9 @@ class MockOnboardingPersistence: OnboardingPersistence {
     var setBoolInvokeCount = 0
     var setBoolInvokeValues = [Bool]()
     var setBoolInvokeKeys = [String]()
+    
+    
+    // MARK: - OnboardingPersistence
     
     func set(_ value: Int, forKey key: String) {
         setIntInvokeCount += 1
