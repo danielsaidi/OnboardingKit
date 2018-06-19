@@ -33,6 +33,7 @@
 
 import Foundation
 
+@available(*, deprecated, message: "LocalizedTutorial is deprecated. Use the localization-based StandardTutorial initializer instead")
 open class LocalizedTutorial: StandardTutorial {
     
     
@@ -41,37 +42,12 @@ open class LocalizedTutorial: StandardTutorial {
     public init(
         identifier: String,
         userId: String? = nil,
-        pageIndicationKey: String = "title",
+        pageIndicationKey key: String = "title",
         keySegmentSeparator: String = "_") {
-        self.pageIndicationKey = pageIndicationKey
         super.init(
+            fromLocalizationWithPageIndicationKey: key,
             identifier: identifier,
-            pageCount: 0,
             userId: userId,
             keySegmentSeparator: keySegmentSeparator)
-        pageCount = resolvePageCount()
-    }
-    
-    
-    // MARK: - Properties
-    
-    public let pageIndicationKey: String
-}
-
-
-// MARK: - Private Functions
-
-fileprivate extension LocalizedTutorial {
-    
-    func resolvePageCount() -> Int {
-        var pageIndex = 0
-        while translationExists(for: resourceName(forPage: pageIndex)) {
-            pageIndex += 1
-        }
-        return pageIndex
-    }
-    
-    func resourceName(forPage index: Int) -> String {
-        return resourceName(for: pageIndicationKey, at: index)
     }
 }

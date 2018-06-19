@@ -29,9 +29,10 @@ be used from now on, if you want automated decision making to take place.
 - I have added new `DeferredHint` and `DeferredTutorial` protocols, that inherit
 the base protocols as well as `DeferredOnboarding`.
 
-- I have added new `StandardDeferredHint` and `StandardDeferredTutorial` classes,
-that inherit their standard base classes as well as the deferred protocols above.
-They also have deferred-specific presentation logic.
+- I have added a new `StandardDeferredHint` class that inherit the standard base
+class as well as the deferred protocol. For tutorials, however, you are (for now)
+best off to subclass either `StandardTutorial` or `LocalizedTutorial` and adjust
+your subclass to conform to `DeferredTutorial`.
 
 
 ### Breaking changes:
@@ -43,3 +44,9 @@ display history to be honored.
 
 - The presenter `present` functions don't have return values anymore, since they
 will always present the provided hint/tutorial.
+
+
+### Deprecated members:
+
+- The `LocalizedTutorial` is deprecated and will be removed soon enough. Instead,
+use the localization-based initializer of the `StandardTutorial` class. 

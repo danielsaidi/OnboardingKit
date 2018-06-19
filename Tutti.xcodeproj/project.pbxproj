@@ -38,6 +38,7 @@
 		4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710E1FD7C18A00462ECD /* StandardTutorial.swift */; };
 		4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */; };
 		4562D1B81FDE5D13000069F3 /* FadeInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */; };
+		45667A1C20D90FAE0002F257 /* DeferredTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45667A1B20D90FAE0002F257 /* DeferredTutorial.swift */; };
 		457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457046721FDDC15A00D16844 /* UIScrollView+Page.swift */; };
 		458021E91FD7B61D00CE157F /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021E81FD7B61D00CE157F /* Onboarding.swift */; };
 		458021EB1FD7B87E00CE157F /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021EA1FD7B87E00CE157F /* Hint.swift */; };
@@ -51,7 +52,6 @@
 		45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102711FD8A2E60032884A /* StandardHintTests.swift */; };
 		45A102741FD8A4FA0032884A /* StandardTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */; };
 		45A102761FD921E70032884A /* LocalizedTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102751FD921E70032884A /* LocalizedTutorial.swift */; };
-		45A102781FD925F70032884A /* LocalizedTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102771FD925F70032884A /* LocalizedTutorialTests.swift */; };
 		45A102821FD92CE50032884A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A102841FD92CE50032884A /* Localizable.strings */; };
 		45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1028B1FD935AA0032884A /* HintPresenter.swift */; };
 		45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102921FD939CA0032884A /* TutorialPresenter.swift */; };
@@ -159,6 +159,7 @@
 		4552710E1FD7C18A00462ECD /* StandardTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorial.swift; sourceTree = "<group>"; };
 		4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInTransition.swift; sourceTree = "<group>"; };
+		45667A1B20D90FAE0002F257 /* DeferredTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferredTutorial.swift; sourceTree = "<group>"; };
 		457046721FDDC15A00D16844 /* UIScrollView+Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Page.swift"; sourceTree = "<group>"; };
 		458021E81FD7B61D00CE157F /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		458021EA1FD7B87E00CE157F /* Hint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
@@ -172,7 +173,6 @@
 		45A102711FD8A2E60032884A /* StandardHintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHintTests.swift; sourceTree = "<group>"; };
 		45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorialTests.swift; sourceTree = "<group>"; };
 		45A102751FD921E70032884A /* LocalizedTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedTutorial.swift; sourceTree = "<group>"; };
-		45A102771FD925F70032884A /* LocalizedTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedTutorialTests.swift; sourceTree = "<group>"; };
 		45A102851FD92D060032884A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45A1028B1FD935AA0032884A /* HintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPresenter.swift; sourceTree = "<group>"; };
 		45A102921FD939CA0032884A /* TutorialPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
@@ -358,6 +358,7 @@
 		453EF4BD20D8CC0100C56DEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				45667A1B20D90FAE0002F257 /* DeferredTutorial.swift */,
 				45A102751FD921E70032884A /* LocalizedTutorial.swift */,
 				4552710E1FD7C18A00462ECD /* StandardTutorial.swift */,
 				4552710C1FD7BF9A00462ECD /* Tutorial.swift */,
@@ -410,6 +411,15 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
+		45667A1D20D90FF20002F257 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */,
+				45A1026E1FD892560032884A /* TutorialTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		457046711FDDC14B00D16844 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,9 +453,7 @@
 		45A1026D1FD892490032884A /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
-				45A102771FD925F70032884A /* LocalizedTutorialTests.swift */,
-				45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */,
-				45A1026E1FD892560032884A /* TutorialTests.swift */,
+				45667A1D20D90FF20002F257 /* Models */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -652,6 +660,7 @@
 				458021EB1FD7B87E00CE157F /* Hint.swift in Sources */,
 				4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */,
 				457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */,
+				45667A1C20D90FAE0002F257 /* DeferredTutorial.swift in Sources */,
 				4587F63E201135170040E0D2 /* TutorialTransition.swift in Sources */,
 				4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */,
 				4537E8B11FD431A90007501C /* StandardHint.swift in Sources */,
@@ -684,7 +693,6 @@
 				453EF4B220D84B6800C56DEB /* MockOnboardingPersistence.swift in Sources */,
 				45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */,
 				45A102741FD8A4FA0032884A /* StandardTutorialTests.swift in Sources */,
-				45A102781FD925F70032884A /* LocalizedTutorialTests.swift in Sources */,
 				453EF4BA20D8510500C56DEB /* DeferredOnboardingTests.swift in Sources */,
 				453EF4B020D84B1100C56DEB /* MockOnboarding.swift in Sources */,
 				453EF4D320D8EDCE00C56DEB /* StandardDeferredHintTests.swift in Sources */,
