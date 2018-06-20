@@ -27,11 +27,6 @@ public protocol DeferredOnboarding: Onboarding {
 
 extension DeferredOnboarding {
     
-    var registeredPresentationAttempts: Int {
-        get { return persistence.integer(forKey: registeredPresentationAttemptsKey) }
-        set { persistence.set(newValue, forKey: registeredPresentationAttemptsKey) }
-    }
-    
     var registeredPresentationAttemptsKey: String {
         return persistence.key(for: self, objectKey: "presentationAttempts", userId: userId)
     }
@@ -41,6 +36,11 @@ extension DeferredOnboarding {
 // MARK: - Public Properties
 
 public extension DeferredOnboarding {
+    
+    var registeredPresentationAttempts: Int {
+        get { return persistence.integer(forKey: registeredPresentationAttemptsKey) }
+        set { persistence.set(newValue, forKey: registeredPresentationAttemptsKey) }
+    }
     
     var remainingPresentationAttempts: Int {
         return max(0, requiredPresentationAttempts - registeredPresentationAttempts)

@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     var options: [TableViewOption] {
-        return [.hint, .tutorial, .localizedTutorial, .reset]
+        return [.hint, .deferredHint, .tutorial, .localizedTutorial, .reset]
     }
     
     var userId: String?
@@ -79,12 +79,15 @@ extension ViewController {
     }
     
     func resetDisplayState() {
+        let deferredHint = getDeferredHint(forUser: userId)
         let onboardings: [Onboarding] = [
             getHint(forUser: userId),
+            deferredHint,
             getTutorial(forUser: userId),
             getLocalizedTutorial(forUser: userId)
         ]
         onboardings.forEach { $0.hasBeenDisplayed = false }
+        deferredHint.registeredPresentationAttempts = 0
         alert(title: "Done!", message: "All hints and tutorials are now set to not displayed")
     }
 }

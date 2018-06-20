@@ -46,7 +46,8 @@ extension ViewController: UITableViewDelegate {
         let option = listOption(at: indexPath)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         switch option {
-        case .hint: showHint(forUser: userId, from: cell)
+        case .hint: show(getHint(forUser: userId), from: cell)
+        case .deferredHint: show(getDeferredHint(forUser: userId), from: cell)
         case .reset: resetDisplayState()
         case .tutorial: showTutorial(forUser: userId, from: cell)
         case .localizedTutorial: showLocalizedTutorial(forUser: userId, from: cell)
