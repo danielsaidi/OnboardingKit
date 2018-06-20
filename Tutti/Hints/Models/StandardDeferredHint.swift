@@ -16,7 +16,7 @@
 
 import UIKit
 
-public class StandardDeferredHint: StandardHint, DeferredHint {
+open class StandardDeferredHint: StandardHint, DeferredHint {
     
     
     // MARK: - Initialization
@@ -42,14 +42,14 @@ public class StandardDeferredHint: StandardHint, DeferredHint {
     
     public let requiredPresentationAttempts: Int
     
-    public override var shouldBePresented: Bool {
+    open override var shouldBePresented: Bool {
         return super.shouldBePresented && remainingPresentationAttempts == 0
     }
     
     
     // MARK: - Public Functions
     
-    public override func present(with presenter: HintPresenter, in vc: UIViewController, from view: UIView) {
+    open override func present(with presenter: HintPresenter, in vc: UIViewController, from view: UIView) {
         registerPresentationAttempt()
         guard shouldBePresented else { return }
         super.present(with: presenter, in: vc, from: view)

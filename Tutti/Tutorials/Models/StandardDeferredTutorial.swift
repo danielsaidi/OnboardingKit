@@ -16,7 +16,7 @@
 
 import UIKit
 
-public class StandardDeferredTutorial: StandardTutorial, DeferredTutorial {
+open class StandardDeferredTutorial: StandardTutorial, DeferredTutorial {
 
     
     // MARK: - Initialization
@@ -58,14 +58,14 @@ public class StandardDeferredTutorial: StandardTutorial, DeferredTutorial {
     
     public let requiredPresentationAttempts: Int
     
-    public override var shouldBePresented: Bool {
+    open override var shouldBePresented: Bool {
         return super.shouldBePresented && remainingPresentationAttempts == 0
     }
     
     
     // MARK: - Public Functions
     
-    public override func present(with presenter: TutorialPresenter, in vc: UIViewController, from view: UIView) {
+    open override func present(with presenter: TutorialPresenter, in vc: UIViewController, from view: UIView) {
         registerPresentationAttempt()
         guard shouldBePresented else { return }
         super.present(with: presenter, in: vc, from: view)

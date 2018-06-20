@@ -6,6 +6,14 @@ minor version bumps, but not on revision bumps.
 
 
 
+
+## 1.2.1
+
+In this version, the previously `public` standard deferred classes are now `open`
+so that you can inherit and them and override their logic in your own projects.
+
+
+
 ## 1.2.0
 
 This is a pretty big update with some breaking changes. The most important thing
