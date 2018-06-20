@@ -13,7 +13,7 @@ extension ViewController {
     
     func getHint(forUser userId: String?) -> Hint {
         return StandardHint(
-            identifier: "hint",
+            identifier: "hint_standard",
             title: "Standard hint",
             text: "This is a standard hint. It will only be displayed once per user.",
             userId: userId)
@@ -22,7 +22,7 @@ extension ViewController {
     func getDeferredHint(forUser userId: String?) -> DeferredHint {
         let requiredPresentationAttempts = 5
         return StandardDeferredHint(
-            identifier: "deferred_hint",
+            identifier: "hint_deferred",
             title: "Deferred hint",
             text: "This is a deferred hint. It will be displayed after \(requiredPresentationAttempts) attempts and only once per user.",
             requiredPresentationAttempts: requiredPresentationAttempts,
@@ -35,8 +35,7 @@ extension ViewController {
     }
     
     func show(_ hint: DeferredHint, from view: UIView) {
-        if hint.hasBeenDisplayed { return alertAlreadyDisplayedHint() }
-        hint.present(with: hintPresenter, in: self, from: view)
+        show(hint as Hint, from: view)
         alertRemainingPresentationAttemptsIfNeeded(for: hint)
     }
 }
@@ -50,6 +49,6 @@ private extension ViewController {
     func alertRemainingPresentationAttemptsIfNeeded(for hint: DeferredHint) {
         let remainingAttempts = hint.remainingPresentationAttempts
         guard remainingAttempts > 0 else { return }
-        alertAlreadyDisplayed(title: "This hint requires \(remainingAttempts) more taps before it is presented.")
+        alert(title: "Keep trying!", message: "This hint requires \(remainingAttempts) more taps before it is presented.")
     }
 }
