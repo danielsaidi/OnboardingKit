@@ -16,7 +16,7 @@ extension ViewController {
     }
     
     func getLocalizedTutorial(forUser userId: String?) -> Tutorial {
-        return LocalizedTutorial(identifier: "localized", userId: userId)
+        return StandardTutorial(fromLocalizationWithPageIndicationKey: "title", identifier: "localized", userId: userId)
     }
     
     func getTutorial(forUser userId: String?) -> Tutorial {

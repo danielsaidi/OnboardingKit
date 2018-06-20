@@ -34,7 +34,7 @@
  
  */
 
-import Foundation
+import UIKit
 
 open class StandardTutorial: Tutorial {
     
