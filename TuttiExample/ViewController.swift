@@ -27,8 +27,12 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    var options: [TableViewOption] {
-        return [.hint, .deferredHint, .tutorial, .localizedTutorial, .deferredTutorial, .reset]
+    var options: [(String, [TableViewOption])] {
+        return [
+            ("Hints", [.hint, .deferredHint]),
+            ("Tutorials", [.tutorial, .localizedTutorial, .deferredTutorial]),
+            ("Reset", [.reset])
+        ]
     }
     
     var userId: String?

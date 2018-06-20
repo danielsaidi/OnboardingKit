@@ -13,15 +13,20 @@ import UIKit
 extension ViewController: UITableViewDataSource {
     
     func listOption(at indexPath: IndexPath) -> TableViewOption {
-        return options[indexPath.row]
+        let section = options[indexPath.section]
+        return section.1[indexPath.row]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return options.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return options[section].0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
+        return options[section].1.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
