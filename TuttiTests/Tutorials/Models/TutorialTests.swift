@@ -68,7 +68,7 @@ class TutorialTests: QuickSpec {
                 
                 it("returns translated key") {
                     let translation = getTutorial().translate("tutorial_standard_0_title")
-                    expect(translation).to(equal("Standard tutorial"))
+                    expect(translation).to(equal("Standard tutorials"))
                 }
                 
                 it("returns key if translation does not exist") {
