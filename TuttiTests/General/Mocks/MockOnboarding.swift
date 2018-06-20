@@ -9,7 +9,7 @@
 import Tutti
 
 class MockOnboarding: Onboarding {
-
+    
     
     // MARK: - Initialization
     
@@ -25,4 +25,6 @@ class MockOnboarding: Onboarding {
     var identifier: String
     var userId: String?
     var persistence: OnboardingPersistence
+    
+    var shouldBePresented = false
 }

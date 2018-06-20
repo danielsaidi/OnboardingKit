@@ -14,7 +14,6 @@ class StandardDeferredHintTests: QuickSpec {
     
     override func spec() {
         
-        var hint: StandardDeferredHint!
         var persistence: MockOnboardingPersistence!
         var presenter: MockHintPresenter!
         
@@ -37,7 +36,7 @@ class StandardDeferredHintTests: QuickSpec {
         describe("when created") {
             
             it("sets all properties") {
-                hint = createHint(requiredPresentationAttempts: 3)
+                let hint = createHint(requiredPresentationAttempts: 3)
                 expect(hint.identifier).to(equal("hint"))
                 expect(hint.title).to(equal("foo"))
                 expect(hint.text).to(equal("bar"))
@@ -47,19 +46,39 @@ class StandardDeferredHintTests: QuickSpec {
             }
             
             it("uses user default persistence by default") {
-                hint = StandardDeferredHint(identifier: "", title: "", text: "", requiredPresentationAttempts: 121, userId: "")
+                let hint = StandardDeferredHint(identifier: "", title: "", text: "", requiredPresentationAttempts: 121, userId: "")
                 expect(hint.persistence).to(be(UserDefaults.standard))
+            }
+        }
+    
+        
+        describe("should be presented") {
+            
+            it("should be presented if it hasn't been displayed and the remaining presentation attempts is 0") {
+                let hint = createHint(requiredPresentationAttempts: 10)
+                persistence.intValues[hint.registeredPresentationAttemptsKey] = 10
+                expect(hint.shouldBePresented).to(beTrue())
+            }
+            
+            it("should not be presented if it has been displayed") {
+                let hint = createHint(requiredPresentationAttempts: 10)
+                persistence.boolValues[hint.hasBeenDisplayedKey] = true
+                persistence.intValues[hint.registeredPresentationAttemptsKey] = 10
+                expect(hint.shouldBePresented).to(beFalse())
+            }
+            
+            it("should not be presented if it has remaining presentation attempts") {
+                let hint = createHint(requiredPresentationAttempts: 10)
+                persistence.intValues[hint.registeredPresentationAttemptsKey] = 3
+                expect(hint.shouldBePresented).to(beFalse())
             }
         }
         
         
         describe("when presenting") {
             
-            beforeEach {
-                hint = createHint(requiredPresentationAttempts: 10)
-            }
-            
             it("registers presentation attempt") {
+                let hint = createHint(requiredPresentationAttempts: 10)
                 persistence.intValues[hint.registeredPresentationAttemptsKey] = 2
                 hint.present(with: presenter, in: UIViewController(), from: UIView())
                 expect(persistence.setIntInvokeCount).to(equal(1))
@@ -68,11 +87,13 @@ class StandardDeferredHintTests: QuickSpec {
             }
             
             it("aborts if it shouldn't be presented") {
+                let hint = createHint(requiredPresentationAttempts: 10)
                 hint.present(with: presenter, in: UIViewController(), from: UIView())
                 expect(presenter.presentInvokeCount).to(equal(0))
             }
             
             it("asks presenter to present it from valid context") {
+                let hint = createHint(requiredPresentationAttempts: 10)
                 persistence.intValues[hint.registeredPresentationAttemptsKey] = 10
                 let vc = UIViewController()
                 let view = UIView()

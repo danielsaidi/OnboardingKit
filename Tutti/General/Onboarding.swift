@@ -22,6 +22,8 @@ public protocol Onboarding: class {
     var identifier: String { get }
     var userId: String? { get }
     var persistence: OnboardingPersistence { get }
+    
+    var shouldBePresented: Bool { get }
 }
 
 

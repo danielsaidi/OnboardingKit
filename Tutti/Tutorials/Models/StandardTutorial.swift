@@ -80,6 +80,10 @@ open class StandardTutorial: Tutorial {
     
     public var persistence: OnboardingPersistence
     
+    public var shouldBePresented: Bool {
+        return !hasBeenDisplayed
+    }
+    
     
     // MARK: Public functions
     
@@ -96,9 +100,9 @@ open class StandardTutorial: Tutorial {
     }
     
     open func present(with presenter: TutorialPresenter, in vc: UIViewController, from view: UIView) {
-        if hasBeenDisplayed { return }
-        hasBeenDisplayed = true
+        guard shouldBePresented else { return }
         presenter.present(tutorial: self, in: vc, from: view)
+        hasBeenDisplayed = true
     }
     
     open func resourceName(for key: String, at pageIndex: Int) -> String {

@@ -42,6 +42,10 @@ public class StandardDeferredHint: StandardHint, DeferredHint {
     
     public let requiredPresentationAttempts: Int
     
+    public override var shouldBePresented: Bool {
+        return super.shouldBePresented && remainingPresentationAttempts == 0
+    }
+    
     
     // MARK: - Public Functions
     

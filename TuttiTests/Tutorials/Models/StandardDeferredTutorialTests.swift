@@ -14,7 +14,6 @@ class StandardDeferredTutorialTests: QuickSpec {
     
     override func spec() {
         
-        var tutorial: StandardDeferredTutorial!
         var persistence: MockOnboardingPersistence!
         var presenter: MockTutorialPresenter!
         
@@ -37,7 +36,7 @@ class StandardDeferredTutorialTests: QuickSpec {
         describe("when created") {
             
             it("sets all properties") {
-                tutorial = createTutorial(requiredPresentationAttempts: 3)
+                let tutorial = createTutorial(requiredPresentationAttempts: 3)
                 expect(tutorial.identifier).to(equal("foo"))
                 expect(tutorial.pageCount).to(equal(3))
                 expect(tutorial.requiredPresentationAttempts).to(equal(3))
@@ -47,19 +46,39 @@ class StandardDeferredTutorialTests: QuickSpec {
             }
             
             it("uses user default persistence by default") {
-                tutorial = StandardDeferredTutorial(identifier: "", pageCount: 1, requiredPresentationAttempts: 121)
+                let tutorial = StandardDeferredTutorial(identifier: "", pageCount: 1, requiredPresentationAttempts: 121)
                 expect(tutorial.persistence).to(be(UserDefaults.standard))
+            }
+        }
+        
+        
+        describe("should be presented") {
+            
+            it("should be presented if it hasn't been displayed and the remaining presentation attempts is 0") {
+                let tutorial = createTutorial(requiredPresentationAttempts: 10)
+                persistence.intValues[tutorial.registeredPresentationAttemptsKey] = 10
+                expect(tutorial.shouldBePresented).to(beTrue())
+            }
+            
+            it("should not be presented if it has been displayed") {
+                let tutorial = createTutorial(requiredPresentationAttempts: 10)
+                persistence.boolValues[tutorial.hasBeenDisplayedKey] = true
+                persistence.intValues[tutorial.registeredPresentationAttemptsKey] = 10
+                expect(tutorial.shouldBePresented).to(beFalse())
+            }
+            
+            it("should not be presented if it has remaining presentation attempts") {
+                let tutorial = createTutorial(requiredPresentationAttempts: 10)
+                persistence.intValues[tutorial.registeredPresentationAttemptsKey] = 3
+                expect(tutorial.shouldBePresented).to(beFalse())
             }
         }
         
         
         describe("when presenting") {
             
-            beforeEach {
-                tutorial = createTutorial(requiredPresentationAttempts: 10)
-            }
-            
             it("registers presentation attempt") {
+                let tutorial = createTutorial(requiredPresentationAttempts: 10)
                 persistence.intValues[tutorial.registeredPresentationAttemptsKey] = 2
                 tutorial.present(with: presenter, in: UIViewController(), from: UIView())
                 expect(persistence.setIntInvokeCount).to(equal(1))
@@ -68,11 +87,13 @@ class StandardDeferredTutorialTests: QuickSpec {
             }
             
             it("aborts if it shouldn't be presented") {
+                let tutorial = createTutorial(requiredPresentationAttempts: 10)
                 tutorial.present(with: presenter, in: UIViewController(), from: UIView())
                 expect(presenter.presentInvokeCount).to(equal(0))
             }
             
             it("asks presenter to present it from valid context") {
+                let tutorial = createTutorial(requiredPresentationAttempts: 10)
                 persistence.intValues[tutorial.registeredPresentationAttemptsKey] = 10
                 let vc = UIViewController()
                 let view = UIView()

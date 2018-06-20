@@ -58,6 +58,10 @@ public class StandardDeferredTutorial: StandardTutorial, DeferredTutorial {
     
     public let requiredPresentationAttempts: Int
     
+    public override var shouldBePresented: Bool {
+        return super.shouldBePresented && remainingPresentationAttempts == 0
+    }
+    
     
     // MARK: - Public Functions
     

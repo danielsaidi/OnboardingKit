@@ -45,10 +45,6 @@ public extension DeferredOnboarding {
     var remainingPresentationAttempts: Int {
         return max(0, requiredPresentationAttempts - registeredPresentationAttempts)
     }
-    
-    var shouldBePresented: Bool {
-        return !hasBeenDisplayed && remainingPresentationAttempts == 0
-    }
 }
 
 

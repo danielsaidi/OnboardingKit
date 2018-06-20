@@ -86,34 +86,13 @@ class DeferredOnboardingTests: QuickSpec {
             }
         }
         
-        describe("should be presented") {
-            
-            it("should be if it hasn't been displayed and the remaining presentation attempts is 0") {
-                let onboarding = createOnboarding(withUserId: nil, requiredAttempts: 10)
-                persistence.intValues[onboarding.registeredPresentationAttemptsKey] = 10
-                expect(onboarding.shouldBePresented).to(beTrue())
-            }
-            
-            it("should not be if it has been displayed") {
-                let onboarding = createOnboarding(withUserId: nil, requiredAttempts: 10)
-                persistence.boolValues[onboarding.hasBeenDisplayedKey] = true
-                persistence.intValues[onboarding.registeredPresentationAttemptsKey] = 10
-                expect(onboarding.shouldBePresented).to(beFalse())
-            }
-            
-            it("should not be if it has remaining presentation attempts") {
-                let onboarding = createOnboarding(withUserId: nil, requiredAttempts: 10)
-                persistence.intValues[onboarding.registeredPresentationAttemptsKey] = 3
-                expect(onboarding.shouldBePresented).to(beFalse())
-            }
-        }
-        
         describe("registering presentation attempt") {
             
             it("aborts if there are no remaining presentation attempts") {
                 let onboarding = createOnboarding(withUserId: nil, requiredAttempts: 10)
                 persistence.intValues[onboarding.registeredPresentationAttemptsKey] = 10
-                expect(onboarding.shouldBePresented).to(beTrue())
+                onboarding.registerPresentationAttempt()
+                expect(persistence.setIntInvokeCount).to(equal(0))
             }
             
             it("increments persisted value") {

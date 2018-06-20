@@ -47,12 +47,16 @@ open class StandardHint: Hint {
     public let title: String
     public let userId: String?
     
+    public var shouldBePresented: Bool {
+        return !hasBeenDisplayed
+    }
+    
     
     // MARK: - Public Functions
     
     public func present(with presenter: HintPresenter, in vc: UIViewController, from view: UIView) {
-        if hasBeenDisplayed { return }
-        hasBeenDisplayed = true
+        guard shouldBePresented else { return }
         presenter.present(hint: self, in: vc, from: view)
+        hasBeenDisplayed = true
     }
 }

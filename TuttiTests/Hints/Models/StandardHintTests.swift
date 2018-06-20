@@ -21,6 +21,7 @@ class StandardHintTests: QuickSpec {
         beforeEach {
             persistence = MockOnboardingPersistence()
             presenter = MockHintPresenter()
+            hint = createHint()
         }
         
         func createHint() -> StandardHint {
@@ -49,13 +50,22 @@ class StandardHintTests: QuickSpec {
                 expect(hint.persistence).to(be(UserDefaults.standard))
             }
         }
+
+        
+        describe("should be presented") {
+            
+            it("should be if it hasn't been displayed") {
+                expect(hint.shouldBePresented).to(beTrue())
+            }
+            
+            it("should not be if it has been displayed") {
+                persistence.boolValues[hint.hasBeenDisplayedKey] = true
+                expect(hint.shouldBePresented).to(beFalse())
+            }
+        }
         
         
         describe("when presenting") {
-            
-            beforeEach {
-                hint = createHint()
-            }
             
             it("aborts if it has already been displayed") {
                 persistence.boolValues[hint.hasBeenDisplayedKey] = true

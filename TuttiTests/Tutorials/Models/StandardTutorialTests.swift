@@ -8,13 +8,22 @@
 
 import Quick
 import Nimble
-import Tutti
+@testable import Tutti
 
 class StandardTutorialTests: QuickSpec {
     
     override func spec() {
         
-        describe("creating a standard tutorial") {
+        var persistence: MockOnboardingPersistence!
+        var presenter: MockTutorialPresenter!
+        
+        beforeEach {
+            persistence = MockOnboardingPersistence()
+            presenter = MockTutorialPresenter()
+        }
+        
+        
+        describe("when created") {
             
             context("with parameters") {
                 
@@ -59,22 +68,19 @@ class StandardTutorialTests: QuickSpec {
             
             it("always fails if page count is zero") {
                 let tutorial = StandardTutorial(identifier: "foo", pageCount: 0, userId: "bar")
-                let result = tutorial.loadNextPage()
-                expect(result).to(beFalse())
+                expect(tutorial.loadNextPage()).to(beFalse())
                 expect(tutorial.currentPageIndex).to(equal(0))
             }
             
             it("fails if tutorial is at last page") {
                 let tutorial = StandardTutorial(identifier: "foo", pageCount: 1, userId: "bar")
-                let result = tutorial.loadNextPage()
-                expect(result).to(beFalse())
+                expect(tutorial.loadNextPage()).to(beFalse())
                 expect(tutorial.currentPageIndex).to(equal(0))
             }
             
             it("succeeds if tutorial is not at last page") {
                 let tutorial = StandardTutorial(identifier: "foo", pageCount: 2, userId: "bar")
-                let result = tutorial.loadNextPage()
-                expect(result).to(beTrue())
+                expect(tutorial.loadNextPage()).to(beTrue())
                 expect(tutorial.currentPageIndex).to(equal(1))
             }
         }
@@ -83,15 +89,13 @@ class StandardTutorialTests: QuickSpec {
             
             it("always fails if page count is zero") {
                 let tutorial = StandardTutorial(identifier: "foo", pageCount: 0, userId: "bar")
-                let result = tutorial.loadPreviousPage()
-                expect(result).to(beFalse())
+                expect(tutorial.loadPreviousPage()).to(beFalse())
                 expect(tutorial.currentPageIndex).to(equal(0))
             }
             
             it("fails if tutorial is at first page") {
                 let tutorial = StandardTutorial(identifier: "foo", pageCount: 1, userId: "bar")
-                let result = tutorial.loadPreviousPage()
-                expect(result).to(beFalse())
+                expect(tutorial.loadPreviousPage()).to(beFalse())
                 expect(tutorial.currentPageIndex).to(equal(0))
             }
             
@@ -99,8 +103,7 @@ class StandardTutorialTests: QuickSpec {
                 let tutorial = StandardTutorial(identifier: "foo", pageCount: 3, userId: "bar")
                 _ = tutorial.loadNextPage()
                 _ = tutorial.loadNextPage()
-                let result = tutorial.loadPreviousPage()
-                expect(result).to(beTrue())
+                expect(tutorial.loadPreviousPage()).to(beTrue())
                 expect(tutorial.currentPageIndex).to(equal(1))
             }
         }
@@ -114,7 +117,6 @@ class StandardTutorialTests: QuickSpec {
             }
             
             it("adds non-empty key") {
-                
                 let tutorial = StandardTutorial(identifier: "foo", pageCount: 1, userId: "bar")
                 let name = tutorial.resourceName(for: "bar", at: 0)
                 expect(name).to(equal("tutorial_foo_0_bar"))
@@ -130,6 +132,60 @@ class StandardTutorialTests: QuickSpec {
                 let tutorial = StandardTutorial(identifier: "foo", pageCount: 0, userId: "bar", keySegmentSeparator: "===")
                 let name = tutorial.resourceName(for: "bar", at: 0)
                 expect(name).to(equal("tutorial===foo===0===bar"))
+            }
+        }
+        
+        
+        describe("should be presented") {
+            
+            func createTutorial() -> StandardTutorial {
+                return StandardTutorial(identifier: "foo", pageCount: 1, persistence: persistence)
+            }
+            
+            it("should be if it hasn't been displayed") {
+                let tutorial = createTutorial()
+                expect(tutorial.shouldBePresented).to(beTrue())
+            }
+            
+            it("should not be if it has been displayed") {
+                let tutorial = createTutorial()
+                persistence.boolValues[tutorial.hasBeenDisplayedKey] = true
+                expect(tutorial.shouldBePresented).to(beFalse())
+            }
+        }
+        
+        
+        describe("when presenting") {
+            
+            func createTutorial() -> StandardTutorial {
+                return StandardTutorial(identifier: "foo", pageCount: 1, persistence: persistence)
+            }
+            
+            it("aborts if it has already been displayed") {
+                let tutorial = createTutorial()
+                persistence.boolValues[tutorial.hasBeenDisplayedKey] = true
+                tutorial.present(with: presenter, in: UIViewController(), from: UIView())
+                expect(persistence.setBoolInvokeCount).to(equal(0))
+                expect(presenter.presentInvokeCount).to(equal(0))
+            }
+            
+            it("sets has been displayed") {
+                let tutorial = createTutorial()
+                tutorial.present(with: presenter, in: UIViewController(), from: UIView())
+                expect(persistence.setBoolInvokeCount).to(equal(1))
+                expect(persistence.setBoolInvokeKeys).to(equal([tutorial.hasBeenDisplayedKey]))
+                expect(persistence.setBoolInvokeValues).to(equal([true]))
+            }
+            
+            it("asks presenter to present it from valid context") {
+                let vc = UIViewController()
+                let view = UIView()
+                let tutorial = createTutorial()
+                tutorial.present(with: presenter, in: vc, from: view)
+                expect(presenter.presentInvokeCount).to(equal(1))
+                expect(presenter.presentInvokeTutorials[0]).to(be(tutorial))
+                expect(presenter.presentInvokeVcs).to(equal([vc]))
+                expect(presenter.presentInvokeViews).to(equal([view]))
             }
         }
     }
