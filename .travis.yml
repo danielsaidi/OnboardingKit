@@ -10,6 +10,6 @@ before_install:
   - carthage update
 
 script:
-  - xcodebuild -project "Tutti.xcodeproj" -scheme "TuttiExample" -sdk "iphonesimulator" | xcpretty -c
+  - xcodebuild -project "Tutti.xcodeproj" -scheme "Tutti" -sdk "iphonesimulator" | xcpretty -c
   - pod lib lint
   - fastlane test

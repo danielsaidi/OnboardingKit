@@ -2,10 +2,12 @@
     <img src ="Resources/Logo.png" width="400" />
 </p>
 
-
-[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
-[![GitHub version](https://badge.fury.io/gh/danielsaidi%2FTutti.svg)](http://badge.fury.io/gh/danielsaidi%2FTutti)
+[![Version](https://badge.fury.io/gh/danielsaidi%2FTutti.svg)](http://badge.fury.io/gh/danielsaidi%2FTutti)
+[![Carthage](https://img.shields.io/badge/carthage-supported-green.svg)](https://github.com/danielsaidi/Tutti)
+[![CocoaPods](https://img.shields.io/cocoapods/v/Tutti.svg?style=flat)](http://cocoapods.org/pods/Tutti)
 [![Build Status](https://api.travis-ci.org/danielsaidi/Tutti.svg)](https://travis-ci.org/danielsaidi/Tutti)
+![Platform](https://img.shields.io/cocoapods/p/Tutti.svg?style=flat)
+[![License](https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 
 ## About Tutti
