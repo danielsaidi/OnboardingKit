@@ -7,6 +7,12 @@ minor version bumps, but not on revision bumps.
 
 
 
+## 1.2.2
+
+This version migrates `Tutti` to Swift 4.2 and makes it Xcode 10 ready.
+
+
+
 ## 1.2.1
 
 In this version, the previously `public` standard deferred classes are now `open`

@@ -80,9 +80,8 @@ public extension CalloutView {
      - parameter delegate:    The delegate.
      */
     public class func show(animated: Bool = true, forView view: UIView, withinSuperview superview: UIView? = nil, text: String, preferences: Preferences = CalloutView.globalPreferences, delegate: CalloutViewDelegate? = nil) {
-        
-        let ev = CalloutView(text: text, preferences: preferences, delegate: delegate)
-        ev.show(animated: animated, forView: view, withinSuperview: superview)
+        let calloutView = CalloutView(text: text, preferences: preferences, delegate: delegate)
+        calloutView.show(animated: animated, forView: view, withinSuperview: superview)
     }
     
     // MARK: - Instance methods -
@@ -252,12 +251,12 @@ open class CalloutView: UIView {
     fileprivate weak var delegate: CalloutViewDelegate?
     fileprivate var arrowTip = CGPoint.zero
     fileprivate(set) open var preferences: Preferences
-    open let text: String
+    public let text: String
     
     // MARK: - Lazy variables -
     
     fileprivate lazy var textSize: CGSize = { [unowned self] in
-        var attributes = [NSAttributedStringKey.font: self.preferences.drawing.font]
+        var attributes = [NSAttributedString.Key.font: self.preferences.drawing.font]
         var textSize = self.text.boundingRect(with: CGSize(width: self.preferences.positioning.maxWidth, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil).size
         textSize.width = ceil(textSize.width)
         textSize.height = ceil(textSize.height)
@@ -276,7 +275,7 @@ open class CalloutView: UIView {
     
     // MARK: - Static variables
     
-    open static var globalPreferences = Preferences()
+    public static var globalPreferences = Preferences()
     
     
     // MARK: - Initializer
@@ -290,7 +289,7 @@ open class CalloutView: UIView {
         super.init(frame: CGRect.zero)
         
         self.backgroundColor = UIColor.clear
-        NotificationCenter.default.addObserver(self, selector: #selector(handleRotation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleRotation), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     deinit {
@@ -519,7 +518,7 @@ open class CalloutView: UIView {
         paragraphStyle.alignment = preferences.drawing.textAlignment
         paragraphStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
         let textRect = CGRect(x: bubbleFrame.origin.x + (bubbleFrame.size.width - textSize.width) / 2, y: bubbleFrame.origin.y + (bubbleFrame.size.height - textSize.height) / 2, width: textSize.width, height: textSize.height)
-        text.draw(in: textRect, withAttributes: [NSAttributedStringKey.font: preferences.drawing.font, NSAttributedStringKey.foregroundColor: preferences.drawing.foregroundColor, NSAttributedStringKey.paragraphStyle: paragraphStyle])
+        text.draw(in: textRect, withAttributes: [NSAttributedString.Key.font: preferences.drawing.font, NSAttributedString.Key.foregroundColor: preferences.drawing.foregroundColor, NSAttributedString.Key.paragraphStyle: paragraphStyle])
     }
     
     override open func draw(_ rect: CGRect) {
