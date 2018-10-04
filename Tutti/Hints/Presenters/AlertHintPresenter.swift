@@ -22,19 +22,19 @@ public class AlertingHintPresenter: HintPresenter {
     
     public init() {}
     
-    public func present(hint: Hint, in vc: UIViewController, from view: UIView) {
+    public func present(_ hint: Hint, in vc: UIViewController, from view: UIView) {
         tryPresent(hint) {
             alert(hint: hint, from: vc)
         }
     }
     
-    public func present(hint: Hint, in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
+    public func present(_ hint: Hint, in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
         tryPresent(hint) {
             alert(hint: hint, from: vc)
         }
     }
     
-    public func dismiss(hint: Hint) { }
+    public func dismiss(_ hint: Hint) { }
 }
 
 private extension AlertingHintPresenter {

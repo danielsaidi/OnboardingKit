@@ -16,7 +16,7 @@ import UIKit
 
 public protocol HintPresenter: OnboardingPresenter {
     
-    func dismiss(hint: Hint)
-    func present(hint: Hint, in vc: UIViewController, from view: UIView)
-    func present(hint: Hint, in vc: UIViewController, from barButtonItem: UIBarButtonItem)
+    func dismiss(_ hint: Hint)
+    func present(_ hint: Hint, in vc: UIViewController, from view: UIView)
+    func present(_ hint: Hint, in vc: UIViewController, from barButtonItem: UIBarButtonItem)
 }

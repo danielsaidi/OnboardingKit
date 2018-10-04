@@ -33,19 +33,19 @@ public class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
     
     // MARK: - Public Functions
 
-    open func present(hint: Hint, in vc: UIViewController, from view: UIView) {
+    open func present(_ hint: Hint, in vc: UIViewController, from view: UIView) {
         tryPresent(hint) {
             createCallout(for: hint).show(forView: view)
         }
     }
     
-    open func present(hint: Hint, in vc: UIViewController, from item: UIBarButtonItem) {
+    open func present(_ hint: Hint, in vc: UIViewController, from item: UIBarButtonItem) {
         tryPresent(hint) {
             createCallout(for: hint).show(forItem: item)
         }
     }
     
-    open func dismiss(hint: Hint) {
+    open func dismiss(_ hint: Hint) {
         let callouts = presentedCallouts.filter { $0.text == hint.text }
         callouts.forEach { $0.dismiss() }
     }

@@ -84,7 +84,7 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     @IBAction func dismissTutorial(_ sender: Any) {
         guard let tutorial = tutorial else { return }
-        dismiss(tutorial: tutorial)
+        dismiss(tutorial)
     }
     
     @IBAction func showNextPage(_ sender: Any) {
@@ -100,11 +100,11 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     // MARK: - TutorialPresenter Functions
     
-    open func dismiss(tutorial: Tutorial) {
+    open func dismiss(_ tutorial: Tutorial) {
         dismiss(animated: true, completion: nil)
     }
     
-    open func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) {
+    open func present(_ tutorial: Tutorial, in vc: UIViewController, from view: UIView) {
         tryPresent(tutorial) {
             self.tutorial = tutorial
             transitioningDelegate = self

@@ -22,6 +22,6 @@ import UIKit
 
 public protocol TutorialPresenter: OnboardingPresenter {
     
-    func dismiss(tutorial: Tutorial)
-    func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView)
+    func dismiss(_ tutorial: Tutorial)
+    func present(_ tutorial: Tutorial, in vc: UIViewController, from view: UIView)
 }

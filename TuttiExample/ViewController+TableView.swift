@@ -54,8 +54,8 @@ extension ViewController: UITableViewDelegate {
         case .hint: show(getHint(forUser: userId), from: cell)
         case .deferredHint: show(getDeferredHint(forUser: userId), from: cell)
         case .dismissCurrentHint:
-            hintPresenter.dismiss(hint: getHint(forUser: userId))
-            hintPresenter.dismiss(hint: getDeferredHint(forUser: userId))
+            hintPresenter.dismiss(getHint(forUser: userId))
+            hintPresenter.dismiss(getDeferredHint(forUser: userId))
         case .reset: resetDisplayState()
         case .tutorial: show(getTutorial(forUser: userId), from: cell)
         case .localizedTutorial: show(getLocalizedTutorial(forUser: userId), from: cell)
