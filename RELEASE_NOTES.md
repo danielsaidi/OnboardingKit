@@ -7,6 +7,16 @@ minor version bumps, but not on revision bumps.
 
 
 
+## 1.4.0
+
+This version removes presentation logic from hints/tutorials to their presenters.
+Instead of calling `present` on your hints and tutorials, now use the presenters.
+
+The presenter protocols have also been refactored. The first parameter names are
+now implicit.
+
+
+
 ## 1.3.0
 
 This version extends the `Hint` and `HintPresenter` protocols to make presenting

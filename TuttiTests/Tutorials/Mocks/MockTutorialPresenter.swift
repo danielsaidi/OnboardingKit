@@ -19,12 +19,12 @@ class MockTutorialPresenter: TutorialPresenter {
     var presentInvokeVcs = [UIViewController]()
     var presentInvokeViews = [UIView]()
     
-    func dismiss(tutorial: Tutorial) {
+    func dismiss(_ tutorial: Tutorial) {
         dismissInvokeCount += 1
         presentInvokeTutorials.append(tutorial)
     }
     
-    func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) {
+    func present(_ tutorial: Tutorial, in vc: UIViewController, from view: UIView) {
         presentInvokeCount += 1
         presentInvokeTutorials.append(tutorial)
         presentInvokeVcs.append(vc)

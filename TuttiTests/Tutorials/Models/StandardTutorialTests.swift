@@ -153,40 +153,5 @@ class StandardTutorialTests: QuickSpec {
                 expect(tutorial.shouldBePresented).to(beFalse())
             }
         }
-        
-        
-        describe("when presenting") {
-            
-            func createTutorial() -> StandardTutorial {
-                return StandardTutorial(identifier: "foo", pageCount: 1, persistence: persistence)
-            }
-            
-            it("aborts if it has already been displayed") {
-                let tutorial = createTutorial()
-                persistence.boolValues[tutorial.hasBeenDisplayedKey] = true
-                tutorial.present(with: presenter, in: UIViewController(), from: UIView())
-                expect(persistence.setBoolInvokeCount).to(equal(0))
-                expect(presenter.presentInvokeCount).to(equal(0))
-            }
-            
-            it("sets has been displayed") {
-                let tutorial = createTutorial()
-                tutorial.present(with: presenter, in: UIViewController(), from: UIView())
-                expect(persistence.setBoolInvokeCount).to(equal(1))
-                expect(persistence.setBoolInvokeKeys).to(equal([tutorial.hasBeenDisplayedKey]))
-                expect(persistence.setBoolInvokeValues).to(equal([true]))
-            }
-            
-            it("asks presenter to present it from valid context") {
-                let vc = UIViewController()
-                let view = UIView()
-                let tutorial = createTutorial()
-                tutorial.present(with: presenter, in: vc, from: view)
-                expect(presenter.presentInvokeCount).to(equal(1))
-                expect(presenter.presentInvokeTutorials[0]).to(be(tutorial))
-                expect(presenter.presentInvokeVcs).to(equal([vc]))
-                expect(presenter.presentInvokeViews).to(equal([view]))
-            }
-        }
     }
 }

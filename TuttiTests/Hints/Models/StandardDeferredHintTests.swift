@@ -73,36 +73,5 @@ class StandardDeferredHintTests: QuickSpec {
                 expect(hint.shouldBePresented).to(beFalse())
             }
         }
-        
-        
-        describe("when presenting") {
-            
-            it("registers presentation attempt") {
-                let hint = createHint(requiredPresentationAttempts: 10)
-                persistence.intValues[hint.registeredPresentationAttemptsKey] = 2
-                hint.present(with: presenter, in: UIViewController(), from: UIView())
-                expect(persistence.setIntInvokeCount).to(equal(1))
-                expect(persistence.setIntInvokeValues).to(equal([3]))
-                expect(persistence.setIntInvokeKeys).to(equal([hint.registeredPresentationAttemptsKey]))
-            }
-            
-            it("aborts if it shouldn't be presented") {
-                let hint = createHint(requiredPresentationAttempts: 10)
-                hint.present(with: presenter, in: UIViewController(), from: UIView())
-                expect(presenter.presentInvokeCount).to(equal(0))
-            }
-            
-            it("asks presenter to present it from valid context") {
-                let hint = createHint(requiredPresentationAttempts: 10)
-                persistence.intValues[hint.registeredPresentationAttemptsKey] = 10
-                let vc = UIViewController()
-                let view = UIView()
-                hint.present(with: presenter, in: vc, from: view)
-                expect(presenter.presentInvokeCount).to(equal(1))
-                expect(presenter.presentInvokeHints[0]).to(be(hint))
-                expect(presenter.presentInvokeVcs).to(equal([vc]))
-                expect(presenter.presentInvokeViews).to(equal([view]))
-            }
-        }
     }
 }
