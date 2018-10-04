@@ -22,6 +22,10 @@ public class AlertingHintPresenter: HintPresenter {
     
     public init() {}
     
+    public func dismiss(_ hint: Hint) { }
+    
+    public func dismissAllHints() {}
+    
     public func present(_ hint: Hint, in vc: UIViewController, from view: UIView) {
         tryPresent(hint) {
             alert(hint: hint, from: vc)
@@ -33,8 +37,6 @@ public class AlertingHintPresenter: HintPresenter {
             alert(hint: hint, from: vc)
         }
     }
-    
-    public func dismiss(_ hint: Hint) { }
 }
 
 private extension AlertingHintPresenter {

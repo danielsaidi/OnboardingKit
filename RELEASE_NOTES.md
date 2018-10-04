@@ -15,6 +15,9 @@ Instead of calling `present` on your hints and tutorials, now use the presenters
 The presenter protocols have also been refactored. The first parameter names are
 now implicit.
 
+`HintPresenter` now has a `dismissAllHints()` function. It's implemented by some
+of the presenters, where applicable.
+
 
 
 ## 1.3.0
