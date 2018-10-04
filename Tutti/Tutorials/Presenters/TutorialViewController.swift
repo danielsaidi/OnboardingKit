@@ -105,12 +105,11 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     }
     
     open func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView) {
-        tutorial.prepareForPresentation()
-        guard tutorial.shouldBePresented else { return }
-        self.tutorial = tutorial
-        transitioningDelegate = self
-        vc.present(self, animated: true, completion: nil)
-        tutorial.hasBeenDisplayed = true
+        tryPresent(tutorial) {
+            self.tutorial = tutorial
+            transitioningDelegate = self
+            vc.present(self, animated: true, completion: nil)
+        }
     }
     
     

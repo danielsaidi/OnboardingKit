@@ -63,6 +63,7 @@
 		45E9EEBA200E79FA00CEEBFF /* TableViewOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9EEB9200E79FA00CEEBFF /* TableViewOption.swift */; };
 		45FB51C020495E6D009D5806 /* Tutti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4537E87E1FD3DF950007501C /* Tutti.framework */; };
 		45FB51C120495E6D009D5806 /* Tutti.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4537E87E1FD3DF950007501C /* Tutti.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84851DD521662F4200DE8886 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84851DD421662F4200DE8886 /* OnboardingPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +185,7 @@
 		45B3AD521FDA0955005C590C /* TutorialViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewControllerCell.swift; sourceTree = "<group>"; };
 		45CE37AE201670F9003384C2 /* AlertHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHintPresenter.swift; sourceTree = "<group>"; };
 		45E9EEB9200E79FA00CEEBFF /* TableViewOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOption.swift; sourceTree = "<group>"; };
+		84851DD421662F4200DE8886 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				452F92BE20D7D73C00B0A05D /* DeferredOnboarding.swift */,
 				458021E81FD7B61D00CE157F /* Onboarding.swift */,
 				453EF4AB20D7F17800C56DEB /* OnboardingPersistence.swift */,
+				84851DD421662F4200DE8886 /* OnboardingPresenter.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				4537E8B11FD431A90007501C /* StandardHint.swift in Sources */,
 				45A1029A1FD941600032884A /* TutorialViewController.swift in Sources */,
 				458021E91FD7B61D00CE157F /* Onboarding.swift in Sources */,
+				84851DD521662F4200DE8886 /* OnboardingPresenter.swift in Sources */,
 				453EF4D520D8F1FD00C56DEB /* DeferredHint.swift in Sources */,
 				4562D1B81FDE5D13000069F3 /* FadeInTransition.swift in Sources */,
 			);

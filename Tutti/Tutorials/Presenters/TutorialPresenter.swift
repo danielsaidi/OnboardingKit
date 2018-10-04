@@ -20,7 +20,7 @@
 
 import UIKit
 
-public protocol TutorialPresenter: class {
+public protocol TutorialPresenter: OnboardingPresenter {
     
     func dismiss(tutorial: Tutorial)
     func present(tutorial: Tutorial, in vc: UIViewController, from view: UIView)
