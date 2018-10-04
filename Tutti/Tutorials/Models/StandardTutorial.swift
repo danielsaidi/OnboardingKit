@@ -99,11 +99,7 @@ open class StandardTutorial: Tutorial {
         return true
     }
     
-    open func present(with presenter: TutorialPresenter, in vc: UIViewController, from view: UIView) {
-        guard shouldBePresented else { return }
-        presenter.present(tutorial: self, in: vc, from: view)
-        hasBeenDisplayed = true
-    }
+    open func prepareForPresentation() {}
     
     open func resourceName(for key: String, at pageIndex: Int) -> String {
         let key = key.trimmingCharacters(in: .whitespaces)

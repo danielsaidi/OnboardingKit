@@ -578,7 +578,7 @@ private extension UIView {
         return viewHasSuperview(self, superview: superview)
     }
     
-    fileprivate func viewHasSuperview(_ view: UIView, superview: UIView) -> Bool {
+    func viewHasSuperview(_ view: UIView, superview: UIView) -> Bool {
         if let sview = view.superview {
             if sview === superview {
                 return true

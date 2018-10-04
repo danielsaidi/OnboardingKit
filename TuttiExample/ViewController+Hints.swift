@@ -31,7 +31,7 @@ extension ViewController {
     
     func show(_ hint: Hint, from view: UIView) {
         if hint.hasBeenDisplayed { return alertAlreadyDisplayedHint() }
-        hint.present(with: hintPresenter, in: self, from: view)
+        hintPresenter.present(hint: hint, in: self, from: view)
     }
     
     func show(_ hint: DeferredHint, from view: UIView) {

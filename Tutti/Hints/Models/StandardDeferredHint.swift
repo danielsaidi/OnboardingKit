@@ -49,13 +49,7 @@ open class StandardDeferredHint: StandardHint, DeferredHint {
     
     // MARK: - Public Functions
     
-    open override func present(with presenter: HintPresenter, in vc: UIViewController, from view: UIView) {
+    open override func prepareForPresentation() {
         registerPresentationAttempt()
-        super.present(with: presenter, in: vc, from: view)
-    }
-    
-    open override func present(with presenter: HintPresenter, in vc: UIViewController, from item: UIBarButtonItem) {
-        registerPresentationAttempt()
-        super.present(with: presenter, in: vc, from: item)
     }
 }

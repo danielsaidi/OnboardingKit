@@ -23,13 +23,17 @@ public class AlertingHintPresenter: HintPresenter {
     public init() {}
     
     public func present(hint: Hint, in vc: UIViewController, from view: UIView) {
+        hint.prepareForPresentation()
         guard hint.shouldBePresented else { return }
         alert(hint: hint, from: vc)
+        hint.hasBeenDisplayed = true
     }
     
     public func present(hint: Hint, in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
+        hint.prepareForPresentation()
         guard hint.shouldBePresented else { return }
         alert(hint: hint, from: vc)
+        hint.hasBeenDisplayed = true
     }
     
     public func dismiss(hint: Hint) { }

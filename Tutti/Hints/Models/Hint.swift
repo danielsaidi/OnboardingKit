@@ -12,10 +12,6 @@
  once. It's perfect for quick onboarding, like showing users
  how certain parts of a UI works.
  
- When presenting hints, use the present function of the hint
- and not the presenter. The presenter ignores any rules that
- applies to the hint.
- 
  */
 
 import UIKit
@@ -24,7 +20,4 @@ public protocol Hint: Onboarding {
     
     var title: String { get }
     var text: String { get }
-    
-    func present(with presenter: HintPresenter, in vc: UIViewController, from view: UIView)
-    func present(with presenter: HintPresenter, in vc: UIViewController, from item: UIBarButtonItem)
 }

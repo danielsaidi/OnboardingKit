@@ -54,15 +54,5 @@ open class StandardHint: Hint {
     
     // MARK: - Public Functions
     
-    public func present(with presenter: HintPresenter, in vc: UIViewController, from view: UIView) {
-        guard shouldBePresented else { return }
-        presenter.present(hint: self, in: vc, from: view)
-        hasBeenDisplayed = true
-    }
-    
-    public func present(with presenter: HintPresenter, in vc: UIViewController, from item: UIBarButtonItem) {
-        guard shouldBePresented else { return }
-        presenter.present(hint: self, in: vc, from: item)
-        hasBeenDisplayed = true
-    }
+    open func prepareForPresentation() {}
 }

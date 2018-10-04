@@ -18,10 +18,6 @@
  the example app only uses localized strings and images, you
  can use this to identify movie clips, Lottie animations etc.
  
- When presenting a tutorial, use the present function of the
- tutorial and not the presenter, since the presenter ignores
- any rules that applies to the tutorial.
- 
  */
 
 import Foundation
@@ -35,8 +31,6 @@ public protocol Tutorial: Onboarding {
     func loadNextPage() -> Bool
     func loadPreviousPage() -> Bool
     func resourceName(for key: String, at pageIndex: Int) -> String
-    
-    func present(with presenter: TutorialPresenter, in vc: UIViewController, from view: UIView)
 }
 
 

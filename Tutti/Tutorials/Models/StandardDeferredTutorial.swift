@@ -65,9 +65,7 @@ open class StandardDeferredTutorial: StandardTutorial, DeferredTutorial {
     
     // MARK: - Public Functions
     
-    open override func present(with presenter: TutorialPresenter, in vc: UIViewController, from view: UIView) {
+    open override func prepareForPresentation() {
         registerPresentationAttempt()
-        guard shouldBePresented else { return }
-        super.present(with: presenter, in: vc, from: view)
     }
 }

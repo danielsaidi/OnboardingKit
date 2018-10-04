@@ -24,6 +24,8 @@ public protocol Onboarding: class {
     var persistence: OnboardingPersistence { get }
     
     var shouldBePresented: Bool { get }
+    
+    func prepareForPresentation()
 }
 
 
