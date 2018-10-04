@@ -20,3 +20,13 @@ public protocol HintPresenter: class {
     func present(hint: Hint, in vc: UIViewController, from view: UIView)
     func present(hint: Hint, in vc: UIViewController, from barButtonItem: UIBarButtonItem)
 }
+
+public extension HintPresenter {
+    
+    func tryPresent(_ hint: Hint, presentAction: () -> ()) {
+        hint.prepareForPresentation()
+        guard hint.shouldBePresented else { return }
+        presentAction()
+        hint.hasBeenDisplayed = true
+    }
+}

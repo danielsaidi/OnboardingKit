@@ -34,19 +34,15 @@ public class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
     // MARK: - Public Functions
 
     open func present(hint: Hint, in vc: UIViewController, from view: UIView) {
-        dismiss(hint: hint)
-        hint.prepareForPresentation()
-        guard hint.shouldBePresented else { return }
-        createCallout(for: hint).show(forView: view)
-        hint.hasBeenDisplayed = true
+        tryPresent(hint) {
+            createCallout(for: hint).show(forView: view)
+        }
     }
     
     open func present(hint: Hint, in vc: UIViewController, from item: UIBarButtonItem) {
-        dismiss(hint: hint)
-        hint.prepareForPresentation()
-        guard hint.shouldBePresented else { return }
-        createCallout(for: hint).show(forItem: item)
-        hint.hasBeenDisplayed = true
+        tryPresent(hint) {
+            createCallout(for: hint).show(forItem: item)
+        }
     }
     
     open func dismiss(hint: Hint) {
