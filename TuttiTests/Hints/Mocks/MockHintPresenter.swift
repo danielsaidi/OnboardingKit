@@ -13,6 +13,8 @@ class MockHintPresenter: HintPresenter {
     var dismissInvokeCount = 0
     var dismissInvokeHints = [Hint]()
     
+    var dismissAllHintsInvokeCount = 0
+    
     var presentInvokeCount = 0
     var presentInvokeHints = [Hint]()
     var presentInvokeVcs = [UIViewController]()
@@ -22,6 +24,10 @@ class MockHintPresenter: HintPresenter {
     func dismiss(_ hint: Hint) {
         dismissInvokeCount += 1
         dismissInvokeHints.append(hint)
+    }
+    
+    func dismissAllHints() {
+        dismissAllHintsInvokeCount += 1
     }
     
     func present(_ hint: Hint, in vc: UIViewController, from view: UIView) {
