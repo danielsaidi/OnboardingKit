@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 // MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
@@ -46,6 +47,10 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        hintPresenter.dismissAllHints()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let option = listOption(at: indexPath)
@@ -53,9 +58,7 @@ extension ViewController: UITableViewDelegate {
         switch option {
         case .hint: show(getHint(forUser: userId), from: cell)
         case .deferredHint: show(getDeferredHint(forUser: userId), from: cell)
-        case .dismissCurrentHint:
-            hintPresenter.dismiss(getHint(forUser: userId))
-            hintPresenter.dismiss(getDeferredHint(forUser: userId))
+        case .dismissCurrentHint: hintPresenter.dismissAllHints()
         case .reset: resetDisplayState()
         case .tutorial: show(getTutorial(forUser: userId), from: cell)
         case .localizedTutorial: show(getLocalizedTutorial(forUser: userId), from: cell)
