@@ -7,6 +7,17 @@ minor version bumps, but not on revision bumps.
 
 
 
+## 1.3.0
+
+This version extends the `Hint` and `HintPresenter` protocols to make presenting
+a hint from a `UIBarButtonItem` possible. If you have any custom implementations
+of these protocols, you must extend them.
+
+`CalloutHintPresenter` has been improved, so that it can dismiss presented hints.
+This fixes [issue #3](https://github.com/danielsaidi/Tutti/issues/3).
+
+
+
 ## 1.2.2
 
 This version migrates `Tutti` to Swift 4.2 and makes it Xcode 10 ready.

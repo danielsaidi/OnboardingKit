@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     var options: [(String, [TableViewOption])] {
         return [
-            ("Hints", [.hint, .deferredHint]),
+            ("Hints", [.hint, .deferredHint, .dismissCurrentHint]),
             ("Tutorials", [.tutorial, .localizedTutorial, .deferredTutorial]),
             ("Reset", [.reset])
         ]

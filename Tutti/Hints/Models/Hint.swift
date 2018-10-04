@@ -26,4 +26,5 @@ public protocol Hint: Onboarding {
     var text: String { get }
     
     func present(with presenter: HintPresenter, in vc: UIViewController, from view: UIView)
+    func present(with presenter: HintPresenter, in vc: UIViewController, from item: UIBarButtonItem)
 }

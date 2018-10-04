@@ -18,4 +18,5 @@ public protocol HintPresenter: class {
     
     func dismiss(hint: Hint)
     func present(hint: Hint, in vc: UIViewController, from view: UIView)
+    func present(hint: Hint, in vc: UIViewController, from barButtonItem: UIBarButtonItem)
 }

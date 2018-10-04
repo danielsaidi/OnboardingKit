@@ -17,6 +17,7 @@ class MockHintPresenter: HintPresenter {
     var presentInvokeHints = [Hint]()
     var presentInvokeVcs = [UIViewController]()
     var presentInvokeViews = [UIView]()
+    var presentInvokeItems = [UIBarButtonItem]()
     
     func dismiss(hint: Hint) {
         dismissInvokeCount += 1
@@ -28,5 +29,12 @@ class MockHintPresenter: HintPresenter {
         presentInvokeHints.append(hint)
         presentInvokeVcs.append(vc)
         presentInvokeViews.append(view)
+    }
+    
+    func present(hint: Hint, in vc: UIViewController, from item: UIBarButtonItem) {
+        presentInvokeCount += 1
+        presentInvokeHints.append(hint)
+        presentInvokeVcs.append(vc)
+        presentInvokeItems.append(item)
     }
 }
