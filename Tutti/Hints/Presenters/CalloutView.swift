@@ -1,18 +1,15 @@
 /*
  
- This class is forked from EasyTipView. I added it like this,
- since I had problems using the external library in the demo
- app and also couldn't find a way to provide a fully working,
- built-in presenter. The original repository can be found at:
+ This class is forked from EasyTipView. I added it because I
+ had problems using the external library in the demo app and
+ couldn't find a way to provide a fully working presenter in
+ the example app. The original repository can be found at:
  
  https://github.com/teodorpatras/EasyTipView
  
- The rest of the file is the original implementation besides
- a couple of renamings.
- 
- Since the class is unchanged from the original `EasyTipView`
- class, checkout the original repo for more info on how skin
- the callout views in your app.
+ I will make no efforts to refactor this code further. Since
+ it's unchanged from the original code, look at the original
+ repository for more info on how style the views in your app.
  
  */
 
@@ -48,6 +45,7 @@ public protocol CalloutViewDelegate: class {
 
 
 // MARK: - Public methods extension
+
 public extension CalloutView {
     
     // MARK: - Class methods -
@@ -555,5 +553,60 @@ open class CalloutView: UIView {
         drawText(bubbleFrame, context: context)
         
         context.restoreGState()
+    }
+}
+
+
+// MARK: - UIBarItem extension
+
+private extension UIBarItem {
+    
+    var view: UIView? {
+        if let item = self as? UIBarButtonItem, let customView = item.customView {
+            return customView
+        }
+        return self.value(forKey: "view") as? UIView
+    }
+}
+
+
+// MARK: - UIView extension
+
+private extension UIView {
+    
+    func hasSuperview(_ superview: UIView) -> Bool {
+        return viewHasSuperview(self, superview: superview)
+    }
+    
+    fileprivate func viewHasSuperview(_ view: UIView, superview: UIView) -> Bool {
+        if let sview = view.superview {
+            if sview === superview {
+                return true
+            } else {
+                return viewHasSuperview(sview, superview: superview)
+            }
+        } else {
+            return false
+        }
+    }
+}
+
+
+// MARK: - CGRect extension
+
+private extension CGRect {
+    
+    var x: CGFloat {
+        get { return self.origin.x }
+        set { self.origin.x = newValue }
+    }
+    
+    var y: CGFloat {
+        get { return self.origin.y }
+        set { self.origin.y = newValue }
+    }
+    
+    var center: CGPoint {
+        return CGPoint(x: self.x + self.width / 2, y: self.y + self.height / 2)
     }
 }

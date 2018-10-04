@@ -49,7 +49,6 @@
 		4587F64220122EE30040E0D2 /* TutorialViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */; };
 		459F38AC2030E5DB0092297A /* CalloutHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38AB2030E5DB0092297A /* CalloutHintPresenter.swift */; };
 		459F38AF2030E5F30092297A /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38AE2030E5F30092297A /* CalloutView.swift */; };
-		459F38B32030E86B0092297A /* CalloutViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38B22030E86B0092297A /* CalloutViewExtensions.swift */; };
 		459F38B52030EC7F0092297A /* ViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38B42030EC7F0092297A /* ViewController+Appearance.swift */; };
 		45A1026F1FD892560032884A /* TutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1026E1FD892560032884A /* TutorialTests.swift */; };
 		45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102711FD8A2E60032884A /* StandardHintTests.swift */; };
@@ -173,7 +172,6 @@
 		4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewControllerCell.xib; sourceTree = "<group>"; };
 		459F38AB2030E5DB0092297A /* CalloutHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutHintPresenter.swift; sourceTree = "<group>"; };
 		459F38AE2030E5F30092297A /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
-		459F38B22030E86B0092297A /* CalloutViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutViewExtensions.swift; sourceTree = "<group>"; };
 		459F38B42030EC7F0092297A /* ViewController+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Appearance.swift"; sourceTree = "<group>"; };
 		45A1026E1FD892560032884A /* TutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTests.swift; sourceTree = "<group>"; };
 		45A102711FD8A2E60032884A /* StandardHintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHintTests.swift; sourceTree = "<group>"; };
@@ -450,7 +448,6 @@
 				45CE37AE201670F9003384C2 /* AlertHintPresenter.swift */,
 				459F38AB2030E5DB0092297A /* CalloutHintPresenter.swift */,
 				459F38AE2030E5F30092297A /* CalloutView.swift */,
-				459F38B22030E86B0092297A /* CalloutViewExtensions.swift */,
 				45A1028B1FD935AA0032884A /* HintPresenter.swift */,
 			);
 			path = Presenters;
@@ -666,7 +663,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				459F38AC2030E5DB0092297A /* CalloutHintPresenter.swift in Sources */,
-				459F38B32030E86B0092297A /* CalloutViewExtensions.swift in Sources */,
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
 				45CE37AF201670F9003384C2 /* AlertHintPresenter.swift in Sources */,
 				45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */,

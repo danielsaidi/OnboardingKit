@@ -23,6 +23,7 @@ platform :ios do
     push_git_tags()
     push_to_git_remote()
     pod_push()
+    pod_push()
   end
 
   
