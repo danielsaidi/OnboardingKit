@@ -21,7 +21,7 @@ extension ViewController {
     
     func getDeferredHint(forUser userId: String?) -> DeferredHint {
         let requiredPresentationAttempts = 5
-        return StandardDeferredHint(
+        return DeferredHint(
             identifier: "hint_deferred",
             title: "Deferred hint",
             text: "This is a deferred hint. It will be displayed after \(requiredPresentationAttempts) attempts and only once per user.",

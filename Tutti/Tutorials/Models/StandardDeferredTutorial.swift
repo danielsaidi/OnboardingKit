@@ -8,7 +8,7 @@
 
 /*
  
- This is a simple standard implementation of `DeferredHint`
+ This is a standard implementation of the `DeferredTutorial`
  protocol. You can use it as is or inherit it to create your
  own specific hint types.
  

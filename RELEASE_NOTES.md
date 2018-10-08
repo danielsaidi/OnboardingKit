@@ -7,6 +7,15 @@ minor version bumps, but not on revision bumps.
 
 
 
+## 1.5.0
+
+This version has some breaking changes:
+
+* The `DeferredHint` protocol has been removed
+* `StandardDeferredHint` has been renamed to `DeferredHint`
+
+
+
 ## 1.4.0
 
 This version removes presentation logic from hints/tutorials to their presenters.
