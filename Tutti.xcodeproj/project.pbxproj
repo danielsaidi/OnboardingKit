@@ -51,7 +51,6 @@
 		45A1026F1FD892560032884A /* TutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1026E1FD892560032884A /* TutorialTests.swift */; };
 		45A102721FD8A2E60032884A /* StandardHintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102711FD8A2E60032884A /* StandardHintTests.swift */; };
 		45A102741FD8A4FA0032884A /* StandardTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */; };
-		45A102761FD921E70032884A /* LocalizedTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102751FD921E70032884A /* LocalizedTutorial.swift */; };
 		45A102821FD92CE50032884A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A102841FD92CE50032884A /* Localizable.strings */; };
 		45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1028B1FD935AA0032884A /* HintPresenter.swift */; };
 		45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A102921FD939CA0032884A /* TutorialPresenter.swift */; };
@@ -62,6 +61,7 @@
 		45FB51C020495E6D009D5806 /* Tutti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4537E87E1FD3DF950007501C /* Tutti.framework */; };
 		45FB51C120495E6D009D5806 /* Tutti.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4537E87E1FD3DF950007501C /* Tutti.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84851DD521662F4200DE8886 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84851DD421662F4200DE8886 /* OnboardingPresenter.swift */; };
+		849935AB216C0E95000A0670 /* CorrectBehaviorOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935AA216C0E95000A0670 /* CorrectBehaviorOnboarding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,7 +173,6 @@
 		45A1026E1FD892560032884A /* TutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTests.swift; sourceTree = "<group>"; };
 		45A102711FD8A2E60032884A /* StandardHintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHintTests.swift; sourceTree = "<group>"; };
 		45A102731FD8A4FA0032884A /* StandardTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorialTests.swift; sourceTree = "<group>"; };
-		45A102751FD921E70032884A /* LocalizedTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedTutorial.swift; sourceTree = "<group>"; };
 		45A102851FD92D060032884A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45A1028B1FD935AA0032884A /* HintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPresenter.swift; sourceTree = "<group>"; };
 		45A102921FD939CA0032884A /* TutorialPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
@@ -182,6 +181,7 @@
 		45CE37AE201670F9003384C2 /* AlertHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHintPresenter.swift; sourceTree = "<group>"; };
 		45E9EEB9200E79FA00CEEBFF /* TableViewOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOption.swift; sourceTree = "<group>"; };
 		84851DD421662F4200DE8886 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		849935AA216C0E95000A0670 /* CorrectBehaviorOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorOnboarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +225,7 @@
 		452F92BD20D7D71E00B0A05D /* General */ = {
 			isa = PBXGroup;
 			children = (
+				849935AA216C0E95000A0670 /* CorrectBehaviorOnboarding.swift */,
 				452F92BE20D7D73C00B0A05D /* DeferredOnboarding.swift */,
 				458021E81FD7B61D00CE157F /* Onboarding.swift */,
 				453EF4AB20D7F17800C56DEB /* OnboardingPersistence.swift */,
@@ -360,7 +361,6 @@
 		453EF4BD20D8CC0100C56DEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				45A102751FD921E70032884A /* LocalizedTutorial.swift */,
 				45667A1E20D957680002F257 /* DeferredTutorial.swift */,
 				4552710E1FD7C18A00462ECD /* StandardTutorial.swift */,
 				4552710C1FD7BF9A00462ECD /* Tutorial.swift */,
@@ -662,12 +662,12 @@
 				459F38AC2030E5DB0092297A /* CalloutHintPresenter.swift in Sources */,
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
 				45CE37AF201670F9003384C2 /* AlertHintPresenter.swift in Sources */,
+				849935AB216C0E95000A0670 /* CorrectBehaviorOnboarding.swift in Sources */,
 				45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */,
 				45667A1F20D957680002F257 /* DeferredTutorial.swift in Sources */,
 				453EF4AC20D7F17800C56DEB /* OnboardingPersistence.swift in Sources */,
 				452F92BF20D7D73C00B0A05D /* DeferredOnboarding.swift in Sources */,
 				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
-				45A102761FD921E70032884A /* LocalizedTutorial.swift in Sources */,
 				459F38AF2030E5F30092297A /* CalloutView.swift in Sources */,
 				453EF4D120D8E83100C56DEB /* DeferredHint.swift in Sources */,
 				458021EB1FD7B87E00CE157F /* Hint.swift in Sources */,

@@ -8,9 +8,8 @@
 
 /*
  
- This is a simple standard implementation of `DeferredHint`
- protocol. You can use it as is or inherit it to create your
- own specific hint types.
+ This is a deferred hint that is presented after a number of
+ presentation attempts.
  
  */
 

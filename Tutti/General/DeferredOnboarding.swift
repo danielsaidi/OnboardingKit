@@ -9,9 +9,9 @@
 /*
  
  This protocol extends `Onboarding` and can be used when the
- item should require several presentation attempts before it
- is presented. One example could be a hint that shouldn't be
- presented until the 5th time you ask it to.
+ onboarding should require many presentation attempts before
+ it is presented. One example could be a hint that shouldn't
+ be presented until the 5th time you ask it to.
  
  */
 
