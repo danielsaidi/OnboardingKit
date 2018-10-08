@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol OnboardingPresenter {}
+public protocol OnboardingPresenter: AnyObject {}
 
 public extension OnboardingPresenter {
     

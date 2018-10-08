@@ -62,6 +62,8 @@
 		45FB51C120495E6D009D5806 /* Tutti.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4537E87E1FD3DF950007501C /* Tutti.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84851DD521662F4200DE8886 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84851DD421662F4200DE8886 /* OnboardingPresenter.swift */; };
 		849935AB216C0E95000A0670 /* CorrectBehaviorOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935AA216C0E95000A0670 /* CorrectBehaviorOnboarding.swift */; };
+		849935AF216C11CF000A0670 /* CorrectBehaviorHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935AE216C11CF000A0670 /* CorrectBehaviorHint.swift */; };
+		849935B1216C14FD000A0670 /* CorrectBehaviorTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935B0216C14FD000A0670 /* CorrectBehaviorTutorial.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +184,8 @@
 		45E9EEB9200E79FA00CEEBFF /* TableViewOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOption.swift; sourceTree = "<group>"; };
 		84851DD421662F4200DE8886 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		849935AA216C0E95000A0670 /* CorrectBehaviorOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorOnboarding.swift; sourceTree = "<group>"; };
+		849935AE216C11CF000A0670 /* CorrectBehaviorHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorHint.swift; sourceTree = "<group>"; };
+		849935B0216C14FD000A0670 /* CorrectBehaviorTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorTutorial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,8 +355,9 @@
 		453EF4BC20D8CBF100C56DEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				458021EA1FD7B87E00CE157F /* Hint.swift */,
+				849935AE216C11CF000A0670 /* CorrectBehaviorHint.swift */,
 				453EF4D020D8E83100C56DEB /* DeferredHint.swift */,
+				458021EA1FD7B87E00CE157F /* Hint.swift */,
 				4537E8B01FD431A90007501C /* StandardHint.swift */,
 			);
 			path = Models;
@@ -361,6 +366,7 @@
 		453EF4BD20D8CC0100C56DEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				849935B0216C14FD000A0670 /* CorrectBehaviorTutorial.swift */,
 				45667A1E20D957680002F257 /* DeferredTutorial.swift */,
 				4552710E1FD7C18A00462ECD /* StandardTutorial.swift */,
 				4552710C1FD7BF9A00462ECD /* Tutorial.swift */,
@@ -660,10 +666,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				459F38AC2030E5DB0092297A /* CalloutHintPresenter.swift in Sources */,
+				849935AF216C11CF000A0670 /* CorrectBehaviorHint.swift in Sources */,
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
 				45CE37AF201670F9003384C2 /* AlertHintPresenter.swift in Sources */,
 				849935AB216C0E95000A0670 /* CorrectBehaviorOnboarding.swift in Sources */,
 				45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */,
+				849935B1216C14FD000A0670 /* CorrectBehaviorTutorial.swift in Sources */,
 				45667A1F20D957680002F257 /* DeferredTutorial.swift in Sources */,
 				453EF4AC20D7F17800C56DEB /* OnboardingPersistence.swift in Sources */,
 				452F92BF20D7D73C00B0A05D /* DeferredOnboarding.swift in Sources */,

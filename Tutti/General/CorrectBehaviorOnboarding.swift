@@ -13,6 +13,9 @@
  incorrect "behaviors", e.g. show some help when the user is
  obviously not understanding what to do.
  
+ Correct behavior onboardings reset their has been displayed
+ memory every time they are presented.
+ 
  */
 
 import Foundation
@@ -21,6 +24,8 @@ public protocol CorrectBehaviorOnboarding: Onboarding {
     
     var registeredIncorrectBehaviors: Int { get set }
     var requiredIncorrectBehaviors: Int { get }
+    
+    func triggerPresentation(in vc: UIViewController, from view: UIView)
 }
 
 
@@ -42,8 +47,23 @@ public extension CorrectBehaviorOnboarding {
         registeredIncorrectBehaviors = 0
     }
     
-    func registerIncorrectBehavior() {
-        if remainingAttempts == 0 { return }
+    func registerIncorrectBehavior(in vc: UIViewController, from view: UIView) {
+        registerIncorrectBehavior {
+            triggerPresentation(in: vc, from: view)
+        }
+    }
+}
+
+
+// MARK: - Private Functions
+
+private extension CorrectBehaviorOnboarding {
+    
+    func registerIncorrectBehavior(showAction: () -> ()) {
         registeredIncorrectBehaviors += 1
+        guard remainingAttempts == 0 else { return }
+        showAction()
+        hasBeenDisplayed = false
+        registeredIncorrectBehaviors = 0
     }
 }

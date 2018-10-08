@@ -9,6 +9,11 @@ minor version bumps, but not on revision bumps.
 
 ## 1.5.0
 
+This version has new hint and tutorial types. The `CorrectBehaviorOnboarding` is
+an onboarding experience that is triggered when a user performs a certain number
+of incorrect actions. `CorrectBehaviorHint` and `CorrectBehaviorTutorial` can be
+used to build user behavior-based onboarding experiences.
+
 This version has some breaking changes:
 
 * The `DeferredHint` protocol has been removed
