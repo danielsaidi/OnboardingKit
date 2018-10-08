@@ -22,8 +22,8 @@ class StandardDeferredHintTests: QuickSpec {
             presenter = MockHintPresenter()
         }
         
-        func createHint(requiredPresentationAttempts: Int) -> StandardDeferredHint {
-            return StandardDeferredHint(
+        func createHint(requiredPresentationAttempts: Int) -> DeferredHint {
+            return DeferredHint(
                 identifier: "hint",
                 title: "foo",
                 text: "bar",
@@ -46,7 +46,7 @@ class StandardDeferredHintTests: QuickSpec {
             }
             
             it("uses user default persistence by default") {
-                let hint = StandardDeferredHint(identifier: "", title: "", text: "", requiredPresentationAttempts: 121, userId: "")
+                let hint = DeferredHint(identifier: "", title: "", text: "", requiredPresentationAttempts: 121, userId: "")
                 expect(hint.persistence).to(be(UserDefaults.standard))
             }
         }

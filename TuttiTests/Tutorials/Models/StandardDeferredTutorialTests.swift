@@ -22,8 +22,8 @@ class StandardDeferredTutorialTests: QuickSpec {
             presenter = MockTutorialPresenter()
         }
         
-        func createTutorial(requiredPresentationAttempts: Int) -> StandardDeferredTutorial {
-            return StandardDeferredTutorial(
+        func createTutorial(requiredPresentationAttempts: Int) -> DeferredTutorial {
+            return DeferredTutorial(
                 identifier: "foo",
                 pageCount: 3,
                 requiredPresentationAttempts: requiredPresentationAttempts,
@@ -46,7 +46,7 @@ class StandardDeferredTutorialTests: QuickSpec {
             }
             
             it("uses user default persistence by default") {
-                let tutorial = StandardDeferredTutorial(identifier: "", pageCount: 1, requiredPresentationAttempts: 121)
+                let tutorial = DeferredTutorial(identifier: "", pageCount: 1, requiredPresentationAttempts: 121)
                 expect(tutorial.persistence).to(be(UserDefaults.standard))
             }
         }

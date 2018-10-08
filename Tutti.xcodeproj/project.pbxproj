@@ -37,8 +37,7 @@
 		4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710E1FD7C18A00462ECD /* StandardTutorial.swift */; };
 		4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */; };
 		4562D1B81FDE5D13000069F3 /* FadeInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */; };
-		45667A1C20D90FAE0002F257 /* DeferredTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45667A1B20D90FAE0002F257 /* DeferredTutorial.swift */; };
-		45667A1F20D957680002F257 /* StandardDeferredTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45667A1E20D957680002F257 /* StandardDeferredTutorial.swift */; };
+		45667A1F20D957680002F257 /* DeferredTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45667A1E20D957680002F257 /* DeferredTutorial.swift */; };
 		45667A2220D958F40002F257 /* MockTutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45667A2120D958F40002F257 /* MockTutorialPresenter.swift */; };
 		45667A2420D959620002F257 /* StandardDeferredTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45667A2320D959620002F257 /* StandardDeferredTutorialTests.swift */; };
 		457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457046721FDDC15A00D16844 /* UIScrollView+Page.swift */; };
@@ -160,8 +159,7 @@
 		4552710E1FD7C18A00462ECD /* StandardTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorial.swift; sourceTree = "<group>"; };
 		4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInTransition.swift; sourceTree = "<group>"; };
-		45667A1B20D90FAE0002F257 /* DeferredTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferredTutorial.swift; sourceTree = "<group>"; };
-		45667A1E20D957680002F257 /* StandardDeferredTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDeferredTutorial.swift; sourceTree = "<group>"; };
+		45667A1E20D957680002F257 /* DeferredTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferredTutorial.swift; sourceTree = "<group>"; };
 		45667A2120D958F40002F257 /* MockTutorialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTutorialPresenter.swift; sourceTree = "<group>"; };
 		45667A2320D959620002F257 /* StandardDeferredTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDeferredTutorialTests.swift; sourceTree = "<group>"; };
 		457046721FDDC15A00D16844 /* UIScrollView+Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Page.swift"; sourceTree = "<group>"; };
@@ -362,9 +360,8 @@
 		453EF4BD20D8CC0100C56DEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				45667A1B20D90FAE0002F257 /* DeferredTutorial.swift */,
 				45A102751FD921E70032884A /* LocalizedTutorial.swift */,
-				45667A1E20D957680002F257 /* StandardDeferredTutorial.swift */,
+				45667A1E20D957680002F257 /* DeferredTutorial.swift */,
 				4552710E1FD7C18A00462ECD /* StandardTutorial.swift */,
 				4552710C1FD7BF9A00462ECD /* Tutorial.swift */,
 			);
@@ -666,7 +663,7 @@
 				45A102941FD939CA0032884A /* TutorialPresenter.swift in Sources */,
 				45CE37AF201670F9003384C2 /* AlertHintPresenter.swift in Sources */,
 				45B3AD531FDA0955005C590C /* TutorialViewControllerCell.swift in Sources */,
-				45667A1F20D957680002F257 /* StandardDeferredTutorial.swift in Sources */,
+				45667A1F20D957680002F257 /* DeferredTutorial.swift in Sources */,
 				453EF4AC20D7F17800C56DEB /* OnboardingPersistence.swift in Sources */,
 				452F92BF20D7D73C00B0A05D /* DeferredOnboarding.swift in Sources */,
 				45A1028C1FD935AA0032884A /* HintPresenter.swift in Sources */,
@@ -676,7 +673,6 @@
 				458021EB1FD7B87E00CE157F /* Hint.swift in Sources */,
 				4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */,
 				457046731FDDC15A00D16844 /* UIScrollView+Page.swift in Sources */,
-				45667A1C20D90FAE0002F257 /* DeferredTutorial.swift in Sources */,
 				4587F63E201135170040E0D2 /* TutorialTransition.swift in Sources */,
 				4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */,
 				4537E8B11FD431A90007501C /* StandardHint.swift in Sources */,

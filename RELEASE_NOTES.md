@@ -12,7 +12,9 @@ minor version bumps, but not on revision bumps.
 This version has some breaking changes:
 
 * The `DeferredHint` protocol has been removed
+* The `DeferredTutorial` protocol has been removed
 * `StandardDeferredHint` has been renamed to `DeferredHint`
+* `StandardDeferredTutorial` has been renamed to `DeferredTutorial`
 
 
 

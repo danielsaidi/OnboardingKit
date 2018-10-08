@@ -37,10 +37,10 @@ class MockHintPresenter: HintPresenter {
         presentInvokeViews.append(view)
     }
     
-    func present(_ hint: Hint, in vc: UIViewController, from item: UIBarButtonItem) {
+    func present(_ hint: Hint, in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
         presentInvokeCount += 1
         presentInvokeHints.append(hint)
         presentInvokeVcs.append(vc)
-        presentInvokeItems.append(item)
+        presentInvokeItems.append(barButtonItem)
     }
 }

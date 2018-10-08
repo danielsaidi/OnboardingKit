@@ -26,7 +26,7 @@ extension ViewController {
     }
     
     func getDeferredTutorial(forUser userId: String?) -> DeferredTutorial {
-        return StandardDeferredTutorial(
+        return DeferredTutorial(
             identifier: "deferred",
             pageCount: 3,
             requiredPresentationAttempts: 5,
