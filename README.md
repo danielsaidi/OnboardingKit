@@ -2,12 +2,24 @@
     <img src ="Resources/Logo.png" width="400" />
 </p>
 
-[![Version](https://badge.fury.io/gh/danielsaidi%2FTutti.svg)](http://badge.fury.io/gh/danielsaidi%2FTutti)
-[![Carthage](https://img.shields.io/badge/carthage-supported-green.svg)](https://github.com/danielsaidi/Tutti)
-[![CocoaPods](https://img.shields.io/cocoapods/v/Tutti.svg?style=flat)](http://cocoapods.org/pods/Tutti)
-[![Build Status](https://api.travis-ci.org/danielsaidi/Tutti.svg)](https://travis-ci.org/danielsaidi/Tutti)
-![Platform](https://img.shields.io/cocoapods/p/Tutti.svg?style=flat)
-[![License](https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102)](https://github.com/ellerbrock/open-source-badge/)
+<p align="center">
+    <a href="https://github.com/danielsaidi/Tutti">
+        <img src="https://badge.fury.io/gh/danielsaidi%2FTutti.svg?style=flat" alt="Version" />
+    </a>
+    <img src="https://api.travis-ci.org/danielsaidi/Tutti.svg" alt="Build Status" />
+    <a href="https://cocoapods.org/pods/Tutti">
+        <img src="https://img.shields.io/cocoapods/v/Tutti.svg?style=flat" alt="CocoaPods" />
+    </a>
+    <a href="https://github.com/Carthage/Carthage">
+        <img src="https://img.shields.io/badge/carthage-supported-green.svg?style=flat" alt="Carthage" />
+    </a>
+    <img src="https://img.shields.io/cocoapods/p/Tutti.svg?style=flat" alt="Platform" />
+    <img src="https://img.shields.io/badge/Swift-4.2-orange.svg" alt="Swift 4.2" />
+    <img src="https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102" alt="License" />
+    <a href="https://twitter.com/danielsaidi">
+        <img src="https://img.shields.io/badge/contact-@danielsaidi-blue.svg?style=flat" alt="Twitter: @danielsaidi" />
+    </a>
+</p>
 
 
 ## About Tutti
