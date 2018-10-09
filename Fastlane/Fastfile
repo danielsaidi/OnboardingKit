@@ -17,7 +17,7 @@ platform :ios do
 
     git_commit(
       path: [
-        "Tutti.podspec"
+        "Tutti.podspec",
         "*/Info.plist",
         "*/*.pbxproj",
         "Fastlane/"],
