@@ -43,12 +43,14 @@ new user logs in. Just set the `userId` parameter to the current user's id/name.
 
 ### CocoaPods
 
-Add this to your `Podfile`, run `pod install` then remember to use the generated
-workspace afterwards:
+Add this to your `Podfile` then run `pod install`. Remember to use the generated
+workspace afterwards.
 
 ```
 pod 'Tutti'
 ```
+
+Remember to use the generated workspace (not the project file) after installing.
 
 ### Carthage
 
@@ -58,6 +60,8 @@ app from `Carthage/Build`:
 ```
 github "danielsaidi/Tutti"
 ```
+
+Once the update completes, link in the built framework from `Carthage/Build`.
 
 ### Manual
 
