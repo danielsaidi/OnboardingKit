@@ -44,13 +44,13 @@ public class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
 
     open func present(_ hint: Hint, in vc: UIViewController, from view: UIView) {
         tryPresent(hint) {
-            createCallout(for: hint).show(forView: view)
+            createCallout(for: hint).show(forView: view, withinSuperview: vc.view)
         }
     }
     
     open func present(_ hint: Hint, in vc: UIViewController, from item: UIBarButtonItem) {
         tryPresent(hint) {
-            createCallout(for: hint).show(forItem: item)
+            createCallout(for: hint).show(forItem: item, withinSuperView: vc.view)
         }
     }
     
