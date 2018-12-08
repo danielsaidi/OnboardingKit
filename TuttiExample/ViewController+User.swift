@@ -16,20 +16,33 @@ extension ViewController {
         let message = "The display states of all hints and alerts are unique to each user."
         let sheet = UIAlertController(title: title, message: message, preferredStyle: .alert)
         sheet.addTextField { (textField) in textField.text = user ?? "" }
-        let ok = UIAlertAction(title: "OK", style: .default) { _ in
-            self.userId = sheet.textFields?.first?.text
-            let id = self.userId?.trimmingCharacters(in: .whitespaces)
+        let ok = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.userId = sheet.textFields?.first?.text
+            let id = self?.userId?.trimmingCharacters(in: .whitespaces)
             if (id?.count ?? 0) == 0 {
-                self.userId = nil
+                self?.userId = nil
             }
-            self.alertUserChange()
+            self?.alertUserChange()
         }
         sheet.addAction(ok)
         present(sheet, animated: true, completion: nil)
     }
 }
 
-fileprivate extension ViewController {
+
+// MARK: - Actions
+
+extension ViewController {
+    
+    @IBAction func setupUser(_ sender: Any) {
+        setupUser()
+    }
+}
+
+
+// MARK: - Private Functions
+
+private extension ViewController {
     
     func alertUserChange() {
         alert(title: "The user was changed", message: alertUserChangeMessage)

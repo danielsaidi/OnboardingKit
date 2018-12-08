@@ -58,16 +58,6 @@ class ViewController: UIViewController {
 }
 
 
-// MARK: - Actions
-
-extension ViewController {
-    
-    @IBAction func setupUser(_ sender: Any) {
-        setupUser()
-    }
-}
-
-
 // MARK: - Public Functions
 
 extension ViewController {
