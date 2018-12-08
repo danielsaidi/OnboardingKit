@@ -5,22 +5,26 @@ git tags. Also note that Tutti doesn't use semver. Breaking changes can occur on
 minor version bumps, but not on revision bumps.
 
 
-
-
 ## 1.5.0
 
 This version has new hint and tutorial types. The `CorrectBehaviorOnboarding` is
 an onboarding experience that is triggered when a user performs a certain number
 of incorrect actions. `CorrectBehaviorHint` and `CorrectBehaviorTutorial` can be
-used to build user behavior-based onboarding experiences.
+used to build user behavior-based onboarding experiences. There are, however, no
+demos for these new classes yet.
+
+This version includes a bug fix by @sebbo176, that makes sure that callout hints
+are presented using the correct superview. This solves a problem where hints did
+remain on screen even when the main view controller changed.
 
 This version has some breaking changes:
 
-* The `DeferredHint` protocol has been removed
-* The `DeferredTutorial` protocol has been removed
-* The `LocalizedTutorial` class has been removed
-* `StandardDeferredHint` has been renamed to `DeferredHint`
-* `StandardDeferredTutorial` has been renamed to `DeferredTutorial`
+* The `DeferredHint` protocol is removed and the `StandardDeferredHint` has been
+renamed to `DeferredHint`. This makes the class hierarchy a lot easier to manage.
+* The `DeferredTutorial` protocol is removed, and the `StandardDeferredTutorial`
+has been renamed to `DeferredTutorial`, just as the hints above.
+* The `LocalizedTutorial` class has been removed. Instead, this functionality is
+now accessible by using a new `StandardTutorial` initializer.
 
 
 
