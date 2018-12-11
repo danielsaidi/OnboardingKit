@@ -1,5 +1,5 @@
 //
-//  StandardDeferredTutorialTests.swift
+//  DeferredTutorialTests.swift
 //  TuttiTests
 //
 //  Created by Daniel Saidi on 2018-06-19.
@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Tutti
 
-class StandardDeferredTutorialTests: QuickSpec {
+class DeferredTutorialTests: QuickSpec {
     
     override func spec() {
         

@@ -1,5 +1,5 @@
 //
-//  StandardDeferredHint.swift
+//  DeferredHint.swift
 //  Tutti
 //
 //  Created by Daniel Saidi on 2018-06-19.
