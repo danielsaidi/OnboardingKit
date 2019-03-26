@@ -5,6 +5,11 @@ git tags. Also note that Tutti doesn't use semver. Breaking changes can occur on
 minor version bumps, but not on revision bumps.
 
 
+## 2.0.0
+
+This version upgrades Tutti to Swift 5. The version contains no breaking changes.
+
+
 ## 1.5.0
 
 This version has new hint and tutorial types. The `CorrectBehaviorOnboarding` is

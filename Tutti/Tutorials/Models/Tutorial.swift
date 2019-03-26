@@ -38,12 +38,12 @@ public protocol Tutorial: Onboarding {
 
 public extension Tutorial {
     
-    public var isFirstPage: Bool {
+    var isFirstPage: Bool {
         guard pageCount > 0 else { return true }
         return currentPageIndex == 0
     }
     
-    public var isLastPage: Bool {
+    var isLastPage: Bool {
         guard pageCount > 0 else { return true }
         return currentPageIndex == pageCount - 1
     }
@@ -54,11 +54,11 @@ public extension Tutorial {
 
 public extension Tutorial {
     
-    public func translate(_ key: String) -> String {
+    func translate(_ key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }
     
-    public  func translationExists(for key: String) -> Bool {
+    func translationExists(for key: String) -> Bool {
         return translate(key) != key
     }
 }

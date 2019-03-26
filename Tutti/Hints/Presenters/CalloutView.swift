@@ -60,7 +60,7 @@ public extension CalloutView {
      - parameter preferences: The preferences which will configure the CalloutView.
      - parameter delegate:    The delegate.
      */
-    public class func show(animated: Bool = true, forItem item: UIBarItem, withinSuperview superview: UIView? = nil, text: String, preferences: Preferences = CalloutView.globalPreferences, delegate: CalloutViewDelegate? = nil) {
+    class func show(animated: Bool = true, forItem item: UIBarItem, withinSuperview superview: UIView? = nil, text: String, preferences: Preferences = CalloutView.globalPreferences, delegate: CalloutViewDelegate? = nil) {
         
         if let view = item.view {
             show(animated: animated, forView: view, withinSuperview: superview, text: text, preferences: preferences, delegate: delegate)
@@ -77,7 +77,7 @@ public extension CalloutView {
      - parameter preferences: The preferences which will configure the CalloutView.
      - parameter delegate:    The delegate.
      */
-    public class func show(animated: Bool = true, forView view: UIView, withinSuperview superview: UIView? = nil, text: String, preferences: Preferences = CalloutView.globalPreferences, delegate: CalloutViewDelegate? = nil) {
+    class func show(animated: Bool = true, forView view: UIView, withinSuperview superview: UIView? = nil, text: String, preferences: Preferences = CalloutView.globalPreferences, delegate: CalloutViewDelegate? = nil) {
         let calloutView = CalloutView(text: text, preferences: preferences, delegate: delegate)
         calloutView.show(animated: animated, forView: view, withinSuperview: superview)
     }
@@ -91,7 +91,7 @@ public extension CalloutView {
      - parameter item:      The UIBarButtonItem or UITabBarItem instance which the CalloutView will be pointing to.
      - parameter superview: A view which is part of the UIBarButtonItem instances superview hierarchy. Ignore this parameter in order to display the CalloutView within the main window.
      */
-    public func show(animated: Bool = true, forItem item: UIBarItem, withinSuperView superview: UIView? = nil) {
+    func show(animated: Bool = true, forItem item: UIBarItem, withinSuperView superview: UIView? = nil) {
         if let view = item.view {
             show(animated: animated, forView: view, withinSuperview: superview)
         }
@@ -104,7 +104,7 @@ public extension CalloutView {
      - parameter view:      The UIView instance which the CalloutView will be pointing to.
      - parameter superview: A view which is part of the UIView instances superview hierarchy. Ignore this parameter in order to display the CalloutView within the main window.
      */
-    public func show(animated: Bool = true, forView view: UIView, withinSuperview superview: UIView? = nil) {
+    func show(animated: Bool = true, forView view: UIView, withinSuperview superview: UIView? = nil) {
         
         precondition(superview == nil || view.hasSuperview(superview!), "The supplied superview <\(superview!)> is not a direct nor an indirect superview of the supplied reference view <\(view)>. The superview passed to this method should be a direct or an indirect superview of the reference view. To display the tooltip within the main window, ignore the superview parameter.")
         
@@ -145,7 +145,7 @@ public extension CalloutView {
      
      - parameter completion: Completion block to be executed after the CalloutView is dismissed.
      */
-    public func dismiss(withCompletion completion: (() -> ())? = nil) {
+    func dismiss(withCompletion completion: (() -> ())? = nil) {
         
         let damping = preferences.animating.springDamping
         let velocity = preferences.animating.springVelocity
