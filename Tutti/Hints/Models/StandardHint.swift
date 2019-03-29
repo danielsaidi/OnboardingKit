@@ -24,8 +24,10 @@ open class StandardHint: Hint {
         identifier: String,
         title: String,
         text: String,
+        accessibilityText: String? = nil,
         userId: String? = nil,
         persistence: OnboardingPersistence = UserDefaults.standard) {
+        self.accessibilityText = accessibilityText
         self.identifier = identifier
         self.title = title
         self.text = text
@@ -41,6 +43,7 @@ open class StandardHint: Hint {
     
     // MARK: - Properties
     
+    public let accessibilityText: String?
     public let identifier: String
     public let text: String
     public let title: String

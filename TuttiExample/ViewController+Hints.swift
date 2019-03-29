@@ -12,20 +12,24 @@ import Tutti
 extension ViewController {
     
     func getHint(forUser userId: String?) -> Hint {
+        let text = "This is a standard hint. It will only be displayed once per user."
         return StandardHint(
             identifier: "hint_standard",
             title: "Standard hint",
-            text: "This is a standard hint. It will only be displayed once per user.",
+            text: text,
+            accessibilityText: text,
             userId: userId)
     }
     
     func getDeferredHint(forUser userId: String?) -> DeferredHint {
         let requiredPresentationAttempts = 5
+        let text = "This is a deferred hint. It will be displayed after \(requiredPresentationAttempts) attempts and only once per user."
         return DeferredHint(
             identifier: "hint_deferred",
             title: "Deferred hint",
-            text: "This is a deferred hint. It will be displayed after \(requiredPresentationAttempts) attempts and only once per user.",
+            text: text,
             requiredPresentationAttempts: requiredPresentationAttempts,
+            accessibilityText: "This is a hint to help the user to learn something. To dismiss me just tap on me. \(text)",
             userId: userId)
     }
     

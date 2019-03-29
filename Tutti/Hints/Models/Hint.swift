@@ -20,4 +20,5 @@ public protocol Hint: Onboarding {
     
     var title: String { get }
     var text: String { get }
+    var accessibilityText: String? { get }
 }

@@ -125,6 +125,7 @@ public extension CalloutView {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         tap.delegate = self
         addGestureRecognizer(tap)
+        setupAccessibility()
         
         superview.addSubview(self)
         
@@ -250,6 +251,8 @@ open class CalloutView: UIView {
     fileprivate var arrowTip = CGPoint.zero
     fileprivate(set) open var preferences: Preferences
     public let text: String
+    public let accessibilityText: String?
+    
     
     // MARK: - Lazy variables -
     
@@ -278,12 +281,12 @@ open class CalloutView: UIView {
     
     // MARK: - Initializer
     
-    public init (text: String, preferences: Preferences = CalloutView.globalPreferences, delegate: CalloutViewDelegate? = nil) {
+    public init (text: String, accessibilityText: String? = nil, preferences: Preferences = CalloutView.globalPreferences, delegate: CalloutViewDelegate? = nil) {
         
         self.text = text
         self.preferences = preferences
         self.delegate = delegate
-        
+        self.accessibilityText = accessibilityText
         super.init(frame: CGRect.zero)
         
         self.backgroundColor = UIColor.clear
@@ -312,6 +315,12 @@ open class CalloutView: UIView {
     }
     
     // MARK: - Private methods -
+    
+    private func setupAccessibility() {
+        self.isAccessibilityElement = self.accessibilityText != nil
+        self.accessibilityTraits = .staticText
+        self.accessibilityLabel = self.accessibilityText
+    }
     
     fileprivate func computeFrame(arrowPosition position: ArrowPosition, refViewFrame: CGRect, superviewFrame: CGRect) -> CGRect {
         var xOrigin: CGFloat = 0

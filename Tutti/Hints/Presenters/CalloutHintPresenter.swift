@@ -68,7 +68,7 @@ public class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
 extension CalloutHintPresenter {
     
     func createCallout(for hint: Hint) -> CalloutView {
-        let callout = CalloutView(text: hint.text, preferences: CalloutView.globalPreferences, delegate: self)
+        let callout = CalloutView(text: hint.text, accessibilityText: hint.accessibilityText, preferences: CalloutView.globalPreferences, delegate: self)
         presentedCallouts.append(callout)
         return callout
     }
