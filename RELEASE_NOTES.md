@@ -1,8 +1,13 @@
 # Release Notes
 
-There are no release notes before v`1.2.0`. For these versions, please check the
-git tags. Also note that Tutti doesn't use semver. Breaking changes can occur on
-minor version bumps, but not on revision bumps.
+Tutti doesn't use semver. Breaking changes can occur on minor version bumps, but
+not on revision bumps.
+
+
+## 2.0.1
+
+This version adds accessibility texts to the standard and deferred hint. If this
+is set, the callout hint will work well when accessibility is enabled.
 
 
 ## 2.0.0
