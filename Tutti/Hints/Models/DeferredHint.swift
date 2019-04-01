@@ -25,6 +25,7 @@ open class DeferredHint: StandardHint, DeferredOnboarding {
         title: String,
         text: String,
         requiredPresentationAttempts: Int,
+        accessibilityText: String? = nil,
         userId: String? = nil,
         persistence: OnboardingPersistence = UserDefaults.standard) {
         self.requiredPresentationAttempts = requiredPresentationAttempts
@@ -32,6 +33,7 @@ open class DeferredHint: StandardHint, DeferredOnboarding {
             identifier: identifier,
             title: title,
             text: text,
+            accessibilityText: accessibilityText,
             userId: userId,
             persistence: persistence)
     }
