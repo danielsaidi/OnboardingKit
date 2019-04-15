@@ -6,7 +6,6 @@
     <a href="https://github.com/danielsaidi/Tutti">
         <img src="https://badge.fury.io/gh/danielsaidi%2FTutti.svg?style=flat" alt="Version" />
     </a>
-    <img src="https://api.travis-ci.org/danielsaidi/Tutti.svg" alt="Build Status" />
     <a href="https://cocoapods.org/pods/Tutti">
         <img src="https://img.shields.io/cocoapods/v/Tutti.svg?style=flat" alt="CocoaPods" />
     </a>
@@ -14,7 +13,7 @@
         <img src="https://img.shields.io/badge/carthage-supported-green.svg?style=flat" alt="Carthage" />
     </a>
     <img src="https://img.shields.io/cocoapods/p/Tutti.svg?style=flat" alt="Platform" />
-    <img src="https://img.shields.io/badge/Swift-4.2-orange.svg" alt="Swift 4.2" />
+    <img src="https://img.shields.io/badge/Swift-5.0-orange.svg" alt="Swift 5.0" />
     <img src="https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102" alt="License" />
     <a href="https://twitter.com/danielsaidi">
         <img src="https://img.shields.io/badge/contact-@danielsaidi-blue.svg?style=flat" alt="Twitter: @danielsaidi" />
@@ -147,7 +146,7 @@ Tutti comes with two built-in hint presenters and one tutorial presenter:
 ### AlertHintPresenter
 
 This primitive hint presenter will present hints in a regular `UIAlertController`
-alert. You should probably not use it, but what the hell do I know of your needs?
+alert. You should probably not use it.
 
 ### CalloutHintPresenter
 
@@ -159,7 +158,7 @@ replace `EasyTipView` with `CalloutView`.
 ### TutorialViewController
 
 This tutorial presenter presents tutorials in a modal view controller that takes
-over the entire screen. To use it, just add a `TutorialViewController.xib` and a
+over the entire screen. To use it, just add a `TutorialViewController.xib` and a
 `TutorialViewControllerCell.xib` to your app and set'em up the way you want them
 to look. The `TutorialViewController` class comes with some outlets, but you can
 subclass it and add as many outlets and triggers as you want.
