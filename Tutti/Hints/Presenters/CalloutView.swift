@@ -176,14 +176,12 @@ open class CalloutView: UIView {
     
     // MARK: - Nested types -
     
-    public enum ArrowPosition {
+    public enum ArrowPosition: CaseIterable {
         case any
         case top
         case bottom
         case right
         case left
-        
-        static let allValues = [top, bottom, right, left]
     }
     
     public struct Preferences {
@@ -242,21 +240,17 @@ open class CalloutView: UIView {
         }
     }
     
-    override open var description: String {
-        return "<< \(String(describing: self)) with text : '\(text)' >>"
-    }
-    
-    fileprivate weak var presentingView: UIView?
-    fileprivate weak var delegate: CalloutViewDelegate?
-    fileprivate var arrowTip = CGPoint.zero
-    fileprivate(set) open var preferences: Preferences
+    private weak var presentingView: UIView?
+    private weak var delegate: CalloutViewDelegate?
+    private var arrowTip = CGPoint.zero
+    private(set) open var preferences: Preferences
     public let text: String
     public let accessibilityText: String?
     
     
     // MARK: - Lazy variables -
     
-    fileprivate lazy var textSize: CGSize = { [unowned self] in
+    private lazy var textSize: CGSize = { [unowned self] in
         var attributes = [NSAttributedString.Key.font: self.preferences.drawing.font]
         var textSize = self.text.boundingRect(with: CGSize(width: self.preferences.positioning.maxWidth, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil).size
         textSize.width = ceil(textSize.width)
@@ -267,7 +261,7 @@ open class CalloutView: UIView {
         return textSize
         }()
     
-    fileprivate lazy var contentSize: CGSize = { [unowned self] in
+    private lazy var contentSize: CGSize = {
         return CGSize(
             width: textSize.width + preferences.positioning.textHInset * 2 + preferences.positioning.bubbleHInset * 2,
             height: textSize.height + preferences.positioning.textVInset * 2 + preferences.positioning.bubbleVInset * 2 + preferences.drawing.arrowHeight
@@ -282,13 +276,11 @@ open class CalloutView: UIView {
     // MARK: - Initializer
     
     public init (text: String, accessibilityText: String? = nil, preferences: Preferences = CalloutView.globalPreferences, delegate: CalloutViewDelegate? = nil) {
-        
         self.text = text
         self.preferences = preferences
         self.delegate = delegate
         self.accessibilityText = accessibilityText
         super.init(frame: CGRect.zero)
-        
         self.backgroundColor = UIColor.clear
         NotificationCenter.default.addObserver(self, selector: #selector(handleRotation), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
@@ -322,7 +314,7 @@ open class CalloutView: UIView {
         self.accessibilityLabel = self.accessibilityText
     }
     
-    fileprivate func computeFrame(arrowPosition position: ArrowPosition, refViewFrame: CGRect, superviewFrame: CGRect) -> CGRect {
+    private func computeFrame(arrowPosition position: ArrowPosition, refViewFrame: CGRect, superviewFrame: CGRect) -> CGRect {
         var xOrigin: CGFloat = 0
         var yOrigin: CGFloat = 0
         
@@ -346,7 +338,7 @@ open class CalloutView: UIView {
         return frame
     }
     
-    fileprivate func adjustFrame(_ frame: inout CGRect, forSuperviewFrame superviewFrame: CGRect) {
+    private func adjustFrame(_ frame: inout CGRect, forSuperviewFrame superviewFrame: CGRect) {
         
         // adjust horizontally
         if frame.x < 0 {
@@ -363,11 +355,11 @@ open class CalloutView: UIView {
         }
     }
     
-    fileprivate func isFrameValid(_ frame: CGRect, forRefViewFrame: CGRect, withinSuperviewFrame: CGRect) -> Bool {
+    private func isFrameValid(_ frame: CGRect, forRefViewFrame: CGRect, withinSuperviewFrame: CGRect) -> Bool {
         return !frame.intersects(forRefViewFrame)
     }
     
-    fileprivate func arrange(withinSuperview superview: UIView) {
+    private func arrange(withinSuperview superview: UIView) {
         
         var position = preferences.drawing.arrowPosition
         
@@ -383,7 +375,7 @@ open class CalloutView: UIView {
         var frame = computeFrame(arrowPosition: position, refViewFrame: refViewFrame, superviewFrame: superviewFrame)
         
         if !isFrameValid(frame, forRefViewFrame: refViewFrame, withinSuperviewFrame: superviewFrame) {
-            for value in ArrowPosition.allValues where value != position {
+            for value in ArrowPosition.allCases where value != position {
                 let newFrame = computeFrame(arrowPosition: value, refViewFrame: refViewFrame, superviewFrame: superviewFrame)
                 if isFrameValid(newFrame, forRefViewFrame: refViewFrame, withinSuperviewFrame: superviewFrame) {
                     
@@ -430,7 +422,7 @@ open class CalloutView: UIView {
     
     // MARK: - Drawing -
     
-    fileprivate func drawBubble(_ bubbleFrame: CGRect, arrowPosition: ArrowPosition, context: CGContext) {
+    private func drawBubble(_ bubbleFrame: CGRect, arrowPosition: ArrowPosition, context: CGContext) {
         
         let arrowWidth = preferences.drawing.arrowWidth
         let arrowHeight = preferences.drawing.arrowHeight
@@ -475,7 +467,7 @@ open class CalloutView: UIView {
         }
     }
     
-    fileprivate func drawBubbleBottomShape(_ frame: CGRect, cornerRadius: CGFloat, path: CGMutablePath) {
+    private func drawBubbleBottomShape(_ frame: CGRect, cornerRadius: CGFloat, path: CGMutablePath) {
         
         path.addArc(tangent1End: CGPoint(x: frame.x, y: frame.y + frame.height), tangent2End: CGPoint(x: frame.x, y: frame.y), radius: cornerRadius)
         path.addArc(tangent1End: CGPoint(x: frame.x, y: frame.y), tangent2End: CGPoint(x: frame.x + frame.width, y: frame.y), radius: cornerRadius)
@@ -483,7 +475,7 @@ open class CalloutView: UIView {
         path.addArc(tangent1End: CGPoint(x: frame.x + frame.width, y: frame.y + frame.height), tangent2End: CGPoint(x: frame.x, y: frame.y + frame.height), radius: cornerRadius)
     }
     
-    fileprivate func drawBubbleTopShape(_ frame: CGRect, cornerRadius: CGFloat, path: CGMutablePath) {
+    private func drawBubbleTopShape(_ frame: CGRect, cornerRadius: CGFloat, path: CGMutablePath) {
         
         path.addArc(tangent1End: CGPoint(x: frame.x, y: frame.y), tangent2End: CGPoint(x: frame.x, y: frame.y + frame.height), radius: cornerRadius)
         path.addArc(tangent1End: CGPoint(x: frame.x, y: frame.y + frame.height), tangent2End: CGPoint(x: frame.x + frame.width, y: frame.y + frame.height), radius: cornerRadius)
@@ -491,7 +483,7 @@ open class CalloutView: UIView {
         path.addArc(tangent1End: CGPoint(x: frame.x + frame.width, y: frame.y), tangent2End: CGPoint(x: frame.x, y: frame.y), radius: cornerRadius)
     }
     
-    fileprivate func drawBubbleRightShape(_ frame: CGRect, cornerRadius: CGFloat, path: CGMutablePath) {
+    private func drawBubbleRightShape(_ frame: CGRect, cornerRadius: CGFloat, path: CGMutablePath) {
         
         path.addArc(tangent1End: CGPoint(x: frame.x + frame.width, y: frame.y), tangent2End: CGPoint(x: frame.x, y: frame.y), radius: cornerRadius)
         path.addArc(tangent1End: CGPoint(x: frame.x, y: frame.y), tangent2End: CGPoint(x: frame.x, y: frame.y + frame.height), radius: cornerRadius)
@@ -500,7 +492,7 @@ open class CalloutView: UIView {
         
     }
     
-    fileprivate func drawBubbleLeftShape(_ frame: CGRect, cornerRadius: CGFloat, path: CGMutablePath) {
+    private func drawBubbleLeftShape(_ frame: CGRect, cornerRadius: CGFloat, path: CGMutablePath) {
         
         path.addArc(tangent1End: CGPoint(x: frame.x, y: frame.y), tangent2End: CGPoint(x: frame.x + frame.width, y: frame.y), radius: cornerRadius)
         path.addArc(tangent1End: CGPoint(x: frame.x + frame.width, y: frame.y), tangent2End: CGPoint(x: frame.x + frame.width, y: frame.y + frame.height), radius: cornerRadius)
@@ -508,19 +500,19 @@ open class CalloutView: UIView {
         path.addArc(tangent1End: CGPoint(x: frame.x, y: frame.y + frame.height), tangent2End: CGPoint(x: frame.x, y: frame.y), radius: cornerRadius)
     }
     
-    fileprivate func paintBubble(_ context: CGContext) {
+    private func paintBubble(_ context: CGContext) {
         context.setFillColor(preferences.drawing.backgroundColor.cgColor)
         context.fill(bounds)
     }
     
-    fileprivate func drawBorder(_ borderPath: CGPath, context: CGContext) {
+    private func drawBorder(_ borderPath: CGPath, context: CGContext) {
         context.addPath(borderPath)
         context.setStrokeColor(preferences.drawing.borderColor.cgColor)
         context.setLineWidth(preferences.drawing.borderWidth)
         context.strokePath()
     }
     
-    fileprivate func drawText(_ bubbleFrame: CGRect, context: CGContext) {
+    private func drawText(_ bubbleFrame: CGRect, context: CGContext) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = preferences.drawing.textAlignment
         paragraphStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
