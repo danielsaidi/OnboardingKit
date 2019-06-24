@@ -35,7 +35,6 @@
 		453EF4D320D8EDCE00C56DEB /* StandardDeferredHintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453EF4D220D8EDCE00C56DEB /* StandardDeferredHintTests.swift */; };
 		4552710D1FD7BF9A00462ECD /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710C1FD7BF9A00462ECD /* Tutorial.swift */; };
 		4552710F1FD7C18A00462ECD /* StandardTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552710E1FD7C18A00462ECD /* StandardTutorial.swift */; };
-		4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */; };
 		4562D1B81FDE5D13000069F3 /* FadeInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */; };
 		45667A1F20D957680002F257 /* DeferredTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45667A1E20D957680002F257 /* DeferredTutorial.swift */; };
 		45667A2220D958F40002F257 /* MockTutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45667A2120D958F40002F257 /* MockTutorialPresenter.swift */; };
@@ -44,7 +43,6 @@
 		458021E91FD7B61D00CE157F /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021E81FD7B61D00CE157F /* Onboarding.swift */; };
 		458021EB1FD7B87E00CE157F /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458021EA1FD7B87E00CE157F /* Hint.swift */; };
 		4587F63E201135170040E0D2 /* TutorialTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587F63D201135170040E0D2 /* TutorialTransition.swift */; };
-		4587F64220122EE30040E0D2 /* TutorialViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */; };
 		459F38AC2030E5DB0092297A /* CalloutHintPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38AB2030E5DB0092297A /* CalloutHintPresenter.swift */; };
 		459F38AF2030E5F30092297A /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38AE2030E5F30092297A /* CalloutView.swift */; };
 		459F38B52030EC7F0092297A /* ViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F38B42030EC7F0092297A /* ViewController+Appearance.swift */; };
@@ -64,6 +62,9 @@
 		849935AB216C0E95000A0670 /* CorrectBehaviorOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935AA216C0E95000A0670 /* CorrectBehaviorOnboarding.swift */; };
 		849935AF216C11CF000A0670 /* CorrectBehaviorHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935AE216C11CF000A0670 /* CorrectBehaviorHint.swift */; };
 		849935B1216C14FD000A0670 /* CorrectBehaviorTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935B0216C14FD000A0670 /* CorrectBehaviorTutorial.swift */; };
+		CC25CC0022BCDB9D004AD436 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */; };
+		CC25CC0122BCDBA1004AD436 /* TutorialViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */; };
+		CC25CC0422BCDC62004AD436 /* Tutti.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC25CC0322BCDC62004AD436 /* Tutti.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +187,7 @@
 		849935AA216C0E95000A0670 /* CorrectBehaviorOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorOnboarding.swift; sourceTree = "<group>"; };
 		849935AE216C11CF000A0670 /* CorrectBehaviorHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorHint.swift; sourceTree = "<group>"; };
 		849935B0216C14FD000A0670 /* CorrectBehaviorTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorTutorial.swift; sourceTree = "<group>"; };
+		CC25CC0322BCDC62004AD436 /* Tutti.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tutti.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,8 +293,6 @@
 				4537E8931FD3DFAC0007501C /* Main.storyboard */,
 				45352D7F2030D93400A0F890 /* Options */,
 				45E9EEBC200E7DAA00CEEBFF /* Supporting Files */,
-				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
-				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
 				4537E8911FD3DFAC0007501C /* ViewController.swift */,
 				459F38B42030EC7F0092297A /* ViewController+Appearance.swift */,
 				45352D7B2030D30400A0F890 /* ViewController+Hints.swift */,
@@ -326,6 +326,8 @@
 		4537E8AF1FD4318F0007501C /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
+				CC25CC0222BCDBB3004AD436 /* Assets */,
+				CC25CBFF22BCDB85004AD436 /* InterfaceBuilders */,
 				453EF4BD20D8CC0100C56DEB /* Models */,
 				459F38B12030E7410092297A /* Presenters */,
 			);
@@ -493,6 +495,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CC25CBFF22BCDB85004AD436 /* InterfaceBuilders */ = {
+			isa = PBXGroup;
+			children = (
+				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
+				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
+			);
+			path = InterfaceBuilders;
+			sourceTree = "<group>";
+		};
+		CC25CC0222BCDBB3004AD436 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CC25CC0322BCDC62004AD436 /* Tutti.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -618,6 +637,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC25CC0122BCDBA1004AD436 /* TutorialViewControllerCell.xib in Resources */,
+				CC25CC0422BCDC62004AD436 /* Tutti.xcassets in Resources */,
+				CC25CC0022BCDB9D004AD436 /* TutorialViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,9 +647,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4587F64220122EE30040E0D2 /* TutorialViewControllerCell.xib in Resources */,
 				45A102821FD92CE50032884A /* Localizable.strings in Resources */,
-				4562D1AE1FDDC85F000069F3 /* TutorialViewController.xib in Resources */,
 				4537E89A1FD3DFAC0007501C /* LaunchScreen.storyboard in Resources */,
 				4537E8971FD3DFAC0007501C /* Assets.xcassets in Resources */,
 				4537E8951FD3DFAC0007501C /* Main.storyboard in Resources */,
