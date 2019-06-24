@@ -20,4 +20,5 @@ as well as compose onboarding experiences for entire apps and/or single features
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'Tutti/**/*.swift'
+  s.resources    = 'Tutti/**/*.{xib,png,xcassets}'
 end
