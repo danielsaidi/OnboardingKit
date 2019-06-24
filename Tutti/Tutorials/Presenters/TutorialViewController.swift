@@ -27,6 +27,15 @@ import UIKit
 
 open class TutorialViewController: UIViewController, TutorialPresenter, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        nibClassName = nibNameOrNil ?? String(describing: TutorialViewController.self)
+        nibClassBundle = nibBundleOrNil ?? Bundle(for: TutorialViewController.self)
+        super.init(nibName: nibClassName, bundle: nibClassBundle)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: View Controller Lifecycle
     
@@ -55,6 +64,9 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
         return cellClassName
     }
     
+    private var nibClassName: String!
+    
+    private var nibClassBundle: Bundle!
     
     // MARK: Outlets
     
@@ -68,7 +80,7 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
             layout.scrollDirection = .horizontal
             collectionView?.collectionViewLayout = layout
             let reuseId = cellReuseIdentifier
-            let nib = UINib(nibName: cellClassName, bundle: nil)
+            let nib = UINib(nibName: cellClassName, bundle: nibClassBundle)
             collectionView?.register(nib, forCellWithReuseIdentifier: reuseId)
         }
     }
