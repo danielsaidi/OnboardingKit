@@ -18,7 +18,7 @@ as well as compose onboarding experiences for entire apps and/or single features
   s.social_media_url = 'https://twitter.com/danielsaidi'
 
   s.ios.deployment_target = '9.0'
-
+  s.swift_version = '5.0'
   s.source_files = 'Tutti/**/*.swift'
   s.resources    = 'Tutti/**/*.{xib,png,xcassets}'
 end
