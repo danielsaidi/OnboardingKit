@@ -8,8 +8,8 @@
 
 /*
  
- This is a simple implementation of the `Hint` protocol. You
- can use it as is or inherit it to create your own hint type.
+ This is a basic hint that can be used as is or inherited to
+ create custom hints. You can present it using any presenter.
  
  */
 

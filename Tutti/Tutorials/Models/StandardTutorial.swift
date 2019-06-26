@@ -8,26 +8,30 @@
 
 /*
  
- This is a simple `Tutorial` implementation. Use it as is or
- as a base for any custom tutorials.
+ This is a basic tutorial implementation that can be used as
+ is or inherited to create custom tutorials. You can present
+ it using any presenter.
  
- You can create a standard tutorial, either by providing all
- property values, or by using a localization page indication
- key and automatically calculate the page count depending on
- the existing translations that exist.
+ You can create a standard tutorial (as well as any tutorial
+ that inherits this class) by either:
  
- When you use the location-based approach, this class starts
- at page 0 and looks for the `pageIndicationKey` translation
- in `Localized.strings` for that page. It will then bump the
- index until it cannot find a translation for a certain page.
- The default key indicator value is `title`, and the default
- key segment separator is `_` but you can use any values you
- like. If you use these values, however, a tutorial with the
- identifier `myTutorial` will get two pages if the following
- language keys exist in `Localized.strings`:
+ * using the main initializer, that requires you to manually
+ specify all properties, such as identifier, page count etc.
+ * using the localization-based initializer, which uses your
+ app's localization to resolve the page count automatically.
+
+ The localization-based approach requires a "page indication
+ key", which it uses it to calculate the number of pages for
+ the tutorial. It increases the number of pages as long as a
+ translation exists for `resourceName(for: "title", at: ...)`.
  
- * tutorial_myTutorial_0_title
- * tutorial_myTutorial_1_title
+ Given the standard resource name pattern used by this class,
+ the tutorial-based initialized will setup a tutorial with a
+ "myTutorial" identifier with two pages, if the localization
+ file contains the following two language keys:
+ 
+ * `tutorial_myTutorial_0_title`
+ * `tutorial_myTutorial_1_title`
  
  You can subclass this class and override the initializer if
  you want this automatic handling to behave differently.
@@ -55,7 +59,7 @@ open class StandardTutorial: Tutorial {
     }
     
     public init(
-        fromLocalizationWithPageIndicationKey key: String,
+        fromLocalizationWithPageIndicationKey key: String = "title",
         identifier: String,
         userId: String? = nil,
         keySegmentSeparator: String = "_",
@@ -65,7 +69,7 @@ open class StandardTutorial: Tutorial {
         self.userId = userId
         self.keySegmentSeparator = keySegmentSeparator
         self.persistence = persistence
-        pageCount = resolvePageCount(withPageIndicationKey: key)
+        self.pageCount = resolvePageCount(withPageIndicationKey: key)
     }
     
     
@@ -112,13 +116,12 @@ open class StandardTutorial: Tutorial {
 
 // MARK: - Private Functions
 
-fileprivate extension StandardTutorial {
+private extension StandardTutorial {
     
     func resolvePageCount(withPageIndicationKey key: String) -> Int {
         var index = 0
-        while translationExists(for: resourceName(for: key, at: index)) {
-            index += 1
-        }
+        let resource = resourceName(for: key, at: index)
+        while translationExists(for: resource) { index += 1 }
         return index
     }
 }

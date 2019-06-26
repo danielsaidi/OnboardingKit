@@ -286,12 +286,9 @@
 			children = (
 				4537E88F1FD3DFAC0007501C /* AppDelegate.swift */,
 				4537E8961FD3DFAC0007501C /* Assets.xcassets */,
-				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
-				4537E8931FD3DFAC0007501C /* Main.storyboard */,
 				45352D7F2030D93400A0F890 /* Options */,
 				45E9EEBC200E7DAA00CEEBFF /* Supporting Files */,
-				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
-				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
+				841EF2AF22C4025F00310211 /* UI */,
 				4537E8911FD3DFAC0007501C /* ViewController.swift */,
 				459F38B42030EC7F0092297A /* ViewController+Appearance.swift */,
 				45352D7B2030D30400A0F890 /* ViewController+Hints.swift */,
@@ -307,7 +304,7 @@
 			children = (
 				453EF4AD20D84AFA00C56DEB /* General */,
 				45A102701FD89CC70032884A /* Hints */,
-				4537E8A71FD3DFC40007501C /* Info.plist */,
+				841EF2AB22C4021700310211 /* Supporting Files */,
 				45A1026D1FD892490032884A /* Tutorials */,
 			);
 			path = TuttiTests;
@@ -499,6 +496,25 @@
 				4537E8811FD3DF950007501C /* Tutti.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		841EF2AB22C4021700310211 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4537E8A71FD3DFC40007501C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		841EF2AF22C4025F00310211 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
+				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
+				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
+				4537E8931FD3DFAC0007501C /* Main.storyboard */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
