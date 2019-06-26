@@ -8,10 +8,12 @@
 
 /*
  
- This protocol is implemented by `Tutorial` and `Hint`. It's
- a basic way to keep track of if an onboarding item has been
- displayed or not. If the optional `userId` prop is set, the
- `hasBeenDisplayed` value is unique for every user.
+ This protocol is a base protocol for onboarding experiences,
+ like tutorials and hints. It provides you with basic way to
+ keep track of if an onboarding has been displayed or not.
+ 
+ If the optional `userId` property is set, `hasBeenDisplayed`
+ value is unique for every user.
  
  */
 
