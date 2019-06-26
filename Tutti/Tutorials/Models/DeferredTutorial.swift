@@ -8,8 +8,11 @@
 
 /*
  
- This is a deferred tutorial. It is presented after a number
- of presentation attempts.
+ This class can be used by any tutorials that should require
+ several presentation attempts before being presented.
+ 
+ For more info on how to use it, check out the documentation
+ for `DeferredOnboarding`.
  
  */
 

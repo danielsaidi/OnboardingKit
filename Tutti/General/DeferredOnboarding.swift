@@ -8,10 +8,10 @@
 
 /*
  
- This protocol extends `Onboarding` and can be used when the
- onboarding should require many presentation attempts before
- it is presented. One example could be a hint that shouldn't
- be presented until the 5th time you ask it to.
+ This protocol can be used when an onboarding should require
+ many presentations attempts before it is actually presented.
+ For instance, you may want to show many hints for a certain
+ screen, but distribute them over time.
  
  */
 
