@@ -8,10 +8,11 @@
 
 /*
  
- This is a user behavior-based tutorial that is presented if
- the user performs a certain number of incorrect "behaviors".
- Since it is in charge of triggering a presentation, it must
- be provided a presenter, which it will call when needed.
+ This class can be used when a user should be presented with
+ a tutorial after behaving incorrectly a couple of times.
+ 
+ For more info on how to use it, check out the documentation
+ for `CorrectBehaviorOnboarding`.
  
  */
 

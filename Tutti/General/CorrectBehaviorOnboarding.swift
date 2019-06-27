@@ -8,13 +8,19 @@
 
 /*
  
- This protocol extends `Onboarding` and can be used when the
- user should see the onboarding experience after a number of
- incorrect "behaviors", e.g. show some help when the user is
- obviously not understanding what to do.
+ This protocol can be used when the user should be presented
+ with an onboarding experience after a number of "incorrect"
+ actions, e.g. when not doing what she/he is supposed to do.
  
- Correct behavior onboardings reset their has been displayed
- memory every time they are presented.
+ To use this protocol, call `registerIncorrectBehavior(...)`
+ each time the user behaves incorrectly. If the user behaves
+ incorrectly `requiredIncorrectBehaviors` number of times, a
+ presentation is triggererd. Call `registerCorrectBehavior()`
+ to reset the registered number of incorrect behaviors.
+ 
+ This onboarding will also reset its memory every time it is
+ presented. This means that it will be displayed again, if a
+ user keeps behaving in a way that is not intended.
  
  */
 

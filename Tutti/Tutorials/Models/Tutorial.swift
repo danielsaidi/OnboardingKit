@@ -8,15 +8,20 @@
 
 /*
 
- A tutorial is a single or multi page guide that is intended
- to display more information than a quick hint. It's perfect
- for a rich modal screen or a multi page guide that onboards
- new users. Tutorials are intended to be displayed once.
+ This protocol represents a single or multi page guide, that
+ is intended to display more information than a short hint.
  
- When implementing this protocol, `resourceName(for)` should
- return valid localized strings keys, image names etc. While
+ Tutorials are perfect for rich modal screen or a multi page
+ guides that are intended to be displayed only once, or many
+ times if they can be triggered by the user.
+ 
+ When you implement this protocol, `resourceName(for:)` must
+ return a valid localized strings key, image name etc. While
  the example app only uses localized strings and images, you
  can use this to identify movie clips, Lottie animations etc.
+ 
+ For more information on how to use this protocol, check out
+ the documentation for `Onboarding`.
  
  */
 
