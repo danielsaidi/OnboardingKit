@@ -35,7 +35,9 @@ extension ViewController {
     
     func show(_ tutorial: Tutorial, from view: UIView) {
         if tutorial.hasBeenDisplayed { return alertAlreadyDisplayedTutorial() }
-        let presenter = TutorialViewController(nibName: nil, bundle: nil)
+        //let presenter = TutorialViewController(nibName: nil, bundle: nil)
+        let presenter = TutorialViewController(nibName: "YourCustomTutorialViewController", bundle: Bundle.main)
+        presenter.cellType = YourCustomTutorialViewControllerCell.self
         presenter.present(tutorial, in: self, from: view)
         tutorialPresenter = presenter
     }

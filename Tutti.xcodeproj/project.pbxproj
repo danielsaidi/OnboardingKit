@@ -62,8 +62,11 @@
 		849935AB216C0E95000A0670 /* CorrectBehaviorOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935AA216C0E95000A0670 /* CorrectBehaviorOnboarding.swift */; };
 		849935AF216C11CF000A0670 /* CorrectBehaviorHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935AE216C11CF000A0670 /* CorrectBehaviorHint.swift */; };
 		849935B1216C14FD000A0670 /* CorrectBehaviorTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935B0216C14FD000A0670 /* CorrectBehaviorTutorial.swift */; };
-		CC25CC0022BCDB9D004AD436 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */; };
-		CC25CC0122BCDBA1004AD436 /* TutorialViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */; };
+		CC144BAF22C4A38E00178DFF /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC144BAD22C4A38E00178DFF /* TutorialViewController.xib */; };
+		CC144BB022C4A38E00178DFF /* TutorialViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC144BAE22C4A38E00178DFF /* TutorialViewControllerCell.xib */; };
+		CC144BB222C4A9F800178DFF /* YourCustomTutorialViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC144BB122C4A9F800178DFF /* YourCustomTutorialViewControllerCell.swift */; };
+		CC144BB522C4ABE200178DFF /* YourCustomTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4562D1AC1FDDC85F000069F3 /* YourCustomTutorialViewController.xib */; };
+		CC144BB622C4ABE200178DFF /* YourCustomTutorialViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4587F64020122EE30040E0D2 /* YourCustomTutorialViewControllerCell.xib */; };
 		CC25CC0422BCDC62004AD436 /* Tutti.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC25CC0322BCDC62004AD436 /* Tutti.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -160,7 +163,7 @@
 		453EF4D220D8EDCE00C56DEB /* StandardDeferredHintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDeferredHintTests.swift; sourceTree = "<group>"; };
 		4552710C1FD7BF9A00462ECD /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		4552710E1FD7C18A00462ECD /* StandardTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTutorial.swift; sourceTree = "<group>"; };
-		4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		4562D1AC1FDDC85F000069F3 /* YourCustomTutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourCustomTutorialViewController.xib; sourceTree = "<group>"; };
 		4562D1B71FDE5D13000069F3 /* FadeInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInTransition.swift; sourceTree = "<group>"; };
 		45667A1E20D957680002F257 /* DeferredTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferredTutorial.swift; sourceTree = "<group>"; };
 		45667A2120D958F40002F257 /* MockTutorialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTutorialPresenter.swift; sourceTree = "<group>"; };
@@ -169,7 +172,7 @@
 		458021E81FD7B61D00CE157F /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		458021EA1FD7B87E00CE157F /* Hint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
 		4587F63D201135170040E0D2 /* TutorialTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTransition.swift; sourceTree = "<group>"; };
-		4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewControllerCell.xib; sourceTree = "<group>"; };
+		4587F64020122EE30040E0D2 /* YourCustomTutorialViewControllerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourCustomTutorialViewControllerCell.xib; sourceTree = "<group>"; };
 		459F38AB2030E5DB0092297A /* CalloutHintPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutHintPresenter.swift; sourceTree = "<group>"; };
 		459F38AE2030E5F30092297A /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
 		459F38B42030EC7F0092297A /* ViewController+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Appearance.swift"; sourceTree = "<group>"; };
@@ -187,6 +190,9 @@
 		849935AA216C0E95000A0670 /* CorrectBehaviorOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorOnboarding.swift; sourceTree = "<group>"; };
 		849935AE216C11CF000A0670 /* CorrectBehaviorHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorHint.swift; sourceTree = "<group>"; };
 		849935B0216C14FD000A0670 /* CorrectBehaviorTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBehaviorTutorial.swift; sourceTree = "<group>"; };
+		CC144BAD22C4A38E00178DFF /* TutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		CC144BAE22C4A38E00178DFF /* TutorialViewControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialViewControllerCell.xib; sourceTree = "<group>"; };
+		CC144BB122C4A9F800178DFF /* YourCustomTutorialViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourCustomTutorialViewControllerCell.swift; sourceTree = "<group>"; };
 		CC25CC0322BCDC62004AD436 /* Tutti.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tutti.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -493,23 +499,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CC25CBFF22BCDB85004AD436 /* InterfaceBuilders */ = {
-			isa = PBXGroup;
-			children = (
-				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
-				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
-			);
-			path = InterfaceBuilders;
-			sourceTree = "<group>";
-		};
-		CC25CC0222BCDBB3004AD436 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				CC25CC0322BCDC62004AD436 /* Tutti.xcassets */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
 		841EF2AA22C3F64B00310211 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,12 +519,30 @@
 		841EF2AF22C4025F00310211 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				4562D1AC1FDDC85F000069F3 /* TutorialViewController.xib */,
-				4587F64020122EE30040E0D2 /* TutorialViewControllerCell.xib */,
+				4562D1AC1FDDC85F000069F3 /* YourCustomTutorialViewController.xib */,
+				4587F64020122EE30040E0D2 /* YourCustomTutorialViewControllerCell.xib */,
+				CC144BB122C4A9F800178DFF /* YourCustomTutorialViewControllerCell.swift */,
 				4537E8981FD3DFAC0007501C /* LaunchScreen.storyboard */,
 				4537E8931FD3DFAC0007501C /* Main.storyboard */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		CC25CBFF22BCDB85004AD436 /* InterfaceBuilders */ = {
+			isa = PBXGroup;
+			children = (
+				CC144BAD22C4A38E00178DFF /* TutorialViewController.xib */,
+				CC144BAE22C4A38E00178DFF /* TutorialViewControllerCell.xib */,
+			);
+			path = InterfaceBuilders;
+			sourceTree = "<group>";
+		};
+		CC25CC0222BCDBB3004AD436 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CC25CC0322BCDC62004AD436 /* Tutti.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -663,9 +670,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC25CC0122BCDBA1004AD436 /* TutorialViewControllerCell.xib in Resources */,
+				CC144BB022C4A38E00178DFF /* TutorialViewControllerCell.xib in Resources */,
 				CC25CC0422BCDC62004AD436 /* Tutti.xcassets in Resources */,
-				CC25CC0022BCDB9D004AD436 /* TutorialViewController.xib in Resources */,
+				CC144BAF22C4A38E00178DFF /* TutorialViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +680,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC144BB522C4ABE200178DFF /* YourCustomTutorialViewController.xib in Resources */,
+				CC144BB622C4ABE200178DFF /* YourCustomTutorialViewControllerCell.xib in Resources */,
 				45A102821FD92CE50032884A /* Localizable.strings in Resources */,
 				4537E89A1FD3DFAC0007501C /* LaunchScreen.storyboard in Resources */,
 				4537E8971FD3DFAC0007501C /* Assets.xcassets in Resources */,
@@ -749,6 +758,7 @@
 				45352D912030DEF100A0F890 /* ViewController+User.swift in Sources */,
 				45352D782030D15400A0F890 /* ViewController+TableView.swift in Sources */,
 				45E9EEBA200E79FA00CEEBFF /* TableViewOption.swift in Sources */,
+				CC144BB222C4A9F800178DFF /* YourCustomTutorialViewControllerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -158,10 +158,22 @@ replace `EasyTipView` with `CalloutView`.
 ### TutorialViewController
 
 This tutorial presenter presents tutorials in a modal view controller that takes
-over the entire screen. To use it, just add a `TutorialViewController.xib` and a
-`TutorialViewControllerCell.xib` to your app and set'em up the way you want them
-to look. The `TutorialViewController` class comes with some outlets, but you can
+over the entire screen.
+
+To use it, just add a `YourCustomTutorialViewController.xib` and a
+`YourCustomTutorialViewControllerCell.xib` to your app and set'em up the way you want them
+to look.
+```swift
+let presenter = TutorialViewController(nibName: "YourCustomTutorialViewController", bundle: Bundle.main)
+```
+
+The `TutorialViewController` class comes with some outlets, but you can
 subclass it and add as many outlets and triggers as you want.
+
+Or if you use build-in template, just initialize `TutorialViewController` with `nil` parameter.
+```swift
+let presenter = TutorialViewController(nibName: nil, bundle: nil)
+```
 
 
 ## Contact me
