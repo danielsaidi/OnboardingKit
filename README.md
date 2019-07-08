@@ -23,27 +23,22 @@
 
 ## About Tutti
 
-Tutti is a Swift library that can be used to handle user onboarding expericences.
-It lets you create quick hints as well as single- or multi-screen tutorials.
+Tutti is a Swift library that can be used to handle user onboarding expericences. It lets you create quick hints as well as single- or multi-screen tutorials.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Tutti will display a certain hint/tutorial once per app install. This means that
-even if you tell Tutti to show a tutorial/hint every time an app starts, it will
-only be shown once. 
+Tutti only displays a hint/tutorial once by default. This means that even if you tell it to show a tutorial/hint every time an app starts, it will only be shown once. You can reset the display state of a hint/tutorial if you want to display it multiple times.
 
-You can also tell Tutti to show a tutorial/hint once for every user, e.g. when a
-new user logs in. Just set the `userId` parameter to the current user's id/name.
+Tutti also supports user-specific hints/tutorials. Just set the `userId` parameter to the current user's id/name, and Tutti will display the hint/tutorial for every new user.
 
 
 ## Install
 
 ### CocoaPods
 
-Add this to your `Podfile` then run `pod install`. Remember to use the generated
-workspace afterwards.
+To install Tutti with CocoaPods, add this to your `Podfile` and run `pod install`:
 
 ```
 pod 'Tutti'
@@ -53,8 +48,7 @@ Remember to use the generated workspace (not the project file) after installing.
 
 ### Carthage
 
-Add this to your `Cartfile`, run `carthage update` then add the framework to the
-app from `Carthage/Build`:
+To install Tutti with Carthage, add this to your `Cartfile`, run `carthage update`:
 
 ```
 github "danielsaidi/Tutti"
@@ -64,43 +58,94 @@ Once the update completes, link in the built framework from `Carthage/Build`.
 
 ### Manual
 
-To add `Tutti` to your app without using Carthage or CocoaPods, first clone this
-repo and place it somewhere in the project folder. Then add `Tutti.xcodeproj` to
-your project, select your app target then add the Tutti framework as an embedded
-binary under `General` and as a target dependency under `Build Phases`.
+To add `Tutti` to your app without using a dependency manager, first clone this repo and place it somewhere in the project folder, then add `Tutti.xcodeproj` to your project, select your app target and add the Tutti framework as an embedded binary under `General` and as a target dependency under `Build Phases`.
 
 
-## Example Application
+## Example App
 
-This repository contains an example app. To try it our, open the `Tutti` project
-and run the `TuttiExample` target to try different types of hints and tutorials.
+This repository contains an example app. To try it out, open the `Tutti` project and run the `TuttiExample` target. The example app lets you try different types of hints and tutorials.
 
 
-## Example Code
+## Hints
 
-Below are some basic ways to create hints and tutorials with `Tutti`. In a large
-application, you'll probably want to use localized strings and keep track of the
-available hints and tutorials using an IoC framework, but here is the most basic
-way to set it up:
+Tutti comes with a set of built-in hint types that can be used for different purposes.
 
+* `StandardHint` - This is a basic hint with no specific behavior.
+* `DeferredHint` - This type requires a certain number of presentation attempts before it is actually presented.
+* `CorrectBehaviorHint` - This type can be used to show a hint when the user is behaving "incorrectly".
+
+You can also create your own custom hint types by implementing the `Hint` protocol.
+
+
+### Creating a hint
+
+This is the most basic way to create a hint with Tutti:
 
 ```swift
-func createStandardHint(for userId: String?) -> Hint {
+func createHint(for userId: String?) -> Hint {
     return StandardHint(
-        identifier: "hint", 
-        title: "Hint, hint!", 
-        text: "This is a quick hint. It will only be displayed once.", 
+        identifier: "hint",
+        title: "This is a hint!",
+        text: "This hint will only be displayed once.",
         userId: userId)
 }
+```
 
-func createStandardTutorial(for userId: String?) -> Tutorial {
+In a large app, you may want to use localized strings and have a more sophisticated setup. Check out the example app for more examples.
+
+
+### Presenting a hint
+
+In Tutti, hints are just data carriers. They don't know anything about how they are to be presented. To present a hint, you'll use a `hint presenter`, for instance:
+
+```swift
+self.presenter = CalloutHintPresenter()     // You must keep a strong reference!
+presenter.present(hint: hint, in: self, from: view)
+```
+
+This will only have an effect if the hint can actually be presented. This means that you don't have to keep track of if a certain hint has been presented or not. Tutti handles this for you.
+
+
+### Hint presenters
+
+Tutti comes with a couple of built-in hint presenters:
+
+* `AlertHintPresenter` - This presenter presents hints in a regular `UIAlertController`. You should probably not use it in production apps, since it's not a good experience.
+* `CalloutHintPresenter` - This presenter is a copy of `EasyTipView` and presents hints in a callout bubble that can point at any view. You can style these callouts to great extent. Have a look [this styling guide](Appearance) and replace `EasyTipView` with `CalloutView`.
+
+You can also create your own custom presented by implementing the `HintPresenter` protocol.
+
+
+## Tutorials
+
+Tutti comes with a set of built-in tutorial types that can be used for different purposes.
+
+* `StandardTutorial` - This is a basic tutorial with no specific behavior.
+* `DeferredTutorial` - This type requires a certain number of presentation attempts before it is actually presented.
+* `CorrectBehaviorTutorial` - This type can be used to show a tutorial when the user behaves "incorrectly".
+
+You can also create your own custom tutorial types by implementing the `Tutorial` protocol.
+
+
+### Creating a tutorial
+
+This is the most basic way to create a standard tutorial with Tutti:
+
+```swift
+func createTutorial(for userId: String?) -> Tutorial {
     return StandardTutorial(
-        identifier: "standard", 
+        identifier: "standard",
         pageCount: 2,
         userId: userId)
 }
+```
 
-/* 
+You can then use the tutorial's `resourceName(for key: String, at pageIndex: Int)` function to get a suggested name for any kind of resource at any page.
+
+For instance, adding the following localized strings to your app would provide a title and a text for two pages in a tutorial with the id `standard`:
+
+```swift
+/*
 
 In Localizable.strings, add this to support the standard tutorial:
     "tutorial_standard_0_title" = "Page 1 title";
@@ -109,51 +154,29 @@ In Localizable.strings, add this to support the standard tutorial:
     "tutorial_standard_1_text" = "Page 2 text";
 
 */
-
-func createLocalizedTutorial(for userId: String?) -> Tutorial {
-    return LocalizedTutorial(
-        identifier: "localized", 
-        userId: userId)
-}
-
-/* 
-
-In Localizable.strings, add this to setup the localized tutorial with 2 pages:
-    "tutorial_localized_0_title" = "Page 1 title";
-    "tutorial_localized_0_text" = "Page 1 text";
-    "tutorial_localized_1_title" = "Page 2 title";
-    "tutorial_localized_1_text" = "Page 2 text";
-
-*/
 ```
 
-These are just some ways to create hints and tutorials. Check out the example to
-see some more examples.
+You can also use the `fromLocalizationWithPageIndicationKey` initializer to automatically resolve the correct number of pages. For instance, using `title` as indication key would resolve two pages for the strings above.
 
-To present a hint/tutorial, just create a strongly referenced presenter and tell
-it to present the hint/tutorial as such:
+
+### Presenting a tutorial
+
+In Tutti, tutorials are also just data carriers. They don't know anything about how they are to be presented. To present a tutorial, you'll use a `tutorial presenter`, for instance:
 
 ```swift
-self.hintPresenter = CalloutHintPresenter()     // Remember a strong reference!
-let alreadyPresented = !hintPresenter.present(hint: hint, in: self, from: view)
-
-self.tutPresenter = TutorialViewController(nibName: nil, bundle: nil)   // Strong!
-let alreadyPresented = !tutPresenter.present(tutorial: tutorial, in: self, from: view)
+self.presenter = TutorialViewController(nibName: nil, bundle: nil)   // You must keep a strong reference!
+presenter.present(tutorial: tutorial, in: self, from: view)
 ```
 
-Tutti comes with two built-in hint presenters and one tutorial presenter:
+This will only have an effect if the tutorial can actually be presented. This means that you don't have to keep track of if a certain tutorial has been presented or not. Tutti handles this for you.
 
-### AlertHintPresenter
 
-This primitive hint presenter will present hints in a regular `UIAlertController`
-alert. You should probably not use it.
+### Hint presenters
 
-### CalloutHintPresenter
+Tutti only comes with a single built-in tutorial presenter: `TutorialViewController`.
 
-This presenter presents hints in callout bubbles that point at the source views.
-You can style these bubbles to great extent, changing everything from colors and
-fonts to how they are animated. Have a look [this styling guide](Appearance) and
-replace `EasyTipView` with `CalloutView`.
+This presenter presents tutorials in a modal view controller that takes over the entire screen. To use it, just add a `TutorialViewController.xib` and a `TutorialViewControllerCell.xib` file to your app, then connect your subviews to any outlets provided by `TutorialViewController`. You can also subclass `TutorialViewController` and add as many outlets and triggers as you want.
+
 
 ### TutorialViewController
 
@@ -168,7 +191,8 @@ let presenter = TutorialViewController(nibName: "YourCustomTutorialViewControlle
 ```
 
 The `TutorialViewController` class comes with some outlets, but you can
-subclass it and add as many outlets and triggers as you want.
+subclass it and add as many outlets and triggers as you want.  
+Creating your own xibs require a bit of work, but you can always copy the xibs from the example app and configure them to look the way you want them to look.
 
 Or if you use build-in template, just initialize `TutorialViewController` with `nil` parameter.
 ```swift
@@ -178,8 +202,7 @@ let presenter = TutorialViewController(nibName: nil, bundle: nil)
 
 ## Contact me
 
-I hope you like this library. Feel free to reach out if you have questions or if
-you want to contribute in any way:
+I hope you like this library. Feel free to reach out if you have questions or if you want to contribute in any way:
 
 * E-mail: [daniel.saidi@gmail.com](mailto:daniel.saidi@gmail.com)
 * Twitter: [@danielsaidi](http://www.twitter.com/danielsaidi)
@@ -189,7 +212,6 @@ you want to contribute in any way:
 ## License
 
 Tutti is available under the MIT license. See LICENSE file for more info.
-
 
 
 [Carthage]: https://github.com/Carthage/Carthage

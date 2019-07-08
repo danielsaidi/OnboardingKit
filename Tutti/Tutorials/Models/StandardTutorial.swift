@@ -120,8 +120,11 @@ private extension StandardTutorial {
     
     func resolvePageCount(withPageIndicationKey key: String) -> Int {
         var index = 0
-        let resource = resourceName(for: key, at: index)
-        while translationExists(for: resource) { index += 1 }
+        var resource = resourceName(for: key, at: index)
+        while translationExists(for: resource) {
+            index += 1
+            resource = resourceName(for: key, at: index)
+        }
         return index
     }
 }

@@ -18,7 +18,7 @@
 
 import UIKit
 
-public class AlertingHintPresenter: HintPresenter {
+open class AlertingHintPresenter: HintPresenter {
     
     public init() {}
     

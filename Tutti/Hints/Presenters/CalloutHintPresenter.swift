@@ -18,7 +18,7 @@
 
 import UIKit
 
-public class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
+open class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
     
     
     // MARK: - Initialization

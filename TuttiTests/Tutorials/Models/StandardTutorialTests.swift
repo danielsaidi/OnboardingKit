@@ -46,17 +46,17 @@ class StandardTutorialTests: QuickSpec {
                     let tutorial = StandardTutorial(fromLocalizationWithPageIndicationKey: "title", identifier: "test_onePage", userId: "bar")
                     expect(tutorial.pageCount).to(equal(1))
                 }
-                
+
                 it("has multiple pages if a translation sequence was found") {
                     let tutorial = StandardTutorial(fromLocalizationWithPageIndicationKey: "title", identifier: "test_sixPages", userId: "bar")
                     expect(tutorial.pageCount).to(equal(6))
                 }
-                
+
                 it("uses custom key segment separator") {
                     let tutorial = StandardTutorial(fromLocalizationWithPageIndicationKey: "title", identifier: "test*customKeySegmentSeparator", userId: "bar", keySegmentSeparator: "*")
                     expect(tutorial.pageCount).to(equal(2))
                 }
-                
+
                 it("uses custom page indicator key") {
                     let tutorial = StandardTutorial(fromLocalizationWithPageIndicationKey: "page", identifier: "test_customPageIndicator", userId: "bar")
                     expect(tutorial.pageCount).to(equal(2))
