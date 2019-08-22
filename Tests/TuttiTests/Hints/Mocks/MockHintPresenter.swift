@@ -7,6 +7,7 @@
 //
 
 import Tutti
+import UIKit
 
 class MockHintPresenter: HintPresenter {
     

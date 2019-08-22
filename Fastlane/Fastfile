@@ -1,8 +1,16 @@
-fastlane_version "2.30.2"
+fastlane_version "2.129.0"
 
 default_platform :ios
 
 platform :ios do
+
+
+  # Test =======================
+
+  desc "Run unit tests"
+  lane :test do
+    spm(command: "test")
+  end
 
 
   # Version ================
@@ -14,13 +22,10 @@ platform :ios do
     test
     version = version_bump_podspec(path: "Tutti.podspec", version_number: options[:name])
     increment_version_number(version_number: version)
-    increment_build_number(build_number: `date "+%y%m%d%H%M"`)
 
     git_commit(
       path: [
         "Tutti.podspec",
-        "*/Info.plist",
-        "*/*.pbxproj",
         "Fastlane/"],
       message: "Bump to #{version}"
     )
@@ -30,18 +35,5 @@ platform :ios do
     push_to_git_remote()
     pod_push()
   end
-
-  
-  # Test =======================
-
-  desc "Run unit tests"
-  lane :test do
-    scan(
-      project: "Tutti.xcodeproj",
-      scheme: "Tutti",
-      devices: ["iPhone 6s"]
-    )    
-  end
   
 end
-

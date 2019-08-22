@@ -6,14 +6,8 @@
     <a href="https://github.com/danielsaidi/Tutti">
         <img src="https://badge.fury.io/gh/danielsaidi%2FTutti.svg?style=flat" alt="Version" />
     </a>
-    <a href="https://cocoapods.org/pods/Tutti">
-        <img src="https://img.shields.io/cocoapods/v/Tutti.svg?style=flat" alt="CocoaPods" />
-    </a>
-    <a href="https://github.com/Carthage/Carthage">
-        <img src="https://img.shields.io/badge/carthage-supported-green.svg?style=flat" alt="Carthage" />
-    </a>
     <img src="https://img.shields.io/cocoapods/p/Tutti.svg?style=flat" alt="Platform" />
-    <img src="https://img.shields.io/badge/Swift-5.0-orange.svg" alt="Swift 5.0" />
+    <img src="https://img.shields.io/badge/Swift-5.1-orange.svg" alt="Swift 5.0" />
     <img src="https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102" alt="License" />
     <a href="https://twitter.com/danielsaidi">
         <img src="https://img.shields.io/badge/contact-@danielsaidi-blue.svg?style=flat" alt="Twitter: @danielsaidi" />
@@ -23,7 +17,7 @@
 
 ## About Tutti
 
-Tutti is a Swift library that can be used to handle user onboarding expericences. It lets you create quick hints as well as single- or multi-screen tutorials.
+Tutti is a Swift library that can be used to create user onboarding expericences, like quick hints and single- or multi-screen tutorials.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
@@ -36,34 +30,37 @@ Tutti also supports user-specific hints/tutorials. Just set the `userId` paramet
 
 ## Install
 
+### <a name="spm"></a>Swift Package Manager
+
+In Xcode 11 and later, the easiest way to add Tutti to your project is to use Swift Package Manager:
+```
+.package(url: "git@github.com:danielsaidi/Tutti.git" ...)
+```
+
 ### CocoaPods
 
-To install Tutti with CocoaPods, add this to your `Podfile` and run `pod install`:
-
-```
+Add this to your `Podfile` and run `pod install`:
+```ruby
 pod 'Tutti'
 ```
-
-Remember to use the generated workspace (not the project file) after installing.
+After that, remember to use the generated workspace instead of the project file.
 
 ### Carthage
 
-To install Tutti with Carthage, add this to your `Cartfile`, run `carthage update`:
-
+Add this to your `Cartfile` and run `carthage update`:
 ```
 github "danielsaidi/Tutti"
 ```
-
-Once the update completes, link in the built framework from `Carthage/Build`.
+After that, check the Carthage docs for info on how to add the library to your app.
 
 ### Manual
 
-To add `Tutti` to your app without using a dependency manager, first clone this repo and place it somewhere in the project folder, then add `Tutti.xcodeproj` to your project, select your app target and add the Tutti framework as an embedded binary under `General` and as a target dependency under `Build Phases`.
+To add `Tutti` to your app without a dependency manager, clone this repository and place it somewhere on disk, then add `Tutti.xcodeproj` to the project and `Tutti.framework` as an embedded app binary and target dependency.
 
 
-## Example App
+## Demo App
 
-This repository contains an example app. To try it out, open the `Tutti` project and run the `TuttiExample` target. The example app lets you try different types of hints and tutorials.
+This repository contains a demo app. To try it out, open and run the `Tutti` project. The demo app lets you try different types of hints and tutorials.
 
 
 ## Hints

@@ -9,6 +9,8 @@
 import Quick
 import Nimble
 @testable import Tutti
+import Foundation
+import UIKit
 
 class StandardDeferredHintTests: QuickSpec {
     

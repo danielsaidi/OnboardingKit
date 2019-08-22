@@ -1,7 +1,9 @@
 # Release Notes
 
-Tutti doesn't use semver. Breaking changes can occur on minor version bumps, but
-not on revision bumps.
+
+## 2.1.0
+
+This version adds Xcode 11 and iOS 13 support, including support for dark mode and high contrast color variants.
 
 
 ## 2.0.3
