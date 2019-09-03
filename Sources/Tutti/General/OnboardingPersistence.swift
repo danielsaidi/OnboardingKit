@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This protocol can be implemented by any class that can be
+ used to persist values raw values.
+ */
 public protocol OnboardingPersistence {
 
     func set(_ value: Int, forKey: String)

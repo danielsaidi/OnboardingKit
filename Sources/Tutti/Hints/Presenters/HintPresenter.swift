@@ -6,14 +6,11 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- Tutti hint presenters can be used to present hints to users.
- 
- */
-
 import UIKit
 
+/**
+ Tutti hint presenters can be used to present hints to users.
+*/
 public protocol HintPresenter: OnboardingPresenter {
     
     func dismiss(_ hint: Hint)

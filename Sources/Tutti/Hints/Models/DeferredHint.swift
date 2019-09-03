@@ -6,18 +6,15 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  This class can be used by hints that should require several
  presentation attempts before being presented.
  
  For more info on how to use it, check out the documentation
  for `DeferredOnboarding`.
- 
  */
-
-import UIKit
-
 open class DeferredHint: StandardHint, DeferredOnboarding {
     
     

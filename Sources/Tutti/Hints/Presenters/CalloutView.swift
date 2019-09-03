@@ -1,5 +1,4 @@
-/*
- 
+/**
  This class is forked from EasyTipView. I added it because I
  had problems using the external library in the demo app and
  couldn't find a way to provide a fully working presenter in
@@ -10,9 +9,7 @@
  I will make no efforts to refactor this code further. Since
  it's unchanged from the original code, look at the original
  repository for more info on how style the views in your app.
- 
  */
-
 
 //
 // EasyTipView.swift

@@ -6,8 +6,9 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
+import Foundation
 
+/**
  This protocol represents a single or multi page guide, that
  is intended to display more information than a short hint.
  
@@ -22,11 +23,7 @@
  
  For more information on how to use this protocol, check out
  the documentation for `Onboarding`.
- 
  */
-
-import Foundation
-
 public protocol Tutorial: Onboarding {
     
     var currentPageIndex: Int { get set }

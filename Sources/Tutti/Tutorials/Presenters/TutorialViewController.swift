@@ -6,8 +6,9 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  This view controller is a `TutorialPresenter` that displays
  multi-page tutorials in a horizontal, paged collection view.
  To use it, create a xib or storyboard view controller. Make
@@ -20,11 +21,7 @@
  `cellType` property type. The app must have a xib file with
  this type name (by default `TutorialViewControllerCell`) to
  be order to dequeue cells for the collection view.
- 
  */
-
-import UIKit
-
 open class TutorialViewController: UIViewController, TutorialPresenter, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
@@ -47,11 +44,11 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     
     // MARK: - Private Properties
     
-    fileprivate var cellClassName: String {
+    private var cellClassName: String {
         return String(describing: cellType)
     }
     
-    fileprivate var cellReuseIdentifier: String {
+    private var cellReuseIdentifier: String {
         return cellClassName
     }
     
@@ -181,7 +178,7 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
-        
+    
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

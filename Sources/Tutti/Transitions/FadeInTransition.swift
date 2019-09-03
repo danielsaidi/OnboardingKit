@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ This transition can be used to fade in a tutorial.
+ */
 open class FadeInTransition: NSObject, TutorialTransition {
     
     

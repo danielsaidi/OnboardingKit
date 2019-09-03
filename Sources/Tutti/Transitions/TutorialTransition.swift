@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ This protocol can be implemented by any class that can show
+ a tutorial view controller.
+ */
 public protocol TutorialTransition: UIViewControllerAnimatedTransitioning {
 
     var isPresenting: Bool { get set }

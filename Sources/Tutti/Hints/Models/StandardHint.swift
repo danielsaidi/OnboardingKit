@@ -6,15 +6,12 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This is a basic hint that can be used as is or inherited to
- create custom hints. You can present it using any presenter.
- 
- */
-
 import UIKit
 
+/**
+ This is a basic hint that can be used as is or inherited to
+ create custom hints. You can present it using any presenter.
+ */
 open class StandardHint: Hint {
     
     

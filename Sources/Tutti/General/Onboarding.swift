@@ -6,21 +6,18 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import Foundation
+
+/**
  This protocol is a base protocol for onboarding experiences,
- like tutorials and hints. It provides you with basic way to
- keep track of if an onboarding has been displayed or not.
+ like tutorials and hints. It provides you with ways to keep
+ track of if an onboarding has been displayed or not.
  
  If the optional `userId` property is set, `hasBeenDisplayed`
  value is unique for every user.
- 
  */
-
-import Foundation
-
 public protocol Onboarding: class {
-
+    
     var identifier: String { get }
     var userId: String? { get }
     var persistence: OnboardingPersistence { get }
@@ -34,7 +31,7 @@ public protocol Onboarding: class {
 // MARK: - Internal Properties
 
 extension Onboarding {
-
+    
     var hasBeenDisplayedKey: String {
         return persistence.key(for: self, objectKey: "hasBeenDisplayed", userId: userId)
     }

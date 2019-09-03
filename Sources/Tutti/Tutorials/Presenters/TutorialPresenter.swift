@@ -6,8 +6,9 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  Tutti tutorial presenters can be used to present a tutorial
  to users.
  
@@ -15,11 +16,7 @@
  your app with some setup. Have a look at the example app to
  see how I use `TutorialViewController` to setup a scrolling,
  full screen tutorial.
- 
  */
-
-import UIKit
-
 public protocol TutorialPresenter: OnboardingPresenter {
     
     func dismiss(_ tutorial: Tutorial)

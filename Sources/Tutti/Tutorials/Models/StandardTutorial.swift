@@ -6,8 +6,9 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  This is a basic tutorial implementation that can be used as
  is or inherited to create custom tutorials. You can present
  it using any presenter.
@@ -19,7 +20,7 @@
  specify all properties, such as identifier, page count etc.
  * using the localization-based initializer, which uses your
  app's localization to resolve the page count automatically.
-
+ 
  The localization-based approach requires a "page indication
  key", which it uses it to calculate the number of pages for
  the tutorial. It increases the number of pages as long as a
@@ -35,11 +36,7 @@
  
  You can subclass this class and override the initializer if
  you want this automatic handling to behave differently.
- 
  */
-
-import UIKit
-
 open class StandardTutorial: Tutorial {
     
     

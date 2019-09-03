@@ -6,18 +6,14 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  This presenter displays hints using a bubble that points at
  to target view. For more information about how to customize
  the appearance of a callout view, checkout the `CalloutView`
  class documentation.
- 
  */
-
-
-import UIKit
-
 open class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
     
     

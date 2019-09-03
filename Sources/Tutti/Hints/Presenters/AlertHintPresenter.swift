@@ -6,18 +6,15 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  This presenter displays hints with a standard alerts. It is
  mostly meant to be used as a temporary presenter, while you
  work on adding a real presenter to your app. Never ever use
  this presenter in a real world app. You must do better than
  this. Life is not a game! Come on!
- 
  */
-
-import UIKit
-
 open class AlertingHintPresenter: HintPresenter {
     
     public init() {}

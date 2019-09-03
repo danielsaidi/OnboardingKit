@@ -6,18 +6,16 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
+import UIKit
+
+/**
  
  This class can be used when a user should be presented with
  a tutorial after behaving incorrectly a couple of times.
  
  For more info on how to use it, check out the documentation
  for `CorrectBehaviorOnboarding`.
- 
  */
-
-import UIKit
-
 open class CorrectBehaviorTutorial: StandardTutorial, CorrectBehaviorOnboarding {
     
     

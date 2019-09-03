@@ -6,8 +6,9 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  This protocol can be used when the user should be presented
  with an onboarding experience after a number of "incorrect"
  actions, e.g. when not doing what she/he is supposed to do.
@@ -21,11 +22,7 @@
  This onboarding will also reset its memory every time it is
  presented. This means that it will be displayed again, if a
  user keeps behaving in a way that is not intended.
- 
  */
-
-import UIKit
-
 public protocol CorrectBehaviorOnboarding: Onboarding {
     
     var registeredIncorrectBehaviors: Int { get set }

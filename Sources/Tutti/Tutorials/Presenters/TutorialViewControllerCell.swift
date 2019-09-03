@@ -6,8 +6,9 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  This is a collection view cell base class, that can be used
  to display a tutorial page in a `TutorialViewController`.
  
@@ -27,11 +28,7 @@
  information), just create a custom class that inherits this
  class (together with a xib), then set the view controller's
  `cellType` property to your custom class type.
- 
  */
-
-import UIKit
-
 open class TutorialViewControllerCell: UICollectionViewCell {
 
     
