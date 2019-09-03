@@ -90,12 +90,9 @@
 		4537E8961FD3DFAC0007501C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4537E8991FD3DFAC0007501C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4537E89B1FD3DFAC0007501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		453EF4BF20D8CD3E00C56DEB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		453EF4C020D8CD3E00C56DEB /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 		453EF4C120D8CD3E00C56DEB /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		453EF4C220D8CD3E00C56DEB /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		453EF4C320D8CD3E00C56DEB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		453EF4C420D8CD3E00C56DEB /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		453EF4C620D8CD3E00C56DEB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		453EF4C720D8CD3E00C56DEB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		453EF4C820D8CD3E00C56DEB /* Tutti.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Tutti.podspec; sourceTree = "<group>"; };
@@ -221,9 +218,6 @@
 				453EF4C620D8CD3E00C56DEB /* .gitignore */,
 				453EF4C220D8CD3E00C56DEB /* .swift-version */,
 				453EF4C320D8CD3E00C56DEB /* .swiftlint.yml */,
-				453EF4BF20D8CD3E00C56DEB /* Cartfile */,
-				453EF4C020D8CD3E00C56DEB /* Cartfile.private */,
-				453EF4C420D8CD3E00C56DEB /* Cartfile.resolved */,
 				453EF4C920D8CD4A00C56DEB /* Fastfile */,
 				453EF4C120D8CD3E00C56DEB /* LICENSE */,
 				453EF4C720D8CD3E00C56DEB /* README.md */,
