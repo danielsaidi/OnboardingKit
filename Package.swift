@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "Tutti",
+    platforms: [
+        .iOS(.v9)
+    ],
     products: [
         .library(
             name: "Tutti",
@@ -12,8 +15,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "git@github.com:Quick/Quick.git", from: "2.1.0"),
-        .package(url: "git@github.com:Quick/Nimble.git", from: "8.0.2"),
-        .package(url: "git@github.com:danielsaidi/Mockery.git", .branch("0.1.0-beta"))
+        .package(url: "git@github.com:Quick/Nimble.git", .exact("8.0.2"))
     ],
     targets: [
         .target(
@@ -21,6 +23,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "TuttiTests",
-            dependencies: ["Tutti", "Quick", "Nimble", "Mockery"])
+            dependencies: ["Tutti", "Quick", "Nimble"])
     ]
 )
