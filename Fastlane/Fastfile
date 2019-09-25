@@ -26,6 +26,8 @@ platform :ios do
     git_commit(
       path: [
         "Tutti.podspec",
+        "Tutti/Info.plist",
+        "TuttiExample/Info.plist",
         "Fastlane/"],
       message: "Bump to #{version}"
     )
