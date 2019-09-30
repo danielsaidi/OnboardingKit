@@ -105,6 +105,7 @@ open class TutorialViewController: UIViewController, TutorialPresenter, UICollec
         tryPresent(tutorial) {
             self.tutorial = tutorial
             transitioningDelegate = self
+            self.modalPresentationStyle = .fullScreen
             vc.present(self, animated: true, completion: nil)
         }
     }
