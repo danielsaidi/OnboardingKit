@@ -21,7 +21,7 @@ public extension OnboardingPresenter {
      fail if the onboarding should not be performed, e.g. if
      it has already been presented.
      */
-    func tryPresent(_ onboarding: Onboarding, presentAction: () -> ()) {
+    func tryPresent(_ onboarding: Onboarding, presentAction: () -> Void) {
         onboarding.prepareForPresentation()
         guard onboarding.shouldBePresented else { return }
         presentAction()

@@ -3,17 +3,16 @@ disabled_rules:
   - function_body_length
   - line_length
   - nesting
-  - shorthand_operator
+  - todo
   - trailing_whitespace
   - type_body_length
   - vertical_whitespace
-  - void_return
 
-excluded:
-  - Pods
-  - Carthage
+included:
+  - Sources
+  - Tests
 
-variable_name:
+identifier_name:
   excluded:
     - id
     - ok

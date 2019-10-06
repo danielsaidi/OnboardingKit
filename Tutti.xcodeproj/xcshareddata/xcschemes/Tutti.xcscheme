@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "9999"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,23 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4537E87D1FD3DF950007501C"
+               BlueprintIdentifier = "Tutti::Tutti"
                BuildableName = "Tutti.framework"
                BlueprintName = "Tutti"
                ReferencedContainer = "container:Tutti.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4537E88C1FD3DFAC0007501C"
-               BuildableName = "TuttiExample.app"
-               BlueprintName = "TuttiExample"
+               BlueprintIdentifier = "842BE8C2234A974700ED2260"
+               BuildableName = "TuttiDemo.app"
+               BlueprintName = "TuttiDemo"
                ReferencedContainer = "container:Tutti.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -41,16 +41,17 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4537E88C1FD3DFAC0007501C"
-            BuildableName = "TuttiExample.app"
-            BlueprintName = "TuttiExample"
-            ReferencedContainer = "container:Tutti.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Tutti::TuttiTests"
+               BuildableName = "TuttiTests.xctest"
+               BlueprintName = "TuttiTests"
+               ReferencedContainer = "container:Tutti.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -67,9 +68,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4537E88C1FD3DFAC0007501C"
-            BuildableName = "TuttiExample.app"
-            BlueprintName = "TuttiExample"
+            BlueprintIdentifier = "842BE8C2234A974700ED2260"
+            BuildableName = "TuttiDemo.app"
+            BlueprintName = "TuttiDemo"
             ReferencedContainer = "container:Tutti.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -83,7 +84,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4537E87D1FD3DF950007501C"
+            BlueprintIdentifier = "Tutti::Tutti"
             BuildableName = "Tutti.framework"
             BlueprintName = "Tutti"
             ReferencedContainer = "container:Tutti.xcodeproj">

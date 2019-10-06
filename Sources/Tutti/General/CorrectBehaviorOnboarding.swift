@@ -62,7 +62,7 @@ public extension CorrectBehaviorOnboarding {
 
 private extension CorrectBehaviorOnboarding {
     
-    func registerIncorrectBehavior(showAction: () -> ()) {
+    func registerIncorrectBehavior(showAction: () -> Void) {
         registeredIncorrectBehaviors += 1
         guard remainingAttempts == 0 else { return }
         showAction()
