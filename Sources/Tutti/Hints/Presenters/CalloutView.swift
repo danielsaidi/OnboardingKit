@@ -126,7 +126,7 @@ public extension CalloutView {
         
         superview.addSubview(self)
         
-        let animations : () -> () = {
+        let animations: () -> Void = {
             self.transform = finalTransform
             self.alpha = 1
         }
@@ -143,7 +143,7 @@ public extension CalloutView {
      
      - parameter completion: Completion block to be executed after the CalloutView is dismissed.
      */
-    func dismiss(withCompletion completion: (() -> ())? = nil) {
+    func dismiss(withCompletion completion: (() -> Void)? = nil) {
         
         let damping = preferences.animating.springDamping
         let velocity = preferences.animating.springVelocity
