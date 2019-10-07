@@ -3,6 +3,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Tutti'
   s.version          = '2.1.3'
+  s.swift_versions   = ['5.1']
   s.summary          = 'Tutti is a Swift library for creating tutorials, hints and onboarding experiences.'
 
   s.description      = <<-DESC

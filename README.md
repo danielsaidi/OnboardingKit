@@ -34,7 +34,7 @@ Tutti also supports user-specific hints/tutorials. Just set the `userId` paramet
 
 The easiest way to add Tutti to your project is to use Swift Package Manager:
 
-```swift
+```
 https://github.com/danielsaidi/Tutti.git
 ```
 
