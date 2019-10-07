@@ -33,8 +33,9 @@ Tutti also supports user-specific hints/tutorials. Just set the `userId` paramet
 ### <a name="spm"></a>Swift Package Manager
 
 The easiest way to add Tutti to your project is to use Swift Package Manager:
-```
-.package(url: "git@github.com:danielsaidi/Tutti.git" ...)
+
+```swift
+https://github.com/danielsaidi/Tutti.git
 ```
 
 ### CocoaPods
@@ -45,7 +46,7 @@ pod 'Tutti'
 
 ### Carthage
 
-```
+```ruby
 github "danielsaidi/Tutti"
 ```
 
