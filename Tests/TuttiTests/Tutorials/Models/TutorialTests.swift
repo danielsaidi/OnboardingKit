@@ -61,7 +61,7 @@ class TutorialTests: QuickSpec {
         context("translations") {
             
             func getTutorial() -> Tutorial {
-                return StandardTutorial(identifier: "foo", pageCount: 0)
+                StandardTutorial(identifier: "foo", pageCount: 0)
             }
             
             describe("translate") {

@@ -17,15 +17,13 @@ class StandardDeferredHintTests: QuickSpec {
     override func spec() {
         
         var persistence: MockOnboardingPersistence!
-        var presenter: MockHintPresenter!
         
         beforeEach {
             persistence = MockOnboardingPersistence()
-            presenter = MockHintPresenter()
         }
         
         func createHint(requiredPresentationAttempts: Int) -> DeferredHint {
-            return DeferredHint(
+            DeferredHint(
                 identifier: "hint",
                 title: "foo",
                 text: "bar",

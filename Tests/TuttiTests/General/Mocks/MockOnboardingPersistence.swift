@@ -40,10 +40,10 @@ class MockOnboardingPersistence: OnboardingPersistence {
     }
     
     func bool(forKey key: String) -> Bool {
-        return boolValues[key] ?? false
+        boolValues[key] ?? false
     }
     
     func integer(forKey key: String) -> Int {
-        return intValues[key] ?? 0
+        intValues[key] ?? 0
     }
 }

@@ -6,9 +6,10 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
+import Mockery
 import Tutti
 
-class MockOnboarding: Onboarding {
+class MockOnboarding: Mock, Onboarding {
 
     init(
         identifier: String,
@@ -25,7 +26,6 @@ class MockOnboarding: Onboarding {
     var persistence: OnboardingPersistence
     
     var shouldBePresented = false
-    
     
     func prepareForPresentation() {}
 }

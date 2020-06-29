@@ -81,9 +81,7 @@ open class StandardTutorial: Tutorial {
     
     public var persistence: OnboardingPersistence
     
-    public var shouldBePresented: Bool {
-        return !hasBeenDisplayed
-    }
+    public var shouldBePresented: Bool { !hasBeenDisplayed }
     
     
     // MARK: Public functions

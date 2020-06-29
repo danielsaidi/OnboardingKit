@@ -46,9 +46,7 @@ open class StandardHint: Hint {
     public let title: String
     public let userId: String?
     
-    public var shouldBePresented: Bool {
-        return !hasBeenDisplayed
-    }
+    public var shouldBePresented: Bool { !hasBeenDisplayed }
     
     
     // MARK: - Public Functions

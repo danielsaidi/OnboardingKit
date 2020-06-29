@@ -21,7 +21,7 @@ class OnboardingTests: QuickSpec {
         }
         
         func createOnboarding(withUserId userId: String?) -> Onboarding {
-            return MockOnboarding(identifier: "foo", userId: userId, persistence: persistence)
+            MockOnboarding(identifier: "foo", userId: userId, persistence: persistence)
         }
         
         describe("has been displayed key") {

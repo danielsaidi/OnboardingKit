@@ -16,7 +16,7 @@ import Foundation
  If the optional `userId` property is set, `hasBeenDisplayed`
  value is unique for every user.
  */
-public protocol Onboarding: class {
+public protocol Onboarding: AnyObject {
     
     var identifier: String { get }
     var userId: String? { get }
@@ -33,7 +33,7 @@ public protocol Onboarding: class {
 extension Onboarding {
     
     var hasBeenDisplayedKey: String {
-        return persistence.key(for: self, objectKey: "hasBeenDisplayed", userId: userId)
+        persistence.key(for: self, objectKey: "hasBeenDisplayed", userId: userId)
     }
 }
 
@@ -43,7 +43,7 @@ extension Onboarding {
 public extension Onboarding {
     
     var hasBeenDisplayed: Bool {
-        get { return persistence.bool(forKey: hasBeenDisplayedKey) }
+        get { persistence.bool(forKey: hasBeenDisplayedKey) }
         set { persistence.set(newValue, forKey: hasBeenDisplayedKey) }
     }
 }

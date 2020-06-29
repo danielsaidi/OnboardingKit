@@ -48,7 +48,7 @@ open class CorrectBehaviorHint: StandardHint, CorrectBehaviorOnboarding {
     public weak var presenter: HintPresenter?
     
     open override var shouldBePresented: Bool {
-        return remainingAttempts == 0
+        remainingAttempts == 0
     }
     
     

@@ -17,15 +17,13 @@ class DeferredTutorialTests: QuickSpec {
     override func spec() {
         
         var persistence: MockOnboardingPersistence!
-        var presenter: MockTutorialPresenter!
         
         beforeEach {
             persistence = MockOnboardingPersistence()
-            presenter = MockTutorialPresenter()
         }
         
         func createTutorial(requiredPresentationAttempts: Int) -> DeferredTutorial {
-            return DeferredTutorial(
+            DeferredTutorial(
                 identifier: "foo",
                 pageCount: 3,
                 requiredPresentationAttempts: requiredPresentationAttempts,

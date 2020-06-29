@@ -18,16 +18,14 @@ class StandardHintTests: QuickSpec {
         
         var hint: StandardHint!
         var persistence: MockOnboardingPersistence!
-        var presenter: MockHintPresenter!
         
         beforeEach {
             persistence = MockOnboardingPersistence()
-            presenter = MockHintPresenter()
             hint = createHint()
         }
         
         func createHint() -> StandardHint {
-            return StandardHint(
+            StandardHint(
                 identifier: "hint",
                 title: "foo",
                 text: "bar",

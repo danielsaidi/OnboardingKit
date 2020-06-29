@@ -15,13 +15,10 @@ class StandardTutorialTests: QuickSpec {
     override func spec() {
         
         var persistence: MockOnboardingPersistence!
-        var presenter: MockTutorialPresenter!
         
         beforeEach {
             persistence = MockOnboardingPersistence()
-            presenter = MockTutorialPresenter()
         }
-        
         
         describe("when created") {
             
@@ -143,7 +140,7 @@ class StandardTutorialTests: QuickSpec {
         describe("should be presented") {
             
             func createTutorial() -> StandardTutorial {
-                return StandardTutorial(identifier: "foo", pageCount: 1, persistence: persistence)
+                StandardTutorial(identifier: "foo", pageCount: 1, persistence: persistence)
             }
             
             it("should be if it hasn't been displayed") {

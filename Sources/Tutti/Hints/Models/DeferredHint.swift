@@ -44,7 +44,7 @@ open class DeferredHint: StandardHint, DeferredOnboarding {
     public let requiredPresentationAttempts: Int
     
     open override var shouldBePresented: Bool {
-        return super.shouldBePresented && remainingPresentationAttempts == 0
+        super.shouldBePresented && remainingPresentationAttempts == 0
     }
     
     

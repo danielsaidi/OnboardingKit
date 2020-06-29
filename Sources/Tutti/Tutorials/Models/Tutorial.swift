@@ -57,10 +57,10 @@ public extension Tutorial {
 public extension Tutorial {
     
     func translate(_ key: String) -> String {
-        return NSLocalizedString(key, comment: "")
+        NSLocalizedString(key, comment: "")
     }
     
     func translationExists(for key: String) -> Bool {
-        return translate(key) != key
+        translate(key) != key
     }
 }

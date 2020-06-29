@@ -37,7 +37,7 @@ public protocol CorrectBehaviorOnboarding: Onboarding {
 public extension CorrectBehaviorOnboarding {
     
     var remainingAttempts: Int {
-        return max(0, requiredIncorrectBehaviors - registeredIncorrectBehaviors)
+        max(0, requiredIncorrectBehaviors - registeredIncorrectBehaviors)
     }
 }
 

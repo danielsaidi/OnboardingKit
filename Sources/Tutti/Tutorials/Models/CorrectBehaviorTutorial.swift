@@ -67,7 +67,7 @@ open class CorrectBehaviorTutorial: StandardTutorial, CorrectBehaviorOnboarding 
     public weak var presenter: TutorialPresenter?
     
     open override var shouldBePresented: Bool {
-        return remainingAttempts == 0
+        remainingAttempts == 0
     }
     
     

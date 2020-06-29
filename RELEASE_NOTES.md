@@ -1,6 +1,11 @@
 # Release Notes
 
 
+## 2.1.1
+
+This version updates all external test dependenies to the latest versions.
+
+
 ## 2.1.0
 
 This version adds Xcode 11 and iOS 13 support, including support for dark mode and high contrast color variants.

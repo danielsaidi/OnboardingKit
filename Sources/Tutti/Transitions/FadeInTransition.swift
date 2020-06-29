@@ -57,6 +57,6 @@ open class FadeInTransition: NSObject, TutorialTransition {
     }
     
     open func transitionDuration(using context: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return duration
+        duration
     }
 }
