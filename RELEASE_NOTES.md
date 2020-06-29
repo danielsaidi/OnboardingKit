@@ -1,9 +1,9 @@
 # Release Notes
 
 
-## 2.1.1
+## 2.1.1 - 2.1.4
 
-This version updates all external test dependenies to the latest versions.
+These versions update all external test dependenies to the latest versions.
 
 
 ## 2.1.0
