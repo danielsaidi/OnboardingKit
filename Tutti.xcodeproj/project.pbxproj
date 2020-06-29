@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -38,6 +38,9 @@
 		8472256F234A9A9600283684 /* Tutti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Tutti::Tutti::Product" /* Tutti.framework */; };
 		84722570234A9A9600283684 /* Tutti.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Tutti::Tutti::Product" /* Tutti.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84722575234A9B1900283684 /* ViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84722574234A9B1900283684 /* ViewController+Appearance.swift */; };
+		A963E2B224A9D25E00665C6B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = A963E2B124A9D25E00665C6B /* Nimble */; };
+		A963E2B424A9D27100665C6B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A963E2B324A9D27100665C6B /* Quick */; };
+		A963E2B724A9D29500665C6B /* Mockery in Frameworks */ = {isa = PBXBuildFile; productRef = A963E2B624A9D29500665C6B /* Mockery */; };
 		OBJ_285 /* UIScrollView+Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* UIScrollView+Page.swift */; };
 		OBJ_286 /* CorrectBehaviorOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CorrectBehaviorOnboarding.swift */; };
 		OBJ_287 /* DeferredOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* DeferredOnboarding.swift */; };
@@ -203,7 +206,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				A963E2B424A9D27100665C6B /* Quick in Frameworks */,
+				A963E2B724A9D29500665C6B /* Mockery in Frameworks */,
 				OBJ_342 /* Tutti.framework in Frameworks */,
+				A963E2B224A9D25E00665C6B /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,8 +398,8 @@
 		OBJ_43 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_44 /* DeferredOnboardingTests.swift */,
 				OBJ_45 /* Mocks */,
+				OBJ_44 /* DeferredOnboardingTests.swift */,
 				OBJ_49 /* OnboardingTests.swift */,
 			);
 			path = General;
@@ -555,6 +561,8 @@
 			dependencies = (
 			);
 			name = Tutti;
+			packageProductDependencies = (
+			);
 			productName = Tutti;
 			productReference = "Tutti::Tutti::Product" /* Tutti.framework */;
 			productType = "com.apple.product-type.framework";
@@ -572,6 +580,11 @@
 				OBJ_346 /* PBXTargetDependency */,
 			);
 			name = TuttiTests;
+			packageProductDependencies = (
+				A963E2B124A9D25E00665C6B /* Nimble */,
+				A963E2B324A9D27100665C6B /* Quick */,
+				A963E2B624A9D29500665C6B /* Mockery */,
+			);
 			productName = TuttiTests;
 			productReference = "Tutti::TuttiTests::Product" /* TuttiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -588,7 +601,6 @@
 				TargetAttributes = {
 					842BE8C2234A974700ED2260 = {
 						CreatedOnToolsVersion = 11.0;
-						DevelopmentTeam = PMEDFW438U;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -602,6 +614,11 @@
 				Base,
 			);
 			mainGroup = OBJ_5;
+			packageReferences = (
+				A963E2AC24A9D20800665C6B /* XCRemoteSwiftPackageReference "Quick" */,
+				A963E2B024A9D25E00665C6B /* XCRemoteSwiftPackageReference "Nimble" */,
+				A963E2B524A9D29500665C6B /* XCRemoteSwiftPackageReference "Mockery" */,
+			);
 			productRefGroup = OBJ_157 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -825,7 +842,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = TuttiDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.TuttiDemo;
@@ -882,7 +902,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = TuttiDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.TuttiDemo;
@@ -903,7 +926,10 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tutti.xcodeproj/Tutti_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -927,7 +953,10 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tutti.xcodeproj/Tutti_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -1011,7 +1040,11 @@
 					"$(SRCROOT)/.build/checkouts/Quick/Sources/QuickSpecBase/include",
 				);
 				INFOPLIST_FILE = Tutti.xcodeproj/TuttiTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -1035,7 +1068,11 @@
 					"$(SRCROOT)/.build/checkouts/Quick/Sources/QuickSpecBase/include",
 				);
 				INFOPLIST_FILE = Tutti.xcodeproj/TuttiTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -1063,7 +1100,8 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				USE_HEADERMAP = NO;
 			};
 			name = Release;
@@ -1126,6 +1164,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A963E2AC24A9D20800665C6B /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		A963E2B024A9D25E00665C6B /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.1;
+			};
+		};
+		A963E2B524A9D29500665C6B /* XCRemoteSwiftPackageReference "Mockery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielsaidi/Mockery.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A963E2B124A9D25E00665C6B /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A963E2B024A9D25E00665C6B /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		A963E2B324A9D27100665C6B /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A963E2AC24A9D20800665C6B /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		A963E2B624A9D29500665C6B /* Mockery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A963E2B524A9D29500665C6B /* XCRemoteSwiftPackageReference "Mockery" */;
+			productName = Mockery;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = OBJ_1 /* Project object */;
 }
