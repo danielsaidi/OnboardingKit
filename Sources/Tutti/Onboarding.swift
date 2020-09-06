@@ -3,7 +3,7 @@
 //  Tutti
 //
 //  Created by Daniel Saidi on 2017-12-06.
-//  Copyright © 2017 Daniel Saidi. All rights reserved.
+//  Copyright © 2020 Daniel Saidi. All rights reserved.
 //
 
 import Foundation
@@ -14,19 +14,21 @@ import Foundation
  
  The base onboarding behavior is that `shouldBePresented` is
  `true` until `registerPresentation()` is called. After that,
- it's `false` until `reset()` is called. Any specializations
- may change this logic.
+ it's `false` until `reset()` is called.
  
- If the optional `userId` property is set, this presentation
- logic will be unique for each user.
- 
- Note that nothing stops your app from presenting an already
- presented onboarding. Make sure to check `shouldBePresented`
- before presenting it and call `registerPresentation()` when
- you present it.
+ `NOTE` Nothing stops your app from presenting an onboarding
+ where `shouldBePresented` is `false`. Make sure that you do
+ verify that `shouldBePresented` is `true` and that you call
+ `registerPresentation()` when you present it.
  */
-public class Onboarding {
+open class Onboarding {
     
+    /// Create a basic onboarding experience.
+    ///
+    /// - Parameters:
+    ///   - id: The unique onboarding id.
+    ///   - userId: An optional user id.
+    ///   - defaults: The `UserDefaults` to use for persistency.
     public init(
         id: String,
         userId: UserId? = nil,
@@ -44,14 +46,11 @@ public class Onboarding {
 
     
     /**
-     Whether or not the onboarding should be presented. This
-     class returns `true` until `registerPresentationAttempt`
-     has been called.
+     Whether or not the onboarding should be presented.
      */
     open var shouldBePresented: Bool {
         presentationCount == 0
     }
-    
     
     /**
      Call this when you present an onboarding. It increments
@@ -94,9 +93,9 @@ public extension Onboarding {
 }
 
 
-// MARK: - Internal Mebers
+// MARK: - Private Mebers
 
-extension Onboarding {
+private extension Onboarding {
     
     var presentationCountKey: String {
         persistencyKey(for: "presentationCount")

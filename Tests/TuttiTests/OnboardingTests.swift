@@ -24,7 +24,7 @@ class OnboardingTests: QuickSpec {
         
         afterEach {
             onboarding.reset()
-            expect(onboarding.shouldBePresented).to(beTrue())
+            expect(onboarding.presentationCount).to(equal(0))
         }
         
         describe("persistency") {
@@ -37,7 +37,11 @@ class OnboardingTests: QuickSpec {
         
         describe("should be presented") {
             
-            it("should be presented until a presentation is registered") {
+            it("is true by default") {
+                expect(onboarding.shouldBePresented).to(beTrue())
+            }
+            
+            it("becomes false when a presentation is registered") {
                 expect(onboarding.shouldBePresented).to(beTrue())
                 onboarding.registerPresentation()
                 expect(onboarding.shouldBePresented).to(beFalse())
@@ -80,8 +84,7 @@ class OnboardingTests: QuickSpec {
             
             it("resets the presentation count") {
                 onboarding.registerPresentation()
-                onboarding.registerPresentation()
-                onboarding.registerPresentation()
+                expect(onboarding.presentationCount).to(equal(1))
                 onboarding.reset()
                 expect(onboarding.presentationCount).to(equal(0))
             }
