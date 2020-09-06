@@ -23,12 +23,14 @@ import Foundation
  */
 open class Onboarding {
     
-    /// Create a basic onboarding experience.
-    ///
-    /// - Parameters:
-    ///   - id: The unique onboarding id.
-    ///   - userId: An optional user id.
-    ///   - defaults: The `UserDefaults` to use for persistency.
+    /**
+     Create an onboarding experience.
+     
+     - Parameters:
+        - id: The unique onboarding id.
+        - userId: An optional user id.
+        - defaults: The `UserDefaults` instance to use.
+     */
     public init(
         id: String,
         userId: UserId? = nil,
@@ -44,7 +46,6 @@ open class Onboarding {
     public let userId: UserId?
     public let defaults: UserDefaults
 
-    
     /**
      Whether or not the onboarding should be presented.
      */
@@ -53,8 +54,8 @@ open class Onboarding {
     }
     
     /**
-     Call this when you present an onboarding. It increments
-     the presentation count, which
+     Call this when you present the onboarding. It will make
+     the onboarding change its state accordingly.
      */
     open func registerPresentation() {
         presentationCount += 1

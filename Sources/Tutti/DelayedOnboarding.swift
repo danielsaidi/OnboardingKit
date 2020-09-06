@@ -11,6 +11,9 @@ import Foundation
 /**
  This onboarding requires that you check `shouldBePresented`
  a certain number of times before it becomes `true`.
+ 
+ Other than that, the `DelayedOnboarding` class behaves just
+ like the `Onboarding` base class.
  */
 open class DelayedOnboarding: Onboarding {
     
@@ -21,7 +24,7 @@ open class DelayedOnboarding: Onboarding {
         - id: The unique onboarding id.
         - userId: An optional user id.
         - defaults: The `UserDefaults` instance to use.
-        - requiredPresentationAttempts: The number of times `shouldBePresented` must be checked before coming true.
+        - requiredPresentationAttempts: The number of times `shouldBePresented` must be checked before it becomes `true`.
      */
     public init(
         id: String,
@@ -32,17 +35,17 @@ open class DelayedOnboarding: Onboarding {
         super.init(id: id, userId: userId, defaults: defaults)
     }
     
-
+    
     private let requiredPresentationAttempts: Int
-
+    
     
     /**
      Whether or not the onboarding should be presented.
-    */
+     */
     open override var shouldBePresented: Bool {
         presentationCheckCount += 1
-        let sufficientChecks = presentationCheckCount >= requiredPresentationAttempts
-        return sufficientChecks && super.shouldBePresented
+        let isActive = presentationCheckCount >= requiredPresentationAttempts
+        return isActive && super.shouldBePresented
     }
     
     /**
@@ -57,11 +60,8 @@ open class DelayedOnboarding: Onboarding {
 
 // MARK: - Public Members
 
-public extension Onboarding {
-
-    /**
-     The number of times a presentation has been registered.
-     */
+public extension DelayedOnboarding {
+    
     var presentationCheckCount: Int {
         get { defaults.integer(forKey: presentationCheckCountKey) }
         set { defaults.set(newValue, forKey: presentationCheckCountKey) }
@@ -71,7 +71,7 @@ public extension Onboarding {
 
 // MARK: - Private Mebers
 
-private extension Onboarding {
+private extension DelayedOnboarding {
     
     var presentationCheckCountKey: String {
         persistencyKey(for: "presentationCheckCount")
