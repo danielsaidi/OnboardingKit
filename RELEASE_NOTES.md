@@ -1,6 +1,26 @@
 # Release Notes
 
 
+## 3.0.0
+
+This version adds support for macOS, tvOS and watchOS, with several breaking changes. 
+
+`UIKit` is now only required in `UIKit`-specific files, which means that the rest of the model supports watchOS and macOS.
+
+New functionality:
+
+* `Onboarding` has more logic.
+
+Breaking changes:
+
+* `Onboarding` has been disconnected from `Hint` and `Tutorial`.
+* This means that `Hint` and `Tutorial` no longer implements `Onboarding`.
+* `Onboarding`, `Hint` and `Tutorial` are now base classes instead of protocols.
+* `StandardOnboarding`, `StandardHint` and `StandardTutorial` are removed.
+
+
+
+
 ## 2.1.1 - 2.1.4
 
 These versions update all external test dependenies to the latest versions.
