@@ -18,6 +18,7 @@ Breaking changes:
 * `Onboarding`, `Hint` and `Tutorial` are now base classes instead of protocols.
 * `StandardOnboarding`, `StandardHint` and `StandardTutorial` are removed.
 * `DeferredOnboarding` has been renamed to `DelayedOnboarding`.
+* The `HintPresenter` and `TutorialPresenter` protocols only extend `OnboardingPresenter`, but add no extra logic.
 
 
 
