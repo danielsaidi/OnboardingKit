@@ -19,7 +19,7 @@ Breaking changes:
 * `StandardOnboarding`, `StandardHint` and `StandardTutorial` have been removed.
 * `DeferredOnboarding` has been renamed to `DelayedOnboarding`.
 * `HintPresenter` and `TutorialPresenter` now extend `OnboardingPresenter`, but add no extra logic.
-
+* `Tutorial` no longer have the `resourceName(for:at:)` logic, but is now built up by generic pages.
 
 
 ## 2.1.1 - 2.1.4

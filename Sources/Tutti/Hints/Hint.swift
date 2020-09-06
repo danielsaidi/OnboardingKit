@@ -9,11 +9,11 @@
 import Foundation
 
 /**
- A `Hint` is a short onboarding message, that is intended to
+ A `hint` is a short onboarding message, that is intended to
  be displayed briefly to tell users about important parts of
  your app.
  */
-public class Hint {
+open class Hint {
     
     public init(
         title: String,
