@@ -14,11 +14,11 @@ New functionality:
 Breaking changes:
 
 * `Onboarding` has been disconnected from `Hint` and `Tutorial`.
-* This means that `Hint` and `Tutorial` no longer implements `Onboarding`.
 * `Onboarding`, `Hint` and `Tutorial` are now base classes instead of protocols.
-* `StandardOnboarding`, `StandardHint` and `StandardTutorial` are removed.
+* `Hint` and `Tutorial` no longer implements `Onboarding`, and are only data carriers.
+* `StandardOnboarding`, `StandardHint` and `StandardTutorial` have been removed.
 * `DeferredOnboarding` has been renamed to `DelayedOnboarding`.
-* The `HintPresenter` and `TutorialPresenter` protocols only extend `OnboardingPresenter`, but add no extra logic.
+* `HintPresenter` and `TutorialPresenter` now extend `OnboardingPresenter`, but add no extra logic.
 
 
 
