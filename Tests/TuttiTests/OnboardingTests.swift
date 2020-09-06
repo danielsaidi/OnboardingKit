@@ -9,7 +9,6 @@
 import Foundation
 import Quick
 import Nimble
-import Mockery
 import Tutti
 
 class OnboardingTests: QuickSpec {
