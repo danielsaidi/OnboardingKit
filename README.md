@@ -17,7 +17,7 @@
 
 ## About Tutti
 
-Tutti is a Swift library that helps you create onboarding expericences, like quick hints and single- or multi-screen tutorials.
+Tutti helps you create great onboarding expericences, like quick hints and single- or multi-screen tutorials. 
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
