@@ -25,7 +25,7 @@ Tutti is a Swift library that helps you create onboarding expericences, like qui
 
 Tutti will only display a hint/tutorial once by default. You can reset the display state of a hint/tutorial if you want to display it multiple times.
 
-Tutti also supports user-specific onboarding. Just specify `userId` and Tutti will display a hint/tutorial once for every new user.
+Tutti also supports multiple users. Just specify `userId` and Tutti will display a hint/tutorial once for every user.
 
 
 ## Install
@@ -54,14 +54,14 @@ Check out [this onboarding guide][Onboarding] for more information on how to wor
 
 Tutti comes with a set of built-in hint types that can be used for different purposes.
 
-Check out [this guide][Hints] for more information on how to create and present hints.
+Check out [this hint guide][Hints] for more information on how to create and present hints.
 
 
 ## Tutorials
 
 Tutti comes with a set of built-in tutorial types that can be used for different purposes.
 
-Check out [this guide][Tutorials] for more information on how to create and present tutorials.
+Check out [this tutorial guide][Tutorials] for more information on how to create and present tutorials.
 
 
 ## Demo App
