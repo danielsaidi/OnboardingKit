@@ -20,6 +20,8 @@ Breaking changes:
 * `DeferredOnboarding` has been renamed to `DelayedOnboarding`.
 * `HintPresenter` and `TutorialPresenter` now extend `OnboardingPresenter`, but add no extra logic.
 * `Tutorial` no longer have the `resourceName(for:at:)` logic, but is now built up by generic pages.
+* `AlertingHintPresenter` now only contains presentation logic.
+* All presenters now require both a hint and an onboarding.
 
 
 ## 2.1.1 - 2.1.4
