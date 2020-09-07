@@ -24,6 +24,8 @@ Breaking changes:
 * All tutorial presenters now require both a tutorial and an onboarding.
 * `AlertingHintPresenter` now only contains presentation logic.
 
+The demo has been rewritten from scratch, but it still UIKit-based until Xcode 12 is released.
+
 
 
 ## 2.1.1 - 2.1.4

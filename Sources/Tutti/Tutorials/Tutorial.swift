@@ -10,8 +10,8 @@ import Foundation
 
 /**
  A `tutorial` is a single or multi page onboarding guide. It
- is intended to show more information than short `hint`s and.
- is perfect for a modal screen or a multi page guide.
+ is intended to show more information than short `hint`s and
+ is perfect for a single- or multi page guide.
  */
 open class Tutorial<Page: TutorialPage> {
     

@@ -25,14 +25,12 @@ Tutti is a Swift library that helps you create onboarding expericences, like qui
 
 Tutti will only display a hint/tutorial once by default. You can reset the display state of a hint/tutorial if you want to display it multiple times.
 
-Tutti also supports user-specific hints/tutorials. Just set the `userId` parameter and Tutti will display the hint/tutorial once for every new user.
+Tutti also supports user-specific onboarding. Just specify `userId` and Tutti will display a hint/tutorial once for every new user.
 
 
 ## Install
 
 ### <a name="spm"></a>Swift Package Manager
-
-The easiest way to add Tutti to your project is to use Swift Package Manager:
 
 ```
 https://github.com/danielsaidi/Tutti.git
@@ -44,46 +42,31 @@ https://github.com/danielsaidi/Tutti.git
 pod 'Tutti'
 ```
 
-### Carthage
 
-```ruby
-github "danielsaidi/Tutti"
-```
+## Onboarding
 
-### Manual
+In Tutti, the `Onboarding` class is at the core of the onboarding logic. It can be used to apply different onboarding rules and is what determines whether or not a hint or tutorial should be presented.
 
-To manually add `Tutti` to your app without a dependency manager, clone this repository, add `Tutti.xcodeproj` to your project and `Tutti.framework` as an embedded app binary and target dependency.
-
-
-## Demo App
-
-This repository contains a demo app that demonstrates different types of hints and tutorials. To try it out, open and run the `Tutti.xcodeproj` project.
+Check out [this onboarding guide][Onboarding] for more information on how to work with onboarding.
 
 
 ## Hints
 
-Tutti comes with a set of built-in hint types that can be used for different purposes. 
-
-* `StandardHint` - A basic hint with no specific behavior.
-* `DeferredHint` - Requires a certain number of presentation attempts before it is presented.
-* `CorrectBehaviorHint` - Can be used to show a hint when a user is not behaving as intended.
-
-You can also create your own custom hint types by implementing the `Hint` protocol.
+Tutti comes with a set of built-in hint types that can be used for different purposes.
 
 Check out [this guide][Hints] for more information on how to create and present hints.
 
 
 ## Tutorials
 
-Tutti comes with a set of built-in tutorial types that can be used for different purposes. 
-
-* `StandardTutorial` - A basic tutorial with no specific behavior.
-* `DeferredTutorial` - Requires a certain number of presentation attempts before it is presented.
-* `CorrectBehaviorTutorial` - Can be used to show a tutorial when a user is not behaving as intended.
-
-You can also create your own custom tutorial types by implementing the `Tutorial` protocol.
+Tutti comes with a set of built-in tutorial types that can be used for different purposes.
 
 Check out [this guide][Tutorials] for more information on how to create and present tutorials.
+
+
+## Demo App
+
+This repository contains a demo app that demonstrates different types of hints and tutorials. To try it out, open and run the `TuttiDemo.xcodeproj` project.
 
 
 ## Contact me
@@ -106,5 +89,6 @@ Tutti is available under the MIT license. See LICENSE file for more info.
 [Carthage]: https://github.com/Carthage/Carthage
 [CocoaPods]: https://cocoapods.org/
 
+[Onboarding]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Onboarding.md
 [Hints]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Hints.md
 [Tutorials]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Tutorials.md
