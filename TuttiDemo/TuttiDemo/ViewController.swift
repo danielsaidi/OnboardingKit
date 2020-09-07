@@ -13,6 +13,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reset()
         setupHintAppearance()
     }
     
@@ -85,6 +86,14 @@ extension ViewController {
 
 extension ViewController {
     
+    func presentDelayedHint(from cell: UIView) {
+        let onboarding = delayedHintOnboarding
+        let hint = Hint(
+            title: "Delayed hint",
+            text: "You can present any hint as a delayed onboarding experience, which means that it is presented after a certain number of attempts.")
+        CalloutHintPresenter().present(hint, with: onboarding, in: self, from: cell)
+    }
+    
     func presentStandardHint(from cell: UIView) {
         let onboarding = standardHintOnboarding
         let hint = Hint(
@@ -92,32 +101,38 @@ extension ViewController {
             text: "Standard hints are presented when you ask them to, and are only presented once.")
         CalloutHintPresenter().present(hint, with: onboarding, in: self, from: cell)
     }
-    
-    func presentDelayedHint(from cell: UIView) {
-        let onboarding = delayedHintOnboarding
-        let hint = Hint(
-            title: "Delayed hint",
-            text: "Delayed hints are presented after a certain number of attempts, and are only presented once.")
-        CalloutHintPresenter().present(hint, with: onboarding, in: self, from: cell)
-    }
 }
 
 extension ViewController {
     
-    func presentStandardTutorial(from cell: UIView) {
-        let onboarding = standardTutorialOnboarding
-        let page1 = TutorialPage(title: "Page 1", text: "This tutorial was created in code.", imageName: "tutorial.0.image")
-        let page2 = TutorialPage(title: "Page 2", text: "It is easy to create tutorials this way.", imageName: "tutorial.1.image")
-        let page3 = TutorialPage(title: "Page 3", text: "But it's more convenient to create a localized tutorial.", imageName: "tutorial.2.image")
-        let tutorial = Tutorial(pages: [page1, page2, page3])
+    func presentDelayedTutorial(from cell: UIView) {
+        let onboarding = delayedTutorialOnboarding
+        let page1 = TutorialPage(title: "Delayed tutorial", text: "You can present any tutorial as a delayed onboarding experience experience, which means that it is presented after a certain number of attempts.", imageName: "tutorial.0.image")
+        let page2 = TutorialPage(title: "When to use it?", text: "Delayed onboarding experiences are great when you want to present a hint or tutorial after a while.", imageName: "tutorial.1.image")
+        let tutorial = Tutorial(pages: [page1, page2])
         tutorialViewController = TutorialViewController(nibName: "TutorialViewController", bundle: nil)
         tutorialViewController.tutorial = tutorial
         tutorialViewController.present(tutorial, with: onboarding, in: self, from: cell)
     }
     
-    func presentLocalizedTutorial(from cell: UIView) {}
+    func presentLocalizedTutorial(from cell: UIView) {
+        let onboarding = standardTutorialOnboarding
+        let tutorial = LocalizedTutorial(id: "localized")
+        tutorialViewController = TutorialViewController(nibName: "TutorialViewController", bundle: nil)
+        tutorialViewController.tutorial = tutorial
+        tutorialViewController.present(tutorial, with: onboarding, in: self, from: cell)
+    }
     
-    func presentDelayedTutorial(from cell: UIView) {}
+    func presentStandardTutorial(from cell: UIView) {
+        let onboarding = standardTutorialOnboarding
+        let page1 = TutorialPage(title: "Standard tutorial", text: "This tutorial was created in code, by manually creating pages in the demo code.", imageName: "tutorial.0.image")
+        let page2 = TutorialPage(title: "Easy to create", text: "It's really easy to create tutorials in this way, but it can also be tedious.", imageName: "tutorial.1.image")
+        let page3 = TutorialPage(title: "Localized tutorials", text: "It's must more convenient and efficient to use localized tutorials. See the demo for examples.", imageName: "tutorial.2.image")
+        let tutorial = Tutorial(pages: [page1, page2, page3])
+        tutorialViewController = TutorialViewController(nibName: "TutorialViewController", bundle: nil)
+        tutorialViewController.tutorial = tutorial
+        tutorialViewController.present(tutorial, with: onboarding, in: self, from: cell)
+    }
 }
 
 
