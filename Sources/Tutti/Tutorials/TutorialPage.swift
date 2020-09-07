@@ -21,13 +21,13 @@ open class TutorialPage {
     public init(
         title: String,
         text: String,
-        accessibilityText: String? = nil) {
+        imageName: String? = nil) {
         self.title = title
         self.text = text
-        self.accessibilityText = accessibilityText
+        self.imageName = imageName
     }
     
     public let title: String
     public let text: String
-    public let accessibilityText: String?
+    public let imageName: String?
 }

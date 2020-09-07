@@ -10,11 +10,14 @@ import Foundation
 
 /**
  A `tutorial` is a single or multi page onboarding guide. It
- is intended to display more information than a short `hint`.
- It is perfect for a modal screen, or a multi page guide.
+ is intended to show more information than short `hint`s and.
+ is perfect for a modal screen or a multi page guide.
  */
 open class Tutorial<Page: TutorialPage> {
     
+    /**
+     Create a tutorial with a fixed set of pages.
+     */
     public init(pages: [Page]) {
         self.pages = pages
     }
