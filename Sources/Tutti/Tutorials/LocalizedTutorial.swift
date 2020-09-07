@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /**
  A `LocalizedTutorial` is a regular tutorial, but is created
  by automatically resolving pages based on localized strings,

@@ -6,6 +6,7 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 /**
@@ -13,9 +14,8 @@ import UIKit
  multi-page tutorials in a horizontal, paged collection view.
  
  To use it, create a xib or storyboard view controller. Make
- it inherit this class, then setup any outlets as usual. You
- must set the `tutorial` property before presenting the view
- controller, otherwise it will be broken.
+ it inherit this class and setup any outlets. Then create it
+ and present a tutorial with the `present` function.
  
  The `collectionView` outlet will register and dequeue cells
  of `cellType`. The app must have a .xib file with this type
@@ -117,6 +117,7 @@ open class TutorialViewController<PageType: TutorialPage>: UIViewController, Tut
             self.tutorial = tutorial
             transitioningDelegate = self
             self.modalPresentationStyle = .fullScreen
+            collectionView?.reloadData()
             vc.present(self, animated: true, completion: nil)
         }
     }
@@ -180,7 +181,7 @@ open class TutorialViewController<PageType: TutorialPage>: UIViewController, Tut
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard
             let tutorial = tutorial,
-            indexPath.row > 0,
+            indexPath.row >= 0,
             indexPath.row < tutorial.pages.count,
             let cell = cell as? TutorialViewControllerCell
             else { return }
@@ -235,3 +236,4 @@ public extension TutorialViewController {
         return pageIndex == tutorial.pages.count - 1
     }
 }
+#endif
