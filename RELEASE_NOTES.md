@@ -1,6 +1,11 @@
 # Release Notes
 
 
+## 3.0.1
+
+This version adds a new `ConditionalOnboarding` type. 
+
+
 ## 3.0.0
 
 This version adds support for macOS, tvOS and watchOS, with several breaking changes. 
