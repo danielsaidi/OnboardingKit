@@ -3,14 +3,15 @@
 
 ## 3.0.2
 
-In this version:
+In this version adds support for presenting titles in `CalloutView`:
 
-* `Hint` has a default, empty `title` init value, so that it's easier to create hints without titles.
-* `Hint` implements `Equatable`
-* `CalloutViewPresenter` supports presenting hint titles as well.
+* `Hint` has a default, empty `title` init value.
+* `Hint` implements `Equatable`.
+* `Hint` has a new `hasTitle` property.
+* `CalloutViewPresenter` now supports presenting titles.
 * `CalloutViewPresenter` has new `titleFont` and `titleTextSpacing` properties.
 
-The demo has been updated with the new hint types.
+The demo has been updated with new onboarding demos.
 
 
 ## 3.0.1
