@@ -5,8 +5,9 @@ In Tutti, the `Onboarding` class is at the core of the onboarding logic. It can 
 Tutti comes with a set of built-in onboarding types that can be used for different purposes. 
 
 * `Onboarding` - This base class can be used when a hint or tutorial should be presented once.
-* `DelayedOnboarding` - Requires a certain number of presentation attempts before a hint or tutorial is presented.
+* `ConditionalBehaviorOnboarding` - Can be used to show a hint when a certain condition is active.
 * `CorrectBehaviorOnboarding` - Can be used to show a hint when a user is not behaving as intended.
+* `DelayedOnboarding` - Requires a certain number of presentation attempts before a hint or tutorial is presented.
 
 You can create your own onboarding types by inheriting the `Onboarding` base class.
 

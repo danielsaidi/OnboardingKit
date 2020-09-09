@@ -12,19 +12,21 @@ import Foundation
  This onboarding can be used to help a user behave correctly
  e.g. by presenting a hint about what you are expected to do.
  
- An example can be a puzzle game for kids, where a piece can
- move to the correct place after a child has placed it wrong
+ An example could be a puzzle game, where a piece can be set
+ to move to the correct place after being incorrectly placed
  a certain number of times.
  
- Trigger `registerIncorrectBehavior` every time users behave
- "incorrectly". `shouldBePresented` becomes `true` when this
- has been repeated a certain number of times. Also make sure
- to trigger `registerCorrectBehavior` each time users behave
- "correctly", to cancel out any previous incorrect behavior.
+ `registerIncorrectBehavior` should be triggered each time a
+ user behaves incorrectly. `shouldBePresented` becomes `true`
+ when this has been repeated a certain number of times.
+ 
+ `registerCorrectBehavior` should be triggered when the user
+ behaves correctly. It will cancel any previously registered
+ incorrect behaviors.
  
  The class will reset every time it registers a presentation,
  since users should continue to see the hint if they keep on
- behavior incorrectly.
+ behaving incorrectly.
  */
 open class CorrectBehaviorOnboarding: Onboarding {
     

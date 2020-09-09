@@ -9,11 +9,11 @@
 import Foundation
 
 /**
- This onboarding requires that you check `shouldBePresented`
- a certain number of times before it becomes `true`.
+ This onboarding requires you to check `shouldBePresented` a
+ certain number of times before it returns `true`.
  
- Other than that, the `DelayedOnboarding` class behaves just
- like the `Onboarding` base class.
+ Other than that, it behaves just like the `Onboarding` base
+ class and will only be presented once.
  */
 open class DelayedOnboarding: Onboarding {
     
