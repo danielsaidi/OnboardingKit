@@ -8,6 +8,9 @@ disabled_rules:
   - type_body_length
   - vertical_whitespace
 
+excluded:
+  - Sources/Tutti/UIKit/Hints/CalloutView.swift
+
 included:
   - Sources
   - Tests

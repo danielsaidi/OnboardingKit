@@ -15,7 +15,7 @@ extension CalloutView {
         self.init(content: .hint(hint), preferences: preferences, delegate: delegate)
     }
     
-    func drawHint(_ bubbleFrame: CGRect, context : CGContext) {
+    func drawHint(_ bubbleFrame: CGRect, context: CGContext) {
         guard case .hint(let hint) = content else { return }
         let prefs = preferences.drawing
         let titleHeight = size(for: hint.title, font: prefs.titleFont).height
@@ -29,7 +29,7 @@ extension CalloutView {
         paragraphStyle.alignment = preferences.drawing.textAlignment
         paragraphStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
         let textRect = getContentRect(from: bubbleFrame).offsetBy(dx: 0, dy: verticalOffset)
-        let attributes = [NSAttributedString.Key.font : font, NSAttributedString.Key.foregroundColor : preferences.drawing.foregroundColor, NSAttributedString.Key.paragraphStyle : paragraphStyle]
+        let attributes = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: preferences.drawing.foregroundColor, NSAttributedString.Key.paragraphStyle: paragraphStyle]
         text.draw(in: textRect, withAttributes: attributes)
     }
     
@@ -42,7 +42,7 @@ extension CalloutView {
     }
     
     func size(for text: String, font: UIFont) -> CGSize {
-        let attributes = [NSAttributedString.Key.font : font]
+        let attributes = [NSAttributedString.Key.font: font]
         var size = text.boundingRect(with: CGSize(width: preferences.positioning.maxWidth, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil).size
         size.width = ceil(size.width)
         size.height = ceil(size.height)
