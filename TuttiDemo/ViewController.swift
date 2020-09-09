@@ -20,19 +20,21 @@ class ViewController: UITableViewController {
     
     // MARK: - Properties
     
-    private let standardHintOnboarding = Onboarding(id: "standard.hint")
     private let delayedHintOnboarding = DelayedOnboarding(id: "delayed.hint", requiredPresentationAttempts: 3)
+    private let standardHintOnboarding = Onboarding(id: "standard.hint")
+    private let standardHintWithoutTitleOnboarding = Onboarding(id: "standard.hint.notitle")
     
-    private let standardTutorialOnboarding = Onboarding(id: "standard.tutorial")
     private let delayedTutorialOnboarding = DelayedOnboarding(id: "delayed.tutorial", requiredPresentationAttempts: 3)
     private let localizedTutorialOnboarding = Onboarding(id: "localized.tutorial")
+    private let standardTutorialOnboarding = Onboarding(id: "standard.tutorial")
     
     private lazy var allOnboardings = [
-        standardHintOnboarding,
         delayedHintOnboarding,
-        standardTutorialOnboarding,
+        standardHintOnboarding,
+        standardHintWithoutTitleOnboarding,
         delayedTutorialOnboarding,
-        localizedTutorialOnboarding
+        localizedTutorialOnboarding,
+        standardTutorialOnboarding
     ]
     
     /// This is used to retain the view controller
@@ -42,6 +44,7 @@ class ViewController: UITableViewController {
     // MARK: - Outlets
     
     @IBOutlet var presentStandardHintCell: UITableViewCell!
+    @IBOutlet var presentStandardHintWithoutTitleCell: UITableViewCell!
     @IBOutlet var presentDelayedHintCell: UITableViewCell!
     
     @IBOutlet var presentStandardTutorialCell: UITableViewCell!
@@ -57,11 +60,13 @@ class ViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         switch cell {
-        case presentStandardHintCell: presentStandardHint(from: cell)
         case presentDelayedHintCell: presentDelayedHint(from: cell)
-        case presentStandardTutorialCell: presentStandardTutorial(from: cell)
-        case presentLocalizedTutorialCell: presentLocalizedTutorial(from: cell)
+        case presentStandardHintCell: presentStandardHint(from: cell)
+        case presentStandardHintWithoutTitleCell: presentStandardHintWithoutTitle(from: cell)
+        
         case presentDelayedTutorialCell: presentDelayedTutorial(from: cell)
+        case presentLocalizedTutorialCell: presentLocalizedTutorial(from: cell)
+        case presentStandardTutorialCell: presentStandardTutorial(from: cell)
         case resetCell: reset()
         default: return
         }
@@ -98,6 +103,13 @@ extension ViewController {
         let onboarding = standardHintOnboarding
         let hint = Hint(
             title: "Standard hint",
+            text: "Standard hints are presented when you ask them to, and are only presented once.")
+        CalloutHintPresenter().present(hint, with: onboarding, in: self, from: cell)
+    }
+    
+    func presentStandardHintWithoutTitle(from cell: UIView) {
+        let onboarding = standardHintWithoutTitleOnboarding
+        let hint = Hint(
             text: "Standard hints are presented when you ask them to, and are only presented once.")
         CalloutHintPresenter().present(hint, with: onboarding, in: self, from: cell)
     }
