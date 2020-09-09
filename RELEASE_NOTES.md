@@ -1,6 +1,18 @@
 # Release Notes
 
 
+## 3.0.2
+
+In this version:
+
+* `Hint` has a default, empty `title` init value, so that it's easier to create hints without titles.
+* `Hint` implements `Equatable`
+* `CalloutViewPresenter` supports presenting hint titles as well.
+* `CalloutViewPresenter` has new `titleFont` and `titleTextSpacing` properties.
+
+The demo has been updated with the new hint types.
+
+
 ## 3.0.1
 
 This version adds a new `ConditionalOnboarding` type. 

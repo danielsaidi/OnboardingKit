@@ -13,10 +13,10 @@ import Foundation
  be displayed briefly to tell users about important parts of
  your app.
  */
-open class Hint {
+open class Hint: Equatable {
     
     public init(
-        title: String,
+        title: String = "",
         text: String,
         accessibilityText: String? = nil) {
         self.title = title
@@ -27,4 +27,12 @@ open class Hint {
     public let title: String
     public let text: String
     public let accessibilityText: String?
+    
+    public var hasTitle: Bool {
+        title.trimmingCharacters(in: .whitespaces).count > 0
+    }
+    
+    public static func == (lhs: Hint, rhs: Hint) -> Bool {
+        lhs.title == rhs.title && lhs.text == rhs.text
+    }
 }

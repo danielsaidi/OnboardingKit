@@ -82,7 +82,7 @@ extension ViewController {
 }
 
 
-// MARK: - Hint Functions
+// MARK: - Hint Functionality
 
 extension ViewController {
     
@@ -102,6 +102,9 @@ extension ViewController {
         CalloutHintPresenter().present(hint, with: onboarding, in: self, from: cell)
     }
 }
+
+
+// MARK: - Tutorial Functionality
 
 extension ViewController {
     

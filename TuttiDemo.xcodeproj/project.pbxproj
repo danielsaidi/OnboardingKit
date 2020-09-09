@@ -388,8 +388,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielsaidi/Tutti.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				branch = "show-title-in-callout";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

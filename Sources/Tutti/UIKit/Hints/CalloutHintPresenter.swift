@@ -14,6 +14,14 @@ import UIKit
  to target view. For more information about how to customize
  the appearance of a callout view, checkout the `CalloutView`
  class documentation.
+ 
+ The presenter can be configured to present titles. If so, a
+ hint that has any content in its title will be presented as
+ a stack view instead of a plain text. When the presenter is
+ configured to show titles, you should provide the types you
+ want to use for the title and text labels. You can then use
+ appearance proxies to style these labels. The `preferences`
+ `font` property will not be applied to the stack view.
  */
 open class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
     
@@ -31,7 +39,7 @@ open class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
     // MARK: - Public Functions
     
     open func dismiss(_ hint: Hint) {
-        let views = callouts.filter { $0.text == hint.text }
+        let views = callouts.filter { $0.isCallout(for: hint) }
         views.forEach { $0.dismiss() }
     }
     
@@ -45,7 +53,8 @@ open class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
         in vc: UIViewController,
         from view: UIView) {
         tryPresent(onboarding) {
-            callout(for: hint).show(forView: view, withinSuperview: vc.view)
+            let callout = self.callout(for: hint)
+            callout.show(forView: view, withinSuperview: vc.view)
         }
     }
     
@@ -55,15 +64,16 @@ open class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
         in vc: UIViewController,
         from item: UIBarButtonItem) {
         tryPresent(onboarding) {
-            callout(for: hint).show(forItem: item, withinSuperView: vc.view)
+            let callout = self.callout(for: hint)
+            callout.show(forItem: item, withinSuperView: vc.view)
         }
     }
     
     
     // MARK: - CalloutViewDelegate
     
-    open func calloutViewDidDismiss(_ tipView: CalloutView) {
-        callouts = callouts.filter { $0.text != tipView.text }
+    open func calloutViewDidDismiss(_ view: CalloutView) {
+        callouts = callouts.filter { $0 != view }
     }
 }
 
@@ -73,9 +83,17 @@ open class CalloutHintPresenter: HintPresenter, CalloutViewDelegate {
 extension CalloutHintPresenter {
     
     func callout(for hint: Hint) -> CalloutView {
-        let callout = CalloutView(text: hint.text, accessibilityText: hint.accessibilityText, preferences: CalloutView.globalPreferences, delegate: self)
+        let callout = calloutView(for: hint)
+        callout.accessibilityText = hint.accessibilityText
         callouts.append(callout)
         return callout
+    }
+    
+    func calloutView(for hint: Hint) -> CalloutView {
+        switch hint.hasTitle {
+        case true: return CalloutView(hint: hint, preferences: CalloutView.globalPreferences, delegate: self)
+        case false: return CalloutView(text: hint.text, preferences: CalloutView.globalPreferences, delegate: self)
+        }
     }
 }
 #endif
