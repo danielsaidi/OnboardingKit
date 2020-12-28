@@ -31,6 +31,12 @@
 		84A392DB25062C89009E5CC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84A392E225063262009E5CC0 /* TutorialViewControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialViewControllerCell.xib; sourceTree = "<group>"; };
 		84A392E325063262009E5CC0 /* TutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		A984E6B625987156001653A2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A984E6B725987156001653A2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		A984E6B825987156001653A2 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		A984E6B925987156001653A2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		A984E6BA25987156001653A2 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
+		A984E6BB25987156001653A2 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +56,7 @@
 			children = (
 				84A392C32506296F009E5CC0 /* TuttiDemo */,
 				84A392C22506296F009E5CC0 /* Products */,
+				A984E6B425987134001653A2 /* Project Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +99,19 @@
 				84A392E325063262009E5CC0 /* TutorialViewController.xib */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		A984E6B425987134001653A2 /* Project Files */ = {
+			isa = PBXGroup;
+			children = (
+				A984E6B925987156001653A2 /* .gitignore */,
+				A984E6B725987156001653A2 /* .swiftlint.yml */,
+				A984E6BA25987156001653A2 /* Fastfile */,
+				A984E6B825987156001653A2 /* Package.swift */,
+				A984E6B625987156001653A2 /* README.md */,
+				A984E6BB25987156001653A2 /* RELEASE_NOTES.md */,
+			);
+			name = "Project Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

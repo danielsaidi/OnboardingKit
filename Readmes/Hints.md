@@ -1,10 +1,8 @@
 # Hints
 
-In Tutti, a `Hint` is a short onboarding message, that is intended to be displayed briefly to tell users about important parts of your app.
+In Tutti, a `Hint` is a short onboarding message that is intended to be displayed briefly to tell the user about important (or non-important) parts of your app.
 
-The `Hint` base class is a simple data carrier that specifies a `title`, a `text` and an `image`.
-
-You can create your own custom hint types by inheriting the `Hint` base class.
+The `Hint` base class is a simple data carrier that specifies a `title` and a `text`. You can create your own custom hint types by inheriting the `Hint` base class.
 
 
 ## Creating a hint
@@ -17,14 +15,12 @@ let hint = Hint(
     text: "This button is new!")
 ```
 
-As you can see, the hint itself just specifies data. To present it, you should use a presenter.
+As you can see, `Hint` has very basic data. Subclass it if you need it to carry more data.
 
 
 ## Presenting a hint
 
-In Tutti, hints are just data carriers that know nothing about how they are to be presented.
-
-To present a hint, you can use a `hint presenter`:
+To present a hint, you can use a `HintPresenter`, for instance:
 
 ```swift
 let presenter = CalloutHintPresenter()
@@ -33,31 +29,36 @@ presenter.present(hint: hint, in: self, from: view)
 
 Tutti comes with a couple of built-in hint presenters:
 
-* `AlertHintPresenter` - Presents hints in a regular `UIAlertController`.
-* `CalloutHintPresenter` - Presents hints in a callout bubble. You can style these callouts to great extent. Have a look at the demo.
+* `AlertHintPresenter` presents hints in a regular `UIAlertController`.
+* `CalloutHintPresenter` presents hints in a callout bubble. You can style these callouts to great extent. Have a look at the demo.
 
 You can create your own presenters by implementing the `HintPresenter` protocol.
 
-Tutti currently has no SwiftUI-based presenters. I will add some in the future.
+Tutti currently has no `SwiftUI` presenters.
 
 
 ## Connecting a hint to an onboarding
 
-In Tutti, hints are just data carriers and presenters are only responsible for presenting hints. In order to combine this with smart logic, you must also use an [onboarding][Onboarding] of some kind. 
+In Tutti, `hints` are data carriers and `presenters` are responsible for presenting hints. To determine the behavior or a hint, you need an [onboarding][Onboarding] of some kind.
 
-The onboarding will then be responsible for the behavior of the onboarding experience, the presenter for how a hint is presented and the hint for the content.
-
-You can check the onboarding whether it should be presented or not:
+To put it all together, first create an onboarding instance and check whether it should be presented or not:
 
 ```swift
 let onboarding = Onboarding(id: "welcome")
 guard onboarding.shoulBePresented else { return }
+```
+
+If so, you can create a hint and present it with any presenter you like:
+
+```swift
 let presenter = CalloutHintPresenter()
 presenter.present(hint: hint, in: self, from: view)
 onboarding.registerPresentation()
 ```
 
-`HintPresenter` provides you with a `tryPresent` function that streamlines this setup:
+As you can see, the onboarding and the hint is completely separated, which means that the same logic can be reused when working with tutorials.
+
+`HintPresenter` also has a `tryPresent` function that streamlines this setup:
 
 ```swift
 let onboarding = Onboarding(id: "welcome")

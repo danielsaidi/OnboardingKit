@@ -17,15 +17,15 @@
 
 ## About Tutti
 
-Tutti helps you create great onboarding expericences, like quick hints and single- or multi-screen tutorials. 
+Tutti helps you create onboarding expericences like hints and single- or multi-screen tutorials. 
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Tutti will only display a hint/tutorial once by default. You can reset the display state of a hint/tutorial if you want to display it multiple times.
+Tutti has different onboarding types. Standard hints and tutorials are shown right away and only once, while other types require multiple presentation attempts, a certain number of "incorrect" actions etc. You can combine various types to create new ones.
 
-Tutti also supports multiple users. Just specify `userId` and Tutti will display a hint/tutorial once for every user.
+You can reset the display state of any onboarding if you want to display it again. Tutti also supports multiple users, so that each onboarding is unique to each user.
 
 
 ## Install
