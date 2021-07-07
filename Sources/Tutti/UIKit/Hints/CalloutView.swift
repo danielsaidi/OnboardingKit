@@ -159,7 +159,8 @@ public extension CalloutView {
         addGestureRecognizer(tap)
         
         superview.addSubview(self)
-        
+        setupSuperviewFrameObservation()
+
         let animations : () -> () = {
             self.transform = finalTransform
             self.alpha = 1
@@ -321,6 +322,7 @@ open class CalloutView: UIView {
     fileprivate var arrowTip = CGPoint.zero
     fileprivate(set) open var preferences: Preferences
     let content: Content
+    private var superviewFrameObservation: NSKeyValueObservation?
     
     // MARK: - Lazy variables -
     
@@ -374,40 +376,35 @@ open class CalloutView: UIView {
         super.init(frame: CGRect.zero)
         
         self.backgroundColor = UIColor.clear
-        
-        #if swift(>=4.2)
-        let notificationName = UIDevice.orientationDidChangeNotification
-        #else
-        let notificationName = NSNotification.Name.UIDeviceOrientationDidChange
-        #endif
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(handleRotation), name: notificationName, object: nil)
     }
-    
-    deinit
-    {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
+
     /**
      NSCoding not supported. Use init(text, preferences, delegate) instead!
      */
     required public init?(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported. Use init(text, preferences, delegate) instead!")
     }
-    
+
+
     // MARK: - Rotation support -
-    
-    @objc func handleRotation() {
-        guard let sview = superview
-            , presentingView != nil else { return }
-        
+
+    func rearrange() {
+        guard let superview = superview else { return }
         UIView.animate(withDuration: 0.3) {
-            self.arrange(withinSuperview: sview)
+            self.arrange(withinSuperview: superview)
             self.setNeedsDisplay()
         }
     }
-    
+
+    func setupSuperviewFrameObservation() {
+        guard let superview = superview,
+              superviewFrameObservation == nil else { return }
+        superviewFrameObservation = superview.observe(\.frame) { [weak self] _, _ in
+            self?.rearrange()
+        }
+    }
+
+
     // MARK: - Private methods -
     
     fileprivate func computeFrame(arrowPosition position: ArrowPosition, refViewFrame: CGRect, superviewFrame: CGRect) -> CGRect {
@@ -456,11 +453,11 @@ open class CalloutView: UIView {
     }
     
     fileprivate func arrange(withinSuperview superview: UIView) {
-        
+        guard let presentingView = presentingView else { return }
         var position = preferences.drawing.arrowPosition
-        
-        let refViewFrame = presentingView!.convert(presentingView!.bounds, to: superview);
-        
+
+        let refViewFrame = presentingView.convert(presentingView.bounds, to: superview)
+
         let superviewFrame: CGRect
         if let scrollview = superview as? UIScrollView {
             superviewFrame = CGRect(origin: scrollview.frame.origin, size: scrollview.contentSize)
