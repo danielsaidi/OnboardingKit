@@ -34,6 +34,19 @@ class OnboardingTests: QuickSpec {
             }
         }
         
+        describe("has been presented") {
+            
+            it("is false by default") {
+                expect(onboarding.hasBeenPresented).to(beFalse())
+            }
+            
+            it("becomes true when a presentation is registered") {
+                expect(onboarding.hasBeenPresented).to(beFalse())
+                onboarding.registerPresentation()
+                expect(onboarding.hasBeenPresented).to(beTrue())
+            }
+        }
+        
         describe("should be presented") {
             
             it("is true by default") {

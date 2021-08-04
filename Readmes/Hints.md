@@ -27,14 +27,15 @@ let presenter = CalloutHintPresenter()
 presenter.present(hint: hint, in: self, from: view)
 ```
 
-Tutti comes with a couple of built-in hint presenters:
+Tutti comes with a few built-in hint presenters:
 
 * `AlertHintPresenter` presents hints in a regular `UIAlertController`.
-* `CalloutHintPresenter` presents hints in a callout bubble. You can style these callouts to great extent. Have a look at the demo.
+* `CalloutHintPresenter` presents hints in a callout bubble that can be styled to great extent.
+* Tutti currently has no `SwiftUI` presenters.
 
 You can create your own presenters by implementing the `HintPresenter` protocol.
 
-Tutti currently has no `SwiftUI` presenters.
+Have a look at the demo for examples on how to customize hints.
 
 
 ## Connecting a hint to an onboarding

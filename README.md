@@ -45,7 +45,9 @@ pod 'Tutti'
 
 ## Onboarding
 
-In Tutti, the `Onboarding` class is at the core of the onboarding logic. It can be used to apply different onboarding rules and is what determines whether or not a hint or tutorial should be presented.
+In Tutti, the `Onboarding` class is at the core of the onboarding experience. 
+
+This class is what determines whether or not a hint or tutorial should be presented.
 
 Check out [this onboarding guide][Onboarding] for more information on how to work with onboarding.
 

@@ -47,15 +47,23 @@ open class Onboarding {
     public let defaults: UserDefaults
 
     /**
+     Whether or not the onboarding has been presented.
+     */
+    open var hasBeenPresented: Bool {
+        presentationCount > 0
+    }
+    
+    /**
      Whether or not the onboarding should be presented.
+     
+     This depends on the particular onboarding experience.
      */
     open var shouldBePresented: Bool {
         presentationCount == 0
     }
     
     /**
-     Call this when you present the onboarding. It will make
-     the onboarding change its state accordingly.
+     Call this to register that an onboarding is presented.
      */
     open func registerPresentation() {
         presentationCount += 1

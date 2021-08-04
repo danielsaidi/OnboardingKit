@@ -38,7 +38,8 @@
 // SOFTWARE.
 import UIKit
 
-public protocol CalloutViewDelegate : class {
+public protocol CalloutViewDelegate: AnyObject {
+    
     func calloutViewDidDismiss(_ tipView : CalloutView)
 }
 

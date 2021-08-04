@@ -1,6 +1,13 @@
 # Release Notes
 
 
+## 3.1.0
+
+### ✨ New features
+
+* `Onboarding` has a new `hasBeenPresented` property.
+
+
 ## 3.0.2
 
 In this version adds support for presenting titles in `CalloutView`:
@@ -79,6 +86,7 @@ This version adds accessibility texts to the standard and deferred hint. If this
 ## 2.0.0
 
 This version upgrades Tutti to Swift 5. The version contains no breaking changes.
+
 
 
 ## 1.5.0
