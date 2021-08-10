@@ -1,6 +1,13 @@
 # Release Notes
 
 
+## 3.1.1
+
+### 💡 Behavior changes
+
+* `CalloutView` no longer depends on `UIApplication.shared`.
+
+
 ## 3.1.0
 
 ### ✨ New features
