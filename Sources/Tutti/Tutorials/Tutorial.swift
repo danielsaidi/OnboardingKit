@@ -12,14 +12,14 @@ import Foundation
  A tutorial is a single or multi-page onboarding guide, that
  is intended to show more information than short a hint.
  */
-open class Tutorial<Page: TutorialPage> {
+open class Tutorial {
     
     /**
      Create a tutorial with a fixed set of pages.
      */
-    public init(pages: [Page]) {
+    public init(pages: [TutorialPage]) {
         self.pages = pages
     }
     
-    public let pages: [Page]
+    public let pages: [TutorialPage]
 }

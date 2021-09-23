@@ -15,6 +15,7 @@ If you need the removed `UIKit` parts, you can grab them from the `3.1.1` releas
 
 ### 💥 Breaking changes
 
+* `Tutorial` is no longer generic.
 * The `UIKit` folder has been removed in this version. 
 
 

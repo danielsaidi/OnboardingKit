@@ -40,7 +40,7 @@ import Foundation
  `resourceNameResolver`. It also applies the "resource name"
  for `image` as `imageName` for each page.
  */
-open class LocalizedTutorial<Page: TutorialPage>: Tutorial<Page> {
+open class LocalizedTutorial: Tutorial {
     
     /**
      Create a tutorial by automatically creating pages based
@@ -55,10 +55,10 @@ open class LocalizedTutorial<Page: TutorialPage>: Tutorial<Page> {
         pageIndicationKey: String = "title",
         resourceName: ResourceNameResolver = LocalizedTutorial.resourceName,
         resourceKeySeparator: ResourceKeySeparator = ".",
-        pageResolver: @escaping (TutorialId, PageIndex, ResourceNameResolver, ResourceKeySeparator) -> Page,
+        pageResolver: @escaping (TutorialId, PageIndex, ResourceNameResolver, ResourceKeySeparator) -> TutorialPage,
         translator: @escaping Translator = { NSLocalizedString($0, comment: "") }) {
         var index = 0
-        var pages = [Page]()
+        var pages = [TutorialPage]()
         var titleKey = resourceName(id, index, pageIndicationKey, resourceKeySeparator)
         while titleKey != translator(titleKey) {
             let page = pageResolver(id, index, resourceName, resourceKeySeparator)
@@ -78,7 +78,7 @@ open class LocalizedTutorial<Page: TutorialPage>: Tutorial<Page> {
     public typealias TutorialId = String
 }
 
-public extension LocalizedTutorial where Page == TutorialPage {
+public extension LocalizedTutorial {
     
     /**
      Create a tutorial by automatically creating pages based
