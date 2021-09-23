@@ -3,9 +3,19 @@
 
 ## 4.0
 
-This major version bump removes some parts of the library.
+This major version prepares the library for Xcode 13 and SwiftUI 5.5.
 
-It also prepares the library for Xcode 13 and SwiftUI 5.5.
+It also bump removes some UIKit-specific parts of the library. 
+
+If you need these parts, you can grab them from the `3.1.1` release. 
+
+### 💡 Behavior changes
+
+* `OnboardingPresenter` no longer requires `AnyObject` conformance.
+
+### 💥 Breaking changes
+
+* `OnboardingPresenter` no longer requires `AnyObject` conformance.
 
 
 

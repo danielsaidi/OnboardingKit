@@ -16,7 +16,7 @@ import Foundation
  be implemented. It only provides standardized functionality
  for working with onboarding experiences.
  */
-public protocol OnboardingPresenter: AnyObject {}
+public protocol OnboardingPresenter {}
 
 public extension OnboardingPresenter {
 
