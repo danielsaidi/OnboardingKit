@@ -27,14 +27,6 @@ If you need the removed `UIKit` parts, you can grab them from the `3.1.1` releas
 * `CalloutView` no longer depends on `UIApplication.shared`.
 
 
-
-## 3.1.1
-
-### 💡 Behavior changes
-
-* `CalloutView` no longer depends on `UIApplication.shared`.
-
-
 ## 3.1.0
 
 ### ✨ New features
