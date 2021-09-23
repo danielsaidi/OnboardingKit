@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Tutti",
+        "repositoryURL": "https://github.com/danielsaidi/Tutti.git",
+        "state": {
+          "branch": "master",
+          "revision": "eb02d2fb3bde2e412968a934df09399fd8d87c11",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
