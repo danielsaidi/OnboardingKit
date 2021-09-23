@@ -10,6 +10,6 @@ import Foundation
 
 /**
  This protocol extends `OnboardingPresenter` and can be used
- if you need to separate how you handle hints and tutorials.
+ if you need to separate how you handle hints from tutorials.
  */
 public protocol HintPresenter: OnboardingPresenter {}

@@ -9,8 +9,8 @@
 import Foundation
 
 /**
- This protocol can be implemented by any class that is meant
- to be used to present onboarding experiences.
+ This protocol can be implemented by types that are meant to
+ present onboarding experiences.
  
  The protocol doesn't require any properties or functions to
  be implemented. It only provides standardized functionality

@@ -9,9 +9,8 @@
 import Foundation
 
 /**
- A `hint` is a short onboarding message, that is intended to
- be displayed briefly to tell users about important parts of
- your app.
+ A hint is a short onboarding message that is intended to be
+ displayed briefly, e.g. in a toast, callout bubble etc.
  */
 open class Hint: Equatable {
     

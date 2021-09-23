@@ -1,6 +1,22 @@
 # Release Notes
 
 
+## 4.0
+
+This major version bump removes some parts of the library.
+
+It also prepares the library for Xcode 13 and SwiftUI 5.5.
+
+
+
+## 3.1.1
+
+### 💡 Behavior changes
+
+* `CalloutView` no longer depends on `UIApplication.shared`.
+
+
+
 ## 3.1.1
 
 ### 💡 Behavior changes

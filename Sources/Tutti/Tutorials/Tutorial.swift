@@ -9,9 +9,8 @@
 import Foundation
 
 /**
- A `tutorial` is a single or multi page onboarding guide. It
- is intended to show more information than short `hint`s and
- is perfect for a single- or multi page guide.
+ A tutorial is a single or multi-page onboarding guide, that
+ is intended to show more information than short a hint.
  */
 open class Tutorial<Page: TutorialPage> {
     
