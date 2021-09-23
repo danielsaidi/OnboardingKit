@@ -1,8 +1,6 @@
 # Hints
 
-In Tutti, a `Hint` is a short onboarding message that is intended to be displayed briefly to tell the user about important (or non-important) parts of your app.
-
-The `Hint` base class is a simple data carrier that specifies a `title` and a `text`. You can create your own custom hint types by inheriting the `Hint` base class.
+In Tutti, a `Hint` is a short onboarding message that is intended to be displayed briefly, e.g. in a toast, callout bubble etc.
 
 
 ## Creating a hint
@@ -15,61 +13,53 @@ let hint = Hint(
     text: "This button is new!")
 ```
 
-As you can see, `Hint` has very basic data. Subclass it if you need it to carry more data.
+As you can see, `Hint` has very basic data. It can be subclassed to create more complex or specialized hints.
 
 
-## Presenting a hint
+## Hint presenters
 
-To present a hint, you can use a `HintPresenter`, for instance:
+To present a hint, you can use a `HintPresenter`.
 
-```swift
-let presenter = CalloutHintPresenter()
-presenter.present(hint: hint, in: self, from: view)
-```
-
-Tutti comes with a few built-in hint presenters:
-
-* `AlertHintPresenter` presents hints in a regular `UIAlertController`.
-* `CalloutHintPresenter` presents hints in a callout bubble that can be styled to great extent.
-* Tutti currently has no `SwiftUI` presenters.
+`Tutti` doesn't come with any built-in presenters.
 
 You can create your own presenters by implementing the `HintPresenter` protocol.
 
-Have a look at the demo for examples on how to customize hints.
+Have a look at the demo for examples.
 
 
 ## Connecting a hint to an onboarding
 
-In Tutti, `hints` are data carriers and `presenters` are responsible for presenting hints. To determine the behavior or a hint, you need an [onboarding][Onboarding] of some kind.
+In Tutti, `hints` are data carriers and `presenters` are responsible for presenting hints. 
 
-To put it all together, first create an onboarding instance and check whether it should be presented or not:
+To determine the behavior, you need an [onboarding][Onboarding] of some kind.
+
+Without a presenter, first create an onboarding and check whether or not it should be presented:
 
 ```swift
 let onboarding = Onboarding(id: "welcome")
 guard onboarding.shoulBePresented else { return }
 ```
 
-If so, you can create a hint and present it with any presenter you like:
+If so, you can create a hint, present it and register the presentation with the onboarding:
 
 ```swift
-let presenter = CalloutHintPresenter()
-presenter.present(hint: hint, in: self, from: view)
+let hint = Hint(title: "Welcome!", text: "Welcome to this app.")
+// Present the hint
 onboarding.registerPresentation()
 ```
 
-As you can see, the onboarding and the hint is completely separated, which means that the same logic can be reused when working with tutorials.
-
-`HintPresenter` also has a `tryPresent` function that streamlines this setup:
+If you use a `HintPresenter`, you can use `tryPresent` to avoid having to do all these manual steps:
 
 ```swift
 let onboarding = Onboarding(id: "welcome")
-onboarding.tryPresent(hint) {
-    let presenter = CalloutHintPresenter()
-    presenter.present(hint: hint, in: self, from: view)
+let presenter = MyPresenter()
+presenter.tryPresent(onboarding) { 
+   // Present the hint
 }
+guard onboarding.shoulBePresented else { return }
 ```
 
-`tryPresent` checks whether or not an `Onboarding` should be presented. If so, the presentation block will be triggered and `tryPresent` will register the presentation.
+`tryPresent` checks whether or not an `Onboarding` should be presented. If so, the presentation block will be triggered and the presentation will be registered.
 
 
 [Onboarding]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Onboarding.md

@@ -49,16 +49,16 @@ pod 'Tutti'
 
 ## Onboarding
 
-In Tutti, the `Onboarding` class is at the core of the onboarding experience. 
+In Tutti, an `Onboarding` is at the core of the onboarding experience. 
 
-The onboarding behavior is what determines whether or not a hint or tutorial should be presented.
+The onboarding is what determines whether or not a hint or tutorial should be presented.
 
 Check out [this onboarding guide][Onboarding] for more information on how to work with onboarding.
 
 
 ## Hints
 
-Tutti comes with a set of built-in hint types that can be used for different purposes.
+In Tutti, a `Hint` is a short onboarding message that is intended to be displayed briefly, e.g. in a toast, callout bubble etc.
 
 Check out [this hint guide][Hints] for more information on how to create and present hints.
 

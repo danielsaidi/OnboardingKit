@@ -1,8 +1,8 @@
 # Onboarding
 
-In Tutti, the `Onboarding` class is at the core of the onboarding experience. 
+In Tutti, an `Onboarding` is at the core of the onboarding experience. 
 
-The onboarding behavior is what determines whether or not a hint or tutorial should be presented.
+The onboarding is what determines whether or not a hint or tutorial should be presented.
 
 Tutti comes with a set of built-in onboarding types that can be used for different purposes. 
 
