@@ -5,9 +5,9 @@
         "package": "Tutti",
         "repositoryURL": "https://github.com/danielsaidi/Tutti",
         "state": {
-          "branch": "master",
-          "revision": "1f183309d94fcd35bcd5fca260c672d4fb913d14",
-          "version": null
+          "branch": null,
+          "revision": "adfc8baad9495c60bc28ecfc131db8df21832369",
+          "version": "4.0.0"
         }
       }
     ]
