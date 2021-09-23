@@ -9,8 +9,11 @@
 import Foundation
 
 /**
- This onboarding requires you to check `shouldBePresented` a
- certain number of times before it returns `true`.
+ This onboarding is presented after a number of presentation
+ attempts.
+ 
+ This onboarding require you to check the `shouldBePresented`
+ property a certain number of times before it returns `true`.
  
  Other than that, it behaves just like the `Onboarding` base
  class and will only be presented once.

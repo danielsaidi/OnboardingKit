@@ -17,15 +17,19 @@
 
 ## About Tutti
 
-Tutti helps you create onboarding expericences like hints and single- or multi-screen tutorials. 
+Tutti helps you create onboarding expericences like hints and tutorials. 
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Tutti has different onboarding types. Standard hints and tutorials are shown right away and only once, while other types require multiple presentation attempts, a certain number of "incorrect" actions etc. You can combine various types to create new ones.
+Tutti has different onboarding types. A standard onboarding is shown right away and only once, while other types require multiple presentation attempts, a certain number of "incorrect" actions etc. 
 
-You can reset the display state of any onboarding if you want to display it again. Tutti also supports multiple users, so that each onboarding is unique to each user.
+You can also combine different onboarding types to create new ones, like a "delayed, conditional" onboarding.
+
+You can reset the display state of any onboarding if you want to display it again. 
+
+Tutti also supports multiple users, so that each onboarding is unique to each user.
 
 
 ## Install
@@ -47,7 +51,7 @@ pod 'Tutti'
 
 In Tutti, the `Onboarding` class is at the core of the onboarding experience. 
 
-This class is what determines whether or not a hint or tutorial should be presented.
+The onboarding behavior is what determines whether or not a hint or tutorial should be presented.
 
 Check out [this onboarding guide][Onboarding] for more information on how to work with onboarding.
 
@@ -68,7 +72,9 @@ Check out [this tutorial guide][Tutorials] for more information on how to create
 
 ## Demo App
 
-This repository contains a demo app that demonstrates different types of hints and tutorials. To try it out, open and run the `TuttiDemo.xcodeproj` project.
+This repository contains a SwiftUI demo app that demonstrates different hints and tutorials. 
+
+To try it out, open and run the `TuttiDemo.xcodeproj` project.
 
 
 ## Contact me
@@ -80,6 +86,11 @@ I hope you like this library. Feel free to reach out if you have questions or if
 * Web site: [danielsaidi.com][Website]
 
 
+## Support this project
+
+You can support this library and my other projects by sponsoring me on [GitHub Sponsors][Sponsors] or hiring me for consultation.
+
+
 ## License
 
 Tutti is available under the MIT license. See LICENSE file for more info.
@@ -87,6 +98,7 @@ Tutti is available under the MIT license. See LICENSE file for more info.
 [Email]: mailto:daniel.saidi@gmail.com
 [Twitter]: http://www.twitter.com/danielsaidi
 [Website]: http://www.danielsaidi.com
+[Sponsors]: https://github.com/sponsors/danielsaidi
 
 [Carthage]: https://github.com/Carthage/Carthage
 [CocoaPods]: https://cocoapods.org/
