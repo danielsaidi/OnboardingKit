@@ -10,6 +10,7 @@ This makes the library really lightweight.
 ### ✨ New features
 
 * `Onboarding` has a new `tryPresent` function that takes a custom presentation action.
+* `TutorialPage` now implements `Identifiable`.
 
 ### 🗑 Deprecations
 
