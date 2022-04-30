@@ -1,14 +1,11 @@
 <p align="center">
-    <img src ="Resources/Logo.png" width="400" />
+    <img src ="Resources/Logo.png" alt="Tutti Logo" title="Tutti" width=600 />
 </p>
 
 <p align="center">
-    <a href="https://github.com/danielsaidi/Tutti">
-        <img src="https://badge.fury.io/gh/danielsaidi%2FTutti.svg?style=flat" alt="Version" />
-    </a>
-    <img src="https://img.shields.io/cocoapods/p/Tutti.svg?style=flat" alt="Platform" />
-    <img src="https://img.shields.io/badge/Swift-5.1-orange.svg" alt="Swift 5.1" />
-    <img src="https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102" alt="License" />
+    <img src="https://img.shields.io/github/v/release/danielsaidi/Tutti?color=%2300550&sort=semver" alt="Version" />
+    <img src="https://img.shields.io/badge/Swift-5.6-orange.svg" alt="Swift 5.6" />
+    <img src="https://img.shields.io/github/license/danielsaidi/Tutti" alt="MIT License" />
     <a href="https://twitter.com/danielsaidi">
         <img src="https://img.shields.io/badge/contact-@danielsaidi-blue.svg?style=flat" alt="Twitter: @danielsaidi" />
     </a>
@@ -23,7 +20,7 @@ Tutti helps you create onboarding expericences like hints and tutorials.
     <img src ="Resources/Demo.gif" />
 </p>
 
-Tutti has different onboarding types. A standard onboarding is shown right away and only once, while other types require multiple presentation attempts, a certain number of "incorrect" actions etc. 
+Tutti has different onboarding types that can be presented as hints or tutorials. A standard onboarding is shown right away and only once, while other types require multiple presentation attempts, a certain number of "incorrect" actions etc. 
 
 You can also combine different onboarding types to create new ones, like a "delayed, conditional" onboarding.
 
@@ -32,77 +29,75 @@ You can reset the display state of any onboarding if you want to display it agai
 Tutti also supports multiple users, so that each onboarding is unique to each user.
 
 
-## Install
 
-### <a name="spm"></a>Swift Package Manager
+## Supported Platforms
+
+Tutti supports `iOS 9`, `macOS 10.15`, `tvOS 13` and `watchOS 6`.
+
+
+
+## Installation
+
+Tutti can be installed with the Swift Package Manager:
 
 ```
 https://github.com/danielsaidi/Tutti.git
 ```
 
-### CocoaPods
+or with CocoaPods:
 
-```ruby
-pod 'Tutti'
+```
+pod Tutti
 ```
 
 
-## Onboarding
 
-In Tutti, an `Onboarding` is at the core of the onboarding experience. 
+## Getting started
 
-The onboarding is what determines whether or not a hint or tutorial should be presented.
-
-Check out [this onboarding guide][Onboarding] for more information on how to work with onboarding.
+To get started with Tutti, have a look at [this getting started guide][GettingStarted].
 
 
-## Hints
 
-In Tutti, a `Hint` is a short onboarding message that is intended to be displayed briefly, e.g. in a toast, callout bubble etc.
+## Documentation
 
-Check out [this hint guide][Hints] for more information on how to create and present hints.
+The [online documentation][Documentation] contains more information, code examples etc. and makes it easy to overview the various parts of the library.
 
-
-## Tutorials
-
-Tutti comes with a set of built-in tutorial types that can be used for different purposes.
-
-Check out [this tutorial guide][Tutorials] for more information on how to create and present tutorials.
+The online documentation is currently iOS only. To generate documentation for other platforms, open the package in Xcode, select a simulator then run `Product/Build Documentation`. 
 
 
-## Demo App
 
-This repository contains a SwiftUI demo app that demonstrates different hints and tutorials. 
+## Demo Application
 
-To try it out, open and run the `TuttiDemo.xcodeproj` project.
+This project contains a demo app that lets you explore Tutti on iOS. To run it, just open and run `Demo/Demo.xcodeproj`.
 
 
-## Contact me
 
-I hope you like this library. Feel free to reach out if you have questions or if you want to contribute in any way:
+## Support
+
+You can sponsor this project on [GitHub Sponsors][Sponsors] or get in touch for paid support. 
+
+
+
+## Contact
+
+Feel free to reach out if you have questions or if you want to contribute in any way:
 
 * E-mail: [daniel.saidi@gmail.com][Email]
 * Twitter: [@danielsaidi][Twitter]
 * Web site: [danielsaidi.com][Website]
 
 
-## Support this project
-
-You can support this library and my other projects by sponsoring me on [GitHub Sponsors][Sponsors] or hiring me for consultation.
-
 
 ## License
 
-Tutti is available under the MIT license. See LICENSE file for more info.
+Tutti is available under the MIT license. See the [LICENSE][License] file for more info.
+
 
 [Email]: mailto:daniel.saidi@gmail.com
 [Twitter]: http://www.twitter.com/danielsaidi
 [Website]: http://www.danielsaidi.com
 [Sponsors]: https://github.com/sponsors/danielsaidi
 
-[Carthage]: https://github.com/Carthage/Carthage
-[CocoaPods]: https://cocoapods.org/
-
-[Onboarding]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Onboarding.md
-[Hints]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Hints.md
-[Tutorials]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Tutorials.md
+[Documentation]: https://danielsaidi.github.io/Tutti/documentation/tutti/
+[GettingStarted]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Getting-Started.md
+[License]: https://github.com/danielsaidi/Tutti/blob/master/LICENSE

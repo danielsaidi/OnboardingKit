@@ -29,7 +29,7 @@ You can create your own presenters by implementing the ``HintPresenter`` protoco
 
 In Tutti, hints are data carriers while presenters are responsible for presenting hints. 
 
-To determine the behavior, you need an ``Onboarding`` of some kind.
+To determine the behavior of a hint, you need an onboarding of some kind. Tutti comes with various onboarding types.
 
 If you're not using a ``HintPresenter`` (you don't have to), first create an onboarding and check whether or not it should be presented:
 
@@ -38,11 +38,11 @@ let onboarding = Onboarding(id: "welcome")
 guard onboarding.shoulBePresented else { return }
 ```
 
-If so, you can create a ``Hint``, present it in any way then register the presentation:
+If so, you can create a hint, present it in any way then register the presentation:
 
 ```swift
 let hint = Hint(title: "Welcome!", text: "Welcome to this app.")
-// Present the hint
+// Present the hint in some way
 onboarding.registerPresentation()
 ```
 
@@ -57,6 +57,3 @@ presenter.tryPresent(onboarding) {
 ```
 
 `tryPresent` checks whether or not the onboarding should be presented. If so, the presentation block will be triggered and the presentation will be registered.
-
-
-[Onboarding]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Onboarding.md
