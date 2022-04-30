@@ -1,9 +1,9 @@
-# Run `pod lib lint Sheeeeeeeeet.podspec' to ensure this is a valid spec.
+# Run `pod lib lint Tutti.podspec' to ensure this is a valid spec.
 
 Pod::Spec.new do |s|
   s.name             = 'Tutti'
   s.version          = '4.0.0'
-  s.swift_versions   = ['5.2']
+  s.swift_versions   = ['5.6']
   s.summary          = 'Tutti is a Swift library for creating tutorials, hints and onboarding experiences.'
 
   s.description      = <<-DESC
@@ -18,7 +18,9 @@ as well as compose onboarding experiences for entire apps and/or single features
   s.source           = { :git => 'https://github.com/danielsaidi/Tutti.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/danielsaidi'
 
-  s.swift_version = '5.1'
+  s.swift_version = '5.6'
   s.ios.deployment_target = '9.0'
+  s.tvos.deployment_target = '13.0'
+  s.watchos.deployment_target = '6.0'
   s.source_files = 'Sources/Tutti/**/*.swift'
 end
