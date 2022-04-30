@@ -14,17 +14,13 @@
 
 ## About Tutti
 
-Tutti helps you create onboarding expericences like hints and tutorials. 
+Tutti helps you create onboarding expericences like hints and tutorials in Swift. The result can look like this, or completely different:
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Tutti has different onboarding types that can be presented as hints or tutorials. A standard onboarding is shown right away and only once, while other types require multiple presentation attempts, a certain number of "incorrect" actions etc. 
-
-You can also combine different onboarding types to create new ones, like a "delayed, conditional" onboarding.
-
-You can reset the display state of any onboarding if you want to display it again. 
+Tutti has different onboarding types. A standard `Onboarding` is shown right away and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions etc. You can also combine different onboarding types to create new ones and reset the display state of any onboarding if you want to display it again. 
 
 Tutti also supports multiple users, so that each onboarding is unique to each user.
 
