@@ -21,11 +21,9 @@ pod Tutti
 
 ## Onboarding
 
-In Tutti, an ``Onboarding`` is at the core of the onboarding experience. 
+In Tutti, an ``Onboarding`` is at the core of the onboarding experience and determines whether or not a hint or tutorial should be presented.
 
-The onboarding is what determines whether or not a hint or tutorial should be presented.
-
-There are different types of onboardings, that can help you craft a suitable experience for e.g. a first app onboarding, instructions, games etc.
+Tutti comes with different types of onboardings, e.g. `Onboarding`, `DelayedOnboarding`, `ConditionalOnboarding` etc. that can help you create a suitable experience for e.g. a first app onboarding, general instructions, games etc.
 
 
 ## Hints
@@ -35,7 +33,7 @@ In Tutti, a ``Hint`` is a short onboarding message that is intended to be displa
 
 ## Tutorials
 
-In Tutti, a ``Tutorial`` is a longer onboarding experience, e.g. a multi-page first-launch app onboarding.
+In Tutti, a ``Tutorial`` is a longer, page-based onboarding experience, e.g. a multi-page first-launch app onboarding.
 
 
 ## Further reading
