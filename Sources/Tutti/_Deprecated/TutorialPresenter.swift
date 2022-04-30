@@ -8,8 +8,5 @@
 
 import Foundation
 
-/**
- This protocol extends `OnboardingPresenter` and can be used
- if you need to separate how you handle hints from tutorials.
- */
+@available(*, deprecated, message: "Use the new Onboarding.tryPresent function instead")
 public protocol TutorialPresenter: OnboardingPresenter {}

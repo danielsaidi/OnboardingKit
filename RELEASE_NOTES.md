@@ -1,6 +1,24 @@
 # Release Notes
 
 
+## 4.1
+
+This version deprecates the `OnboardingPresenter` concept and adds a `tryPresent` function to the `Onboarding` instead.
+
+This makes the library really lightweight.
+
+### ✨ New features
+
+* `Onboarding` has a new `tryPresent` function that takes a custom presentation action.
+
+### 🗑 Deprecations
+
+* `OnboardingPresenter` has been deprecated.
+* `HintPresenter` has been deprecated.
+* `TutorialPresenter` has been deprecated.
+
+
+
 ## 4.0
 
 This major version prepares the library for Xcode 13 and SwiftUI 5.5.
@@ -27,11 +45,13 @@ If you need the removed `UIKit` parts, you can grab them from the `3.1.1` releas
 * `CalloutView` no longer depends on `UIApplication.shared`.
 
 
-## 3.1.0
+
+## 3.1
 
 ### ✨ New features
 
 * `Onboarding` has a new `hasBeenPresented` property.
+
 
 
 ## 3.0.2
@@ -47,12 +67,14 @@ In this version adds support for presenting titles in `CalloutView`:
 The demo has been updated with new onboarding demos.
 
 
+
 ## 3.0.1
 
 This version adds a new `ConditionalOnboarding` type. 
 
 
-## 3.0.0
+
+## 3.0
 
 This version adds support for macOS, tvOS and watchOS, with several breaking changes. 
 
@@ -84,9 +106,11 @@ The demo has been rewritten from scratch, but it still UIKit-based until Xcode 1
 These versions update all external test dependenies to the latest versions.
 
 
-## 2.1.0
+
+## 2.1
 
 This version adds Xcode 11 and iOS 13 support, including support for dark mode and high contrast color variants.
+
 
 
 ## 2.0.3
@@ -94,28 +118,26 @@ This version adds Xcode 11 and iOS 13 support, including support for dark mode a
 This version makes the built-in presenters `open` so that you can extend them.
 
 
+
 ## 2.0.2
 
 This version cleans up the callout view class, but has no functional changes.
 
 
-## 2.0.1
-
-This version adds accessibility texts to the standard and deferred hint. If this is set, the callout hint will work well when accessibility is enabled.
-
 
 ## 2.0.1
 
 This version adds accessibility texts to the standard and deferred hint. If this is set, the callout hint will work well when accessibility is enabled.
 
 
-## 2.0.0
+
+## 2.0
 
 This version upgrades Tutti to Swift 5. The version contains no breaking changes.
 
 
 
-## 1.5.0
+## 1.5
 
 This version has new hint and tutorial types. The `CorrectBehaviorOnboarding` is an onboarding experience that is triggered when a user performs a certain number of incorrect actions. `CorrectBehaviorHint` and `CorrectBehaviorTutorial` can be used to build user behavior-based onboarding experiences. There are, however, no demos for these new classes yet.
 
@@ -128,7 +150,8 @@ This version has some breaking changes:
 * The `LocalizedTutorial` class has been removed. Instead, this functionality is now accessible by using a new `StandardTutorial` initializer.
 
 
-## 1.4.0
+
+## 1.4
 
 This version removes presentation logic from hints/tutorials to their presenters. Instead of calling `present` on your hints and tutorials, now use the presenters.
 
@@ -137,11 +160,12 @@ The presenter protocols have also been refactored. The first parameter names are
 `HintPresenter` now has a `dismissAllHints()` function. It's implemented by some of the presenters, where applicable.
 
 
-## 1.3.0
+## 1.3
 
 This version extends the `Hint` and `HintPresenter` protocols to make presenting a hint from a `UIBarButtonItem` possible. If you have any custom implementations of these protocols, you must extend them.
 
 `CalloutHintPresenter` has been improved, so that it can dismiss presented hints. This fixes [issue #3](https://github.com/danielsaidi/Tutti/issues/3).
+
 
 
 ## 1.2.2
@@ -149,9 +173,11 @@ This version extends the `Hint` and `HintPresenter` protocols to make presenting
 This version migrates `Tutti` to Swift 4.2 and makes it Xcode 10 ready.
 
 
+
 ## 1.2.1
 
 In this version, the previously `public` standard deferred classes are now `open` so that you can inherit and them and override their logic in your own projects.
+
 
 
 ## 1.2.0

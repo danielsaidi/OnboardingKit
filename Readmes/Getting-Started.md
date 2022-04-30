@@ -35,7 +35,7 @@ In Tutti, a ``Hint`` is a short onboarding message that is intended to be displa
 
 ## Tutorials
 
-In Tutti, a ``Tutorial`` is a longer onboarding experience, e.g. to show a multi-page onboarding.
+In Tutti, a ``Tutorial`` is a longer onboarding experience, e.g. a multi-page first-launch app onboarding.
 
 
 ## Further reading

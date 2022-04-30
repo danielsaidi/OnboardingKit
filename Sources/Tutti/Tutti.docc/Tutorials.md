@@ -2,7 +2,7 @@
 
 In Tutti, a ``Tutorial`` is a single- or multi-page guide that is intended to tell users about important (or non-important) features in your app.
 
-The `Tutorial` base class is a simple data carrier that specifies a set of `pages`. You can create your own custom tutorial types by inheriting the `Tutorial` base class.
+The `Tutorial` base class is a simple data carrier that specifies a set of pages. You can create your own custom tutorial types by inheriting the `Tutorial` base class.
 
 
 ## Creating a tutorial
@@ -16,7 +16,7 @@ let page3 = TutorialPage(title: "Page 3", text: "Text 3", imageName: "image3")
 let tutorial = Tutorial(pages: [page1, page2, page3])
 ```
 
-As you can see, ``Tutorial`` has very basic data and just consists of a set of ``TutorialPage``s. Subclass it if you need it to carry more data.
+As you can see, ``Tutorial`` has very basic data and just consists of a set of ``TutorialPage`` items. Subclass it if you need it to carry more data.
 
 
 ## Localized tutorials
@@ -43,22 +43,13 @@ This will cause the tutorial to resolve pages based on a bunch of parameters.
 Localized tutorials are really powerful and can save you a lot of work. Check out the docs for more information and the demo to see it in practice.
 
 
-## Presenting a tutorial
-
-To present a tutorial, you can use a ``TutorialPresenter``.
-
-Tutti doesn't come with any built-in presenters and encourages you to write presenters that are specific to your app.
-
-You can create your own presenters by implementing the ``TutorialPresenter`` protocol. Have a look at the demo for examples.
-
-
 ## Connecting a tutorial to an onboarding
 
-In Tutti, tutorials are data carriers while presenters are responsible for presenting tutorials. 
+In Tutti, tutorials are just data carriers. To determine the behavior of a tutorial, you need an onboarding. Tutti comes with various onboarding types, like ``Onboarding``, ``DelayedOnboarding`` etc. 
 
-To determine the behavior of a tutorial, you need an onboarding of some kind. Tutti comes with various onboarding types.
+Tutti comes with various onboarding types, like ``Onboarding``, ``DelayedOnboarding``, ``ConditionalOnboarding`` etc.
 
-If you're not using a ``TutorialPresenter`` (you don't have to), first create an onboarding and check whether or not it should be presented:
+To present a tutorial, first create an onboarding and check whether or not it should be presented:
 
 ```swift
 let onboarding = Onboarding(id: "welcome")
@@ -69,16 +60,15 @@ If so, you can create a tutorial, present it in any way then register the presen
 
 ```swift
 let tutorial = Tutorial(pages: ...)
-// Present the tutorial
+// Present the tutorial in some way
 onboarding.registerPresentation()
 ```
 
-If you use a ``TutorialPresenter``, you just have to use `tryPresent` to avoid having to do all these manual steps:
+You can also just use the onboarding's ``Onboarding/tryPresent(presentAction:)`` function to avoid all these manual steps:
 
 ```swift
 let onboarding = Onboarding(id: "welcome")
-let presenter = MyPresenter()
-presenter.tryPresent(onboarding) { 
+onboarding.tryPresent { 
    // Present the tutorial
 }
 ```

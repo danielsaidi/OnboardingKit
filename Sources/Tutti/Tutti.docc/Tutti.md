@@ -64,7 +64,6 @@ Tutti is available under the MIT license.
 ### Onboarding
 
 - ``Onboarding``
-- ``OnboardingPresenter``
 - ``ConditionalOnboarding``
 - ``CorrectBehaviorOnboarding``
 - ``DelayedOnboarding``
@@ -72,11 +71,9 @@ Tutti is available under the MIT license.
 ### Hints
 
 - ``Hint``
-- ``HintPresenter``
 
 ### Tutorials
 
 - ``Tutorial``
 - ``TutorialPage``
-- ``TutorialPresenter``
 - ``LocalizedTutorial``

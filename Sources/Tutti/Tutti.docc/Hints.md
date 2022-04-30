@@ -13,25 +13,14 @@ let hint = Hint(
     text: "This button is new!")
 ```
 
-As you can see, ``Hint`` has very basic data. It can be subclassed to create more complex or specialized hints.
-
-
-## Hint presenters
-
-To present a hint, you can use a ``HintPresenter``.
-
-Tutti doesn't come with any built-in presenters and encourages you to write presenters that are specific to your app.
-
-You can create your own presenters by implementing the ``HintPresenter`` protocol. Have a look at the demo for examples.
+As you can see, ``Hint`` has very basic data. Subclass it if you need it to carry more data.
 
 
 ## Connecting a hint to an onboarding
 
-In Tutti, hints are data carriers while presenters are responsible for presenting hints. 
+In Tutti, hints are just data carriers. To determine the behavior of a hint, you need an onboarding. Tutti comes with various onboarding types, like ``Onboarding``, ``DelayedOnboarding`` etc.
 
-To determine the behavior of a hint, you need an onboarding of some kind. Tutti comes with various onboarding types.
-
-If you're not using a ``HintPresenter`` (you don't have to), first create an onboarding and check whether or not it should be presented:
+To present a hint, first create an onboarding and check whether or not it should be presented:
 
 ```swift
 let onboarding = Onboarding(id: "welcome")
@@ -46,12 +35,11 @@ let hint = Hint(title: "Welcome!", text: "Welcome to this app.")
 onboarding.registerPresentation()
 ```
 
-If you use a ``HintPresenter``, you just have to use `tryPresent` to avoid having to do all these manual steps:
+You can also just use the onboarding's ``Onboarding/tryPresent(presentAction:)`` function to avoid all these manual steps:
 
 ```swift
 let onboarding = Onboarding(id: "welcome")
-let presenter = MyPresenter()
-presenter.tryPresent(onboarding) { 
+onboarding.tryPresent { 
    // Present the hint
 }
 ```

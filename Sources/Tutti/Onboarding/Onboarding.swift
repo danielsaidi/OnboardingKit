@@ -75,6 +75,19 @@ open class Onboarding {
     open func reset() {
         presentationCount = 0
     }
+    
+    /**
+     Try presenting the onboarding.
+     
+     This operation will be aborted if the onboarding should
+     not be presented, otherwise the provided `presentAction`
+     block will be called.
+     */
+    public func tryPresent(presentAction: () -> Void) {
+        guard shouldBePresented else { return }
+        presentAction()
+        registerPresentation()
+    }
 }
 
 
