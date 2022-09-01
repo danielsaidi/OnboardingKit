@@ -5,6 +5,14 @@ default_platform :ios
 platform :ios do
 
 
+  # Documentation ==============
+
+  desc "Build Documentation"
+  lane :documentation do
+    docc_web
+  end
+
+
   # Lint ===================
   
   desc "Run SwiftLint"
@@ -30,7 +38,7 @@ platform :ios do
         
     lint
     test
-    docc
+        documentation
     
     bump_type = options[:type]
     version = version_bump_podspec(
@@ -93,29 +101,6 @@ platform :ios do
       transform-for-static-hosting Docs/Tutti_' + values[:name] + '.doccarchive \
       --output-path Docs/web_' + values[:name] + ' \
       --hosting-base-path Tutti')
-  end
-  
-  desc "Build static web documentation (macOS only)"
-  lane :docc_web_plugin do
-    sh('cd .. && mkdir -p Docs')
-    sh('cd .. && swift package \
-        --allow-writing-to-directory Docs \
-        generate-documentation \
-        --disable-indexing \
-        --transform-for-static-hosting \
-        --hosting-base-path Tutti \
-        --output-path Docs/web')
-  end
-    
-  desc "Build and preview static documentation website (macOS only)"
-  lane :docc_webpreview_plugin do
-    sh('cd .. && mkdir -p Docs')
-    sh('cd .. && swift package \
-        --disable-sandbox \
-        preview-documentation \
-        --transform-for-static-hosting \
-        --hosting-base-path Tutti \
-        --output-path Docs/web')
   end
   
 end

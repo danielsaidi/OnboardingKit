@@ -10,7 +10,7 @@ Tutti helps you create onboarding expericences like hints and tutorials.
 
 Tutti has different onboarding types that can be presented as hints or tutorials. A standard onboarding is shown right away and only once, while other types require multiple presentation attempts, a certain number of "incorrect" actions etc. 
 
-You can combine different onboarding types to create new ones, like a "delayed, conditional" onboarding. You can also reset the display state of any onboarding if you want to display it again. 
+Tutti has different onboarding types. A standard onboarding is shown right away and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions etc. You can also combine different onboarding types to create new ones and reset the display state of any onboarding if you want to display it again. 
 
 Tutti also supports multiple users, so that each onboarding is unique to each user.
 
@@ -36,11 +36,12 @@ or with CocoaPods:
 pod Tutti
 ```
 
+You can also clone the repository and build the library locally.
 
 
 ## About this documentation
 
-The online documentation is currently iOS only. To generate documentation for other platforms, open the package in Xcode, select a simulator then run `Product/Build Documentation`.
+The online documentation is currently iOS-specific. To generate documentation for other platforms, open the package in Xcode, select a simulator then run `Product/Build Documentation`.
 
 Note that DocC currently omits extensions, which means that some extensions are missing. Future versions will aim to improve this.
 

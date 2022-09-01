@@ -3,22 +3,6 @@
 This article describes how to get started with Tutti.
 
 
-
-## Installation
-
-Tutti can be installed with the Swift Package Manager:
-
-```
-https://github.com/danielsaidi/Tutti.git
-``` 
-
-or with CocoaPods:
-
-```
-pod Tutti
-```
-
-
 ## Onboarding
 
 In Tutti, an ``Onboarding`` is at the core of the onboarding experience and determines whether or not a hint or tutorial should be presented.
@@ -38,7 +22,4 @@ In Tutti, a ``Tutorial`` is a longer, page-based onboarding experience, e.g. a m
 
 ## Further reading
 
-For further reading, code examples etc. checkout the [online documentation][Documentation].
-
-
-[Documentation]: https://danielsaidi.github.io/Tutti/documentation/tutti/
+You can read more about <doc:Onboardings>, <doc:Hints> and <doc:Tutorials> in their respective articles.

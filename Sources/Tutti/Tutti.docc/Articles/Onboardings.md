@@ -2,21 +2,24 @@
 
 In Tutti, an ``Onboarding`` is at the core of the onboarding experience and is what determines whether or not a hint or tutorial should be presented.
 
-Tutti comes with a set of built-in onboarding types that can be used for different purposes. 
+
+## Onboarding types
+
+Tutti comes with a set of built-in onboarding types, that can be used for different purposes. 
 
 * ``Onboarding`` is presented right away, and only once.
 * ``ConditionalOnboarding`` is presented when a certain condition returns `true`.
 * ``CorrectBehaviorOnboarding`` is presented when a user is not behaving as intended.
 * ``DelayedOnboarding`` - is presented after a certain number of presentation attempts.
 
-You can create your own onboarding types by inheriting the `Onboarding` base class.
+You can create your own onboarding types by inheriting and customizing the `Onboarding` base class.
 
 
-## Onboarding vs. Hint and Tutorial
+## Onboardings vs. hints and tutorials
 
 In Tutti, an ``Onboarding`` defines the rules and behavior of an onboarding experience. A ``Hint`` or ``Tutorial`` can then be presented if the onboarding should be presented.
 
-The hints and tutorials articles below describe in more details how to present hints and tutorials.
+The <doc:Hints> and <doc:Tutorials> articles describe how to present hints and tutorials in more details.
 
 
 ## Multi-user onboarding

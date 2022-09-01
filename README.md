@@ -14,13 +14,15 @@
 
 ## About Tutti
 
-Tutti helps you create onboarding expericences like hints and tutorials in Swift. The result can look like this, or completely different:
+Tutti helps you create onboarding expericences like hints and tutorials in Swift. 
+
+The result can look like this, or completely different:
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Tutti has different onboarding types. A standard `Onboarding` is shown right away and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions etc. You can also combine different onboarding types to create new ones and reset the display state of any onboarding if you want to display it again. 
+Tutti has different onboarding types. A standard onboarding is shown right away and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions etc. You can also combine different onboarding types to create new ones and reset the display state of any onboarding if you want to display it again. 
 
 Tutti also supports multiple users, so that each onboarding is unique to each user.
 
@@ -46,25 +48,27 @@ or with CocoaPods:
 pod Tutti
 ```
 
+You can also clone the repository and build the library locally.
+
 
 
 ## Getting started
 
-To get started with Tutti, have a look at [this getting started guide][GettingStarted].
+The online documentation has a [getting-started guide][Getting-Started] that will help you get started with the library.
 
 
 
 ## Documentation
 
-The [online documentation][Documentation] contains more information, code examples etc. and makes it easy to overview the various parts of the library.
+The [online documentation][Documentation] has articles, code examples etc. that let you overview the various parts of the library.
 
-The online documentation is currently iOS only. To generate documentation for other platforms, open the package in Xcode, select a simulator then run `Product/Build Documentation`. 
+The online documentation is currently iOS-specific. To generate documentation for other platforms, open the package in Xcode, select a simulator then run `Product/Build Documentation`. 
 
 
 
 ## Demo Application
 
-This project contains a demo app that lets you explore Tutti on iOS. To run it, just open and run `Demo/Demo.xcodeproj`.
+This project has a demo app that lets you explore the library on iOS and macOS. To try it out, just open and run `Demo/Demo.xcodeproj`.
 
 
 
@@ -95,5 +99,5 @@ Tutti is available under the MIT license. See the [LICENSE][License] file for mo
 [Sponsors]: https://github.com/sponsors/danielsaidi
 
 [Documentation]: https://danielsaidi.github.io/Tutti/documentation/tutti/
-[GettingStarted]: https://github.com/danielsaidi/Tutti/blob/master/Readmes/Getting-Started.md
+[Getting-Started]: https://danielsaidi.github.io/Tutti/documentation/tutti/getting-started
 [License]: https://github.com/danielsaidi/Tutti/blob/master/LICENSE
