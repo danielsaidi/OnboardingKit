@@ -78,3 +78,4 @@ Tutti is available under the MIT license.
 - ``Tutorial``
 - ``TutorialPage``
 - ``LocalizedTutorial``
+- ``UrlTutorialPage``
