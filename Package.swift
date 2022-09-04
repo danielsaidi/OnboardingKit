@@ -17,8 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/danielsaidi/Quick.git", branch: "main"),
-        .package(url: "https://github.com/danielsaidi/Nimble.git", branch: "main"),
-        .package(url: "https://github.com/danielsaidi/MockingKit.git", .upToNextMajor(from: "1.0.0"))
+        .package(url: "https://github.com/danielsaidi/Nimble.git", branch: "main")
     ],
     targets: [
         .target(
@@ -26,6 +25,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "TuttiTests",
-            dependencies: ["Tutti", "Quick", "Nimble", "MockingKit"])
+            dependencies: ["Tutti", "Quick", "Nimble"])
     ]
 )

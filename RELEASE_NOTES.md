@@ -8,10 +8,16 @@ This version deprecates the `OnboardingPresenter` concept and adds a `tryPresent
 ### ✨ New features
 
 * `UrlTutorialPage` is a new tutorial page with a `URL`.
+* `TutorialPageTabView` is a new view for presenting tutorial-based onboarding flows.
+* `TutorialPageTabViewStyle` can be used to style `TutorialPageTabView` views.
 
 ### 💡 Behavior changes
 
 * `Tutorial` is now generic to better handle custom tutorial page types.
+
+### 📦 Dependencies
+
+* TuttiTests no longer depends on `MockingKit`.
 
 
 

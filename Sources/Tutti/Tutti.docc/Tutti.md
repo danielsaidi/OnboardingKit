@@ -79,3 +79,8 @@ Tutti is available under the MIT license.
 - ``TutorialPage``
 - ``LocalizedTutorial``
 - ``UrlTutorialPage``
+
+### UI
+
+- ``TutorialPageTabView``
+- ``TutorialPageTabViewStyle``

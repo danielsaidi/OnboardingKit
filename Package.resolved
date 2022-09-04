@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "mockingkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/danielsaidi/MockingKit.git",
-      "state" : {
-        "revision" : "3e51adb1a3922cdccbe84a3088b7fa4d67ae236d",
-        "version" : "1.1.0"
-      }
-    },
-    {
       "identity" : "nimble",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/danielsaidi/Nimble.git",
