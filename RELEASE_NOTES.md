@@ -1,6 +1,20 @@
 # Release Notes
 
 
+## 4.2
+
+This version deprecates the `OnboardingPresenter` concept and adds a `tryPresent` function to the `Onboarding` instead.
+
+### ✨ New features
+
+* `UrlTutorialPage` is a new tutorial page with a `URL`.
+
+### 💡 Behavior changes
+
+* `Tutorial` is now generic to better handle custom tutorial page types.
+
+
+
 ## 4.1
 
 This version deprecates the `OnboardingPresenter` concept and adds a `tryPresent` function to the `Onboarding` instead.
