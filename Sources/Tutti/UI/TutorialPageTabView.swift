@@ -41,7 +41,7 @@ public struct TutorialPageTabView<PageType: TutorialPage, PageViewType: View>: V
         UIPageControl.appearance().pageIndicatorTintColor = UIColor(style.pageIndicatorTintColor)
     }
 
-    public typealias PageViewBuilder = (PageType, _ index: Int) -> PageViewType
+    public typealias PageViewBuilder = (PageType, TutorialPageInfo) -> PageViewType
 
     private let pageIndex: Binding<Int>
     private let tutorial: Tutorial<PageType>
@@ -50,7 +50,7 @@ public struct TutorialPageTabView<PageType: TutorialPage, PageViewType: View>: V
     public var body: some View {
         TabView(selection: pageIndex) {
             ForEach(Array(tutorial.pages.enumerated()), id: \.offset) {
-                pageView($0.element, $0.offset)
+                pageView($0.element, TutorialPageInfo(pageIndex: $0.offset, totalPageCount: tutorial.pages.count))
                     .tag($0.offset)
             }
         }
@@ -64,7 +64,7 @@ struct TutorialPageTabView_Previews: PreviewProvider {
     struct Preview: View {
 
         @State
-        private var currentPageIndex = 0
+        private var pageIndex: Int = 0
 
         let background = Color.gray.opacity(0.4)
 
@@ -79,37 +79,32 @@ struct TutorialPageTabView_Previews: PreviewProvider {
         var body: some View {
             TutorialPageTabView(
                 tutorial: tutorial,
-                pageIndex: $currentPageIndex
-            ) { page, index in
+                pageIndex: $pageIndex
+            ) { page, info in
                 VStack(spacing: 25) {
                     AsyncImage(url: URL(string: page.imageName ?? ""))
                         .cornerRadius(10)
                         .frame(height: 300)
                         .shadow(color: .gray, radius: 5, x: 0, y: 3)
-                        .scaleEffect(currentPageIndex == index ? 1 : 0.9)
-                        .animation(.default, value: currentPageIndex)
                     Text(page.title)
                         .font(.title)
                         .padding(.top, 30)
                     Text(page.text)
                     Button("Next", action: goNext)
                         .buttonStyle(.bordered)
-                        .disabled(!canGoNext)
+                        .disabled(!info.isLastPage)
                 }
                 .padding()
                 .multilineTextAlignment(.center)
+                .scaleEffect(info.isCurrentPage(pageIndex) ? 1 : 0.9)
+                .animation(.default, value: pageIndex)
             }
             .background(background.edgesIgnoringSafeArea(.all))
         }
 
-        var canGoNext: Bool {
-            currentPageIndex < (tutorial.pages.count - 1)
-        }
-
         func goNext() {
-            guard canGoNext else { return }
             withAnimation {
-                currentPageIndex += 1
+                pageIndex += 1
             }
         }
 
