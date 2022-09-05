@@ -18,6 +18,7 @@ This version deprecates the `OnboardingPresenter` concept and adds a `tryPresent
 ### 📦 Dependencies
 
 * TuttiTests no longer depends on `MockingKit`.
+* TuttiTests no longer depends on `Quick` and `Nimble`.
 
 
 

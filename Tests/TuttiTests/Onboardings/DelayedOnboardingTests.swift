@@ -6,61 +6,50 @@
 //  Copyright © 2020 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
-import Quick
-import Nimble
 import Tutti
+import XCTest
 
-class DelayedOnboardingTests: QuickSpec {
+final class DelayedOnboardingTests: XCTestCase {
 
-    override func spec() {
+    var onboarding: DelayedOnboarding!
 
-        var onboarding: DelayedOnboarding!
+    override func setUp() {
+        onboarding = DelayedOnboarding(
+            id: "onboarding",
+            requiredPresentationAttempts: 5)
+    }
 
-        beforeEach {
-            onboarding = DelayedOnboarding(
-                id: "onboarding",
-                requiredPresentationAttempts: 5)
-        }
-        
-        afterEach {
-            onboarding.reset()
-            expect(onboarding.presentationCount).to(equal(0))
-            expect(onboarding.presentationCheckCount).to(equal(0))
-        }
-        
-        describe("should be presented") {
-            
-            it("becomes true after a certain number of checks") {
-                expect(onboarding.shouldBePresented).to(beFalse())
-                expect(onboarding.shouldBePresented).to(beFalse())
-                expect(onboarding.shouldBePresented).to(beFalse())
-                expect(onboarding.shouldBePresented).to(beFalse())
-                expect(onboarding.shouldBePresented).to(beTrue())
-            }
-            
-            it("becomes false when a presentation is registered") {
-                expect(onboarding.shouldBePresented).to(beFalse())
-                expect(onboarding.shouldBePresented).to(beFalse())
-                expect(onboarding.shouldBePresented).to(beFalse())
-                expect(onboarding.shouldBePresented).to(beFalse())
-                expect(onboarding.shouldBePresented).to(beTrue())
-                onboarding.registerPresentation()
-                expect(onboarding.shouldBePresented).to(beFalse())
-            }
-        }
-        
-        describe("resetting") {
-            
-            it("resets the presentation counts") {
-                _ = onboarding.shouldBePresented
-                onboarding.registerPresentation()
-                expect(onboarding.presentationCount).to(equal(1))
-                expect(onboarding.presentationCheckCount).to(equal(1))
-                onboarding.reset()
-                expect(onboarding.presentationCount).to(equal(0))
-                expect(onboarding.presentationCheckCount).to(equal(0))
-            }
-        }
+    override func tearDown() {
+        onboarding.reset()
+        XCTAssertEqual(onboarding.presentationCount, 0)
+        XCTAssertEqual(onboarding.presentationCheckCount, 0)
+    }
+
+    func test_shouldBePresented_becomesTrueAfterRequiredNumberOfChecks() {
+        XCTAssertFalse(onboarding.shouldBePresented)
+        XCTAssertFalse(onboarding.shouldBePresented)
+        XCTAssertFalse(onboarding.shouldBePresented)
+        XCTAssertFalse(onboarding.shouldBePresented)
+        XCTAssertTrue(onboarding.shouldBePresented)
+    }
+
+    func test_shouldBePresented_becomesFalseWhenPresentationIsRegistered() {
+        XCTAssertFalse(onboarding.shouldBePresented)
+        XCTAssertFalse(onboarding.shouldBePresented)
+        XCTAssertFalse(onboarding.shouldBePresented)
+        XCTAssertFalse(onboarding.shouldBePresented)
+        XCTAssertTrue(onboarding.shouldBePresented)
+        onboarding.registerPresentation()
+        XCTAssertFalse(onboarding.shouldBePresented)
+    }
+
+    func test_resettingOnboarding_resetsOnboardingPresentationState() {
+        _ = onboarding.shouldBePresented
+        onboarding.registerPresentation()
+        XCTAssertEqual(onboarding.presentationCount, 1)
+        XCTAssertEqual(onboarding.presentationCheckCount, 1)
+        onboarding.reset()
+        XCTAssertEqual(onboarding.presentationCount, 0)
+        XCTAssertEqual(onboarding.presentationCheckCount, 0)
     }
 }

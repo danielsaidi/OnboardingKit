@@ -15,16 +15,13 @@ let package = Package(
             name: "Tutti",
             targets: ["Tutti"])
     ],
-    dependencies: [
-        .package(url: "https://github.com/danielsaidi/Quick.git", branch: "main"),
-        .package(url: "https://github.com/danielsaidi/Nimble.git", branch: "main")
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "Tutti",
             dependencies: []),
         .testTarget(
             name: "TuttiTests",
-            dependencies: ["Tutti", "Quick", "Nimble"])
+            dependencies: ["Tutti"])
     ]
 )

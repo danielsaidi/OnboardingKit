@@ -6,85 +6,70 @@
 //  Copyright © 2020 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
-import Quick
-import Nimble
 import Tutti
+import XCTest
 
-class LocalizedTutorialTests: QuickSpec {
+final class LocalizedTutorialTests: XCTestCase {
 
-    override func spec() {
-        
-        describe("standard initializer") {
-            
-            let translator: (String) -> String = {
-                let stop = $0 == "tutorial.welcome.3.title"
-                return stop ? $0 : ""
-            }
-            
-            it("creates standard pages until no translation is found") {
-                let result = LocalizedTutorial(id: "welcome", translator: translator)
-                let pages = result.pages
-                expect(pages.count).to(equal(3))
-                expect(pages[0].title).to(equal("tutorial.welcome.0.title"))
-                expect(pages[1].text).to(equal("tutorial.welcome.1.text"))
-                expect(pages[2].imageName).to(equal("tutorial.welcome.2.image"))
-            }
+    func test_standardInitializer_createsStandardPagesForAllTranslations() {
+        let translator: (String) -> String = {
+            $0 == "tutorial.welcome.3.title" ? $0 : ""
         }
-        
-        describe("custom initializer") {
-            
-            let translator: (String) -> String = {
-                let stop = $0 == "tutorial_custom_2_movie"
-                return stop ? $0 : ""
-            }
-            
-            it("creates standard pages until no translation is found") {
-                let result = LocalizedTutorial(
-                    id: "custom",
-                    pageIndicationKey: "movie",
-                    resourceKeySeparator: "_",
-                    translator: translator)
-                let pages = result.pages
-                expect(pages.count).to(equal(2))
-                expect(pages[0].title).to(equal("tutorial_custom_0_title"))
-                expect(pages[1].text).to(equal("tutorial_custom_1_text"))
-            }
+
+        let result = LocalizedTutorial(
+            id: "welcome",
+            translator: translator)
+        let pages = result.pages
+
+        XCTAssertEqual(pages.count, 3)
+        XCTAssertEqual(pages[0].title, "tutorial.welcome.0.title")
+        XCTAssertEqual(pages[1].text, "tutorial.welcome.1.text")
+        XCTAssertEqual(pages[2].imageName, "tutorial.welcome.2.image")
+    }
+
+    func test_customInitializer_createsStandardPagesForAllTranslations() {
+        let translator: (String) -> String = {
+            $0 == "tutorial_custom_2_movie" ? $0 : ""
         }
-        
-        describe("standard resource name resolver") {
-            
-            it("uses the expected resource name format") {
-                let result = LocalizedTutorial.resourceName(
-                    for: "welcome",
-                    at: 0,
-                    resourceKey: "title",
-                    resourceKeySeparator: "-")
-                expect(result).to(equal("tutorial-welcome-0-title"))
-            }
-            
-            it("omits empty resource keys") {
-                let result = LocalizedTutorial.resourceName(
-                    for: "farewell",
-                    at: 3,
-                    resourceKey: "",
-                    resourceKeySeparator: "*")
-                expect(result).to(equal("tutorial*farewell*3"))
-            }
-        }
-        
-        describe("standard page resolver") {
-            
-            it("uses the provided resource name resolver") {
-                let result = LocalizedTutorial.page(
-                    for: "hello",
-                    at: 5,
-                    resourceName: LocalizedTutorial.resourceName,
-                    resourceKeySeparator: "_")
-                expect(result.title).to(equal("tutorial_hello_5_title"))
-                expect(result.text).to(equal("tutorial_hello_5_text"))
-                expect(result.imageName).to(equal("tutorial_hello_5_image"))
-            }
-        }
+
+        let result = LocalizedTutorial(
+            id: "custom",
+            pageIndicationKey: "movie",
+            resourceKeySeparator: "_",
+            translator: translator)
+        let pages = result.pages
+
+        XCTAssertEqual(pages.count, 2)
+        XCTAssertEqual(pages[0].title, "tutorial_custom_0_title")
+        XCTAssertEqual(pages[1].text, "tutorial_custom_1_text")
+    }
+
+    func test_standardResourceNameResolver_usesExpectedResourceNameFormat() {
+        let result = LocalizedTutorial.resourceName(
+            for: "welcome",
+            at: 0,
+            resourceKey: "title",
+            resourceKeySeparator: "-")
+        XCTAssertEqual(result, "tutorial-welcome-0-title")
+    }
+
+    func test_standardResourceNameResolver_omitsEmptyResourceKeys() {
+        let result = LocalizedTutorial.resourceName(
+            for: "farewell",
+            at: 3,
+            resourceKey: "",
+            resourceKeySeparator: "*")
+        XCTAssertEqual(result, "tutorial*farewell*3")
+    }
+
+    func test_standardPageResolved_usesProvidedResourceNameResolved() {
+        let result = LocalizedTutorial.page(
+            for: "hello",
+            at: 5,
+            resourceName: LocalizedTutorial.resourceName,
+            resourceKeySeparator: "_")
+        XCTAssertEqual(result.title, "tutorial_hello_5_title")
+        XCTAssertEqual(result.text, "tutorial_hello_5_text")
+        XCTAssertEqual(result.imageName, "tutorial_hello_5_image")
     }
 }

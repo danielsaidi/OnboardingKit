@@ -7,99 +7,84 @@
 //
 
 import Foundation
-import Quick
-import Nimble
 import Tutti
+import XCTest
 
-class OnboardingTests: QuickSpec {
+final class OnboardingTests: XCTestCase {
 
-    override func spec() {
+    var onboarding: Onboarding!
 
-        var onboarding: Onboarding!
+    override func setUp() {
+        onboarding = Onboarding(id: "onboarding")
+    }
 
-        beforeEach {
-            onboarding = Onboarding(id: "onboarding")
-        }
-        
-        afterEach {
-            onboarding.reset()
-            expect(onboarding.presentationCount).to(equal(0))
-        }
-        
-        describe("persistency") {
-            
-            it("uses standard user defaults by default") {
-                let result = onboarding.defaults
-                expect(result).to(be(UserDefaults.standard))
-            }
-        }
-        
-        describe("has been presented") {
-            
-            it("is false by default") {
-                expect(onboarding.hasBeenPresented).to(beFalse())
-            }
-            
-            it("becomes true when a presentation is registered") {
-                expect(onboarding.hasBeenPresented).to(beFalse())
-                onboarding.registerPresentation()
-                expect(onboarding.hasBeenPresented).to(beTrue())
-            }
-        }
-        
-        describe("should be presented") {
-            
-            it("is true by default") {
-                expect(onboarding.shouldBePresented).to(beTrue())
-            }
-            
-            it("becomes false when a presentation is registered") {
-                expect(onboarding.shouldBePresented).to(beTrue())
-                onboarding.registerPresentation()
-                expect(onboarding.shouldBePresented).to(beFalse())
-            }
-        }
-        
-        describe("persistency key") {
-            
-            it("is unique for each onboarding") {
-                let key = "value"
-                let result1 = Onboarding(id: "1").persistencyKey(for: key)
-                let result2 = Onboarding(id: "2").persistencyKey(for: key)
-                expect(result1).to(equal("com.tutti.onboarding.1.value"))
-                expect(result2).to(equal("com.tutti.onboarding.2.value"))
-                expect(result1).toNot(equal(result2))
-            }
-            
-            it("is unique for each user") {
-                let key = "value"
-                let result1 = Onboarding(id: "1", userId: "user1").persistencyKey(for: key)
-                let result2 = Onboarding(id: "1", userId: "user2").persistencyKey(for: key)
-                expect(result1).to(equal("com.tutti.onboarding.1.value.user1"))
-                expect(result2).to(equal("com.tutti.onboarding.1.value.user2"))
-                expect(result1).toNot(equal(result2))
-            }
-        }
-        
-        describe("registering presentation") {
-            
-            it("increments the presentation count") {
-                expect(onboarding.presentationCount).to(equal(0))
-                onboarding.registerPresentation()
-                onboarding.registerPresentation()
-                onboarding.registerPresentation()
-                expect(onboarding.presentationCount).to(equal(3))
-            }
-        }
-        
-        describe("resetting") {
-            
-            it("resets the presentation count") {
-                onboarding.registerPresentation()
-                expect(onboarding.presentationCount).to(equal(1))
-                onboarding.reset()
-                expect(onboarding.presentationCount).to(equal(0))
-            }
-        }
+    override func tearDown() {
+        onboarding.reset()
+        XCTAssertEqual(onboarding.presentationCount, 0)
+    }
+
+    func test_persistency_usesStandardUserDefaultsByDefault() {
+        let result = onboarding.defaults
+        let expected = UserDefaults.standard
+        XCTAssertTrue(result === expected)
+    }
+
+    func test_hasBeenPresented_isFalseByDefault() {
+        XCTAssertFalse(onboarding.hasBeenPresented)
+    }
+
+    func test_hasBeenPresented_becomesTrueWhenPresentationIsRegistered() {
+        XCTAssertFalse(onboarding.hasBeenPresented)
+        onboarding.registerPresentation()
+        XCTAssertTrue(onboarding.hasBeenPresented)
+    }
+
+    func test_shouldBePresented_isTrueByDefault() {
+        XCTAssertTrue(onboarding.shouldBePresented)
+    }
+
+    func test_shouldBePresented_becomesFalseWhenPresentationIsRegistered() {
+        XCTAssertTrue(onboarding.shouldBePresented)
+        onboarding.registerPresentation()
+        XCTAssertFalse(onboarding.shouldBePresented)
+    }
+
+    func test_persistencyKey_isUniqueForEachUniqueOnbarding() {
+        let key = "value"
+        let result1 = Onboarding(id: "1").persistencyKey(for: key)
+        let result2 = Onboarding(id: "2").persistencyKey(for: key)
+        let result3 = Onboarding(id: "1").persistencyKey(for: key)
+        XCTAssertEqual(result1, "com.tutti.onboarding.1.value")
+        XCTAssertEqual(result2, "com.tutti.onboarding.2.value")
+        XCTAssertNotEqual(result1, result2)
+        XCTAssertEqual(result1, result3)
+    }
+
+    func test_persistencyKey_isUniqueForEachUniqueUser() {
+        let key = "value"
+        let result1 = Onboarding(id: "1", userId: "user1").persistencyKey(for: key)
+        let result2 = Onboarding(id: "1", userId: "user2").persistencyKey(for: key)
+        let result3 = Onboarding(id: "1", userId: "user1").persistencyKey(for: key)
+        XCTAssertEqual(result1, "com.tutti.onboarding.1.value.user1")
+        XCTAssertEqual(result2, "com.tutti.onboarding.1.value.user2")
+        XCTAssertNotEqual(result1, result2)
+        XCTAssertEqual(result1, result3)
+    }
+
+    func test_registeringPresentation_incrementsPresentationCount() {
+        XCTAssertEqual(onboarding.presentationCount, 0)
+        onboarding.registerPresentation()
+        onboarding.registerPresentation()
+        onboarding.registerPresentation()
+        XCTAssertEqual(onboarding.presentationCount, 3)
+    }
+
+    func test_resettingOnboarding_resetsOnboardingPresentationState() {
+        onboarding.registerPresentation()
+        XCTAssertTrue(onboarding.hasBeenPresented)
+        XCTAssertEqual(onboarding.presentationCount, 1)
+        onboarding.reset()
+        XCTAssertFalse(onboarding.hasBeenPresented)
+        XCTAssertEqual(onboarding.presentationCount, 0)
     }
 }

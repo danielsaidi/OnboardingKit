@@ -6,34 +6,24 @@
 //  Copyright © 2020 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
-import Quick
-import Nimble
 import Tutti
+import XCTest
 
-class HintTests: QuickSpec {
+final class HintTests: XCTestCase {
 
-    override func spec() {
+    func test_hasTitle_isTrueIfTitleHasContent() {
+        XCTAssertTrue(Hint(title: " Hi! ", text: "").hasTitle)
+        XCTAssertFalse(Hint(title: "     ", text: "").hasTitle)
+    }
 
-        describe("has title") {
-            
-            it("is true if hint title has content") {
-                expect(Hint(title: " Hi! ", text: "").hasTitle).to(beTrue())
-                expect(Hint(title: "     ", text: "").hasTitle).to(beFalse())
-            }
-        }
-
-        describe("equality") {
-            
-            it("is true if both title and text matches") {
-                let hint1 = Hint(title: "1", text: "1")
-                let hint2 = Hint(title: "1", text: "2")
-                let hint3 = Hint(title: "2", text: "1")
-                let hint4 = Hint(title: "1", text: "1")
-                expect(hint1).toNot(equal(hint2))
-                expect(hint1).toNot(equal(hint3))
-                expect(hint1).to(equal(hint4))
-            }
-        }
+    func test_equality_isEqualIfBothTitleAndTextMatches() {
+        let hint1 = Hint(title: "1", text: "1")
+        let hint2 = Hint(title: "1", text: "2")
+        let hint3 = Hint(title: "2", text: "1")
+        let hint4 = Hint(title: "1", text: "1")
+        XCTAssertTrue(hint1 == hint4)
+        XCTAssertFalse(hint1 == hint2)
+        XCTAssertFalse(hint1 == hint3)
+        XCTAssertFalse(hint2 == hint3)
     }
 }

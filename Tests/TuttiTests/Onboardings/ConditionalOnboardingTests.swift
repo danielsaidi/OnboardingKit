@@ -6,39 +6,31 @@
 //  Copyright © 2020 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
-import Quick
-import Nimble
 import Tutti
+import XCTest
 
-class ConditionalOnboardingTests: QuickSpec {
+final class ConditionalOnboardingTests: XCTestCase {
 
-    override func spec() {
+    var onboarding: Onboarding!
 
-        var onboarding: ConditionalOnboarding!
+    override func tearDown() {
+        onboarding.reset()
+        XCTAssertEqual(onboarding.presentationCount, 0)
+    }
 
-        afterEach {
-            onboarding.reset()
-            expect(onboarding.presentationCount).to(equal(0))
-        }
-        
-        describe("should be presented") {
-            
-            it("is true if condition it true and hint hasn't been presented") {
-                onboarding = ConditionalOnboarding(id: "id", condition: { true })
-                expect(onboarding.shouldBePresented).to(beTrue())
-            }
-            
-            it("is false if condition it true, but hint has been presented") {
-                onboarding = ConditionalOnboarding(id: "id", condition: { true })
-                onboarding.registerPresentation()
-                expect(onboarding.shouldBePresented).to(beFalse())
-            }
-            
-            it("is false if condition it false") {
-                onboarding = ConditionalOnboarding(id: "id", condition: { false })
-                expect(onboarding.shouldBePresented).to(beFalse())
-            }
-        }
+    func test_shouldBePresented_isTrueIfConditionIsTrueAndOnboardingHasNotBeenPresented() {
+        onboarding = ConditionalOnboarding(id: "id", condition: { true })
+        XCTAssertTrue(onboarding.shouldBePresented)
+    }
+
+    func test_shouldBePresented_isFalseIfConditionIsTrueButOnboardingHasBeenPresented() {
+        onboarding = ConditionalOnboarding(id: "id", condition: { true })
+        onboarding.registerPresentation()
+        XCTAssertFalse(onboarding.shouldBePresented)
+    }
+
+    func test_shouldBePresented_isFalseIfConditionIsFalse() {
+        onboarding = ConditionalOnboarding(id: "id", condition: { false })
+        XCTAssertFalse(onboarding.shouldBePresented)
     }
 }
