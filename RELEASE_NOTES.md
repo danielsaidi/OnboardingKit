@@ -1,6 +1,18 @@
 # Release Notes
 
 
+
+## 5.0
+
+This version bumps the minimum iOS version to 13 to allow importing SwiftUI.
+
+### ✨ New features
+
+* `TutorialSlideView` is a new view for presenting tutorial-based onboarding flows.
+* `TutorialSlideViewStyle` can be used to style `TutorialSlideView` views.
+
+
+
 ## 4.2
 
 This version deprecates the `OnboardingPresenter` concept and adds a `tryPresent` function to the `Onboarding` instead.
