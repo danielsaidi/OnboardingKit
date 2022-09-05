@@ -1,5 +1,5 @@
 //
-//  TutorialPageTabView.swift
+//  TutorialSlideView.swift
 //  Tutti
 //
 //  Created by Daniel Saidi on 2022-09-04.
@@ -8,15 +8,16 @@
 
 #if os(iOS)
 import SwiftUI
+import UIKit
 
 /**
- This view renders tutorial pages in a `TabView` with `page`
- style applied to generate page indicators.
+ This view renders tutorial pages in a `TabView` with a page
+ style applied, which lets the user swipe throught the pages.
 
  This view is currently only available on `iOS`.
  */
 @available(iOS 14.0, *)
-public struct TutorialPageTabView<PageType: TutorialPage, PageViewType: View>: View {
+public struct TutorialSlideView<PageType: TutorialPage, PageViewType: View>: View {
 
     /**
      Create a tutorial page flow that renders tutorial pages
@@ -25,13 +26,13 @@ public struct TutorialPageTabView<PageType: TutorialPage, PageViewType: View>: V
      - Parameters:
        - tutorial: The tutorial to present.
        - pageIndex: The current page.
-       - style: The style to apply, by default ``TutorialPageTabViewStyle/standard``.
-       - pageView: A function that is used to build a view for each page.
+       - style: The style to apply, by default ``TutorialSlideViewStyle/standard``.
+       - pageView: A function used to build a view for each page.
      */
     public init(
         tutorial: Tutorial<PageType>,
         pageIndex: Binding<Int>,
-        style: TutorialPageTabViewStyle = .standard,
+        style: TutorialSlideViewStyle = .standard,
         @ViewBuilder pageView: @escaping PageViewBuilder
     ) {
         self.tutorial = tutorial
@@ -59,7 +60,7 @@ public struct TutorialPageTabView<PageType: TutorialPage, PageViewType: View>: V
 }
 
 @available(iOS 15.0, *)
-struct TutorialPageTabView_Previews: PreviewProvider {
+struct TutorialSlideView_Previews: PreviewProvider {
 
     struct Preview: View {
 
@@ -77,29 +78,31 @@ struct TutorialPageTabView_Previews: PreviewProvider {
         ])
 
         var body: some View {
-            TutorialPageTabView(
+            TutorialSlideView(
                 tutorial: tutorial,
                 pageIndex: $pageIndex
             ) { page, info in
                 VStack(spacing: 25) {
+                    Spacer()
                     AsyncImage(url: URL(string: page.imageName ?? ""))
                         .cornerRadius(10)
                         .frame(height: 300)
-                        .shadow(color: .gray, radius: 5, x: 0, y: 3)
+                        .shadow(color: .black.opacity(0.4), radius: 5, x: 0, y: 3)
                     Text(page.title)
                         .font(.title)
                         .padding(.top, 30)
                     Text(page.text)
+                    Spacer()
                     Button("Next", action: goNext)
                         .buttonStyle(.bordered)
                         .disabled(!info.isLastPage)
+                        .padding(60)
                 }
                 .padding()
                 .multilineTextAlignment(.center)
                 .scaleEffect(info.isCurrentPage(pageIndex) ? 1 : 0.9)
                 .animation(.default, value: pageIndex)
             }
-            .background(background.edgesIgnoringSafeArea(.all))
         }
 
         func goNext() {
