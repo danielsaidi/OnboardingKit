@@ -19,7 +19,7 @@ This version deprecates the `OnboardingPresenter` concept and adds a `tryPresent
 
 ### ✨ New features
 
-* `TutorialPageInfo` is a new struct used by `TutorialPageTabView`.
+* `TutorialPageInfo` is a new struct.
 * `UrlTutorialPage` is a new tutorial page with a `URL`.
 
 ### 💡 Behavior changes
