@@ -51,8 +51,13 @@ public struct TutorialSlideView<PageType: TutorialPage, PageViewType: View>: Vie
     public var body: some View {
         TabView(selection: pageIndex) {
             ForEach(Array(tutorial.pages.enumerated()), id: \.offset) {
-                pageView($0.element, TutorialPageInfo(pageIndex: $0.offset, totalPageCount: tutorial.pages.count))
-                    .tag($0.offset)
+                pageView(
+                    $0.element,
+                    TutorialPageInfo(
+                        pageIndex: $0.offset,
+                        currentPageIndex: pageIndex.wrappedValue,
+                        totalPageCount: tutorial.pages.count)
+                ).tag($0.offset)
             }
         }
         .tabViewStyle(.page)
@@ -100,7 +105,7 @@ struct TutorialSlideView_Previews: PreviewProvider {
                 }
                 .padding()
                 .multilineTextAlignment(.center)
-                .scaleEffect(info.isCurrentPage(pageIndex) ? 1 : 0.9)
+                .scaleEffect(info.isCurrentPage ? 1 : 0.9)
                 .animation(.default, value: pageIndex)
             }
         }

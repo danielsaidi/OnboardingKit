@@ -2,6 +2,17 @@
 
 
 
+## 5.0.1
+
+This version adjusts the `TutorialPageInfo` type slightly.
+
+### ✨ New features
+
+* `TutorialPageInfo` now has a current page property.
+* `TutorialPageInfo` `isCurrentPage` is now a property instead of a function.
+
+
+
 ## 5.0
 
 This version bumps the minimum iOS version to 13 to allow importing SwiftUI.

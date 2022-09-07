@@ -16,8 +16,29 @@ import Foundation
  */
 public struct TutorialPageInfo {
 
-    /// The current page index.
+    /**
+     Create a page info value.
+
+     - Parameters:
+       - pageIndex: The page index.
+       - currentPageIndex: The current page index.
+       - totalPageCount: The total number of pages.
+     */
+    public init(
+        pageIndex: Int,
+        currentPageIndex: Int,
+        totalPageCount: Int
+    ) {
+        self.pageIndex = pageIndex
+        self.currentPageIndex = currentPageIndex
+        self.totalPageCount = totalPageCount
+    }
+
+    /// The page index.
     public let pageIndex: Int
+
+    /// The current page index.
+    public let currentPageIndex: Int
 
     /// The total number of pages.
     public let totalPageCount: Int
@@ -27,16 +48,16 @@ public extension TutorialPageInfo {
 
     /// Whether or not this is the first page.
     var isFirstPage: Bool {
-        pageIndex == 0
+        pageIndex <= 0
     }
 
     /// Whether or not this is the last page.
     var isLastPage: Bool {
-        pageIndex < totalPageCount - 1
+        pageIndex >= totalPageCount - 1
     }
 
     /// Whether or not the provided page is the current page.
-    func isCurrentPage(_ pageIndex: Int) -> Bool {
-        pageIndex == self.pageIndex
+    var isCurrentPage: Bool {
+        pageIndex == currentPageIndex
     }
 }
