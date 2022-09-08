@@ -9,24 +9,25 @@
 import Foundation
 
 /**
- This onboarding can be used to help a user behave correctly
- e.g. by presenting a hint about what you are expected to do.
+ This onboarding type can help users behave as expected, for
+ instance by presenting a hint about what you're expected to
+ do after you fail to do so a certain number of times.
  
- An example could be a puzzle game, where a piece can be set
- to move to the correct place after being incorrectly placed
- a certain number of times.
- 
- `registerIncorrectBehavior` should be triggered each time a
- user behaves incorrectly. `shouldBePresented` becomes `true`
- when this has been repeated a certain number of times.
- 
- `registerCorrectBehavior` should be triggered when the user
- behaves correctly. It will cancel any previously registered
- incorrect behaviors.
- 
- The class will reset every time it registers a presentation,
- since users should continue to see the hint if they keep on
- behaving incorrectly.
+ An example could be a puzzle game, where pieces can animate
+ to their position after being incorrectly placed many times.
+
+ Call ``registerIncorrectBehavior()`` when users behave in a
+ way that you think is incorrect. ``shouldBePresented`` will
+ become `true` when it has been called a couple of times, as
+ defined by the ``requiredIncorrectAttempts`` property.
+
+ Call ``registerCorrectBehavior()`` when users behave as you
+ want them to. It cancels all registered incorrect behaviors
+ and makes the onboarding start from the beginning.
+
+ Unlike the base ``Onboarding``, this onboarding resets once
+ it's presented, since users should get the onboarding again
+ if they keep behaving in an incorrect way.
  */
 open class CorrectBehaviorOnboarding: Onboarding {
     
@@ -37,7 +38,7 @@ open class CorrectBehaviorOnboarding: Onboarding {
         - id: The unique onboarding id.
         - userId: An optional user id.
         - defaults: The `UserDefaults` instance to use.
-        - requiredIncorrectAttempts: The number of times `registerIncorrectBehavior` must be checked before `shouldBePresented` becomes `true`.
+        - requiredIncorrectAttempts: The number of times users can behave incorrectly before the onboarding is presented.
      */
     public init(
         id: String,
@@ -47,43 +48,60 @@ open class CorrectBehaviorOnboarding: Onboarding {
         self.requiredIncorrectAttempts = requiredIncorrectAttempts
         super.init(id: id, userId: userId, defaults: defaults)
     }
-    
-    private let requiredIncorrectAttempts: Int
-    
+
+
+    /**
+     The number of times users can behave incorrectly before
+     the onboarding is presented.
+     */
+    public let requiredIncorrectAttempts: Int
+
+
     /**
      Whether or not the onboarding should be presented.
+
+     This becomes `true` when ``registerIncorrectBehavior()``
+     has been called a certain number of times.
      */
     open override var shouldBePresented: Bool {
         incorrectBehaviorCount >= requiredIncorrectAttempts
     }
     
     /**
-     Register a correct user behavior, which will cause this
-     onboarding to reset itself.
+     Register a correct behavior.
+
+     Calling this function indicates that a user has behaved
+     as expected, which will cause any previously registered
+     incorrect behaviors to reset and the onboarding restart.
      */
     open func registerCorrectBehavior() {
         reset()
     }
     
     /**
-     Register an incorrect user behavior. This will make the
-     onboarding increment the `incorrectBehaviorCount` which
-     may cause `shouldBePresented` to become `true`.
+     Register an incorrect behavior.
+
+     Calling this function indicates that a user has behaved
+     incorrectly, which increments a counter that eventually
+     will makes ``shouldBePresented`` become `true`.
      */
     open func registerIncorrectBehavior() {
         incorrectBehaviorCount += 1
     }
     
     /**
-     Call this when you present the onboarding. It will make
-     the onboarding reset, so that it can be presented again.
+     Register an onboarding presentation.
+
+     This onboarding will reset itself for each presentation,
+     since users who keep behaving incorrectly should see it
+     over and over again.
      */
     open override func registerPresentation() {
         reset()
     }
     
     /**
-     Call this to reset any previous presentation logic.
+     Reset the onboarding state.
      */
     open override func reset() {
         incorrectBehaviorCount = 0
@@ -95,7 +113,10 @@ open class CorrectBehaviorOnboarding: Onboarding {
 // MARK: - Public Members
 
 public extension CorrectBehaviorOnboarding {
-    
+
+    /**
+     The number of times an incorrect behavior has been done.
+     */
     var incorrectBehaviorCount: Int {
         get { defaults.integer(forKey: incorrectBehaviorCountKey) }
         set { defaults.set(newValue, forKey: incorrectBehaviorCountKey) }

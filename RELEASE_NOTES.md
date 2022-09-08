@@ -2,6 +2,16 @@
 
 
 
+## 5.1
+
+### ✨ New features
+
+* `CorrectBehaviorOnboarding` `requiredIncorrectAttempts` is now public.
+* `DelayedOnboarding` `requiredPresentationAttempts` is now public.
+* `Onboarding` `tryPresent` is now public.
+
+
+
 ## 5.0.1
 
 This version adjusts the `TutorialPageInfo` type slightly.

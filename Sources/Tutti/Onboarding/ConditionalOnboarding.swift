@@ -10,10 +10,14 @@ import Foundation
 
 /**
  This onboarding takes a conditional block, that must return
- `true` for `shouldBePresented` to return true.
- 
- Other than that, it behaves just like the `Onboarding` base
- class and will only be presented once.
+ `true` for ``shouldBePresented`` to become true.
+
+ An example could be an onboarding that should only be shown
+ when a certain condition kicks in, for instance to tell the
+ user to do something.
+
+ Other than that, this onboarding type behaves just like the
+ base ``Onboarding``, and is only presented once.
  */
 open class ConditionalOnboarding: Onboarding {
     
@@ -34,7 +38,6 @@ open class ConditionalOnboarding: Onboarding {
         self.condition = condition
         super.init(id: id, userId: userId, defaults: defaults)
     }
-    
     
     public typealias Condition = () -> Bool
     
