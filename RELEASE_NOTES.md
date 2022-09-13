@@ -8,7 +8,8 @@
 
 * `CorrectBehaviorOnboarding` `requiredIncorrectAttempts` is now public.
 * `DelayedOnboarding` `requiredPresentationAttempts` is now public.
-* `Onboarding` `tryPresent` is now public.
+* `Onboarding` `tryPresent` is now `open`.
+* `Onboarding` `tryPresent` has a new delay-based variant.
 
 
 

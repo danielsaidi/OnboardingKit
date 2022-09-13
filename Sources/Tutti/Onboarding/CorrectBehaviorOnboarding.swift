@@ -16,6 +16,10 @@ import Foundation
  An example could be a puzzle game, where pieces can animate
  to their position after being incorrectly placed many times.
 
+ Unlike the base ``Onboarding``, this onboarding resets once
+ it's presented, since users should get the onboarding again
+ if they keep behaving in an incorrect way.
+
  Call ``registerIncorrectBehavior()`` when users behave in a
  way that you think is incorrect. ``shouldBePresented`` will
  become `true` when it has been called a couple of times, as
@@ -24,10 +28,6 @@ import Foundation
  Call ``registerCorrectBehavior()`` when users behave as you
  want them to. It cancels all registered incorrect behaviors
  and makes the onboarding start from the beginning.
-
- Unlike the base ``Onboarding``, this onboarding resets once
- it's presented, since users should get the onboarding again
- if they keep behaving in an incorrect way.
  */
 open class CorrectBehaviorOnboarding: Onboarding {
     

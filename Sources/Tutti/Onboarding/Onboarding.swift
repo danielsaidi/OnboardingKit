@@ -107,6 +107,22 @@ open class Onboarding {
         action()
         registerPresentation()
     }
+
+    /**
+     Try to presenting the onboarding with a certain `action`
+     after a certain amount of `seconds`.
+
+     The presentation attempt is aborted when the onboarding
+     should not be presented.
+     */
+    open func tryPresent(
+        after seconds: TimeInterval,
+        presentAction action: @escaping () -> Void
+    ) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { [weak self] in
+            self?.tryPresent(presentAction: action)
+        }
+    }
 }
 
 

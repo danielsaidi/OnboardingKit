@@ -17,7 +17,9 @@ import Foundation
  user to do something.
 
  Other than that, this onboarding type behaves just like the
- base ``Onboarding``, and is only presented once.
+ base ``Onboarding`` and is only presented once. If you only
+ want the condition to apply, you don't need this onboarding
+ and can just check the condition right away.
  */
 open class ConditionalOnboarding: Onboarding {
     

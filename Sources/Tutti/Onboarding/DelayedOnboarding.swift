@@ -23,7 +23,7 @@ import Foundation
  by calling ``Onboarding/tryPresent(presentAction:)``.
 
  Other than that, this onboarding type behaves just like the
- base ``Onboarding``, and is only presented once.
+ base ``Onboarding`` and is only presented once.
  */
 open class DelayedOnboarding: Onboarding {
     
