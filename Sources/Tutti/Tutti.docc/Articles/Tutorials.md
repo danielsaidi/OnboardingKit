@@ -89,8 +89,9 @@ You can also just use the onboarding's ``Onboarding/tryPresent(presentAction:)``
 
 ```swift
 let onboarding = Onboarding(id: "welcome")
-onboarding.tryPresent { 
-   // Present the tutorial
+onboarding.tryPresent {
+    let tutorial = Tutorial(pages: ...)
+    // Present the tutorial
 }
 ```
 

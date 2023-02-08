@@ -45,8 +45,9 @@ You can also just use the onboarding's ``Onboarding/tryPresent(presentAction:)``
 
 ```swift
 let onboarding = Onboarding(id: "welcome")
-onboarding.tryPresent { 
-   // Present the hint
+onboarding.tryPresent {
+    let hint = Hint(title: "Welcome!", text: "Welcome to this app.")
+    // Present the hint, for instance in a toast or a callout
 }
 ```
 

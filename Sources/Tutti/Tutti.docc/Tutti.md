@@ -16,12 +16,6 @@ Tutti also supports multiple users, so that each onboarding is unique to each us
 
 
 
-## Supported Platforms
-
-Tutti supports `iOS 9`, `macOS 10.15`, `tvOS 13` and `watchOS 6`.
-
-
-
 ## Installation
 
 Tutti can be installed with the Swift Package Manager:
@@ -36,7 +30,14 @@ or with CocoaPods:
 pod Tutti
 ```
 
-You can also clone the repository and build the library locally.
+If you prefer to no have external dependencies, you can also just copy the source code into your app.
+
+
+
+## Supported Platforms
+
+Tutti supports `iOS 9`, `macOS 10.15`, `tvOS 13` and `watchOS 6`.
+
 
 
 ## About this documentation

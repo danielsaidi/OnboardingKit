@@ -7,7 +7,7 @@ This article describes how to get started with Tutti.
 
 In Tutti, an ``Onboarding`` is at the core of the onboarding experience and determines whether or not a hint or tutorial should be presented.
 
-Tutti comes with different types of onboardings, e.g. `Onboarding`, `DelayedOnboarding`, `ConditionalOnboarding` etc. that can help you create a suitable experience for e.g. a first app onboarding, general instructions, games etc.
+Tutti comes with different types of onboardings, e.g. ``Onboarding``, ``DelayedOnboarding``, ``ConditionalOnboarding`` etc. that can help you create a suitable experience for e.g. an initial onboarding, gamified systems etc.
 
 
 ## Hints
