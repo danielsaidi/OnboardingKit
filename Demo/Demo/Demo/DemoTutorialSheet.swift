@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Tutti
+import OnboardingKit
 
 /**
  This tutorial is just a multi-page tab that presents a page

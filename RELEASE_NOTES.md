@@ -1,6 +1,11 @@
 # Release Notes
 
 
+## 6.0
+
+Tutti is renamed to OnboardingKit.
+
+
 
 ## 5.1
 

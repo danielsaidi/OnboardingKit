@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Tutti
+import OnboardingKit
 
 struct ContentView: View {
     
@@ -37,7 +37,7 @@ struct ContentView: View {
                 }
             }
             .listStyle(.insetGrouped)
-            .navigationTitle("Tutti Demo")
+            .navigationTitle("Demo")
         }
         .alert(isPresented: $isHintActive) { currentAlert }
         .sheet(isPresented: $isTutorialActive) { currentTutorial }

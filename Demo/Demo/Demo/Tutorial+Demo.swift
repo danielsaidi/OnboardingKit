@@ -6,7 +6,7 @@
 //  Copyright © 2021 Daniel Saidi. All rights reserved.
 //
 
-import Tutti
+import OnboardingKit
 
 extension Tutorial {
     

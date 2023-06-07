@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Tutti
+import OnboardingKit
 
 extension Onboarding {
     

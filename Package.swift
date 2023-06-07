@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Tutti",
+    name: "OnboardingKit",
     platforms: [
         .iOS(.v13),
         .macOS(.v10_15),
@@ -12,16 +12,16 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Tutti",
-            targets: ["Tutti"])
+            name: "OnboardingKit",
+            targets: ["OnboardingKit"])
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "Tutti",
+            name: "OnboardingKit",
             dependencies: []),
         .testTarget(
-            name: "TuttiTests",
-            dependencies: ["Tutti"])
+            name: "OnboardingKitTests",
+            dependencies: ["OnboardingKit"])
     ]
 )
