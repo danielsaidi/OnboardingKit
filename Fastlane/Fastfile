@@ -6,7 +6,7 @@ platform :ios do
 
   library_name = "OnboardingKit"
   pod_name = "OnboardingKit"
-  main_branch = "main"
+  main_branch = "master"
   build_folder_docs = ".build/docs"
 
 
