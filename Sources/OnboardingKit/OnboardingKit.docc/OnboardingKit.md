@@ -1,6 +1,6 @@
 # ``OnboardingKit``
 
-OnboardingKit helps you create onboarding expericences like hints and tutorials.
+OnboardingKit helps you create onboarding expericences in `Swift` and `SwiftUI`.
 
 
 
@@ -8,11 +8,11 @@ OnboardingKit helps you create onboarding expericences like hints and tutorials.
 
 ![OnboardingKit logo](Logo.png)
 
-OnboardingKit has different onboarding types that can be presented as hints or tutorials. A standard onboarding is shown right away and only once, while other types require multiple presentation attempts, a certain number of "incorrect" actions etc. 
+OnboardingKit has different onboarding types. A standard onboarding is shown right away and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions etc. You can also combine different onboarding types to create new ones and reset the state of any onboarding you want to display again. 
 
-OnboardingKit has different onboarding types. A standard onboarding is shown right away and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions etc. You can also combine different onboarding types to create new ones and reset the display state of any onboarding if you want to display it again. 
+OnboardingKit supports multiple users, so that each onboarding is unique to each user.
 
-OnboardingKit also supports multiple users, so that each onboarding is unique to each user.
+OnboardingKit supports `iOS 13`, `macOS 10.15`, `tvOS 13` and `watchOS 6`.
 
 
 
@@ -24,27 +24,19 @@ OnboardingKit can be installed with the Swift Package Manager:
 https://github.com/danielsaidi/OnboardingKit.git
 ```
 
-or with CocoaPods:
-
-```
-pod OnboardingKit
-```
-
 If you prefer to no have external dependencies, you can also just copy the source code into your app.
 
 
 
-## Supported Platforms
+## Repository
 
-OnboardingKit supports `iOS 13`, `macOS 10.15`, `tvOS 13` and `watchOS 6`.
+For more information, source code, and to report issues, sponsor the project etc., visit the [project repository](https://github.com/danielsaidi/OnboardingKit).
 
 
 
 ## About this documentation
 
-The online documentation is currently iOS-specific. To generate documentation for other platforms, open the package in Xcode, select a simulator then run `Product/Build Documentation`.
-
-Note that DocC currently omits extensions, which means that some extensions are missing. Future versions will aim to improve this.
+The online documentation is currently iOS only. To generate documentation for other platforms, open the package in Xcode, select a simulator then run `Product/Build Documentation`.
 
 
 
