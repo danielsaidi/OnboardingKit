@@ -1,5 +1,5 @@
 //
-//  TutorialSlideView.swift
+//  TutorialPageView.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2022-09-04.
@@ -12,12 +12,12 @@ import UIKit
 
 /**
  This view renders tutorial pages in a `TabView` with a page
- style applied, which lets the user swipe throught the pages.
+ style applied, which lets the user swipe through pages.
 
  This view is currently only available on `iOS`.
  */
 @available(iOS 14.0, *)
-public struct TutorialSlideView<PageType: TutorialPage, PageViewType: View>: View {
+public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View {
 
     /**
      Create a tutorial page flow that renders tutorial pages
@@ -26,13 +26,13 @@ public struct TutorialSlideView<PageType: TutorialPage, PageViewType: View>: Vie
      - Parameters:
        - tutorial: The tutorial to present.
        - pageIndex: The current page.
-       - style: The style to apply, by default ``TutorialSlideViewStyle/standard``.
+       - style: The style to apply, by default ``TutorialPageViewStyle/standard``.
        - pageView: A function used to build a view for each page.
      */
     public init(
         tutorial: Tutorial<PageType>,
         pageIndex: Binding<Int>,
-        style: TutorialSlideViewStyle = .standard,
+        style: TutorialPageViewStyle = .standard,
         @ViewBuilder pageView: @escaping PageViewBuilder
     ) {
         self.tutorial = tutorial
@@ -65,7 +65,7 @@ public struct TutorialSlideView<PageType: TutorialPage, PageViewType: View>: Vie
 }
 
 @available(iOS 15.0, *)
-struct TutorialSlideView_Previews: PreviewProvider {
+struct TutorialPageView_Previews: PreviewProvider {
 
     struct Preview: View {
 
@@ -83,7 +83,7 @@ struct TutorialSlideView_Previews: PreviewProvider {
         ])
 
         var body: some View {
-            TutorialSlideView(
+            TutorialPageView(
                 tutorial: tutorial,
                 pageIndex: $pageIndex
             ) { page, info in

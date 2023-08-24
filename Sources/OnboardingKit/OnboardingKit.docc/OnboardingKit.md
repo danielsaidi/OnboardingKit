@@ -76,5 +76,5 @@ OnboardingKit is available under the MIT license.
 
 ### UI
 
-- ``TutorialSlideView``
-- ``TutorialSlideViewStyle``
+- ``TutorialPageView``
+- ``TutorialPageViewStyle``

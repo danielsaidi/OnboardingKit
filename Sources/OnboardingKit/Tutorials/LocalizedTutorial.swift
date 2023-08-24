@@ -56,7 +56,8 @@ open class LocalizedTutorial: Tutorial<TutorialPage> {
         resourceName: ResourceNameResolver = LocalizedTutorial.resourceName,
         resourceKeySeparator: ResourceKeySeparator = ".",
         pageResolver: @escaping (TutorialId, PageIndex, ResourceNameResolver, ResourceKeySeparator) -> TutorialPage,
-        translator: @escaping Translator = { NSLocalizedString($0, comment: "") }) {
+        translator: @escaping Translator = { NSLocalizedString($0, comment: "") }
+    ) {
         var index = 0
         var pages = [TutorialPage]()
         var titleKey = resourceName(id, index, pageIndicationKey, resourceKeySeparator)
@@ -93,7 +94,8 @@ public extension LocalizedTutorial {
         pageIndicationKey: String = "title",
         resourceName: ResourceNameResolver = LocalizedTutorial.resourceName,
         resourceKeySeparator: ResourceKeySeparator = ".",
-        translator: @escaping Translator = { NSLocalizedString($0, comment: "") }) {
+        translator: @escaping Translator = { NSLocalizedString($0, comment: "") }
+    ) {
         self.init(
             id: id,
             pageIndicationKey: pageIndicationKey,
@@ -114,7 +116,8 @@ public extension LocalizedTutorial {
         for tutorialId: TutorialId,
         at pageIndex: PageIndex,
         resourceKey: ResourceKey,
-        resourceKeySeparator: ResourceKeySeparator) -> ResourceName {
+        resourceKeySeparator: ResourceKeySeparator
+    ) -> ResourceName {
         let key = resourceKey.trimmingCharacters(in: .whitespaces)
         var segments = ["tutorial", tutorialId, "\(pageIndex)"]
         if key.count > 0 { segments.append(key) }
@@ -129,7 +132,8 @@ public extension LocalizedTutorial {
         for tutorialId: TutorialId,
         at pageIndex: PageIndex,
         resourceName: ResourceNameResolver = LocalizedTutorial.resourceName,
-        resourceKeySeparator: ResourceKeySeparator) -> TutorialPage {
+        resourceKeySeparator: ResourceKeySeparator
+    ) -> TutorialPage {
         let separator = resourceKeySeparator
         let titleKey = resourceName(tutorialId, pageIndex, "title", separator)
         let title = NSLocalizedString(titleKey, comment: "")

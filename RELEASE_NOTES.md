@@ -1,6 +1,15 @@
 # Release Notes
 
 
+## 6.1
+
+### 🗑 Deprecations
+
+* `TutorialSlideView` has been renamed to `TutorialPageView`.
+* `TutorialSlideViewStyle` has been renamed to `TutorialPageViewStyle`.
+
+
+
 ## 6.0
 
 Tutti is renamed to OnboardingKit.

@@ -10,6 +10,8 @@ import Foundation
 
 /**
  This type can be used to provide info about a tutorial page.
+ 
+ 
 
  This struct can be used in various scenarios, to be able to
  extend the provided page information later without changing

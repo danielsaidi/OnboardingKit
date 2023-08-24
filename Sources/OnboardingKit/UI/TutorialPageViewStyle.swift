@@ -1,5 +1,5 @@
 //
-//  TutorialSlideViewStyle.swift
+//  TutorialPageViewStyle.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2022-09-04.
@@ -9,11 +9,11 @@
 import SwiftUI
 
 /**
- This style can be used to style ``TutorialSlideView`` views
+ This style can be used to style ``TutorialPageView`` views
  with custom colors.
  */
 @available(iOS 13.0, *)
-public struct TutorialSlideViewStyle {
+public struct TutorialPageViewStyle {
 
     /**
      Create a tutorial slide view style.
@@ -38,13 +38,13 @@ public struct TutorialSlideViewStyle {
 }
 
 @available(iOS 13.0, *)
-public extension TutorialSlideViewStyle {
+public extension TutorialPageViewStyle {
 
     /**
      This standard style applies a primary tint color to the
      indicators, with less opacity to non-current indicators.
      */
-    static var standard = TutorialSlideViewStyle(
+    static var standard = TutorialPageViewStyle(
         pageIndicatorTintColor: .primary.opacity(0.3),
         currentPageIndicatorTintColor: .primary)
 }
