@@ -53,11 +53,12 @@ open class LocalizedTutorial: Tutorial<TutorialPage> {
         resourceName: ResourceNameResolver = LocalizedTutorial.resourceName,
         resourceKeySeparator: ResourceKeySeparator = ".",
         pageResolver: @escaping PageResolver,
-        translator: @escaping Translator = { NSLocalizedString($0, comment: "") }
+        translator: Translator?
     ) {
         var index = 0
         var pages = [TutorialPage]()
         var titleKey = resourceName(id, index, pageIndicationKey, resourceKeySeparator)
+        let translator = translator ?? { NSLocalizedString($0, bundle: bundle, comment: "") }
         while titleKey != translator(titleKey) {
             let page = pageResolver(id, index, bundle, resourceName, resourceKeySeparator)
             pages.append(page)
@@ -92,7 +93,7 @@ public extension LocalizedTutorial {
         pageIndicationKey: String = "title",
         resourceName: ResourceNameResolver = LocalizedTutorial.resourceName,
         resourceKeySeparator: ResourceKeySeparator = ".",
-        translator: @escaping Translator = { NSLocalizedString($0, comment: "") }
+        translator: Translator? = nil
     ) {
         self.init(
             id: id,
