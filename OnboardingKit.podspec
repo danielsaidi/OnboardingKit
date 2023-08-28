@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OnboardingKit'
-  s.version          = '6.1.1'
+  s.version          = '6.1.2'
   s.swift_versions   = ['5.6']
   s.summary          = 'OnboardingKit is a Swift library for creating tutorials, hints and onboarding experiences.'
 
