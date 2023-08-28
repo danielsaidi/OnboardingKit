@@ -66,6 +66,7 @@ final class LocalizedTutorialTests: XCTestCase {
         let result = LocalizedTutorial.page(
             for: "hello",
             at: 5,
+            in: .main,
             resourceName: LocalizedTutorial.resourceName,
             resourceKeySeparator: "_")
         XCTAssertEqual(result.title, "tutorial_hello_5_title")

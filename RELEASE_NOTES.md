@@ -1,6 +1,14 @@
 # Release Notes
 
 
+## 6.1.1
+
+### ✨ New features
+
+* `LocalizedTutorial` now supports custom bundles.
+
+
+
 ## 6.1
 
 ### 🗑 Deprecations

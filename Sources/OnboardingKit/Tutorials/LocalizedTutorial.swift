@@ -9,30 +9,27 @@
 import Foundation
 
 /**
- A `LocalizedTutorial` is a regular tutorial, but is created
- by automatically resolving pages based on localized strings,
- instead of providing a fixed set of pages.
+ A `LocalizedTutorial` is created by automatically resolving
+ pages based on localized strings.
  
  This gives you much flexibility, since it lets you manage a
- tutorial by just adding, removing and rearranging localized
- strings and images.
+ tutorial by just adjusting localized strings and images.
  
- The page resolve functionality may seem complicated, but it
- basically just starts at 0 and checks if a localized string
- exists for a key that is made up by the provided parameters
- and a `pageIndicationKey`. As long as a page exists for the
- key, it appends pages that are created by the `pageResolver`.
+ The `pageResolver` starts at index 0 and checks if a string
+ exists for a key that is made up by the provided parameters.
+ As long as a page does exist, it keeps appending pages that
+ are created by the `pageResolver`.
  
  If you don't provide a custom `ResourceNameResolver`, `init`
- will apply the static `LocalizedTutorial.resourceName(...)`.
- It generates resource names by starting with "tutorial" and
- then applies the `id`, `page index` and resource "key" then
- finally joins them with `resourceKeySeparator` which is `.`
- by default. This generates a resource names with the format
- `tutorial.<id>.<index>.<key>`.
+ applies a static `LocalizedTutorial.resourceName(...)` that
+ generates a resource name by starting with `tutorial`, then
+ applying `id`, `page index` and a `resource key` then joins
+ them using a `resourceKeySeparator` which by default is `.`.
  
- This means that `title` at `page 2` for a tutorial with the
- id `hello` gets the resource name `tutorial.hello.2.title`.
+ This will by deafult generate resource keys with the format
+ `tutorial.<id>.<index>.<key>`. This means that the title at
+ page 2 for a tutorial with the id `hello` gets the resource
+ name `tutorial.hello.2.title` by default.
  
  If you don't provide a `pageResolver` `init` will apply the
  static `LocalizedTutorial.page(...)` which creates standard
@@ -47,22 +44,22 @@ open class LocalizedTutorial: Tutorial<TutorialPage> {
      on localized strings.
      
      `translator` is just used for testing purposes although
-     you can use it to provide any translation mechanisms if
-     you want to.
+     you can use it to provide custom translation mechanisms.
      */
     public init(
         id: String,
+        bundle: Bundle = .main,
         pageIndicationKey: String = "title",
         resourceName: ResourceNameResolver = LocalizedTutorial.resourceName,
         resourceKeySeparator: ResourceKeySeparator = ".",
-        pageResolver: @escaping (TutorialId, PageIndex, ResourceNameResolver, ResourceKeySeparator) -> TutorialPage,
+        pageResolver: @escaping PageResolver,
         translator: @escaping Translator = { NSLocalizedString($0, comment: "") }
     ) {
         var index = 0
         var pages = [TutorialPage]()
         var titleKey = resourceName(id, index, pageIndicationKey, resourceKeySeparator)
         while titleKey != translator(titleKey) {
-            let page = pageResolver(id, index, resourceName, resourceKeySeparator)
+            let page = pageResolver(id, index, bundle, resourceName, resourceKeySeparator)
             pages.append(page)
             index += 1
             titleKey = resourceName(id, index, pageIndicationKey, resourceKeySeparator)
@@ -71,6 +68,7 @@ open class LocalizedTutorial: Tutorial<TutorialPage> {
     }
     
     public typealias PageIndex = Int
+    public typealias PageResolver = (TutorialId, PageIndex, Bundle, ResourceNameResolver, ResourceKeySeparator) -> TutorialPage
     public typealias ResourceKey = String
     public typealias ResourceKeySeparator = String
     public typealias ResourceName = String
@@ -86,11 +84,11 @@ public extension LocalizedTutorial {
      on localized strings.
      
      This init uses `LocalizedTutorial.standardPage(...)` to
-     create tutorial pages. It's just kept in this extension
-     since the generic constraint is required.
+     create tutorial pages.
      */
     convenience init(
         id: String,
+        bundle: Bundle = .main,
         pageIndicationKey: String = "title",
         resourceName: ResourceNameResolver = LocalizedTutorial.resourceName,
         resourceKeySeparator: ResourceKeySeparator = ".",
@@ -98,11 +96,13 @@ public extension LocalizedTutorial {
     ) {
         self.init(
             id: id,
+            bundle: bundle,
             pageIndicationKey: pageIndicationKey,
             resourceName: resourceName,
             resourceKeySeparator: resourceKeySeparator,
             pageResolver: LocalizedTutorial.page,
-            translator: translator)
+            translator: translator
+        )
     }
 }
 
@@ -131,14 +131,15 @@ public extension LocalizedTutorial {
     static func page(
         for tutorialId: TutorialId,
         at pageIndex: PageIndex,
+        in bundle: Bundle,
         resourceName: ResourceNameResolver = LocalizedTutorial.resourceName,
         resourceKeySeparator: ResourceKeySeparator
     ) -> TutorialPage {
         let separator = resourceKeySeparator
         let titleKey = resourceName(tutorialId, pageIndex, "title", separator)
-        let title = NSLocalizedString(titleKey, comment: "")
+        let title = NSLocalizedString(titleKey, bundle: bundle, comment: "")
         let textKey = resourceName(tutorialId, pageIndex, "text", separator)
-        let text = NSLocalizedString(textKey, comment: "")
+        let text = NSLocalizedString(textKey, bundle: bundle, comment: "")
         let imageName = resourceName(tutorialId, pageIndex, "image", separator)
         return TutorialPage(title: title, text: text, imageName: imageName)
     }
