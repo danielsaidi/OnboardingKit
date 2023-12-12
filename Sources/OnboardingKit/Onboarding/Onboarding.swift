@@ -39,7 +39,8 @@ open class Onboarding {
     public init(
         id: String,
         userId: UserId? = nil,
-        defaults: UserDefaults = .standard) {
+        defaults: UserDefaults = .standard
+    ) {
         self.id = id
         self.userId = userId
         self.defaults = defaults

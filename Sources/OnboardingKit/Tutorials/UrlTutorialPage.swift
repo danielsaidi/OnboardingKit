@@ -39,7 +39,8 @@ open class UrlTutorialPage: TutorialPage {
             id: id,
             title: title,
             text: text,
-            imageName: imageName)
+            imageName: imageName
+        )
     }
 
     /// The url that a user can navigate to.

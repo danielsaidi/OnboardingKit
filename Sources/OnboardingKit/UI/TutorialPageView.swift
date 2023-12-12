@@ -38,8 +38,9 @@ public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View
         self.tutorial = tutorial
         self.pageIndex = pageIndex
         self.pageView = pageView
-        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(style.currentPageIndicatorTintColor)
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor(style.pageIndicatorTintColor)
+        let appearance = UIPageControl.appearance()
+        appearance.currentPageIndicatorTintColor = UIColor(style.currentPageIndicatorTintColor)
+        appearance.pageIndicatorTintColor = UIColor(style.pageIndicatorTintColor)
     }
 
     public typealias PageViewBuilder = (PageType, TutorialPageInfo) -> PageViewType

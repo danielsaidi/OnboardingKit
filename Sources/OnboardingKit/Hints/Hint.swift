@@ -17,7 +17,8 @@ open class Hint: Equatable {
     public init(
         title: String = "",
         text: String,
-        accessibilityText: String? = nil) {
+        accessibilityText: String? = nil
+    ) {
         self.title = title
         self.text = text
         self.accessibilityText = accessibilityText

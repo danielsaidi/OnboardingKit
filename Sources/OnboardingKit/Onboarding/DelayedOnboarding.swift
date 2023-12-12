@@ -40,7 +40,8 @@ open class DelayedOnboarding: Onboarding {
         id: String,
         userId: UserId? = nil,
         defaults: UserDefaults = .standard,
-        requiredPresentationAttempts: Int) {
+        requiredPresentationAttempts: Int
+    ) {
         self.requiredPresentationAttempts = requiredPresentationAttempts
         super.init(id: id, userId: userId, defaults: defaults)
     }

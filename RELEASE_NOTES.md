@@ -1,6 +1,16 @@
 # Release Notes
 
 
+## 6.2
+
+This version bumps Swift to 5.9.
+
+### ✨ New features
+
+* `Onboarding` has new static builders for various types.
+
+
+
 ## 6.1.1, 6.1.2
 
 ### ✨ New features

@@ -36,7 +36,8 @@ open class ConditionalOnboarding: Onboarding {
         id: String,
         userId: UserId? = nil,
         defaults: UserDefaults = .standard,
-        condition: @escaping Condition) {
+        condition: @escaping Condition
+    ) {
         self.condition = condition
         super.init(id: id, userId: userId, defaults: defaults)
     }
@@ -46,9 +47,7 @@ open class ConditionalOnboarding: Onboarding {
     private let condition: Condition
     
     
-    /**
-     Whether or not the onboarding should be presented.
-     */
+    /// Whether or not the onboarding should be presented.
     open override var shouldBePresented: Bool {
         condition() && super.shouldBePresented
     }
