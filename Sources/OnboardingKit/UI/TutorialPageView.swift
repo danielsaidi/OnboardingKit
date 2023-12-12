@@ -53,10 +53,11 @@ public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View
             ForEach(Array(tutorial.pages.enumerated()), id: \.offset) {
                 pageView(
                     $0.element,
-                    TutorialPageInfo(
+                    .init(
                         pageIndex: $0.offset,
                         currentPageIndex: pageIndex.wrappedValue,
-                        totalPageCount: tutorial.pages.count)
+                        totalPageCount: tutorial.pages.count
+                    )
                 ).tag($0.offset)
             }
         }
@@ -71,6 +72,9 @@ struct TutorialPageView_Previews: PreviewProvider {
 
         @State
         private var pageIndex: Int = 0
+        
+        @State
+        private var animationTrigger = 0
 
         let background = Color.gray.opacity(0.4)
 
@@ -93,6 +97,7 @@ struct TutorialPageView_Previews: PreviewProvider {
                         .cornerRadius(10)
                         .frame(height: 300)
                         .shadow(color: .black.opacity(0.4), radius: 5, x: 0, y: 3)
+                        .scaleEffect(info.isCurrentPage ? 1 : 0.9)
                     Text(page.title)
                         .font(.title)
                         .padding(.top, 30)
@@ -100,13 +105,17 @@ struct TutorialPageView_Previews: PreviewProvider {
                     Spacer()
                     Button("Next", action: goNext)
                         .buttonStyle(.bordered)
-                        .disabled(!info.isLastPage)
+                        .disabled(info.isLastPage)
                         .padding(60)
                 }
                 .padding()
                 .multilineTextAlignment(.center)
                 .scaleEffect(info.isCurrentPage ? 1 : 0.9)
-                .animation(.default, value: pageIndex)
+            }
+            .onChange(of: pageIndex) { newValue in
+                withAnimation {
+                    animationTrigger = newValue
+                }
             }
         }
 

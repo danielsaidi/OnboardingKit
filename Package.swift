@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.9
 
 import PackageDescription
 
@@ -13,15 +13,18 @@ let package = Package(
     products: [
         .library(
             name: "OnboardingKit",
-            targets: ["OnboardingKit"])
+            targets: ["OnboardingKit"]
+        )
     ],
     dependencies: [],
     targets: [
         .target(
             name: "OnboardingKit",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "OnboardingKitTests",
-            dependencies: ["OnboardingKit"])
+            dependencies: ["OnboardingKit"]
+        )
     ]
 )

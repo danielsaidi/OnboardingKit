@@ -1,4 +1,4 @@
-# Onboardings
+# Understanding Onboardings
 
 In OnboardingKit, an ``Onboarding`` is at the core of the onboarding experience and is what determines whether or not a hint or tutorial should be presented.
 
@@ -19,7 +19,7 @@ You can create your own onboarding types by inheriting and customizing the `Onbo
 
 In OnboardingKit, an ``Onboarding`` defines the rules and behavior of an onboarding experience. A ``Hint`` or ``Tutorial`` can then be presented if the onboarding should be presented.
 
-The <doc:Hints> and <doc:Tutorials> articles describe how to present hints and tutorials in more details.
+The <doc:Understanding-Hints> and <doc:Understanding-Tutorials> articles describe how to present hints and tutorials in more details.
 
 
 ## Multi-user onboarding

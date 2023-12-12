@@ -1,17 +1,13 @@
 <p align="center">
-    <img src ="Resources/Logo_GitHub.png" alt="OnboardingKit Logo" title="OnboardingKit" width=600 />
+    <img src ="Resources/Logo_GitHub.png" alt="OnboardingKit Logo" title="OnboardingKit" />
 </p>
 
 <p align="center">
     <img src="https://img.shields.io/github/v/release/danielsaidi/OnboardingKit?color=%2300550&sort=semver" alt="Version" />
-    <img src="https://img.shields.io/badge/Swift-5.6-orange.svg" alt="Swift 5.6" />
+    <img src="https://img.shields.io/badge/Swift-5.9-orange.svg" alt="Swift 5.9" />
     <img src="https://img.shields.io/github/license/danielsaidi/OnboardingKit" alt="MIT License" />
-        <a href="https://twitter.com/danielsaidi">
-        <img src="https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fdanielsaidi" alt="Twitter: @danielsaidi" title="Twitter: @danielsaidi" />
-    </a>
-    <a href="https://mastodon.social/@danielsaidi">
-        <img src="https://img.shields.io/mastodon/follow/000253346?label=mastodon&style=social" alt="Mastodon: @danielsaidi@mastodon.social" title="Mastodon: @danielsaidi@mastodon.social" />
-    </a>
+    <a href="https://twitter.com/danielsaidi"><img src="https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fdanielsaidi" alt="Twitter: @danielsaidi" title="Twitter: @danielsaidi" /></a>
+    <a href="https://mastodon.social/@danielsaidi"><img src="https://img.shields.io/mastodon/follow/000253346?label=mastodon&style=social" alt="Mastodon: @danielsaidi@mastodon.social" title="Mastodon: @danielsaidi@mastodon.social" /></a>
 </p>
 
 
@@ -25,11 +21,9 @@ The result can look like this, or completely different:
     <img src ="Resources/Demo.gif" />
 </p>
 
-OnboardingKit has different onboarding types. A standard onboarding is shown right away and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions, etc. You can also combine different onboarding types to create new ones and reset the state of any onboarding to display it again. 
+OnboardingKit has different onboarding types. Standard onboardings are shown right away, and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions, etc. You can also combine different onboarding types to create new ones and reset the state of any onboarding to display it again. 
 
 OnboardingKit supports multiple users, so that each onboarding is unique to each user.
-
-OnboardingKit supports `iOS 13`, `macOS 10.15`, `tvOS 13` and `watchOS 6`.
 
 
 
@@ -47,19 +41,45 @@ If you prefer to no have external dependencies, you can also just copy the sourc
 
 ## Getting started
 
-The [online documentation][Documentation] has a [getting started guide][Getting-Started] guide to help you get started with OnboardingKit.
+In OnboardingKit, an ``Onboarding`` determines the state and behavior of an onboarding experience, while a `Hint` is a short onboarding message and a `Tutorial` is a page-based onboarding flow.
 
-In OnboardingKit, an ``Onboarding`` is at the core of the onboarding experience and determines if a hint or tutorial should be presented. A `Hint` is a short onboarding message that is intended to be displayed briefly while a `Tutorial` is a page-based onboarding flow.
+You can use various `Onboarding` types to get different behaviors. 
 
-To create a standard onboarding and use it to present a hint or a tutorial, you can do this:
+The code below shows how to use a standard onboarding to present a hint or tutorial:
 
 ```swift
-let onboarding = Onboarding(id: "welcome")
-onboarding.tryPresent { 
-    let hint = Hint(title: "Welcome!", text: "Welcome to this app.")
-    // Present the hint, for instance in a toast or a callout
+import OnboardingKit
+import SwiftUI
+
+struct ContentView: View {
+
+    @State
+    private var isOnboardingPresented: Bool 
+    
+    private let tutorial = LocalizedTutorial(id: "welcome")
+
+    var body: some View {
+        Text("Hello, world")
+            .onAppear(tryPresentOnboarding)
+            .sheet(isPresented: $isOnboardingPresented) {
+                TutorialPageView(tutorial: tutorial)
+            }
+    }
+    
+    func tryPresentOnboarding() {
+        let onboarding = Onboarding(id: "welcome")
+        onboarding.tryPresent { 
+            // Present the hint, for instance in a toast or a callout
+            let hint = Hint(title: "Welcome!", text: "Welcome to this app.")
+            // ...or, present a tutorial
+            isOnboardingPresented = true
+            // ...or do anything you want
+        }
+    }
 }
 ```
+
+As you can see in the code above, the onboarding holds the state and behavior, while the presentation block defines what should happen.
 
 For more information, please see the [online documentation][Documentation] and [getting started guide][Getting-Started].
 
@@ -67,7 +87,7 @@ For more information, please see the [online documentation][Documentation] and [
 
 ## Documentation
 
-The [online documentation][Documentation] contains more information, code examples, etc., and makes it easy to overview the various parts of the library. 
+The [online documentation][Documentation] has more information, code examples, etc.
 
 
 
@@ -77,11 +97,9 @@ The demo app lets you explore the library on iOS and macOS. To try it out, just 
 
 
 
-## Support this library
+## Support my work 
 
-I manage my various open-source projects in my free time and am really thankful for any help I can get from the community. 
-
-You can sponsor this project on [GitHub Sponsors][Sponsors] or get in touch for paid support.
+You can [sponsor me][Sponsors] on GitHub Sponsors or [reach out][Email] for paid support, to help support my [open-source projects][GitHub].
 
 
 
@@ -104,6 +122,7 @@ OnboardingKit is available under the MIT license. See the [LICENSE][License] fil
 
 [Email]: mailto:daniel.saidi@gmail.com
 [Website]: https://www.danielsaidi.com
+[GitHub]: https://www.github.com/danielsaidi
 [Twitter]: https://www.twitter.com/danielsaidi
 [Mastodon]: https://mastodon.social/@danielsaidi
 [Sponsors]: https://github.com/sponsors/danielsaidi
