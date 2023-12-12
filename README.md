@@ -56,6 +56,7 @@ struct ContentView: View {
     @State
     private var isOnboardingPresented: Bool 
     
+    private let hint = Hint(title: "Welcome!", text: "Welcome to this app.")
     private let tutorial = LocalizedTutorial(id: "welcome")
 
     var body: some View {
@@ -70,8 +71,7 @@ struct ContentView: View {
         let onboarding = Onboarding(id: "welcome")
         onboarding.tryPresent { 
             // Present the hint, for instance in a toast or a callout
-            let hint = Hint(title: "Welcome!", text: "Welcome to this app.")
-            // ...or, present a tutorial
+            // ...or, present the tutorial
             isOnboardingPresented = true
             // ...or do anything you want
         }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,12 +15,12 @@
 		A922B21226FC740000E235A1 /* DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B21126FC740000E235A1 /* DemoUITests.swift */; };
 		A922B21426FC740000E235A1 /* DemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B21326FC740000E235A1 /* DemoUITestsLaunchTests.swift */; };
 		A922B22226FC741900E235A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A922B22426FC741900E235A1 /* Localizable.strings */; };
-		A922B22726FC749D00E235A1 /* Tutti in Frameworks */ = {isa = PBXBuildFile; productRef = A922B22626FC749D00E235A1 /* Tutti */; };
 		A922B22A26FC7A3E00E235A1 /* Hint+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B22926FC7A3E00E235A1 /* Hint+Demo.swift */; };
 		A922B22C26FC7AA000E235A1 /* Tutorial+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B22B26FC7AA000E235A1 /* Tutorial+Demo.swift */; };
 		A922B22E26FC829400E235A1 /* Onboarding+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B22D26FC829400E235A1 /* Onboarding+Demo.swift */; };
 		A922B23026FC9F4400E235A1 /* Image+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B22F26FC9F4400E235A1 /* Image+Demo.swift */; };
 		A922B23226FCB90700E235A1 /* DemoTutorialSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B23126FCB90700E235A1 /* DemoTutorialSheet.swift */; };
+		A96AA2E62B28383A00A6F6E8 /* OnboardingKit in Frameworks */ = {isa = PBXBuildFile; productRef = A96AA2E52B28383A00A6F6E8 /* OnboardingKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A922B22726FC749D00E235A1 /* Tutti in Frameworks */,
+				A96AA2E62B28383A00A6F6E8 /* OnboardingKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +172,7 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				A922B22626FC749D00E235A1 /* Tutti */,
+				A96AA2E52B28383A00A6F6E8 /* OnboardingKit */,
 			);
 			productName = Demo;
 			productReference = A922B1F326FC73FF00E235A1 /* Demo.app */;
@@ -248,7 +248,7 @@
 			);
 			mainGroup = A922B1EA26FC73FF00E235A1;
 			packageReferences = (
-				A922B22526FC749D00E235A1 /* XCRemoteSwiftPackageReference "Tutti" */,
+				A96AA2E42B28383A00A6F6E8 /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = A922B1F426FC73FF00E235A1 /* Products */;
 			projectDirPath = "";
@@ -660,22 +660,17 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		A922B22526FC749D00E235A1 /* XCRemoteSwiftPackageReference "Tutti" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielsaidi/Tutti";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		A96AA2E42B28383A00A6F6E8 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A922B22626FC749D00E235A1 /* Tutti */ = {
+		A96AA2E52B28383A00A6F6E8 /* OnboardingKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A922B22526FC749D00E235A1 /* XCRemoteSwiftPackageReference "Tutti" */;
-			productName = Tutti;
+			productName = OnboardingKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

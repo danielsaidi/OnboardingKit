@@ -37,7 +37,7 @@ import Foundation
  `resourceNameResolver`. It also applies the "resource name"
  for `image` as `imageName` for each page.
  */
-open class LocalizedTutorial: Tutorial<TutorialPage> {
+open class LocalizedTutorial: Tutorial {
     
     /**
      Create a tutorial by automatically creating pages based

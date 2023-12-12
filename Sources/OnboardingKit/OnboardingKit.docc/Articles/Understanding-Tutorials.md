@@ -20,7 +20,9 @@ let tutorial = Tutorial(
 )
 ```
 
-The base ``Tutorial`` type has very limited amount of data and just defines a few ``TutorialPage`` items. 
+The base ``Tutorial`` type has very limited amount of data and just defines a few ``TutorialPage`` items.
+
+Although the ``TutorialPage`` should suffice in most cases, you can use the ``GenericTutorial`` an explicit, generic page type.
 
 You can subclass both the tutorial type and the pages it contains, for instance:
 

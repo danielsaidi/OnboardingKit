@@ -5,9 +5,20 @@
 
 This version bumps Swift to 5.9.
 
+This version (once again) makes the `Tutorial` type non-generic, and adds a `GenericTutorial` for the rare use-cases where a generic type is needed. This will once again make it possible to add static properties to the `Tutorial` type, to define app-specific values.  
+
 ### ✨ New features
 
+* `GenericTutorial` can be used for generic use-cases.
 * `Onboarding` has new static builders for various types.
+
+### 💡 Behavior changes
+
+* `TutorialPageView` has one initializer for `Tutorial` and one for `GenericTutorial`.
+
+### 💥 Breaking changes
+
+* `Tutorial` is no longer generic.
 
 
 

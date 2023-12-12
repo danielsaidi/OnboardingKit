@@ -69,6 +69,7 @@ ApiKit is available under the MIT license. See the [LICENSE][License] file for m
 - ``Tutorial``
 - ``TutorialPage``
 - ``TutorialPageInfo``
+- ``GenericTutorial``
 - ``LocalizedTutorial``
 - ``UrlTutorialPage``
 

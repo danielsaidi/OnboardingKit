@@ -11,15 +11,22 @@ import Foundation
 /**
  A tutorial is a single or multi-page onboarding guide, that
  is intended to show more information than short a hint.
+ 
+ This tutorial base class uses ``TutorialPage`` as page type.
+ You can pass in any page that inherits ``TutorialPage``, so
+ it should suffice in most cases.
+ 
+ If you need the tutorial to explicitly define its page type,
+ you can use the ``GenericTutorial`` type instead.
  */
-open class Tutorial<PageType: TutorialPage> {
+open class Tutorial {
     
     /**
      Create a tutorial with a fixed set of pages.
      */
-    public init(pages: [PageType]) {
+    public init(pages: [TutorialPage]) {
         self.pages = pages
     }
     
-    public let pages: [PageType]
+    public let pages: [TutorialPage]
 }
