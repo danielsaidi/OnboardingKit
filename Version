@@ -1,0 +1,3 @@
+Version::Number.new do |v|
+  v.version = '6.1.2'
+end
