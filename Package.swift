@@ -6,7 +6,7 @@ let package = Package(
     name: "OnboardingKit",
     platforms: [
         .iOS(.v13),
-        .macOS(.v10_15),
+        .macOS(.v11),
         .tvOS(.v13),
         .watchOS(.v6)
     ],

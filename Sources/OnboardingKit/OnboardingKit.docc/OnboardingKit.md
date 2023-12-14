@@ -67,17 +67,16 @@ ApiKit is available under the MIT license. See the [LICENSE][License] file for m
 ### Tutorials
 
 - ``Tutorial``
-- ``TutorialPage``
-- ``TutorialPageInfo``
 - ``GenericTutorial``
 - ``LocalizedTutorial``
+- ``TutorialPage``
 - ``UrlTutorialPage``
 
-### UI
+### Tutorial UI
 
+- ``TutorialPageInfo``
 - ``TutorialPageView``
 - ``TutorialPageViewStyle``
-
 
 
 [License]: https://github.com/danielsaidi/OnboardingKit/blob/master/LICENSE

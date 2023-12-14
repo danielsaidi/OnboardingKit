@@ -1,6 +1,16 @@
 # Release Notes
 
 
+## 6.3
+
+This version bumps macOS to 11.
+
+### ✨ New features
+
+* `TutorialPageView` now supports macOS.
+
+
+
 ## 6.2
 
 This version bumps Swift to 5.9.

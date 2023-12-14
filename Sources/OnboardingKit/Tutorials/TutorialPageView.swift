@@ -6,9 +6,12 @@
 //  Copyright © 2022-2023 Daniel Saidi. All rights reserved.
 //
 
-#if os(iOS)
+#if os(iOS) || os(macOS)
 import SwiftUI
+
+#if os(iOS)
 import UIKit
+#endif
 
 /**
  This view renders tutorial pages in a `TabView` with a page
@@ -41,10 +44,9 @@ public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View
         self.tutorial = tutorial
         self.pages = tutorial.pages
         self.pageIndex = pageIndex
+        self.style = style
         self.pageView = pageView
-        let appearance = UIPageControl.appearance()
-        appearance.currentPageIndicatorTintColor = UIColor(style.currentPageIndicatorTintColor)
-        appearance.pageIndicatorTintColor = UIColor(style.pageIndicatorTintColor)
+        setupAppearance()
     }
     
     /**
@@ -70,10 +72,17 @@ public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View
         self.tutorial = tutorial
         self.pages = tutorial.genericPages
         self.pageIndex = pageIndex
+        self.style = style
         self.pageView = pageView
+        setupAppearance()
+    }
+    
+    func setupAppearance() {
+        #if os(iOS)
         let appearance = UIPageControl.appearance()
         appearance.currentPageIndicatorTintColor = UIColor(style.currentPageIndicatorTintColor)
         appearance.pageIndicatorTintColor = UIColor(style.pageIndicatorTintColor)
+        #endif
     }
 
     public typealias PageViewBuilder = (PageType, TutorialPageInfo) -> PageViewType
@@ -82,8 +91,10 @@ public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View
     private let tutorial: Tutorial
     private let pages: [PageType]
     private let pageView: PageViewBuilder
+    private let style: TutorialPageViewStyle
 
     public var body: some View {
+        #if os(iOS)
         TabView(selection: pageIndex) {
             ForEach(Array(pages.enumerated()), id: \.offset) {
                 pageView(
@@ -97,6 +108,26 @@ public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View
             }
         }
         .tabViewStyle(.page)
+        #else
+        PageView(
+            items: Array(pages.enumerated()),
+            currentPageIndex: pageIndex,
+            pageIndicatorDisplayMode: .always,
+            pageIndicatorStyle: .init(
+                dotColor: style.pageIndicatorTintColor,
+                currentDotColor: style.currentPageIndicatorTintColor
+            )
+        ) {
+            pageView(
+                $0.element,
+                .init(
+                    pageIndex: $0.offset,
+                    currentPageIndex: pageIndex.wrappedValue,
+                    totalPageCount: pages.count
+                )
+            ).tag($0.offset)
+        }
+        #endif
     }
 }
 
@@ -124,15 +155,21 @@ struct TutorialPageView_Previews: PreviewProvider {
         var body: some View {
             TutorialPageView(
                 tutorial: tutorial,
-                pageIndex: $pageIndex
+                pageIndex: $pageIndex,
+                style: .init(
+                    pageIndicatorTintColor: .red,
+                    currentPageIndicatorTintColor: .green
+                )
             ) { page, info in
                 VStack(spacing: 25) {
                     Spacer()
+                    #if os(iOS)
                     AsyncImage(url: URL(string: page.imageName ?? ""))
                         .cornerRadius(10)
                         .frame(height: 300)
                         .shadow(color: .black.opacity(0.4), radius: 5, x: 0, y: 3)
                         .scaleEffect(info.isCurrentPage ? 1 : 0.9)
+                    #endif
                     Text(page.title)
                         .font(.title)
                         .padding(.top, 30)
