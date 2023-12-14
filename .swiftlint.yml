@@ -19,6 +19,7 @@ identifier_name:
   excluded:
     - id
     - ok
+    - up
     - vc
     - x
     - y
