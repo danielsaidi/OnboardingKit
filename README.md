@@ -126,7 +126,7 @@ OnboardingKit is available under the MIT license. See the [LICENSE][License] fil
 [Twitter]: https://www.twitter.com/danielsaidi
 [Mastodon]: https://mastodon.social/@danielsaidi
 [Sponsors]: https://github.com/sponsors/danielsaidi
-
-[Documentation]: https://danielsaidi.github.io/OnboardingKit/documentation/onboardingKit/
-[Getting-Started]: https://danielsaidi.github.io/OnboardingKit/documentation/onboardingKit/getting-started
+    
+[Documentation]: https://danielsaidi.github.io/OnboardingKit/documentation/onboardingkit/
+[Getting-Started]: https://danielsaidi.github.io/OnboardingKit/documentation/onboardingkit/getting-started
 [License]: https://github.com/danielsaidi/OnboardingKit/blob/master/LICENSE
