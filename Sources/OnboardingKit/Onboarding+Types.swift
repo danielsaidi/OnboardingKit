@@ -8,9 +8,11 @@
 
 import Foundation
 
+/// This extension defines shorthands to built-in onboarding
+/// types, which is more convenient.
 public extension Onboarding {
     
-    /// Create a standard ``OnboardingKit/Onboarding``.
+    /// Create a standard ``Onboarding``.
     static func standard(
         id: String,
         defaults: UserDefaults = .standard
@@ -35,12 +37,12 @@ public extension Onboarding {
     static func correctBehavior(
         id: String,
         defaults: UserDefaults = .standard,
-        requiredIncorrectAttempts: Int
+        requiredIncorrectAttempts attempts: Int
     ) -> CorrectBehaviorOnboarding {
         .init(
             id: id,
             defaults: defaults,
-            requiredIncorrectAttempts: requiredIncorrectAttempts
+            requiredIncorrectAttempts: attempts
         )
     }
     
@@ -48,12 +50,12 @@ public extension Onboarding {
     static func delayed(
         id: String,
         defaults: UserDefaults = .standard,
-        requiredPresentationAttempts: Int
+        requiredPresentationAttempts attempts: Int
     ) -> DelayedOnboarding {
         .init(
             id: id,
             defaults: defaults,
-            requiredPresentationAttempts: requiredPresentationAttempts
+            requiredPresentationAttempts: attempts
         )
     }
 }

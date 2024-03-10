@@ -24,7 +24,7 @@ import Foundation
  want it to be presented. It will inspect its internal rules
  and state to determine if it should be presented of not.
  
- Call ``reset()`` at any time, to reset the onboarding state.
+ Call ``reset()`` to reset the onboarding state, at any time.
  */
 open class Onboarding: Identifiable {
     
