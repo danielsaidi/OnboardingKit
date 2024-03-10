@@ -3,7 +3,7 @@
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2017-12-06.
-//  Copyright © 2020-2023 Daniel Saidi. All rights reserved.
+//  Copyright © 2020-2024 Daniel Saidi. All rights reserved.
 //
 
 import Foundation
