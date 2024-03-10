@@ -36,18 +36,16 @@ open class CorrectBehaviorOnboarding: Onboarding {
      
      - Parameters:
         - id: The unique onboarding id.
-        - userId: An optional user id.
         - defaults: The `UserDefaults` instance to use.
         - requiredIncorrectAttempts: The number of incorrect attempts before the onboarding is presented.
      */
     public init(
         id: String,
-        userId: UserId? = nil,
         defaults: UserDefaults = .standard,
         requiredIncorrectAttempts: Int
     ) {
         self.requiredIncorrectAttempts = requiredIncorrectAttempts
-        super.init(id: id, userId: userId, defaults: defaults)
+        super.init(id: id, defaults: defaults)
     }
 
 

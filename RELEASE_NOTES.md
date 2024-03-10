@@ -14,6 +14,7 @@ Older release notes up until 6.0 have been removed.
 
 * All deprecated code has been removed.
 * `Hint` has been removed.
+* `Onboarding` no longer has a `userId` since it's not needed.
 
 
 

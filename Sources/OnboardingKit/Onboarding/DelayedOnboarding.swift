@@ -32,18 +32,16 @@ open class DelayedOnboarding: Onboarding {
      
      - Parameters:
        - id: The unique onboarding id.
-       - userId: An optional user id, by default `nil`.
        - defaults: The `UserDefaults` instance to use, by default `.standard`.
        - requiredPresentationAttempts: The number of attempts required before the onboarding is presented.
      */
     public init(
         id: String,
-        userId: UserId? = nil,
         defaults: UserDefaults = .standard,
         requiredPresentationAttempts: Int
     ) {
         self.requiredPresentationAttempts = requiredPresentationAttempts
-        super.init(id: id, userId: userId, defaults: defaults)
+        super.init(id: id, defaults: defaults)
     }
 
 

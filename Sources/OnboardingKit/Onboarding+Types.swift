@@ -13,22 +13,19 @@ public extension Onboarding {
     /// Create a standard ``OnboardingKit/Onboarding``.
     static func standard(
         id: String,
-        userId: UserId? = nil,
         defaults: UserDefaults = .standard
     ) -> Onboarding {
-        .init(id: id, userId: userId, defaults: defaults)
+        .init(id: id, defaults: defaults)
     }
     
     /// Create a ``ConditionalOnboarding``.
     static func conditional(
         id: String,
-        userId: UserId? = nil,
         defaults: UserDefaults = .standard,
         condition: @escaping ConditionalOnboarding.Condition
     ) -> ConditionalOnboarding {
         .init(
             id: id,
-            userId: userId,
             defaults: defaults,
             condition: condition
         )
@@ -37,13 +34,11 @@ public extension Onboarding {
     /// Create a ``CorrectBehaviorOnboarding``.
     static func correctBehavior(
         id: String,
-        userId: UserId? = nil,
         defaults: UserDefaults = .standard,
         requiredIncorrectAttempts: Int
     ) -> CorrectBehaviorOnboarding {
         .init(
             id: id,
-            userId: userId,
             defaults: defaults,
             requiredIncorrectAttempts: requiredIncorrectAttempts
         )
@@ -52,13 +47,11 @@ public extension Onboarding {
     /// Create a ``DelayedOnboarding``.
     static func delayed(
         id: String,
-        userId: UserId? = nil,
         defaults: UserDefaults = .standard,
         requiredPresentationAttempts: Int
     ) -> DelayedOnboarding {
         .init(
             id: id,
-            userId: userId,
             defaults: defaults,
             requiredPresentationAttempts: requiredPresentationAttempts
         )

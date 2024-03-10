@@ -28,18 +28,16 @@ open class ConditionalOnboarding: Onboarding {
      
      - Parameters:
         - id: The unique onboarding id.
-        - userId: An optional user id.
         - defaults: The `UserDefaults` instance to use.
         - condition: A condition that must return `true` for `shouldBePresented` to become `true`.
      */
     public init(
         id: String,
-        userId: UserId? = nil,
         defaults: UserDefaults = .standard,
         condition: @escaping Condition
     ) {
         self.condition = condition
-        super.init(id: id, userId: userId, defaults: defaults)
+        super.init(id: id, defaults: defaults)
     }
     
     public typealias Condition = () -> Bool
