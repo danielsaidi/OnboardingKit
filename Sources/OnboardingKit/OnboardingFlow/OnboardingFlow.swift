@@ -11,9 +11,6 @@ import Foundation
 /**
  An onboarding flow is made up of one or several pages, that
  can be presented in different ways.
- 
- If you need the tutorial to explicitly define its page type,
- you can use the ``GenericOnboardingFlow`` type instead.
  */
 open class OnboardingFlow {
     

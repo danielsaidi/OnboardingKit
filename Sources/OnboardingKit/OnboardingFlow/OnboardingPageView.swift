@@ -13,9 +13,10 @@ import UIKit
 #endif
 
 /**
- This horizontal page view renders onboarding pages.
+ This view can be used to render a collection of pages, that
+ can be swiped through horizontally.
  */
-public struct OnboardingPageView<PageType: OnboardingPage, PageViewType: View>: View {
+public struct OnboardingPageView<Page: Identifiable, PageView: View>: View {
 
     /// Create a tutorial page view.
     ///
@@ -24,7 +25,7 @@ public struct OnboardingPageView<PageType: OnboardingPage, PageViewType: View>: 
     ///   - pageIndex: The current page.
     ///   - pageView: A function used to build a view for each page.
     public init(
-        pages: [PageType],
+        pages: [Page],
         pageIndex: Binding<Int>,
         @ViewBuilder pageView: @escaping PageViewBuilder
     ) {
@@ -33,10 +34,10 @@ public struct OnboardingPageView<PageType: OnboardingPage, PageViewType: View>: 
         self.pageView = pageView
     }
 
-    public typealias PageViewBuilder = (PageType, OnboardingFlow.PageInfo) -> PageViewType
+    public typealias PageViewBuilder = (Page, OnboardingFlow.PageInfo) -> PageView
 
     private let pageIndex: Binding<Int>
-    private let pages: [PageType]
+    private let pages: [Page]
     private let pageView: PageViewBuilder
     
     @Environment(\.onboardingPageViewStyle)
