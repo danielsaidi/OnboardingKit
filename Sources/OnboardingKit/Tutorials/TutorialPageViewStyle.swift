@@ -8,20 +8,14 @@
 
 import SwiftUI
 
-/**
- This style can be used to style ``TutorialPageView`` views
- with custom colors.
- */
-@available(iOS 13.0, *)
+/// This style can be used to style a ``TutorialPageView``.
 public struct TutorialPageViewStyle {
 
-    /**
-     Create a tutorial slide view style.
-
-     - Parameters:
-       - pageIndicatorTintColor: The page indicator color to use.
-       - currentPageIndicatorTintColor: The color of the current page indicator.
-     */
+    /// Create a tutorial page view style.
+    ///
+    /// - Parameters:
+    ///   - pageIndicatorTintColor: The page indicator color to use.
+    ///   - currentPageIndicatorTintColor: The color of the current page indicator.
     public init(
         pageIndicatorTintColor: Color,
         currentPageIndicatorTintColor: Color
@@ -37,7 +31,6 @@ public struct TutorialPageViewStyle {
     public var currentPageIndicatorTintColor: Color
 }
 
-@available(iOS 13.0, *)
 public extension TutorialPageViewStyle {
 
     /**

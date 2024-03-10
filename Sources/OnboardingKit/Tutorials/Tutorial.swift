@@ -21,9 +21,7 @@ import Foundation
  */
 open class Tutorial {
     
-    /**
-     Create a tutorial with a fixed set of pages.
-     */
+    /// Create a tutorial with a collection of pages.
     public init(pages: [TutorialPage]) {
         self.pages = pages
     }

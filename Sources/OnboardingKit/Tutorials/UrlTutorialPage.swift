@@ -11,22 +11,18 @@ import Foundation
 /**
  This tutorial page adds a url to the basic page information.
 
- This class is here more as an example of how you can create
- custom page types, but it can of course be used if you want
- to add a url to each page.
+ This is a basic example of how to create custom page types.
  */
 open class UrlTutorialPage: TutorialPage {
 
-    /**
-     Create a tutorial page.
-
-     - Parameters:
-       - id: The unique ID of the page, by default a unique `UUID`.
-       - title: The page title.
-       - text: The page text.
-       - url: The url that a user can navigate to.
-       - imageName: The name of the image asset, by default `nil`.
-     */
+    /// Create a tutorial page.
+    ///
+    /// - Parameters:
+    ///   - id: The unique ID of the page, by default a unique `UUID`.
+    ///   - title: The page title.
+    ///   - text: The page text.
+    ///   - url: The url that a user can navigate to.
+    ///   - imageName: The name of the image asset, by default `nil`.
     public init(
         id: UUID = UUID(),
         title: String,

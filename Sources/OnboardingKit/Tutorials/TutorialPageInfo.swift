@@ -10,23 +10,15 @@ import Foundation
 
 /**
  This type can be used to provide info about a tutorial page.
- 
- 
-
- This struct can be used in various scenarios, to be able to
- extend the provided page information later without changing
- the signatures of e.g. various view builders.
  */
 public struct TutorialPageInfo {
 
-    /**
-     Create a page info value.
-
-     - Parameters:
-       - pageIndex: The page index.
-       - currentPageIndex: The current page index.
-       - totalPageCount: The total number of pages.
-     */
+    /// Create a page info value.
+    ///
+    /// - Parameters:
+    ///   - pageIndex: The page index.
+    ///   - currentPageIndex: The current page index.
+    ///   - totalPageCount: The total number of pages.
     public init(
         pageIndex: Int,
         currentPageIndex: Int,

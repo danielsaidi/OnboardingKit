@@ -23,7 +23,7 @@ struct PageView<PageViewType: View>: View {
     init(
         pages: [PageViewType],
         currentPageIndex: Binding<Int>,
-        pageIndicatorDisplayMode: PageIndicatorDisplayMode = .automatic,
+        pageIndicatorDisplayMode: PageIndicator.DisplayMode = .automatic,
         pageIndicatorStyle: PageIndicatorStyle = .standard
     ) {
         self.currentPageIndex = currentPageIndex
@@ -37,7 +37,7 @@ struct PageView<PageViewType: View>: View {
     init<Model>(
         items: [Model],
         currentPageIndex: Binding<Int>,
-        pageIndicatorDisplayMode: PageIndicatorDisplayMode = .automatic,
+        pageIndicatorDisplayMode: PageIndicator.DisplayMode = .automatic,
         pageIndicatorStyle: PageIndicatorStyle = .standard,
         @ViewBuilder pageBuilder: (Model) -> PageViewType
     ) {
@@ -48,7 +48,7 @@ struct PageView<PageViewType: View>: View {
     }
     
     private var currentPageIndex: Binding<Int>
-    private let pageIndicatorDisplayMode: PageIndicatorDisplayMode
+    private let pageIndicatorDisplayMode: PageIndicator.DisplayMode
     private let pageIndicatorStyle: PageIndicatorStyle
     private let pages: [PageViewType]
     

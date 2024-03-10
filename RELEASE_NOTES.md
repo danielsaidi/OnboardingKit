@@ -10,6 +10,10 @@ This version bumps the platform deployment targets and cleans up the library.
 
 Older release notes up until 6.0 have been removed.
 
+### 💡 Behavior changes
+
+* `Onboarding` and its subclasses have been simplified.
+
 ### 💥 Breaking changes
 
 * All deprecated code has been removed.

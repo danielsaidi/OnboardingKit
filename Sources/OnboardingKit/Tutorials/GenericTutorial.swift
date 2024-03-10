@@ -9,17 +9,14 @@
 import Foundation
 
 /**
- This tutorial type inherits the ``Tutorial`` base class and
- specifies a generic page type.
+ This ``Tutorial`` subclass defines a generic page type.
  
- You can use this tutorial type if you need an explicit page
- type to avoid casting.
+ Use this class whenever you must use a custom page type, to
+ avoid having to cast the type.
  */
 open class GenericTutorial<PageType: TutorialPage>: Tutorial {
     
-    /**
-     Create a tutorial with a fixed set of pages.
-     */
+    /// Create a tutorial with a collection of generic pages.
     public init(pages: [PageType]) {
         self.genericPages = pages
         super.init(pages: pages)

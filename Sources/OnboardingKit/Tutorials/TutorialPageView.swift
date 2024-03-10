@@ -6,7 +6,6 @@
 //  Copyright © 2022-2024 Daniel Saidi. All rights reserved.
 //
 
-#if os(iOS) || os(macOS)
 import SwiftUI
 
 #if os(iOS)
@@ -14,27 +13,17 @@ import UIKit
 #endif
 
 /**
- This view renders tutorial pages in a `TabView` with a page
- style applied, which lets the user swipe through pages.
-
- This view is currently only available on `iOS`.
+ This view renders a tutorial in a horizontally sliding view.
  */
-@available(iOS 14.0, *)
 public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View {
     
-    /**
-     Create a tutorial page flow that renders tutorial pages
-     in a page control.
-     
-     This initializer uses a standard ``Tutorial``, that has
-     a standard ``TutorialPage`` page collection.
-
-     - Parameters:
-       - tutorial: The tutorial to present.
-       - pageIndex: The current page.
-       - style: The style to apply, by default ``TutorialPageViewStyle/standard``.
-       - pageView: A function used to build a view for each page.
-     */
+    /// Create a tutorial page view for a standard tutorial.
+    ///
+    /// - Parameters:
+    ///   - tutorial: The tutorial to present.
+    ///   - pageIndex: The current page.
+    ///   - style: The style to apply, by default ``TutorialPageViewStyle/standard``.
+    ///   - pageView: A function used to build a view for each page.
     public init(
         tutorial: Tutorial,
         pageIndex: Binding<Int>,
@@ -49,20 +38,17 @@ public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View
         setupAppearance()
     }
     
-    /**
-     Create a tutorial page flow that renders tutorial pages
-     in a page control.
-     
-     This initializer uses a ``GenericTutorial``, that has a
-     a generic ``TutorialPage`` page collection that matches
-     the page type of this view.
-
-     - Parameters:
-       - tutorial: The tutorial to present.
-       - pageIndex: The current page.
-       - style: The style to apply, by default ``TutorialPageViewStyle/standard``.
-       - pageView: A function used to build a view for each page.
-     */
+    /// Create a tutorial page view for a generic tutorial.
+    ///
+    /// This initializer uses a ``GenericTutorial`` that has
+    /// a generic page collection that matches the page type
+    /// of this view.
+    ///
+    /// - Parameters:
+    ///   - tutorial: The tutorial to present.
+    ///   - pageIndex: The current page.
+    ///   - style: The style to apply, by default ``TutorialPageViewStyle/standard``.
+    ///   - pageView: A function used to build a view for each page.
     public init(
         tutorial: GenericTutorial<PageType>,
         pageIndex: Binding<Int>,
@@ -104,7 +90,8 @@ public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View
                         currentPageIndex: pageIndex.wrappedValue,
                         totalPageCount: pages.count
                     )
-                ).tag($0.offset)
+                )
+                .tag($0.offset)
             }
         }
         .tabViewStyle(.page)
@@ -125,14 +112,14 @@ public struct TutorialPageView<PageType: TutorialPage, PageViewType: View>: View
                     currentPageIndex: pageIndex.wrappedValue,
                     totalPageCount: pages.count
                 )
-            ).tag($0.offset)
+            )
+            .tag($0.offset)
         }
         #endif
     }
 }
 
-@available(iOS 15.0, *)
-struct TutorialPageView_Previews: PreviewProvider {
+#Preview {
 
     struct Preview: View {
 
@@ -205,8 +192,5 @@ struct TutorialPageView_Previews: PreviewProvider {
         }
     }
 
-    static var previews: some View {
-        Preview()
-    }
+    return Preview()
 }
-#endif
