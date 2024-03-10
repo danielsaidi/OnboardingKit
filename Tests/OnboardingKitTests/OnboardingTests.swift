@@ -1,23 +1,21 @@
 //
-//  DelayedOnboardingTests.swift
+//  OnboardingTests.swift
 //  OnboardingKitTests
 //
-//  Created by Daniel Saidi on 2020-09-06.
+//  Created by Daniel Saidi on 2018-06-18.
 //  Copyright © 2020-2024 Daniel Saidi. All rights reserved.
 //
 
+import Foundation
 import OnboardingKit
 import XCTest
 
-final class DelayedOnboardingTests: XCTestCase {
+final class OnboardingTests: XCTestCase {
 
-    var onboarding: DelayedOnboarding!
+    var onboarding: Onboarding!
     
     override func setUp() {
-        onboarding = .init(
-            id: "onboarding",
-            requiredPresentationAttempts: 3
-        )
+        onboarding = .init(id: "onboarding")
     }
 
     override func tearDown() {
@@ -29,20 +27,14 @@ final class DelayedOnboardingTests: XCTestCase {
     func testInitializerSetsUpOnboarding() {
         onboarding = .init(
             id: "test",
-            store: TestUserDefaults(),
-            requiredPresentationAttempts: 1
+            store: TestUserDefaults()
         )
         XCTAssertEqual(onboarding.id, "test")
         XCTAssertTrue(onboarding.store is TestUserDefaults)
-        XCTAssertEqual(onboarding.requiredPresentationAttempts, 1)
     }
     
-    func testTryPresentOnlyWorksAfterDelayAndOnlyOnce() {
+    func testTryPresentOnlyWorksOnce() {
         var counter = 0
-        onboarding.tryPresent { counter += 1 }
-        XCTAssertEqual(counter, 0)
-        onboarding.tryPresent { counter += 1 }
-        XCTAssertEqual(counter, 0)
         onboarding.tryPresent { counter += 1 }
         XCTAssertEqual(counter, 1)
         onboarding.tryPresent { counter += 1 }
@@ -58,13 +50,9 @@ final class DelayedOnboardingTests: XCTestCase {
     }
     
     func testResetResetsOnboardingState() {
-        onboarding.tryPresent {}
-        onboarding.tryPresent {}
-        onboarding.tryPresent {}
-        XCTAssertEqual(onboarding.presentationAttempts, 3)
+        onboarding.present {}
         XCTAssertEqual(onboarding.presentationCount, 1)
         onboarding.reset()
-        XCTAssertEqual(onboarding.presentationAttempts, 0)
         XCTAssertEqual(onboarding.presentationCount, 0)
     }
 }

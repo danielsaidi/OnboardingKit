@@ -14,60 +14,64 @@ final class CorrectBehaviorOnboardingTests: XCTestCase {
     var onboarding: CorrectBehaviorOnboarding!
 
     override func setUp() {
-        onboarding = CorrectBehaviorOnboarding(
+        onboarding = .init(
             id: "onboarding",
-            requiredIncorrectAttempts: 3)
+            requiredIncorrectAttempts: 3
+        )
     }
 
     override func tearDown() {
         onboarding.reset()
-        XCTAssertEqual(onboarding.incorrectBehaviorCount, 0)
         XCTAssertEqual(onboarding.presentationCount, 0)
     }
-
-    func test_shouldBePresented_becomesTrueAfterRequiredNumberOfAttempts() {
-        onboarding.registerIncorrectBehavior()
-        XCTAssertFalse(onboarding.shouldBePresented)
-        onboarding.registerIncorrectBehavior()
-        XCTAssertFalse(onboarding.shouldBePresented)
-        onboarding.registerIncorrectBehavior()
-        XCTAssertTrue(onboarding.shouldBePresented)
+    
+    
+    func testInitializerSetsUpOnboarding() {
+        onboarding = .init(
+            id: "test",
+            store: TestUserDefaults(),
+            requiredIncorrectAttempts: 1
+        )
+        XCTAssertEqual(onboarding.id, "test")
+        XCTAssertTrue(onboarding.store is TestUserDefaults)
+        XCTAssertEqual(onboarding.requiredIncorrectAttempts, 1)
     }
-
-    func test_registeringIncorrectBehavior_eventuallyMakesOnboardingPresentable() {
-        onboarding.registerIncorrectBehavior()
-        onboarding.registerIncorrectBehavior()
-        onboarding.registerIncorrectBehavior()
-        XCTAssertTrue(onboarding.shouldBePresented)
+    
+    func testTryPresentOnlyWorksAfterDelayAndOnlyOnce() {
+        var counter = 0
+        onboarding.tryPresent { counter += 1 }
+        XCTAssertEqual(counter, 0)
+        onboarding.tryPresent { counter += 1 }
+        XCTAssertEqual(counter, 0)
+        onboarding.tryPresent { counter += 1 }
+        XCTAssertEqual(counter, 1)
+        onboarding.tryPresent { counter += 1 }
+        XCTAssertEqual(counter, 1)
     }
-
-    func test_registeringCorrectBehavior_resetsOnboardingPresentationState() {
-        onboarding.presentationCount = 1
-        onboarding.registerIncorrectBehavior()
-        XCTAssertEqual(onboarding.incorrectBehaviorCount, 1)
-        XCTAssertEqual(onboarding.presentationCount, 1)
+    
+    func testPresentWorksEveryTime() {
+        var counter = 0
+        onboarding.present { counter += 1 }
+        XCTAssertEqual(counter, 1)
+        onboarding.present { counter += 1 }
+        XCTAssertEqual(counter, 2)
+    }
+    
+    func testPresentationResetsOnboardingState() {
+        onboarding.tryPresent {}
+        XCTAssertEqual(onboarding.presentationAttempts, 1)
+        onboarding.tryPresent {}
+        XCTAssertEqual(onboarding.presentationAttempts, 2)
+        onboarding.tryPresent {}
+        XCTAssertEqual(onboarding.presentationAttempts, 0)
+    }
+    
+    func testRegisteringCorrectBehaviorResetsState() {
+        onboarding.tryPresent {}
+        XCTAssertEqual(onboarding.presentationAttempts, 1)
+        onboarding.tryPresent {}
+        XCTAssertEqual(onboarding.presentationAttempts, 2)
         onboarding.registerCorrectBehavior()
-        XCTAssertEqual(onboarding.incorrectBehaviorCount, 0)
-        XCTAssertEqual(onboarding.presentationCount, 0)
-    }
-
-    func test_registeringPresentation_resetsOnboardingPresentationState() {
-        onboarding.presentationCount = 1
-        onboarding.registerIncorrectBehavior()
-        XCTAssertEqual(onboarding.incorrectBehaviorCount, 1)
-        XCTAssertEqual(onboarding.presentationCount, 1)
-        onboarding.registerPresentation()
-        XCTAssertEqual(onboarding.incorrectBehaviorCount, 0)
-        XCTAssertEqual(onboarding.presentationCount, 0)
-    }
-
-    func test_resettingOnboarding_resetsOnboardingPresentationState() {
-        onboarding.presentationCount = 1
-        onboarding.registerIncorrectBehavior()
-        XCTAssertEqual(onboarding.incorrectBehaviorCount, 1)
-        XCTAssertEqual(onboarding.presentationCount, 1)
-        onboarding.reset()
-        XCTAssertEqual(onboarding.incorrectBehaviorCount, 0)
-        XCTAssertEqual(onboarding.presentationCount, 0)
+        XCTAssertEqual(onboarding.presentationAttempts, 0)
     }
 }

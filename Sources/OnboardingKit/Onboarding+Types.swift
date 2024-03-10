@@ -15,20 +15,20 @@ public extension Onboarding {
     /// Create a standard ``Onboarding``.
     static func standard(
         id: String,
-        defaults: UserDefaults = .standard
+        store: UserDefaults = .standard
     ) -> Onboarding {
-        .init(id: id, defaults: defaults)
+        .init(id: id, store: store)
     }
     
     /// Create a ``ConditionalOnboarding``.
     static func conditional(
         id: String,
-        defaults: UserDefaults = .standard,
+        store: UserDefaults = .standard,
         condition: @escaping ConditionalOnboarding.Condition
     ) -> ConditionalOnboarding {
         .init(
             id: id,
-            defaults: defaults,
+            store: store,
             condition: condition
         )
     }
@@ -36,12 +36,12 @@ public extension Onboarding {
     /// Create a ``CorrectBehaviorOnboarding``.
     static func correctBehavior(
         id: String,
-        defaults: UserDefaults = .standard,
+        store: UserDefaults = .standard,
         requiredIncorrectAttempts attempts: Int
     ) -> CorrectBehaviorOnboarding {
         .init(
             id: id,
-            defaults: defaults,
+            store: store,
             requiredIncorrectAttempts: attempts
         )
     }
@@ -49,12 +49,12 @@ public extension Onboarding {
     /// Create a ``DelayedOnboarding``.
     static func delayed(
         id: String,
-        defaults: UserDefaults = .standard,
+        store: UserDefaults = .standard,
         requiredPresentationAttempts attempts: Int
     ) -> DelayedOnboarding {
         .init(
             id: id,
-            defaults: defaults,
+            store: store,
             requiredPresentationAttempts: attempts
         )
     }
