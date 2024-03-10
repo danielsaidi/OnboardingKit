@@ -17,8 +17,6 @@
 
 OnboardingKit is a Swift SDK that helps you create great onboarding experiences in `Swift` and `SwiftUI`.
 
-The result can look like this, or completely different:
-
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
