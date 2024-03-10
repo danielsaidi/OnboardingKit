@@ -1,5 +1,5 @@
 //
-//  TutorialPage.swift
+//  OnboardingPage.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2020-09-06.
@@ -9,14 +9,14 @@
 import Foundation
 
 /**
- This base class represents a tutorial page, with a title, a
- text and an image name.
-
- The class can be subclassed & extended with more properties.
+ This base class represents a page in an onboarding flow.
+ 
+ This class has a title, a text and an image name. It can be
+ inherited and extended with more features.
  */
-open class TutorialPage: Identifiable {
-
-    /// Create a tutorial page.
+open class OnboardingPage: Identifiable {
+    
+    /// Create an onboarding flow page.
     ///
     /// - Parameters:
     ///   - id: The unique ID of the page, by default a unique `UUID`.
@@ -34,16 +34,16 @@ open class TutorialPage: Identifiable {
         self.text = text
         self.imageName = imageName
     }
-
+    
     /// The unique page ID.
     public let id: UUID
-
+    
     /// The page title.
     public let title: String
-
+    
     /// The page text.
     public let text: String
-
+    
     /// The name of the image asset.
     public let imageName: String?
 }

@@ -22,6 +22,9 @@ Older release notes up until 6.0 have been removed.
 * `Onboarding` no longer has a `userId` property.
 * `Onboarding` no longer has a `hasBeenPresented` property.
 * `Onboarding` no longer has a `registerPresentation` function.
+* `OnboardingPageView` now takes page values instead of a tutorial.
+* `Tutorial` and its sub types have been remamed to `OnboardingFlow`.
+* `TutorialPageView` has been renamed to `OnboardingPageView`.
 
 
 

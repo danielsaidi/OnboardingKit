@@ -1,5 +1,5 @@
 //
-//  GenericTutorial.swift
+//  GenericOnboardingFlow.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2023-12-12.
@@ -9,12 +9,12 @@
 import Foundation
 
 /**
- This ``Tutorial`` subclass defines a generic page type.
+ This ``OnboardingFlow`` uses generic page types.
  
- Use this class whenever you must use a custom page type, to
- avoid having to cast the type.
+ You can use this class to use an explicit, custom page type,
+ to avoid having to cast the page type in e.g. view builders.
  */
-open class GenericTutorial<PageType: TutorialPage>: Tutorial {
+open class GenericOnboardingFlow<PageType: OnboardingPage>: OnboardingFlow {
     
     /// Create a tutorial with a collection of generic pages.
     public init(pages: [PageType]) {

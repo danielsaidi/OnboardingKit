@@ -1,5 +1,5 @@
 //
-//  TutorialPageViewStyle.swift
+//  OnboardingPageViewStyle.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2022-09-04.
@@ -8,10 +8,10 @@
 
 import SwiftUI
 
-/// This style can be used to style a ``TutorialPageView``.
-public struct TutorialPageViewStyle {
+/// This style can style an ``OnboardingPageView``.
+public struct OnboardingPageViewStyle {
 
-    /// Create a tutorial page view style.
+    /// Create an onboarding page view style.
     ///
     /// - Parameters:
     ///   - pageIndicatorTintColor: The page indicator color to use.
@@ -31,13 +31,39 @@ public struct TutorialPageViewStyle {
     public var currentPageIndicatorTintColor: Color
 }
 
-public extension TutorialPageViewStyle {
+public extension OnboardingPageViewStyle {
 
     /**
      This standard style applies a primary tint color to the
      indicators, with less opacity to non-current indicators.
      */
-    static var standard = TutorialPageViewStyle(
+    static var standard = Self.init(
         pageIndicatorTintColor: .primary.opacity(0.3),
         currentPageIndicatorTintColor: .primary)
+}
+
+public extension View {
+
+    /// Apply a page view style to the view hierarchy.
+    func onboardingPageViewStyle(
+        _ style: OnboardingPageViewStyle
+    ) -> some View {
+        self.environment(\.onboardingPageViewStyle, style)
+    }
+}
+
+private extension OnboardingPageViewStyle {
+
+    struct Key: EnvironmentKey {
+
+        static var defaultValue: OnboardingPageViewStyle = .standard
+    }
+}
+
+public extension EnvironmentValues {
+
+    var onboardingPageViewStyle: OnboardingPageViewStyle {
+        get { self [OnboardingPageViewStyle.Key.self] }
+        set { self [OnboardingPageViewStyle.Key.self] = newValue }
+    }
 }
