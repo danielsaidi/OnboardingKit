@@ -8,9 +8,7 @@
 
 import SwiftUI
 
-/**
- This style can be used to style a `PageIndicator`.
- */
+/// This style can be used to style a `PageIndicator`.
 struct PageIndicatorStyle: Equatable {
     
     /**
@@ -40,38 +38,24 @@ struct PageIndicatorStyle: Equatable {
         self.isAnimated = isAnimated
     }
     
-    /**
-     The indicator current dot color.
-     */
+    /// The indicator current dot color.
     var currentDotColor: Color
     
-    /**
-     The indicator current dot size.
-     */
+    /// The indicator current dot size.
     var currentDotSize: CGFloat
     
-    /**
-     The indicator dot color.
-     */
+    /// The indicator dot color.
     var dotColor: Color
     
-    /**
-     The indicator dot size.
-     */
+    /// The indicator dot size.
     var dotSize: CGFloat
     
-    /**
-     The spacing to apply between dots.
-     */
+    /// The spacing to apply between dots.
     var dotSpacing: CGFloat?
     
-    /**
-     Whether or not changing pages is animated.
-     */
+    /// Whether or not changing pages is animated.
     var isAnimated: Bool
     
-    /**
-     The standard style.
-     */
+    /// The standard style.
     static var standard: PageIndicatorStyle { PageIndicatorStyle() }
 }

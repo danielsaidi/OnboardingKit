@@ -17,14 +17,12 @@ import SwiftUI
  */
 struct PageIndicator: View {
     
-    /**
-     Create a page indicator.
-     
-     - Parameters:
-       - numberOfPages: The number of pages to display.
-       - currentPageIndex: The currently selected page index.
-       - style: The style to apply to the indicator.
-     */
+    /// Create a page indicator.
+    ///
+    /// - Parameters:
+    ///   - numberOfPages: The number of pages to display.
+    ///   - currentPageIndex: The current page index.
+    ///   - style: The style to apply to the indicator.
     init(
         numberOfPages: Int,
         currentPageIndex: Binding<Int>,
@@ -35,31 +33,33 @@ struct PageIndicator: View {
         self.style = style
     }
     
-    /**
-     The currently selected page index.
-     */
-    private let currentPageIndex: Binding<Int>
-    
-    /**
-     The number of pages to display.
-     */
-    private let numberOfPages: Int
-    
-    /**
-     The style to apply to the indicator.
-     */
-    private let style: PageIndicatorStyle
-    
+    /// This enum mimics `PageTabViewStyle.IndexDisplayMode`.
+    enum DisplayMode {
+        
+        /// Always display a page indicator regardless of page count.
+        case always
+        
+        /// Display a page indicator when there are more than one page.
+        case automatic
+        
+        /// Never display a page indicator.
+        case never
+    }
+
+    let currentPageIndex: Binding<Int>
+    let numberOfPages: Int
+    let style: PageIndicatorStyle
     
     var body: some View {
         HStack(spacing: style.dotSpacing) {
             ForEach(0..<numberOfPages, id: \.self) { index in
-                Button(action: { setCurrentPage(index)}, label: {
+                Button(action: { setCurrentPage(index)}) {
                     Circle()
                         .aspectRatio(1, contentMode: .fit)
                         .frame(height: isCurrentPage(index) ? style.currentDotSize : style.dotSize)
                         .foregroundColor(isCurrentPage(index) ? style.currentDotColor : style.dotColor)
-                }).buttonStyle(.plain)
+                }
+                .buttonStyle(.plain)
             }
         }
     }
@@ -80,25 +80,25 @@ private extension PageIndicator {
     }
 }
 
-struct PageIndicator_Previews: PreviewProvider {
+#Preview {
     
-    static var previews: some View {
-        VStack(spacing: 20) {
-            PageIndicator(
-                numberOfPages: 10,
-                currentPageIndex: .constant(3))
-            
-            PageIndicator(
-                numberOfPages: 5,
-                currentPageIndex: .constant(3),
-                style: PageIndicatorStyle(
-                    dotColor: .blue,
-                    dotSpacing: 20,
-                    currentDotColor: .yellow))
-            
-        }
-        .padding()
-        .background(Color.gray)
-        .cornerRadius(20)
+    VStack(spacing: 20) {
+        PageIndicator(
+            numberOfPages: 10,
+            currentPageIndex: .constant(3)
+        )
+        
+        PageIndicator(
+            numberOfPages: 5,
+            currentPageIndex: .constant(3),
+            style: PageIndicatorStyle(
+                dotColor: .blue,
+                dotSpacing: 20,
+                currentDotColor: .yellow
+            )
+        )
     }
+    .padding()
+    .background(Color.gray)
+    .cornerRadius(20)
 }

@@ -19,19 +19,7 @@ import Combine
  */
 struct PageView<PageViewType: View>: View {
     
-    /**
-     Create a page view with a set of pre-built pages.
-     
-     This approach requires the pages to be the same kind of
-     view. To render different kind of views, use the `items`
-     and `pageBuilder` based initializer instead.
-     
-     - Parameters:
-     - pages: The pages to present in the page view.
-     - currentPageIndex: The currently presented page index.
-     - pageIndicatorDisplayMode: The page index display mode to use, by default `.automatic`.
-     - pageIndicatorStyle: The style to apply to the page indicator, by default `.standard`.
-     */
+    /// Create a page view with a set of pre-built pages.
     init(
         pages: [PageViewType],
         currentPageIndex: Binding<Int>,
@@ -44,17 +32,8 @@ struct PageView<PageViewType: View>: View {
         self.pageIndicatorStyle = pageIndicatorStyle
     }
     
-    /**
-     Create a page view that takes a collection of items and
-     applies a page builder to each item.
-     
-     - Parameters:
-     - items: The items to present in the page view.
-     - currentPageIndex: The currently presented page index.
-     - pageIndicatorDisplayMode: The page index display mode to use, by default `.automatic`.
-     - pageIndicatorStyle: The style to apply to the page indicator, by default `.standard`.
-     - pageBuilder: A function that builds a page for each item in the items collection.
-     */
+    ///  Create a page view with a collection of items and a
+    ///  page builder function.
     init<Model>(
         items: [Model],
         currentPageIndex: Binding<Int>,
