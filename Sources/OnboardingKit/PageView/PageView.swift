@@ -103,10 +103,18 @@ private extension PageView {
     }
     
     func swipeLayer(for scroll: ScrollViewProxy) -> some View {
-        Color.white.opacity(0.00001)
+        #if os(tvOS)
+        swipeLayerView(for: scroll)
+        #else
+        swipeLayerView(for: scroll)
             .onSwipeGesture(
                 left: { showNextPage(with: scroll) },
                 right: { showPreviousPage(with: scroll) })
+        #endif
+    }
+    
+    func swipeLayerView(for scroll: ScrollViewProxy) -> some View {
+        Color.white.opacity(0.00001)
     }
 }
 
