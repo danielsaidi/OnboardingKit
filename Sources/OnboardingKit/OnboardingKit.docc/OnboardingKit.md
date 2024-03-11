@@ -67,7 +67,3 @@ OnboardingKit is available under the MIT license.
 - ``OnboardingPageInfo``
 - ``OnboardingPageView``
 - ``OnboardingPageViewStyle``
-
-
-[License]: https://github.com/danielsaidi/OnboardingKit/blob/master/LICENSE
-[Repository]: https://github.com/danielsaidi/OnboardingKit
