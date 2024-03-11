@@ -6,7 +6,6 @@
 //  Copyright © 2022-2024 Daniel Saidi. All rights reserved.
 //
 
-#if os(macOS)
 import SwiftUI
 import Combine
 
@@ -35,14 +34,14 @@ struct PageView<PageViewType: View>: View {
     ///  Create a page view with a collection of items and a
     ///  page builder function.
     init<Model>(
-        items: [Model],
+        pages: [Model],
         currentPageIndex: Binding<Int>,
         pageIndicatorDisplayMode: PageIndicator.DisplayMode = .automatic,
         pageIndicatorStyle: PageIndicatorStyle = .standard,
         @ViewBuilder pageBuilder: (Model) -> PageViewType
     ) {
         self.currentPageIndex = currentPageIndex
-        self.pages = items.map(pageBuilder)
+        self.pages = pages.map(pageBuilder)
         self.pageIndicatorDisplayMode = pageIndicatorDisplayMode
         self.pageIndicatorStyle = pageIndicatorStyle
     }
@@ -138,4 +137,3 @@ private extension PageView {
         setPageIndex(to: currentPageIndex.wrappedValue - 1, with: scroll)
     }
 }
-#endif

@@ -22,7 +22,7 @@ import UIKit
  Apply the `.onboardingPageViewStyle(...)` modifier to style
  this view.
  */
-public struct OnboardingPageView<Page, PageView: View>: View {
+public struct OnboardingPageView<Page, PageItemView: View>: View {
 
     /// Create a tutorial page view.
     ///
@@ -40,7 +40,7 @@ public struct OnboardingPageView<Page, PageView: View>: View {
         self.pageView = pageView
     }
 
-    public typealias PageViewBuilder = (Page, OnboardingPageInfo) -> PageView
+    public typealias PageViewBuilder = (Page, OnboardingPageInfo) -> PageItemView
 
     private let pageIndex: Binding<Int>
     private let pages: [Page]
@@ -75,7 +75,7 @@ private extension OnboardingPageView {
         .tabViewStyle(.page)
         #else
         PageView(
-            items: Array(pages.enumerated()),
+            pages: Array(pages.enumerated()),
             currentPageIndex: pageIndex,
             pageIndicatorDisplayMode: .always,
             pageIndicatorStyle: .init(
