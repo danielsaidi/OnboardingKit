@@ -11,7 +11,7 @@ import XCTest
 
 final class InfoTests: XCTestCase {
     
-    typealias Info = OnboardingFlow.PageInfo
+    typealias Info = OnboardingPageInfo
 
     func test_isFirstPage_returnsCorrectResult() {
         let obj1 = Info(pageIndex: -1, currentPageIndex: 0, totalPageCount: 10)

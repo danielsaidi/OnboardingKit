@@ -6,13 +6,12 @@ OnboardingKit honors semver.
 
 ## 7.0
 
-This version bumps the platform deployment targets and cleans up the library.
-
-Older release notes up until 6.0 have been removed.
+This version drastically simplifies the library and bumps the platform deployment targets to more modern platform versions.
 
 ### 💡 Behavior changes
 
 * `Onboarding` and its subclasses have been simplified.
+* `Onboarding` is now based on `tryPresent` regardless of which class you use.
 
 ### 💥 Breaking changes
 
@@ -23,8 +22,7 @@ Older release notes up until 6.0 have been removed.
 * `Onboarding` no longer has a `hasBeenPresented` property.
 * `Onboarding` no longer has a `registerPresentation` function.
 * `OnboardingPageView` now takes page values instead of a tutorial.
-* `Tutorial` and its sub types have been remamed to `OnboardingFlow`.
-* `TutorialPageView` has been renamed to `OnboardingPageView`.
+* `Tutorial` has been removed and replaced with new onboarding views.
 
 
 

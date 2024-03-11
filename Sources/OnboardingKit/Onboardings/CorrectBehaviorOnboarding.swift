@@ -15,10 +15,10 @@ import Foundation
  An example could be a puzzle game, where pieces can animate
  to their position after being incorrectly placed many times.
  
- Just call ``tryPresent(delay:action:)`` when a user behaves
- incorrectly or not as intended. The onboarding will perform
- the presentation after the defined number of attempts. Just
- call ``registerCorrectBehavior()`` when the user behaves as
+ Call ``Onboarding/tryPresent(after:action:)`` when the user
+ behaves incorrectly or not as intended. The onboarding will
+ perform the presentation after a defined number of attempts.
+ Call ``registerCorrectBehavior()`` when the user behaves as
  intended, to reset the onboarding state.
  
  Unlike ``DelayedOnboarding``, which the onboarding inherits,

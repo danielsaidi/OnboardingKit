@@ -15,8 +15,14 @@ import UIKit
 /**
  This view can be used to render a collection of pages, that
  can be swiped through horizontally.
+ 
+ This will use a regular `TabView` on iOS, and a custom page
+ view on other platforms.
+ 
+ Apply the `.onboardingPageViewStyle(...)` modifier to style
+ this view.
  */
-public struct OnboardingPageView<Page: Identifiable, PageView: View>: View {
+public struct OnboardingPageView<Page, PageView: View>: View {
 
     /// Create a tutorial page view.
     ///
@@ -34,7 +40,7 @@ public struct OnboardingPageView<Page: Identifiable, PageView: View>: View {
         self.pageView = pageView
     }
 
-    public typealias PageViewBuilder = (Page, OnboardingFlow.PageInfo) -> PageView
+    public typealias PageViewBuilder = (Page, OnboardingPageInfo) -> PageView
 
     private let pageIndex: Binding<Int>
     private let pages: [Page]

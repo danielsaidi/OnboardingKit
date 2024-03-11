@@ -15,15 +15,13 @@
 
 ## About OnboardingKit
 
-OnboardingKit is a Swift SDK that helps you create great onboarding experiences in `Swift` and `SwiftUI`.
+OnboardingKit is a Swift SDK that helps you create onboarding experiences in `Swift` and `SwiftUI`.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
 OnboardingKit has different onboarding types. Standard onboardings are shown right away, and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions, etc. 
-
-You can combine different onboarding types to create new ones and reset the state of any onboarding to display it again. OnboardingKit supports multiple users.
 
 
 
@@ -41,7 +39,7 @@ https://github.com/danielsaidi/OnboardingKit.git
 
 In OnboardingKit, an `Onboarding` determines the state and behavior of an onboarding experience. You can use various onboarding types to get different behaviors. 
 
-The code below shows how to use a standard onboarding to present a first launch onboarding tutorial:
+The code below shows how to use a standard onboarding to present a first launch onboarding sheet:
 
 ```swift
 import OnboardingKit
@@ -53,13 +51,12 @@ struct ContentView: View {
     private var isOnboardingPresented: Bool
     
     private let onboarding = Onboarding(id: "welcome") 
-    private let tutorial = LocalizedTutorial(id: "welcome")
 
     var body: some View {
         Text("Hello, world")
             .task(tryPresentOnboarding)
             .sheet(isPresented: $isOnboardingPresented) {
-                TutorialPageView(tutorial: tutorial, ...)
+                ...
             }
     }
     
