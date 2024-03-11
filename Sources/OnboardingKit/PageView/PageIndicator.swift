@@ -53,7 +53,9 @@ struct PageIndicator: View {
     var body: some View {
         HStack(spacing: style.dotSpacing) {
             ForEach(0..<numberOfPages, id: \.self) { index in
-                Button(action: { setCurrentPage(index)}) {
+                Button {
+                    setCurrentPage(index)
+                } label: {
                     Circle()
                         .aspectRatio(1, contentMode: .fit)
                         .frame(height: isCurrentPage(index) ? style.currentDotSize : style.dotSize)
