@@ -8,6 +8,8 @@ OnboardingKit honors semver.
 
 This version drastically simplifies the library and bumps the platform deployment targets to more modern platform versions.
 
+Please see the docs and the demo for updated examples.
+
 ### 💡 Behavior changes
 
 * `Onboarding` and its subclasses have been simplified.
