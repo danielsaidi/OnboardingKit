@@ -4,6 +4,14 @@ OnboardingKit honors semver.
 
 
 
+## 7.0.2
+
+### ✨ New features
+
+* `View` has a new `tryPresent` function.
+
+
+
 ## 7.0.1
 
 ### 🐛 Bug Fixes
