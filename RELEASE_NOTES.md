@@ -4,6 +4,14 @@ OnboardingKit honors semver.
 
 
 
+## 7.0.1
+
+### 🐛 Bug Fixes
+
+* The custom onboarding page view style is now applied on appear, instead of as a task.
+
+
+
 ## 7.0
 
 This version drastically simplifies the library and bumps the platform deployment targets to more modern platform versions.

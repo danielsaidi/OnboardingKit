@@ -12,16 +12,14 @@ import SwiftUI
 import UIKit
 #endif
 
-/**
- This view can be used to render a collection of pages, that
- can be swiped through horizontally.
- 
- This will use a regular `TabView` on iOS, and a custom page
- view on other platforms.
- 
- Apply the `.onboardingPageViewStyle(...)` modifier to style
- this view.
- */
+/// This view can be used to show a collection of pages that
+/// can be swiped through horizontally.
+///
+/// This view uses a regular SwiftUI `TabView` on iOS, and a
+/// custom page view implementation on other platforms.
+///
+/// Apply an ``SwiftUI/View/onboardingPageViewStyle(_:)`` to
+/// your view to customize its style.
 public struct OnboardingPageView<Page, PageItemView: View>: View {
 
     /// Create a tutorial page view.
@@ -51,7 +49,7 @@ public struct OnboardingPageView<Page, PageItemView: View>: View {
 
     public var body: some View {
         bodyContent
-            .task { setupAppearance() }
+            .onAppear { setupAppearance() }
     }
 }
 
@@ -72,7 +70,7 @@ private extension OnboardingPageView {
                 .tag($0.offset)
             }
         }
-        .tabViewStyle(.page)
+        .tabViewStyle(.page(indexDisplayMode: .always))
         #else
         PageView(
             pages: Array(pages.enumerated()),
@@ -99,8 +97,32 @@ private extension OnboardingPageView {
     func setupAppearance() {
         #if os(iOS)
         let appearance = UIPageControl.appearance()
-        appearance.currentPageIndicatorTintColor = UIColor(style.currentPageIndicatorTintColor)
         appearance.pageIndicatorTintColor = UIColor(style.pageIndicatorTintColor)
+        appearance.currentPageIndicatorTintColor = UIColor(style.currentPageIndicatorTintColor)
         #endif
     }
+}
+
+#Preview {
+    
+    struct Preview: View {
+        
+        @State
+        private var index = 0
+    
+        var body: some View {
+            OnboardingPageView(pages: Array(0...10), pageIndex: $index) { index, info in
+                Text("Page \(index)/\(info.totalPageCount)")
+            }
+            .onboardingPageViewStyle(
+                .init(
+                    pageIndicatorTintColor: .red,
+                    currentPageIndicatorTintColor: .gray
+                )
+            )
+            .background(Color.blue)
+        }
+    }
+    
+    return Preview()
 }
