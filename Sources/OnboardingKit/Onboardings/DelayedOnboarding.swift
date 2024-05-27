@@ -50,16 +50,22 @@ open class DelayedOnboarding: Onboarding {
     }
 }
 
-public extension Onboarding {
+public extension DelayedOnboarding {
 
     /// The number of times an onboarding has been attempted.
     var presentationAttempts: Int {
         get { store.integer(forKey: presentationKey) }
         set { store.set(newValue, forKey: presentationKey) }
     }
+
+    /// The number of remaining presentation attempts before
+    /// the onboarding will be presented.
+    var remainingPresentationAttempts: Int {
+        requiredPresentationAttempts - presentationAttempts
+    }
 }
 
-private extension Onboarding {
+private extension DelayedOnboarding {
     
     var presentationKey: String {
         persistencyKey(for: "presentationAttemptCount")

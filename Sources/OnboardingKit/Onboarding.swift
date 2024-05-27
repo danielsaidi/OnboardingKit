@@ -60,6 +60,7 @@ open class Onboarding: Identifiable {
     ///
     /// The presentation will be ignored when the onboarding
     /// does not have to be presented.
+    @MainActor
     open func tryPresent(
         after seconds: TimeInterval = 0,
         action: @escaping () -> Void
@@ -69,14 +70,16 @@ open class Onboarding: Identifiable {
     }
     
     /// Present the onboarding with the provided action.
+    @MainActor
     open func present(
         after seconds: TimeInterval = 0,
         action: @escaping () -> Void
     ) {
         presentationCount += 1
         if seconds > 0 {
-            let queue = DispatchQueue.main
-            queue.asyncAfter(deadline: .now() + seconds, execute: action)
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                action()
+            }
         } else {
             action()
         }

@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@MainActor
 public extension View {
 
     /// Present an onboarding, with an optional delay.
