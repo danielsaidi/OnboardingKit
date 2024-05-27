@@ -8,25 +8,23 @@
 
 import Foundation
 
-/**
- This onboarding type can help users behave as intended, for
- instance to show a guide when the user fails multiple times.
- 
- An example could be a puzzle game, where pieces can animate
- to their position after being incorrectly placed many times.
- 
- Call ``Onboarding/tryPresent(after:action:)`` when the user
- behaves incorrectly or not as intended. The onboarding will
- perform the presentation after a defined number of attempts.
- Call ``registerCorrectBehavior()`` when the user behaves as
- intended, to reset the onboarding state.
- 
- Unlike ``DelayedOnboarding``, which the onboarding inherits,
- this onboarding type resets itself each time it's presented.
- */
+/// This onboarding type is presented after a certain number
+/// of incorrect behaviors, to help users behave as intended.
+/// 
+/// An example could be a puzzle game for kids, where pieces
+/// animate to their correct position to show what to do.
+///
+/// Use ``Onboarding/tryPresent(after:action:)`` when a user
+/// behaves incorrectly, or not as intended. The action will
+/// only be triggered after the provided number of incorrect
+/// attempts. Call ``registerCorrectBehavior()`` when a user
+/// behaves as intended, to reset the onboarding state.
+///
+/// Unlike ``DelayedOnboarding``, this onboarding will reset
+/// itself each time it's presented.
 open class CorrectBehaviorOnboarding: DelayedOnboarding {
     
-    /// Create a correct behavior onboarding instance.
+    /// Create a correct behavior onboarding.
     public init(
         id: String,
         store: UserDefaults = .standard,

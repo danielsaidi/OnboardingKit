@@ -49,7 +49,7 @@ public struct OnboardingPageView<Page, PageItemView: View>: View {
 
     public var body: some View {
         bodyContent
-            .onAppear { setupAppearance() }
+            .task(setupAppearance)
     }
 }
 

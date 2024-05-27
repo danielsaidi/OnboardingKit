@@ -21,7 +21,9 @@ let package = Package(
     targets: [
         .target(
             name: "OnboardingKit",
-            dependencies: []
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]
         ),
         .testTarget(
             name: "OnboardingKitTests",

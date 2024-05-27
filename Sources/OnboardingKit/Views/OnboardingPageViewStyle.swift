@@ -40,13 +40,11 @@ public struct OnboardingPageViewStyle {
 
 public extension OnboardingPageViewStyle {
 
-    /**
-     This standard style applies a primary tint color to the
-     indicators, with less opacity to non-current indicators.
-     */
-    static var standard = Self.init(
+    /// The standard onboarding page view style.
+    static var standard: Self { .init(
         pageIndicatorTintColor: .primary.opacity(0.3),
         currentPageIndicatorTintColor: .primary)
+    }
 }
 
 public extension View {
@@ -63,7 +61,7 @@ private extension OnboardingPageViewStyle {
 
     struct Key: EnvironmentKey {
 
-        static var defaultValue: OnboardingPageViewStyle = .standard
+        static var defaultValue: OnboardingPageViewStyle { .standard }
     }
 }
 

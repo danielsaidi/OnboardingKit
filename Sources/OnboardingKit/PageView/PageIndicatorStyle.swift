@@ -11,17 +11,15 @@ import SwiftUI
 /// This style can be used to style a `PageIndicator`.
 struct PageIndicatorStyle: Equatable {
     
-    /**
-     Create a custom page indicator style.
-     
-     - Parameters:
-       - dotColor: The indicator dot color, by default `.white` with 0.5 opacity.
-       - dotSize: The indicator dot size, by default `10`.
-       - currentDotColor: The indicator current dot color, by default `.white`.
-       - currentDotSize: The indicator current dot size, by default `10`.
-       - dotSpacing: The spacing to apply between dots, by default `nil`.
-       - isAnimated: Whether or not changing pages is animated, by default `true`.
-     */
+    /// Create a custom page indicator style.
+    ///
+    /// - Parameters:
+    ///   - dotColor: The indicator dot color, by default `.white` with 0.5 opacity.
+    ///   - dotSize: The indicator dot size, by default `10`.
+    ///   - currentDotColor: The indicator current dot color, by default `.white`.
+    ///   - currentDotSize: The indicator current dot size, by default `10`.
+    ///   - dotSpacing: The spacing to apply between dots, by default `nil`.
+    ///   - isAnimated: Whether or not changing pages is animated, by default `true`.
     init(
         dotColor: Color = .white.opacity(0.5),
         dotSize: CGFloat = 7,
@@ -55,7 +53,10 @@ struct PageIndicatorStyle: Equatable {
     
     /// Whether or not changing pages is animated.
     var isAnimated: Bool
-    
-    /// The standard style.
-    static var standard: PageIndicatorStyle { PageIndicatorStyle() }
+}
+
+extension PageIndicatorStyle {
+
+    /// The standard page indicator style.
+    static var standard: Self { .init() }
 }

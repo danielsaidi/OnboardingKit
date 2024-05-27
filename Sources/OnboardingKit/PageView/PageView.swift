@@ -9,13 +9,11 @@
 import SwiftUI
 import Combine
 
-/**
- This view wraps its pages in a horizontal `ScrollView` that
- applies overlays and gestures to mimic a `.page` `TabView`.
- 
- You can set it up with a fixed set of `pages` or with a set
- of `items` to which you apply a dynamic page builder.
- */
+/// This view wraps its pages in a `ScrollView` that applies
+/// overlays and gestures to mimic a `.page` `TabView`.
+///
+/// You can set it up with a fixed set of `pages`, or with a
+/// set of `items` to which you apply a dynamic page builder.
 struct PageView<PageViewType: View>: View {
     
     /// Create a page view with a set of pre-built pages.
@@ -31,8 +29,7 @@ struct PageView<PageViewType: View>: View {
         self.pageIndicatorStyle = pageIndicatorStyle
     }
     
-    ///  Create a page view with a collection of items and a
-    ///  page builder function.
+    /// Create a page view with items and a page builder.
     init<Model>(
         pages: [Model],
         currentPageIndex: Binding<Int>,

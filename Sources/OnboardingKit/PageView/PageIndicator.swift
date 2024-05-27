@@ -8,13 +8,13 @@
 
 import SwiftUI
 
-/**
- This view can be used to display a horizontal collection of
- dots that are bound to pages in a page view.
- 
- You can use this view to customize the style of the dots in
- a `TabView` (or ``PageView``).
- */
+/// This view can be used to display a horizontal collection
+/// of dots that are bound to pages in a page view.
+///
+/// This view is used to add page view capabilities to macOS.
+///
+/// You can use this view to customize the style of the dots 
+/// in a `TabView` (or ``PageView``).
 struct PageIndicator: View {
     
     /// Create a page indicator.
