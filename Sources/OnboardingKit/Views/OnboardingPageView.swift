@@ -49,7 +49,7 @@ public struct OnboardingPageView<Page, PageItemView: View>: View {
 
     public var body: some View {
         bodyContent
-            .task(setupAppearance)
+            .task { setupAppearance() }
     }
 }
 
@@ -94,6 +94,7 @@ private extension OnboardingPageView {
         #endif
     }
     
+    @MainActor
     func setupAppearance() {
         #if os(iOS)
         let appearance = UIPageControl.appearance()
