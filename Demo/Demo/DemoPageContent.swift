@@ -13,7 +13,7 @@ struct DemoPageContent: View {
 
     @Binding
     var index: Int
-    let info: OnboardingPageInfo<LocalizedOnboardingFlow.Page>
+    let info: OnboardingPageInfo<LocalizedOnboarding.Page>
 
     @Environment(\.dismiss)
     private var dismiss

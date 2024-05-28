@@ -12,7 +12,7 @@ OnboardingKit is a Swift SDK that helps you create onboarding experiences in `Sw
 
 OnboardingKit has different onboarding types. A standard ``Onboarding`` is shown right away, and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions, etc.
 
-OnboardingKit also has localized utilities, like the ``LocalizedOnboardingFlow``, and UI components like ``OnboardingPageView`` and ``OnboardingSlideshow``.
+OnboardingKit also has localized utilities, like the ``LocalizedOnboarding``, and UI components like ``OnboardingPageView`` and ``OnboardingSlideshow``.
 
 
 
@@ -59,10 +59,7 @@ OnboardingKit is available under the MIT license.
 - ``ConditionalOnboarding``
 - ``CorrectBehaviorOnboarding``
 - ``DelayedOnboarding``
-
-### Localization
-
-- ``LocalizedOnboardingFlow``
+- ``LocalizedOnboarding``
 
 ### Views
 

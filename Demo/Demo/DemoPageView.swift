@@ -11,7 +11,7 @@ import SwiftUI
 
 struct DemoPageView: View {
     
-    let onboarding: LocalizedOnboardingFlow
+    let onboarding: LocalizedOnboarding
 
     @Binding var index: Int
     

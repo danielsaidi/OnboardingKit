@@ -28,7 +28,6 @@ struct ContentView: View {
         NavigationStack {
             List {
                 Section("Onboardings") {
-
                     listButton(
                         .popover, 
                         presentPopover,

@@ -8,16 +8,13 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 
 ## 8.0
 
-This version adds support for strict concurrency and a new slideshow component.
+This version adds support for strict concurrency and a new `OnboardingSlideshow` component.
+
+To simplify the `OnboardingPageView` and `OnboardingSlideshow` view builder setup, these functions have been refactored to only use `OnboardingPageInfo` as parameter.
 
 ### ✨ New features
 
-* `OnboardingSlideshow` is a new view that automatically slides through a set of pages.
-
-### 💥 Breaking changes
-
-* To simplify the OnboardingPageView and OnboardingSlideshow view builders, these functions have been refactored to only use the OnboardingPageInfo type as parameter. This is a breaking change, but it's very easy to fix. Sorry for any inconvenience. 
-
+* `OnboardingSlideshow` is a new view that automatically slides through a set of pages. 
 
 
 

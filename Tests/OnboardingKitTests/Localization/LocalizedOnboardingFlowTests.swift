@@ -1,5 +1,5 @@
 //
-//  LocalizedOnboardingFlowTests.swift
+//  LocalizedOnboardingTests.swift
 //  OnboardingKitTests
 //
 //  Created by Daniel Saidi on 2018-06-18.
@@ -9,14 +9,14 @@
 import OnboardingKit
 import XCTest
 
-final class LocalizedOnboardingFlowTests: XCTestCase {
+final class LocalizedOnboardingTests: XCTestCase {
 
     func test_standardInitializer_createsStandardPagesForAllTranslations() {
         let translator: (String) -> String = {
             $0 == "onboarding.welcome.3.title" ? $0 : ""
         }
 
-        let result = LocalizedOnboardingFlow(
+        let result = LocalizedOnboarding(
             id: "welcome",
             translator: translator)
         let pages = result.pages
@@ -32,7 +32,7 @@ final class LocalizedOnboardingFlowTests: XCTestCase {
             $0 == "onboarding_custom_2_movie" ? $0 : ""
         }
 
-        let result = LocalizedOnboardingFlow(
+        let result = LocalizedOnboarding(
             id: "custom",
             pageIndicationKey: "movie",
             resourceKeySeparator: "_",
@@ -45,7 +45,7 @@ final class LocalizedOnboardingFlowTests: XCTestCase {
     }
 
     func test_standardResourceNameResolver_usesExpectedResourceNameFormat() {
-        let result = LocalizedOnboardingFlow.resourceName(
+        let result = LocalizedOnboarding.resourceName(
             for: "welcome",
             at: 0,
             key: "title",
@@ -54,7 +54,7 @@ final class LocalizedOnboardingFlowTests: XCTestCase {
     }
 
     func test_standardResourceNameResolver_omitsEmptyResourceKeys() {
-        let result = LocalizedOnboardingFlow.resourceName(
+        let result = LocalizedOnboarding.resourceName(
             for: "farewell",
             at: 3,
             key: "",
@@ -63,11 +63,11 @@ final class LocalizedOnboardingFlowTests: XCTestCase {
     }
 
     func test_standardPageResolved_usesProvidedResourceNameResolved() {
-        let result = LocalizedOnboardingFlow.page(
+        let result = LocalizedOnboarding.page(
             for: "hello",
             at: 5,
             in: .main,
-            resourceName: LocalizedOnboardingFlow.resourceName,
+            resourceName: LocalizedOnboarding.resourceName,
             resourceKeySeparator: "_")
         XCTAssertEqual(result.title, "onboarding_hello_5_title")
         XCTAssertEqual(result.text, "onboarding_hello_5_text")

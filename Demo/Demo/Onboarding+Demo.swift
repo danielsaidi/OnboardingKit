@@ -43,7 +43,7 @@ extension Onboarding {
     static let demoToolbarPopover = Onboarding(id: "demo.toolbar.popover")
 }
 
-extension LocalizedOnboardingFlow {
+extension LocalizedOnboarding {
 
-    static let demo = LocalizedOnboardingFlow(id: "demo-flow")
+    static let demo = .init(id: "demo-flow")
 }

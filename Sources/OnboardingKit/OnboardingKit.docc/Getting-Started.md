@@ -78,4 +78,4 @@ Both views can be styled by applying a style view modifier to the view hierarchy
 
 ## Localization
 
-You can use a ``LocalizedOnboardingFlow`` to automatically generate onboarding pages from the localized strings in your project. This makes it easy to manage your onboarding flows with just text and assets, without writing more code.
+You can use a ``LocalizedOnboarding`` to automatically generate pages from the localized strings in your project. This makes it easy to manage your onboarding with just text and assets, without writing any code.
