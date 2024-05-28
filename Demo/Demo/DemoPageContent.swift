@@ -20,20 +20,20 @@ struct DemoPageContent: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Image(systemName: "\(info.pageIndex).circle")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 150)
-                .shadow(radius: 1, y: 1)
-                .padding()
-                .scaleEffect(info.isCurrentPage ? 1 : 0.5)
-                .animation(.bouncy, value: index)
+            image
             Text(info.page.title)
                 .font(.title)
             Text(info.page.text)
         }
+        .padding(30)
+        .frame(maxWidth: .infinity)
+        .background()
+        .clipShape(.rect(cornerRadius: 10))
+        .shadow(radius: 1, y: 1)
         .frame(maxHeight: .infinity)
         .multilineTextAlignment(.center)
+        .scaleEffect(info.isCurrentPage ? 1 : 0.5)
+        .animation(.bouncy, value: index)
         .padding()
         .safeAreaInset(edge: .bottom) {
             Button(info.isLastPage ? "Done" : "Next") {
@@ -49,6 +49,17 @@ struct DemoPageContent: View {
     }
 }
 
+private extension DemoPageContent {
+
+    var image: some View {
+        Image(systemName: "\(info.pageIndex).circle")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(maxWidth: 150)
+            .padding(.bottom, 20)
+    }
+}
+
 #Preview {
 
     struct Preview: View {
@@ -57,19 +68,26 @@ struct DemoPageContent: View {
         private var index = 0
 
         var body: some View {
-            DemoPageContent(
-                index: $index,
-                info: .init(
-                    page: .init(
-                        title: "Foo",
-                        text: "Bar",
-                        imageName: "onboarding.demo-flow.0.image"
-                    ),
-                    pageIndex: 0,
-                    currentPageIndex: 1,
-                    totalPageCount: 2
+            ZStack {
+                Color.red.ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation { index += 1 }
+                    }
+
+                DemoPageContent(
+                    index: $index,
+                    info: .init(
+                        page: .init(
+                            title: "Foo",
+                            text: "Bar",
+                            imageName: "onboarding.demo-flow.0.image"
+                        ),
+                        pageIndex: 1,
+                        currentPageIndex: index,
+                        totalPageCount: 2
+                    )
                 )
-            )
+            }
         }
     }
 
