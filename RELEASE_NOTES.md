@@ -4,6 +4,16 @@ OnboardingKit honors semver.
 
 
 
+## 7.1
+
+This version adds support for strict concurrency and a new slideshow component.
+
+### ✨ New features
+
+* `OnboardingSlideshow` is a new view that automatically slides through a set of pages.
+
+
+
 ## 7.0.2
 
 ### ✨ New features

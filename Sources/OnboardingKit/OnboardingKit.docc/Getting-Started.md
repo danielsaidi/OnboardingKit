@@ -47,7 +47,7 @@ struct ContentView: View {
         Text("Hello, world")
             .task(tryPresentOnboarding)
             .sheet(isPresented: $isOnboardingPresented) {
-                ...
+                ... show your onboarding content here
             }
     }
     
@@ -59,15 +59,21 @@ struct ContentView: View {
 }
 ```
 
-The onboarding only cares about state and behavior, not how it's presented. You can present the content above in a full screen modal, a popover from any view, or by pushing a new view onto the navigation stack.
+An onboarding only cares about its state and behavior, not how it's presented. You can present the content above in a full screen modal, popover from any view, by pushing a new view onto the navigation stack, etc.
 
-The onboarding will honor its own rules and state, so `tryPresent` will only trigger when it makes sense for the onboarding to show.
+An onboarding will honor its rules and state, so ``Onboarding/tryPresent(after:action:)`` will only trigger when it makes sense for it to show.
 
 
 
 ## Views
 
-The ``OnboardingPageView`` can be used to render a collection of pages in a horizontally sliding onboarding flow. It behaves like a regular page view styled tab view, but unlike that component this one works on all platforms.
+OnboardingKit comes with a set of UI components that you can use to present more complex onboarding flows, like a multi-page one that is shown when the app is first launched.   
+
+An ``OnboardingPageView`` can be used to render a set of pages in a horizontal page view that works on all platforms. You just have to pass in a set of pages of any type, then provide the view with a page view builder. 
+
+An ``OnboardingSlideshow`` can be used to render a set of pages in a slideshow that automatically slides through the pages. You just have to pass in a set of pages of any type, then provide the view with a page view builder.
+
+Both views can be styled by applying a style view modifier to the view hierarchy.
 
 
 ## Localization

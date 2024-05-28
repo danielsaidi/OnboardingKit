@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-/// This style can be used to style an ``OnboardingPageView``.
+/// This style can be used to style ``OnboardingPageView``.
 ///
 /// You can apply the style with a view modifier:
 ///
@@ -21,11 +21,11 @@ public struct OnboardingPageViewStyle {
     /// Create an onboarding page view style.
     ///
     /// - Parameters:
-    ///   - pageIndicatorTintColor: The page indicator color to use.
-    ///   - currentPageIndicatorTintColor: The color of the current page indicator.
+    ///   - pageIndicatorTintColor: The page indicator color to use, by default `.primary` with opacity.
+    ///   - currentPageIndicatorTintColor: The color of the current page indicator, by default `.primary`.
     public init(
-        pageIndicatorTintColor: Color,
-        currentPageIndicatorTintColor: Color
+        pageIndicatorTintColor: Color = .primary.opacity(0.3),
+        currentPageIndicatorTintColor: Color = .primary
     ) {
         self.pageIndicatorTintColor = pageIndicatorTintColor
         self.currentPageIndicatorTintColor = currentPageIndicatorTintColor
@@ -41,9 +41,8 @@ public struct OnboardingPageViewStyle {
 public extension OnboardingPageViewStyle {
 
     /// The standard onboarding page view style.
-    static var standard: Self { .init(
-        pageIndicatorTintColor: .primary.opacity(0.3),
-        currentPageIndicatorTintColor: .primary)
+    static var standard: Self {
+        .init()
     }
 }
 

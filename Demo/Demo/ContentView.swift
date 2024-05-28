@@ -69,7 +69,7 @@ struct ContentView: View {
                     Button(action: presentListDelayed) {
                         LabeledContent {} label: {
                             Text("Present a delayed onboarding")
-                            Text("This will be presented once, after \(Onboarding.demoListDelayed.requiredPresentationAttempts) taps.")
+                            Text("This will be presented once, after \(Onboarding.demoDelayed.requiredPresentationAttempts) taps.")
                         }
                     }
                     .demoPopover(
@@ -79,12 +79,11 @@ struct ContentView: View {
                     
                     // Correct Behavior onboarding
                     
-                    Button(action: presentListCorrectBehavior) {
-                        LabeledContent {} label: {
-                            Text("Present a correct behavior onboarding")
-                            Text("This will be presented every time you tap this button  \(Onboarding.demoListCorrectBehavior.requiredPresentationAttempts) times.")
-                        }
-                    }
+                    button(
+                        presentListCorrectBehavior,
+                        "Present a correct behavior onboarding",
+                        "You must tap this button \(Onboarding.demoCorrectBehavior.remainingPresentationAttempts) times more to show the onboarding."
+                    )
                     .demoPopover(
                         $isListCorrectBehaviorPresented,
                         text: "Correct behavior onboardings are great if you want to make your users behave in a certain way, e.g. in games."
@@ -94,12 +93,16 @@ struct ContentView: View {
                 // Flows
                 
                 Section("Flows") {
-                    Button(action: presentLocalizedFlowAsPageView) {
-                        LabeledContent {} label: {
-                            Text("Present a localized page view")
-                            Text("Swipe through a localized onboarding flow.")
-                        }
-                    }
+                    button(
+                        presentLocalizedFlowAsPageView,
+                        "Present an onboarding page view",
+                        "This onboarding flow lets you swipe through a set of pages."
+                    )
+                    button(
+                        presentLocalizedFlowAsSlideshow,
+                        "Present an onboarding slideshow",
+                        "This onboarding flow automatically slides through a set of pages."
+                    )
                 }
             }
             .navigationTitle("OnboardingKit")
@@ -127,7 +130,21 @@ struct ContentView: View {
 }
 
 private extension View {
-    
+
+    func button(
+        _ action: @escaping () -> Void,
+        _ title: String,
+        _ text: String
+    ) -> some View {
+        Button(action: action) {
+            LabeledContent {} label: {
+                Text(title)
+                Text(text)
+            }
+            .contentShape(Rectangle())
+        }
+    }
+
     func demoPopover(
         _ isPresented: Binding<Bool>,
         text: String = "Use popovers hints to inform the user about important parts of the UI."
@@ -136,10 +153,10 @@ private extension View {
             Text(text)
                 .padding()
                 .padding(.vertical)
-            #if os(iOS)
+                #if os(iOS)
                 .fixedSize(horizontal: false, vertical: true)
                 .presentationCompactAdaptation(.none)
-            #endif
+                #endif
         }
     }
 }
@@ -153,7 +170,7 @@ private extension ContentView {
     
     var pageViewSheet: some View {
         DemoPageView(
-            flow: Onboarding.demoLocalizedFlow,
+            onboarding: .demo,
             index: $pageViewPageIndex
         )
     }
@@ -162,39 +179,40 @@ private extension ContentView {
         Text("Use modal sheets or covers to present launch onboarding flows.")
             .padding()
     }
+}
+
+@MainActor
+private extension ContentView {
     
     var toolbarButton: some View {
         Button(action: presentToolbarPopover) {
             Image.popover.label("Show popover")
         }
     }
-}
 
-private extension ContentView {
-    
     func presentListConditional() {
-        Onboarding.demoListConditional { isListConditionalEnabled }
+        Onboarding.demoConditional { isListConditionalEnabled }
             .tryPresent { isListConditionalPresented = true }
     }
     
     func presentListCorrectBehavior() {
-        Onboarding.demoListCorrectBehavior
+        Onboarding.demoCorrectBehavior
             .tryPresent { isListCorrectBehaviorPresented = true }
     }
     
     func presentListDelayed() {
-        Onboarding.demoListDelayed
+        Onboarding.demoDelayed
             .tryPresent { isListDelayedPresented = true }
     }
     
     func presentListPopover() {
-        Onboarding.demoListPopover.tryPresent {
+        Onboarding.demoPopover.tryPresent {
             isListPopoverPresented = true
         }
     }
     
     func presentListSheet() {
-        Onboarding.demoListSheet.tryPresent {
+        Onboarding.demoSheet.tryPresent {
             isListSheetPresented = true
         }
     }

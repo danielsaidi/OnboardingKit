@@ -65,7 +65,7 @@ open class LocalizedOnboardingFlow {
     /// This class represents a page in an onboarding flow.
     public class Page: Identifiable {
         
-        init(
+        public init(
             id: UUID = .init(),
             title: String,
             text: String,

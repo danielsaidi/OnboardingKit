@@ -11,58 +11,43 @@ import SwiftUI
 
 struct DemoPageView: View {
     
-    let flow: LocalizedOnboardingFlow
-    
+    let onboarding: LocalizedOnboardingFlow
+
     @Binding var index: Int
     
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         OnboardingPageView(
-            pages: Onboarding.demoLocalizedFlow.pages,
+            pages: onboarding.pages,
             pageIndex: $index
         ) { page, info in
-            ZStack {
-                pageColor(at: info.currentPageIndex)
-                    .ignoresSafeArea()
-                
-                VStack(spacing: 20) {
-                    Spacer()
-                    Image(page.imageName ?? "")
-                    Text(page.title).font(.title)
-                    Text(page.text)
-                    Spacer()
-                    Button(info.isLastPage ? "Done" : "Next") {
-                        if info.isLastPage { return dismiss() }
-                        withAnimation {
-                            index += 1
-                        }
+            DemoPage(page: page, info: info) {
+                Button(info.isLastPage ? "Done" : "Next") {
+                    if info.isLastPage { return dismiss() }
+                    withAnimation {
+                        index += 1
                     }
-                    .buttonStyle(.borderedProminent)
-                    .padding()
                 }
-                .multilineTextAlignment(.center)
+                .buttonStyle(.borderedProminent)
                 .padding()
-                .foregroundColor(.white)
             }
-            .animation(.default, value: index)
         }
         .ignoresSafeArea()
         .onDisappear { index = 0 }
         .onboardingPageViewStyle(
             .init(
                 pageIndicatorTintColor: .white.opacity(0.5),
-                currentPageIndicatorTintColor: .white)
+                currentPageIndicatorTintColor: .white
+            )
         )
-    }
-    
-    func pageColor(at index: Int) -> Color {
-        switch index {
-        case 0: .red
-        case 1: .green
-        case 2: .blue
-        default: .yellow
-        }
     }
 }
 
+#Preview {
+
+    DemoPageView(
+        onboarding: .demo,
+        index: .constant(0)
+    )
+}

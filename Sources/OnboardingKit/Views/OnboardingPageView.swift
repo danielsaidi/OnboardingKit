@@ -27,7 +27,7 @@ public struct OnboardingPageView<Page, PageItemView: View>: View {
     /// - Parameters:
     ///   - pages: The pages to present.
     ///   - pageIndex: The current page.
-    ///   - pageView: A function used to build a view for each page.
+    ///   - pageView: A page builder function.
     public init(
         pages: [Page],
         pageIndex: Binding<Int>,
@@ -112,7 +112,10 @@ private extension OnboardingPageView {
         private var index = 0
     
         var body: some View {
-            OnboardingPageView(pages: Array(0...10), pageIndex: $index) { index, info in
+            OnboardingPageView(
+                pages: Array(0...10),
+                pageIndex: $index
+            ) { index, info in
                 Text("Page \(index)/\(info.totalPageCount)")
             }
             .onboardingPageViewStyle(
