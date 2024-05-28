@@ -38,7 +38,7 @@ public struct OnboardingPageView<Page, PageItemView: View>: View {
         self.pageView = pageView
     }
 
-    public typealias PageViewBuilder = (Page, OnboardingPageInfo) -> PageItemView
+    public typealias PageViewBuilder = (OnboardingPageInfo<Page>) -> PageItemView
 
     private let pageIndex: Binding<Int>
     private let pages: [Page]
@@ -60,8 +60,8 @@ private extension OnboardingPageView {
         TabView(selection: pageIndex) {
             ForEach(Array(pages.enumerated()), id: \.offset) {
                 pageView(
-                    $0.element,
                     .init(
+                        page: $0.element,
                         pageIndex: $0.offset,
                         currentPageIndex: pageIndex.wrappedValue,
                         totalPageCount: pages.count
@@ -113,10 +113,22 @@ private extension OnboardingPageView {
     
         var body: some View {
             OnboardingPageView(
-                pages: Array(0...10),
+                pages: Array(1...5),
                 pageIndex: $index
-            ) { index, info in
-                Text("Page \(index)/\(info.totalPageCount)")
+            ) { info in
+                VStack(spacing: 20) {
+                    Text("Page \(info.page)/\(info.totalPageCount)")
+                    Button(info.isLastPage ? "Done" : "Next") {
+                        withAnimation {
+                            if info.isLastPage {
+                                print("Done")
+                            } else {
+                                index += 1
+                            }
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
             }
             .onboardingPageViewStyle(
                 .init(
@@ -124,7 +136,12 @@ private extension OnboardingPageView {
                     currentPageIndicatorTintColor: .gray
                 )
             )
-            .background(Color.blue)
+            .background(
+                LinearGradient(colors: [
+                    Color.blue.opacity(0.5),
+                    Color.blue
+                ], startPoint: .top, endPoint: .bottom)
+            )
         }
     }
     

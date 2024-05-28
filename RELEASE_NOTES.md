@@ -1,6 +1,8 @@
 # Release Notes
 
-OnboardingKit honors semver.
+OnboardingKit tried to honors semantic versioning.
+
+Breaking changes can still occur in minor updates, if there's a strong reason for it.
 
 
 
@@ -11,6 +13,11 @@ This version adds support for strict concurrency and a new slideshow component.
 ### ✨ New features
 
 * `OnboardingSlideshow` is a new view that automatically slides through a set of pages.
+
+### 💥 Breaking changes
+
+* To simplify the OnboardingPageView and OnboardingSlideshow view builders, these functions have been refactored to only use the OnboardingPageInfo type as parameter. This is a breaking change, but it's very easy to fix. Sorry for any inconvenience. 
+
 
 
 

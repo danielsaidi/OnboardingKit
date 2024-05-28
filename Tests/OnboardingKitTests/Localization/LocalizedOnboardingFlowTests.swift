@@ -3,7 +3,7 @@
 //  OnboardingKitTests
 //
 //  Created by Daniel Saidi on 2018-06-18.
-//  Copyright © 2020-2024 Daniel Saidi. All rights reserved.
+//  Copyright © 2018-2024 Daniel Saidi. All rights reserved.
 //
 
 import OnboardingKit
