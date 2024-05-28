@@ -17,7 +17,6 @@ let package = Package(
             targets: ["OnboardingKit"]
         )
     ],
-    dependencies: [],
     targets: [
         .target(
             name: "OnboardingKit",
