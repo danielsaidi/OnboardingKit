@@ -18,7 +18,7 @@
 OnboardingKit is a Swift SDK that helps you create onboarding experiences in `Swift` and `SwiftUI`.
 
 <p align="center">
-    <img src ="Resources/Demo.gif" width=350 />
+    <img src="https://github.com/danielsaidi/OnboardingKit/releases/download/8.0.0/Demo.gif" width=350 />
 </p>
 
 OnboardingKit has different onboarding types. A standard ``Onboarding`` is shown right away, and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions, etc.
@@ -121,6 +121,8 @@ OnboardingKit is available under the MIT license. See the [LICENSE][License] fil
 [Mastodon]: https://mastodon.social/@danielsaidi
 [OpenSource]: https://danielsaidi.com/opensource
 [Sponsors]: https://github.com/sponsors/danielsaidi
+
+[Gif]: https://github.com/danielsaidi/OnboardingKit/releases/download/8.0.0/Demo.gif
     
 [Documentation]: https://danielsaidi.github.io/OnboardingKit/documentation/onboardingkit/
 [Getting-Started]: https://danielsaidi.github.io/OnboardingKit/documentation/onboardingkit/getting-started
