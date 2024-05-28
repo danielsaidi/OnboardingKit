@@ -12,52 +12,61 @@ import SwiftUI
 
 /// This slideshow slides through a set of slide views.
 ///
+/// Since this view adds full content buttons to navigate to
+/// the previous and next slide, you must specify background
+/// content separately from the page content. Any background
+/// added to the content will block out these touches.
+///
 /// Apply a ``SwiftUI/View/onboardingSlideshowStyle(_:)`` to 
 /// customize the visual style of a slideshow.
-public struct OnboardingSlideshow<Page, BackgroundView: View, ButtonView: View, PageView: View>: View {
+public struct OnboardingSlideshow<Page, Background: View, Content: View>: View {
 
     /// Create a story slideshow.
     ///
     /// - Parameters:
     ///   - pages: The pages to present.
-    ///   - onStoryCompleted: The action to trigger once the story completes.
-    ///   - background: A background builder function.
-    ///   - pageView: A page builder function.
-    ///   - button: A bottom button builder function.
+    ///   - pageIndex: The current page index.
+    ///   - onStoryCompleted: The action to trigger at the end.
+    ///   - background: A page content builder function.
+    ///   - content: A page content builder function.
     public init(
         pages: [Page],
+        pageIndex: Binding<Int>,
         config: OnboardingSlideshowConfiguration = .standard,
         onStoryCompleted: @escaping () -> Void,
-        background: @escaping BackgroundBuilder,
-        pageView: @escaping PageViewBuilder,
-        button: @escaping ButtonBuilder
+        @ViewBuilder background: @escaping BackgroundBuilder,
+        @ViewBuilder content: @escaping ContentBuilder
     ) {
         self.pages = pages
+        self._pageIndex = pageIndex
         self.config = config
         self.onStoryCompleted = onStoryCompleted
-        self.backgroundBuilder = background
-        self.buttonBuilder = button
-        self.pageView = pageView
+        self.background = background
+        self.content = content
         self.timer = Timer.publish(
             every: config.slideDuration * config.timerTickIncrement,
             on: .main,
             in: .common
-        ).autoconnect()
+        )
+        .autoconnect()
     }
-    
+
+    public typealias PageInfo = OnboardingPageInfo<Page>
+    public typealias BackgroundBuilder = (PageInfo) -> Background
+    public typealias ContentBuilder = (PageInfo) -> Content
+
     private let pages: [Page]
     private let config: OnboardingSlideshowConfiguration
     private let timer: Publishers.Autoconnect<Timer.TimerPublisher>
     private let onStoryCompleted: () -> Void
-    private let backgroundBuilder: BackgroundBuilder
-    private let buttonBuilder: ButtonBuilder
-    private let pageView: PageViewBuilder
+    private let background: BackgroundBuilder
+    private let content: ContentBuilder
+
+    @Binding
+    private var pageIndex: Int
 
     @Environment(\.onboardingSlideshowStyle)
     private var style
-
-    @State
-    private var currentIndex = 0
     
     @State
     private var currentProgress = 0.0
@@ -66,41 +75,17 @@ public struct OnboardingSlideshow<Page, BackgroundView: View, ButtonView: View, 
     private var isTimerRunning = true
     
     public var body: some View {
-        VStack {   // Needed for the nested timer to trigger
+        ZStack {
+            backgroundView
             VStack {
                 progressViews
                 slideViews
-                button
-            }
-            .onReceive(timer) { _ in
-                guard isTimerRunning else { return }
-                handleTimerTick()
             }
         }
-        .background(backgroundColor)
-    }
-}
-
-// MARK: - Typealiases
-
-public extension OnboardingSlideshow {
-    
-    /// A function used to generate a slide background view.
-    typealias BackgroundBuilder = (Page) -> BackgroundView
-
-    /// A function used to generate a slide primary button.
-    typealias ButtonBuilder = (Page) -> ButtonView
-
-    /// A function used to generate a slide view.
-    typealias PageViewBuilder = (Page) -> PageView
-}
-
-// MARK: - Properties
-
-private extension OnboardingSlideshow {
-
-    var currentPage: Page {
-        pages[currentIndex]
+        .onReceive(timer) { _ in
+            guard isTimerRunning else { return }
+            handleTimerTick()
+        }
     }
 }
 
@@ -108,16 +93,18 @@ private extension OnboardingSlideshow {
 
 private extension OnboardingSlideshow {
 
-    var backgroundColor: some View {
-        backgroundBuilder(currentPage)
-            .ignoresSafeArea()
+    var backgroundView: some View {
+        background(
+            .init(
+                page: pages[pageIndex],
+                pageIndex: pageIndex,
+                currentPageIndex: pageIndex,
+                totalPageCount: pages.count
+            )
+        )
+        .ignoresSafeArea()
     }
-    
-    var button: some View {
-        buttonBuilder(currentPage)
-            .padding()
-    }
-    
+
     var progressViews: some View {
         HStack {
             ForEach(0..<pages.count, id: \.self) { index in
@@ -130,35 +117,50 @@ private extension OnboardingSlideshow {
         }
         .padding(.horizontal)
     }
-    
+
     var slideViews: some View {
-        TabView(selection: $currentIndex) {
-            ForEach(0..<pages.count, id: \.self) {
-                pageView(pages[$0])
-                    .padding()
-                    .tag($0)
-            }
+        TabView(selection: $pageIndex) {
+            ForEach(
+                Array(pages.enumerated()),
+                id: \.offset,
+                content: content
+            )
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                HStack(spacing: 0) {
+                    stepper(next: false)
+                    stepper(next: true)
+                }
+            )
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        .overlay(
-            HStack(spacing: 0) {
-                overlayControl(next: false)
-                overlayControl(next: true)
-            }
-        )
     }
-    
+
+    func content(
+        for info: EnumeratedSequence<[Page]>.Element
+    ) -> some View {
+        content(
+            .init(
+                page: info.element,
+                pageIndex: info.offset,
+                currentPageIndex: pageIndex,
+                totalPageCount: pages.count
+            )
+        )
+        .tag(info.offset)
+    }
+
     func progressView(_ slideIndex: Int) -> some View {
         OnboardingSlideshowProgressView(
             index: slideIndex,
-            slideshowIndex: currentIndex,
+            slideshowIndex: pageIndex,
             slideshowProgress: currentProgress
         )
         .padding(.vertical)
         .contentShape(Rectangle())
     }
     
-    func overlayControl(next: Bool) -> some View {
+    func stepper(next: Bool) -> some View {
         Color.clear
             .contentShape(Rectangle())
             .accessibilityLabel(Text(
@@ -200,13 +202,13 @@ private extension OnboardingSlideshow {
     }
     
     func nextSlide() {
-        let index = pages.index(after: currentIndex)
+        let index = pages.index(after: pageIndex)
         guard index < pages.endIndex else { return endSlides() }
         setNewIndex(index)
     }
     
     func previousSlide() {
-        let index = pages.index(before: currentIndex)
+        let index = pages.index(before: pageIndex)
         guard index >= pages.startIndex else { return }
         setNewIndex(index)
     }
@@ -222,7 +224,7 @@ private extension OnboardingSlideshow {
     }
     
     func setNewIndexPlain(_ index: Int) {
-        currentIndex = index
+        pageIndex = index
         currentProgress = 0.0
         isTimerRunning = true
     }
@@ -234,45 +236,32 @@ private extension OnboardingSlideshow {
 #Preview {
 
     struct Preview: View {
-        
-        var pages: [Color] = [.red, .green, .blue, .purple]
-        
+
         @State
-        private var buttonTapCount = 0
+        private var index = 0
 
         var body: some View {
             OnboardingSlideshow(
                 pages: Array(0...2),
+                pageIndex: $index,
                 onStoryCompleted: handleStoryCompleted,
                 background: background,
-                pageView: pageView,
-                button: button
+                content: content
             )
         }
 
-        func background(for page: Int) -> Color {
-            switch page {
-            case 0: .red
-            case 1: .green
-            case 2: .blue
-            default: .gray
-            }
+        func background(
+            for info: OnboardingPageInfo<Int>
+        ) -> some View {
+            PreviewBackground(index: info.pageIndex)
         }
 
-        func button(for page: Int) -> some View {
-            Button(page == 2 ? "Done" : "Button", action: handleButtonTap)
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
+        func content(
+            for info: OnboardingPageInfo<Int>
+        ) -> some View {
+            PreviewPage(index: $index, info: info)
         }
 
-        func pageView(for page: Int) -> some View {
-            Text("Page \(page+1)")
-        }
-
-        func handleButtonTap() {
-            print("Button tapped!")
-        }
-        
         func handleStoryCompleted() {
             print("Story complete!")
         }

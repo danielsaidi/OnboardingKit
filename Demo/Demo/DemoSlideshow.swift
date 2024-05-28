@@ -16,10 +16,32 @@ struct DemoSlideshow: View {
     @Binding var index: Int
 
     var body: some View {
-        OnboardingS
+        OnboardingSlideshow(
+            pages: onboarding.pages,
+            pageIndex: $index,
+            config: .init(slideDuration: 3),
+            onStoryCompleted: { print("Completed!") },
+            background: { _ in DemoPageBackground(index: index) },
+            content: { DemoPageContent(index: $index, info: $0) }
+        )
     }
 }
 
 #Preview {
-    DemoSlideshow()
+    
+    struct Preview: View {
+
+        @State
+        private var index = 0
+
+        var body: some View {
+            DemoSlideshow(
+                onboarding: .demo,
+                index: $index
+            )
+        }
+    }
+
+    return Preview()
+
 }

@@ -11,13 +11,15 @@ import SwiftUI
 extension Image {
     
     static let popover = Image.symbol("bubble")
-    
-    static var correctBehavior = Image(systemName: "hand.thumbsup.circle")
-    static var delayed = Image(systemName: "hand.raised.circle")
-    static var hint = Image(systemName: "heart.text.square")
-    static var incorrectBehavior = Image(systemName: "hand.thumbsdown.circle")
-    static var reset = Image(systemName: "multiply.circle")
-    static var tutorial = Image(systemName: "square.stack")
+
+    static var conditional = symbol("lightswitch.off")
+    static var correctBehavior = symbol("hand.thumbsup")
+    static var delayed = symbol("hand.raised")
+    static var hint = symbol("heart.text")
+    static var incorrectBehavior = symbol("hand.thumbsdown")
+    static var reset = symbol("multiply")
+    static var sheet = symbol("rectangle.bottomhalf.inset.filled")
+    static var tutorial = symbol("square.stack")
 }
 
 extension Image {

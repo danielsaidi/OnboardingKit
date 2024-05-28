@@ -21,24 +21,19 @@ struct DemoPageView: View {
         OnboardingPageView(
             pages: onboarding.pages,
             pageIndex: $index
-        ) { page, info in
-            DemoPage(page: page, info: info) {
-                Button(info.isLastPage ? "Done" : "Next") {
-                    if info.isLastPage { return dismiss() }
-                    withAnimation {
-                        index += 1
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-                .padding()
-            }
+        ) { info in
+            DemoPageContent(
+                index: $index,
+                info: info
+            )
+            .padding(.bottom, 50)
         }
-        .ignoresSafeArea()
+        .background(DemoPageBackground(index: index))
         .onDisappear { index = 0 }
         .onboardingPageViewStyle(
             .init(
-                pageIndicatorTintColor: .white.opacity(0.5),
-                currentPageIndicatorTintColor: .white
+                pageIndicatorTintColor: .white.opacity(0.3),
+                currentPageIndicatorTintColor: .yellow
             )
         )
     }
@@ -46,8 +41,18 @@ struct DemoPageView: View {
 
 #Preview {
 
-    DemoPageView(
-        onboarding: .demo,
-        index: .constant(0)
-    )
+    struct Preview: View {
+
+        @State
+        private var index = 0
+
+        var body: some View {
+            DemoPageView(
+                onboarding: .demo,
+                index: $index
+            )
+        }
+    }
+
+    return Preview()
 }

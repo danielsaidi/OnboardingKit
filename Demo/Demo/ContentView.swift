@@ -11,14 +11,14 @@ import OnboardingKit
 
 struct ContentView: View {
     
-    @State var isListConditionalEnabled = false
-    @State var isListConditionalPresented = false
-    @State var isListCorrectBehaviorPresented = false
-    @State var isListDelayedPresented = false
-    @State var isListPopoverPresented = false
-    @State var isListSheetPresented = false
-    @State var isLocalizedPageViewPresented = false
-    @State var isLocalizedSlideshowPresented = false
+    @State var isConditionalEnabled = false
+    @State var isConditionalPresented = false
+    @State var isCorrectBehaviorPresented = false
+    @State var isDelayedPresented = false
+    @State var isPopoverPresented = false
+    @State var isSheetPresented = false
+    @State var isPageViewPresented = false
+    @State var isSlideshowPresented = false
     @State var isToolbarPopoverPresented = false
     
     @State var pageViewPageIndex = 0
@@ -28,97 +28,107 @@ struct ContentView: View {
         NavigationStack {
             List {
                 Section("Onboardings") {
+
+                    listButton(
+                        .popover, 
+                        presentPopover,
+                        "Onboarding popover",
+                        "This will only be presented once"
+                    )
+                    .demoPopover($isPopoverPresented)
                     
-                    // Standard onboardings
-                    
-                    Button(action: presentListPopover) {
-                        LabeledContent {} label: {
-                            Text("Present an onboarding popover")
-                            Text("This will only be presented once")
-                        }
+                    listButton(
+                        .sheet,
+                        presentSheet,
+                        "Onboarding modal",
+                        "This will only be presented once"
+                    )
+                    .sheet(isPresented: $isSheetPresented) {
+                        Text("Use modal onboarding screens to show more complex onboardings, like page views or slideshows."
+                        )
+                        .padding()
+                        .multilineTextAlignment(.center)
                     }
-                    .demoPopover($isListPopoverPresented)
                     
-                    Button(action: presentListSheet) {
-                        LabeledContent {} label: {
-                            Text("Present an onboarding sheet")
-                            Text("This will only be presented once")
-                        }
-                    }
-                    
-                    // Conditional onboarding
-                    
-                    HStack(spacing: 0) {
-                        Button(action: presentListConditional) {
-                            LabeledContent {} label: {
-                                Text("Present a conditional onboarding")
-                                Text("This will only be presented once, and only if the toggle is enabled.")
-                            }
-                        }
-                        Toggle(isOn: $isListConditionalEnabled) {}
+                    VStack(spacing: 20) {
+                        listButton(
+                            .conditional,
+                            presentConditional,
+                            "Conditional onboarding",
+                            "This will only be presented once, and only if the toggle below is enabled."
+                        )
+                        Toggle(isOn: $isConditionalEnabled) {}
                             .labelsHidden()
                             .padding(.leading, 5)
                     }
                     .demoPopover(
-                        $isListConditionalPresented,
-                        text: "Conditional onboardings are great if you have a prerequisite that needs to be true before an onboarding is performed."
+                        $isConditionalPresented,
+                        text: "Conditional onboardings are great if a condition must be met before the onboarding is presented."
                     )
-                    
-                    // Delayed onboarding
-                    
-                    Button(action: presentListDelayed) {
-                        LabeledContent {} label: {
-                            Text("Present a delayed onboarding")
-                            Text("This will be presented once, after \(Onboarding.demoDelayed.requiredPresentationAttempts) taps.")
-                        }
-                    }
-                    .demoPopover(
-                        $isListDelayedPresented,
-                        text: "Delayed onboardings are great if you want to control the presentation order of a list of onboardings."
-                    )
-                    
-                    // Correct Behavior onboarding
-                    
-                    button(
-                        presentListCorrectBehavior,
-                        "Present a correct behavior onboarding",
-                        "You must tap this button \(Onboarding.demoCorrectBehavior.remainingPresentationAttempts) times more to show the onboarding."
+
+                    listButton(
+                        .delayed,
+                        presentDelayed,
+                        "Delayed onboarding",
+                        "This will only be presented once, and only after \(Onboarding.demoDelayed.requiredPresentationAttempts) taps."
                     )
                     .demoPopover(
-                        $isListCorrectBehaviorPresented,
-                        text: "Correct behavior onboardings are great if you want to make your users behave in a certain way, e.g. in games."
+                        $isDelayedPresented,
+                        text: "Delayed onboardings are great to control the order of a list of onboardings."
+                    )
+                    
+                    listButton(
+                        .correctBehavior,
+                        presentCorrectBehavior,
+                        "Correct behavior onboarding",
+                        "This will be presented every 3rd tap."
+                    )
+                    .demoPopover(
+                        $isCorrectBehaviorPresented,
+                        text: "Correct behavior onboardings are great to teach users how to behave, e.g. in games."
                     )
                 }
-                
-                // Flows
-                
+
                 Section("Flows") {
-                    button(
-                        presentLocalizedFlowAsPageView,
+                    listButton(
+                        .popover,
+                        presentLocalizedPageView,
                         "Present an onboarding page view",
                         "This onboarding flow lets you swipe through a set of pages."
                     )
-                    button(
-                        presentLocalizedFlowAsSlideshow,
+                    .sheet(isPresented: $isPageViewPresented) {
+                        DemoPageView(
+                            onboarding: .demo,
+                            index: $pageViewPageIndex
+                        )
+                    }
+
+                    listButton(
+                        .popover,
+                        presentLocalizedSlideshow,
                         "Present an onboarding slideshow",
                         "This onboarding flow automatically slides through a set of pages."
                     )
+                    .sheet(isPresented: $isSlideshowPresented) {
+                        DemoSlideshow(
+                            onboarding: .demo,
+                            index: $pageViewPageIndex
+                        )
+                    }
                 }
             }
             .navigationTitle("OnboardingKit")
             .onAppear(perform: presentToolbarPopover)
             .safeAreaInset(edge: .bottom) {
-                Button(action: reset) {
-                    Text("Reset onboarding state")
-                        .frame(minHeight: 50)
-                        .frame(maxWidth: .infinity)
+                VStack {
+                    Divider()
+                    Button("Reset onboarding state", action: reset)
+                        .buttonStyle(.borderedProminent)
+                        .padding()
                 }
-                .buttonStyle(.borderedProminent)
-                .background(Color.blue)
+                .frame(maxWidth: .infinity)
+                .background(.thinMaterial)
             }
-            .sheet(isPresented: $isListSheetPresented) { listSheet }
-            .sheet(isPresented: $isLocalizedPageViewPresented) { pageViewSheet }
-            .sheet(isPresented: $isLocalizedSlideshowPresented) { slideshowSheet }
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     toolbarButton
@@ -131,18 +141,27 @@ struct ContentView: View {
 
 private extension View {
 
-    func button(
+    func listButton(
+        _ icon: Image,
         _ action: @escaping () -> Void,
         _ title: String,
         _ text: String
     ) -> some View {
         Button(action: action) {
-            LabeledContent {} label: {
-                Text(title)
-                Text(text)
-            }
+            Label(
+                title: {
+                    LabeledContent {} label: {
+                        Text(title)
+                        Text(text)
+                    }
+                },
+                icon: {
+                    icon
+                }
+            )
             .contentShape(Rectangle())
         }
+        .buttonStyle(.plain)
     }
 
     func demoPopover(
@@ -161,26 +180,6 @@ private extension View {
     }
 }
 
-private extension ContentView {
-    
-    var listSheet: some View {
-        Text("Use modal sheets or covers to present launch onboarding flows.")
-            .padding()
-    }
-    
-    var pageViewSheet: some View {
-        DemoPageView(
-            onboarding: .demo,
-            index: $pageViewPageIndex
-        )
-    }
-    
-    var slideshowSheet: some View {
-        Text("Use modal sheets or covers to present launch onboarding flows.")
-            .padding()
-    }
-}
-
 @MainActor
 private extension ContentView {
     
@@ -190,39 +189,39 @@ private extension ContentView {
         }
     }
 
-    func presentListConditional() {
-        Onboarding.demoConditional { isListConditionalEnabled }
-            .tryPresent { isListConditionalPresented = true }
+    func presentConditional() {
+        Onboarding.demoConditional { isConditionalEnabled }
+            .tryPresent { isConditionalPresented = true }
     }
     
-    func presentListCorrectBehavior() {
+    func presentCorrectBehavior() {
         Onboarding.demoCorrectBehavior
-            .tryPresent { isListCorrectBehaviorPresented = true }
+            .tryPresent { isCorrectBehaviorPresented = true }
     }
     
-    func presentListDelayed() {
+    func presentDelayed() {
         Onboarding.demoDelayed
-            .tryPresent { isListDelayedPresented = true }
+            .tryPresent { isDelayedPresented = true }
     }
-    
-    func presentListPopover() {
+
+    func presentLocalizedPageView() {
+        isPageViewPresented = true
+    }
+
+    func presentLocalizedSlideshow() {
+        isSlideshowPresented = true
+    }
+
+    func presentPopover() {
         Onboarding.demoPopover.tryPresent {
-            isListPopoverPresented = true
+            isPopoverPresented = true
         }
     }
     
-    func presentListSheet() {
+    func presentSheet() {
         Onboarding.demoSheet.tryPresent {
-            isListSheetPresented = true
+            isSheetPresented = true
         }
-    }
-    
-    func presentLocalizedFlowAsPageView() {
-        isLocalizedPageViewPresented = true
-    }
-    
-    func presentLocalizedFlowAsSlideshow() {
-        isLocalizedSlideshowPresented = true
     }
     
     func presentToolbarPopover() {
@@ -235,8 +234,6 @@ private extension ContentView {
         Onboarding.demoOnboardings.forEach { $0.reset() }
     }
 }
-
-
 
 #Preview {
     

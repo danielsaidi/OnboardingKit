@@ -19,81 +19,83 @@ import UIKit
 /// custom page view implementation on other platforms.
 ///
 /// Apply an ``SwiftUI/View/onboardingPageViewStyle(_:)`` to
-/// your view to customize its style.
-public struct OnboardingPageView<Page, PageItemView: View>: View {
+/// customize the visual style of a page view.
+public struct OnboardingPageView<Page, Content: View>: View {
 
     /// Create a tutorial page view.
     ///
     /// - Parameters:
     ///   - pages: The pages to present.
-    ///   - pageIndex: The current page.
-    ///   - pageView: A page builder function.
+    ///   - pageIndex: The current page index.
+    ///   - content: A page content builder function.
     public init(
         pages: [Page],
         pageIndex: Binding<Int>,
-        @ViewBuilder pageView: @escaping PageViewBuilder
+        @ViewBuilder content: @escaping ContentBuilder
     ) {
         self.pages = pages
-        self.pageIndex = pageIndex
-        self.pageView = pageView
+        self._pageIndex = pageIndex
+        self.content = content
     }
 
-    public typealias PageViewBuilder = (OnboardingPageInfo<Page>) -> PageItemView
+    public typealias PageInfo = OnboardingPageInfo<Page>
+    public typealias ContentBuilder = (PageInfo) -> Content
 
-    private let pageIndex: Binding<Int>
     private let pages: [Page]
-    private let pageView: PageViewBuilder
-    
+    private let content: ContentBuilder
+
+    @Binding
+    private var pageIndex: Int
+
     @Environment(\.onboardingPageViewStyle)
     private var style
 
     public var body: some View {
         bodyContent
-            .task { setupAppearance() }
+            .onAppear { setupAppearance() }
     }
 }
 
 private extension OnboardingPageView {
-    
+
     var bodyContent: some View {
         #if os(iOS)
-        TabView(selection: pageIndex) {
-            ForEach(Array(pages.enumerated()), id: \.offset) {
-                pageView(
-                    .init(
-                        page: $0.element,
-                        pageIndex: $0.offset,
-                        currentPageIndex: pageIndex.wrappedValue,
-                        totalPageCount: pages.count
-                    )
-                )
-                .tag($0.offset)
-            }
+        TabView(selection: $pageIndex) {
+            ForEach(
+                Array(pages.enumerated()),
+                id: \.offset,
+                content: content
+            )
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
         #else
         PageView(
             pages: Array(pages.enumerated()),
-            currentPageIndex: pageIndex,
+            currentPageIndex: $pageIndex,
             pageIndicatorDisplayMode: .always,
             pageIndicatorStyle: .init(
                 dotColor: style.pageIndicatorTintColor,
                 currentDotColor: style.currentPageIndicatorTintColor
-            )
-        ) {
-            pageView(
-                $0.element,
-                .init(
-                    pageIndex: $0.offset,
-                    currentPageIndex: pageIndex.wrappedValue,
-                    totalPageCount: pages.count
-                )
-            )
-            .tag($0.offset)
-        }
+            ),
+            pageBuilder: content
+        )
         #endif
     }
-    
+
+    func content(
+        for info: EnumeratedSequence<[Page]>.Element
+    ) -> some View {
+        content(
+            .init(
+                page: info.element,
+                pageIndex: info.offset,
+                currentPageIndex: pageIndex,
+                totalPageCount: pages.count
+            )
+        )
+        .tag(info.offset)
+    }
+
     @MainActor
     func setupAppearance() {
         #if os(iOS)
@@ -110,37 +112,25 @@ private extension OnboardingPageView {
         
         @State
         private var index = 0
-    
+
+        var pages = Array(1...3)
+
         var body: some View {
             OnboardingPageView(
-                pages: Array(1...5),
+                pages: pages,
                 pageIndex: $index
-            ) { info in
-                VStack(spacing: 20) {
-                    Text("Page \(info.page)/\(info.totalPageCount)")
-                    Button(info.isLastPage ? "Done" : "Next") {
-                        withAnimation {
-                            if info.isLastPage {
-                                print("Done")
-                            } else {
-                                index += 1
-                            }
-                        }
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
+            ) {
+                PreviewPage(index: $index, info: $0)
+                    .padding(.bottom, 50)
             }
             .onboardingPageViewStyle(
                 .init(
-                    pageIndicatorTintColor: .red,
-                    currentPageIndicatorTintColor: .gray
+                    pageIndicatorTintColor: .yellow.opacity(0.5),
+                    currentPageIndicatorTintColor: .yellow
                 )
             )
             .background(
-                LinearGradient(colors: [
-                    Color.blue.opacity(0.5),
-                    Color.blue
-                ], startPoint: .top, endPoint: .bottom)
+                PreviewBackground(index: index)
             )
         }
     }
