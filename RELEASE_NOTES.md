@@ -6,7 +6,7 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 
 
 
-## 7.1
+## 8.0
 
 This version adds support for strict concurrency and a new slideshow component.
 
