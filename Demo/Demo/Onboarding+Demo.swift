@@ -45,5 +45,5 @@ extension Onboarding {
 
 extension LocalizedOnboarding {
 
-    static let demo = .init(id: "demo-flow")
+    static let demo = LocalizedOnboarding(id: "demo-flow")
 }
