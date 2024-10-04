@@ -1,3 +1,0 @@
-Version::Number.new do |v|
-  v.version = '8.0.0'
-end

@@ -1,10 +1,10 @@
 <p align="center">
-    <img src ="Resources/Logo_GitHub.png" alt="OnboardingKit Logo" title="OnboardingKit" />
+    <img src ="Resources/Logo_Rounded.png" alt="OnboardingKit Logo" title="OnboardingKit" />
 </p>
 
 <p align="center">
     <img src="https://img.shields.io/github/v/release/danielsaidi/OnboardingKit?color=%2300550&sort=semver" alt="Version" />
-    <img src="https://img.shields.io/badge/Swift-5.9-orange.svg" alt="Swift 5.9" />
+    <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 5.9" />
     <img src="https://img.shields.io/badge/platform-SwiftUI-blue.svg" alt="Swift UI" title="Swift UI" />
     <img src="https://img.shields.io/github/license/danielsaidi/OnboardingKit" alt="MIT License" />
     <a href="https://twitter.com/danielsaidi"><img src="https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fdanielsaidi" alt="Twitter: @danielsaidi" title="Twitter: @danielsaidi" /></a>
@@ -72,19 +72,19 @@ struct ContentView: View {
 
 The onboarding will honor its own rules and remember any previous presentation, so `tryPresent` will only trigger when it makes sense for the onboarding.
 
-For more information, please see the [getting started guide][Getting-Started].
+See the online [getting started guide][Getting-Started] for more information.
 
 
 
 ## Documentation
 
-The [online documentation][Documentation] has more information, articles, code examples, etc.
+The online [documentation][Documentation] has more information, articles, code examples, etc.
 
 
 
 ## Demo Application
 
-The demo app lets you explore the library. To try it out, just open and run the `Demo` project.
+The `Demo` folder has an app that lets you explore the library.
 
 
 
@@ -124,7 +124,7 @@ OnboardingKit is available under the MIT license. See the [LICENSE][License] fil
 
 [Gif]: https://github.com/danielsaidi/OnboardingKit/releases/download/8.0.0/Demo.gif
     
-[Documentation]: https://danielsaidi.github.io/OnboardingKit/documentation/onboardingkit/
+[Documentation]: https://danielsaidi.github.io/OnboardingKit
 [Getting-Started]: https://danielsaidi.github.io/OnboardingKit/documentation/onboardingkit/getting-started
 
 [License]: https://github.com/danielsaidi/OnboardingKit/blob/master/LICENSE
