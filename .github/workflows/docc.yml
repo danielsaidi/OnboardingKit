@@ -6,7 +6,7 @@ name: DocC Runner
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.build/docs'
+          path: '.build/docs-iOS'
       - id: deployment
         name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
