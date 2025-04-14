@@ -6,7 +6,6 @@
 //  Copyright © 2024 Daniel Saidi. All rights reserved.
 //
 
-#if os(iOS)
 import SwiftUI
 
 /// This view can present progress in a story slideshow.
@@ -88,4 +87,3 @@ private extension OnboardingSlideshowStyle {
         )
     }
 }
-#endif

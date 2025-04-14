@@ -6,6 +6,14 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 
 
 
+## 8.2
+
+### ✨ New features
+
+* `OnboardingSlideshow` is now available to all platforms. 
+
+
+
 ## 8.1
 
 This version updates the package for Swift 6.

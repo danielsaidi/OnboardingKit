@@ -61,7 +61,7 @@ public struct OnboardingPageView<Page, Content: View>: View {
 private extension OnboardingPageView {
 
     var bodyContent: some View {
-        #if os(iOS)
+        #if os(iOS) || os(visionOS)
         TabView(selection: $pageIndex) {
             ForEach(
                 Array(pages.enumerated()),

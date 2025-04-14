@@ -6,7 +6,6 @@
 //  Copyright © 2022-2024 Kankoda. All rights reserved.
 //
 
-#if os(iOS)
 import Combine
 import SwiftUI
 
@@ -79,7 +78,7 @@ public struct OnboardingSlideshow<Page, Background: View, Content: View>: View {
             backgroundView
             VStack {
                 progressViews
-                slideViews
+                slideshow
             }
         }
         .onReceive(timer) { _ in
@@ -104,8 +103,17 @@ private extension OnboardingSlideshow {
         )
         .ignoresSafeArea()
     }
-
+    
     var progressViews: some View {
+        #if os(tvOS)
+        progressViewsContent
+        #else
+        progressViewsContent
+            .buttonStyle(.borderless)
+        #endif
+    }
+    
+    var progressViewsContent: some View {
         HStack {
             ForEach(0..<pages.count, id: \.self) { index in
                 Button {
@@ -117,8 +125,9 @@ private extension OnboardingSlideshow {
         }
         .padding(.horizontal)
     }
-
-    var slideViews: some View {
+    
+    var slideshow: some View {
+        #if os(iOS) || os(visionOS)
         TabView(selection: $pageIndex) {
             ForEach(
                 Array(pages.enumerated()),
@@ -134,6 +143,16 @@ private extension OnboardingSlideshow {
             )
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
+        #else
+        PageView(
+            pages: Array(pages.enumerated()),
+            currentPageIndex: $pageIndex,
+            pageIndicatorDisplayMode: .never,
+            pageIndicatorStyle: .standard
+        ) { page in
+            content(for: page)
+        }
+        #endif
     }
 
     func content(
@@ -161,6 +180,9 @@ private extension OnboardingSlideshow {
     }
     
     func stepper(next: Bool) -> some View {
+        #if os(tvOS)
+        Color.clear
+        #else
         Color.clear
             .contentShape(Rectangle())
             .accessibilityLabel(Text(
@@ -176,6 +198,7 @@ private extension OnboardingSlideshow {
                     isTimerRunning = !$0
                 }
             )
+        #endif
     }
 }
 
@@ -269,4 +292,3 @@ private extension OnboardingSlideshow {
     
     return Preview()
 }
-#endif
