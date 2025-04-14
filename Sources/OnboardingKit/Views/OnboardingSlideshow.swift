@@ -18,6 +18,15 @@ import SwiftUI
 ///
 /// Apply a ``SwiftUI/View/onboardingSlideshowStyle(_:)`` to 
 /// customize the visual style of a slideshow.
+///
+/// > Important: This view currently uses a custom page view
+/// on `macOS`, `tvOS` & `watchOS` that overlays its content
+/// with a scroll blocking gesture overlay. This is to avoid
+/// that swipe gestures would cause non-paged offset changes.
+/// As such, it currently blocks all buttons and gestures in
+/// the provided `content` view builder. If you use the view
+/// on `macOS`, `tvOS` & `watchOS`, make sure to add buttons
+/// and interactive elements on top of the view for now.
 public struct OnboardingSlideshow<Page, Background: View, Content: View>: View {
 
     /// Create a story slideshow.
@@ -188,7 +197,7 @@ private extension OnboardingSlideshow {
             .accessibilityLabel(Text(
                 next ? config.nextAccessibilityLabel : config.previousAccessibilityLabel))
             .onTapGesture {
-                next ? nextSlide() : previousSlide()
+                next ? moveToNextSlide() : moveToPreviousSlide()
             }
             .onLongPressGesture(
                 minimumDuration: 60,
@@ -217,20 +226,20 @@ private extension OnboardingSlideshow {
     }
     
     func handleTimerTick() {
-        if isFullProgress { return nextSlide() }
+        if isFullProgress { return moveToNextSlide() }
         withAnimation {
             let newProgress = currentProgress + config.timerTickIncrement
             currentProgress = min(newProgress, 1)
         }
     }
     
-    func nextSlide() {
+    func moveToNextSlide() {
         let index = pages.index(after: pageIndex)
         guard index < pages.endIndex else { return endSlides() }
         setNewIndex(index)
     }
     
-    func previousSlide() {
+    func moveToPreviousSlide() {
         let index = pages.index(before: pageIndex)
         guard index >= pages.startIndex else { return }
         setNewIndex(index)

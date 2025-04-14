@@ -22,6 +22,15 @@ import UIKit
 /// You can apply ``SwiftUI/View/onboardingPageViewStyle(_:)``
 /// to customize the visual style of an onboarding page view,
 /// regardless of which underlying implementation is uses.
+///
+/// > Important: This view currently uses a custom page view
+/// on `macOS`, `tvOS` & `watchOS` that overlays its content
+/// with a scroll blocking gesture overlay. This is to avoid
+/// that swipe gestures would cause non-paged offset changes.
+/// As such, it currently blocks all buttons and gestures in
+/// the provided `content` view builder. If you use the view
+/// on `macOS`, `tvOS` & `watchOS`, make sure to add buttons
+/// and interactive elements on top of the view for now.
 public struct OnboardingPageView<Page, Content: View>: View {
 
     /// Create a tutorial page view.
