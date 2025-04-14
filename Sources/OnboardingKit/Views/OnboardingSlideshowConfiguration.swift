@@ -20,17 +20,17 @@ public struct OnboardingSlideshowConfiguration {
     ///   - nextAccessibilityLabel: The accessibility label for the next button overlay, by default "Next".
     ///   - previousAccessibilityLabel: The accessibility label for the previous button overlay, by default "Previous".
     public init(
-        isAnimated: Bool = true,
-        slideDuration: TimeInterval = 5,
-        timeTickIncrement: TimeInterval = 0.05,
-        nextAccessibilityLabel: String = "Next",
-        previousAccessibilityLabel: String = "Previous"
+        isAnimated: Bool? = nil,
+        slideDuration: TimeInterval? = nil,
+        timeTickIncrement: TimeInterval? = nil,
+        nextAccessibilityLabel: String? = nil,
+        previousAccessibilityLabel: String? = nil
     ) {
-        self.isAnimated = isAnimated
-        self.slideDuration = slideDuration
-        self.timerTickIncrement = timeTickIncrement
-        self.nextAccessibilityLabel = nextAccessibilityLabel
-        self.previousAccessibilityLabel = previousAccessibilityLabel
+        self.isAnimated = isAnimated ?? true
+        self.slideDuration = slideDuration ?? 5
+        self.timerTickIncrement = timeTickIncrement ?? 0.05
+        self.nextAccessibilityLabel = nextAccessibilityLabel ?? "Next"
+        self.previousAccessibilityLabel = previousAccessibilityLabel ?? "Previous"
     }
 
     /// Whether or not the slideshow animates the slide transitions.

@@ -16,10 +16,12 @@ import UIKit
 /// can be swiped through horizontally.
 ///
 /// This view uses a regular SwiftUI `TabView` on iOS, and a
-/// custom page view implementation on other platforms.
+/// custom, internal `PageView` implementation for all other
+/// platforms where the paged tab view style isn't available.
 ///
-/// Apply an ``SwiftUI/View/onboardingPageViewStyle(_:)`` to
-/// customize the visual style of a page view.
+/// You can apply ``SwiftUI/View/onboardingPageViewStyle(_:)``
+/// to customize the visual style of an onboarding page view,
+/// regardless of which underlying implementation is uses.
 public struct OnboardingPageView<Page, Content: View>: View {
 
     /// Create a tutorial page view.

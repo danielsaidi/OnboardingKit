@@ -56,18 +56,7 @@ public extension View {
     }
 }
 
-private extension OnboardingPageViewStyle {
-
-    struct Key: EnvironmentKey {
-
-        static var defaultValue: OnboardingPageViewStyle { .standard }
-    }
-}
-
 public extension EnvironmentValues {
-
-    var onboardingPageViewStyle: OnboardingPageViewStyle {
-        get { self [OnboardingPageViewStyle.Key.self] }
-        set { self [OnboardingPageViewStyle.Key.self] = newValue }
-    }
+    
+    @Entry var onboardingPageViewStyle = OnboardingPageViewStyle.standard
 }
