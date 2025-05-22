@@ -10,11 +10,13 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 
 ### ✨ New features
 
-* The multi-platform `PageView` now supports arrow navigation and edge taps.
+* `OnboardingPageView` & `OnboardingSlideshow` now supports edge taps on all platforms.
+* `OnboardingPageView` & `OnboardingSlideshow` now supports arrow keys on macOS & tvOS.
+* `OnboardingPrimaryButton` is a new button view that can be used in an onboarding flow.  
 
 ### 🐛 Bug Fixes
 
-* The multi-platform `PageView` no longer blocks user interaction.
+* `OnboardingPageView` & `OnboardingSlideshow` no longer blocks user interaction.
 
 
 

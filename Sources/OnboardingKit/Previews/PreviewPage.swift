@@ -28,7 +28,7 @@ struct PreviewPage: View {
         .scaleEffect(info.isCurrentPage ? 1 : 0.4)
         .animation(.bouncy, value: index)
         .safeAreaInset(edge: .bottom) {
-            Button(info.isLastPage ? "Done" : "Next") {
+            OnboardingPrimaryButton(info.isLastPage ? "Done" : "Next") {
                 if info.isLastPage {
                     print("Done")
                 } else {
