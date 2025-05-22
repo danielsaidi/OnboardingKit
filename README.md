@@ -14,7 +14,7 @@
 
 # OnboardingKit
 
-OnboardingKit is a Swift & SwiftUI SDK that helps you create amazing onboarding experiences, with control over the presentation state of each onboarding.
+OnboardingKit is a Swift & SwiftUI SDK that helps you create amazing onboarding experiences.
 
 <p align="center">
     <img src="https://github.com/danielsaidi/OnboardingKit/releases/download/8.0.0/Demo.gif" width=350 />
@@ -22,7 +22,7 @@ OnboardingKit is a Swift & SwiftUI SDK that helps you create amazing onboarding 
 
 OnboardingKit has different onboarding types. A standard ``Onboarding`` is shown at once, and only once, while other types can require multiple presentation attempts, a certain number of "incorrect" actions, etc.
 
-OnboardingKit has localized utilities, like the ``LocalizedOnboarding``, and UI components like ``OnboardingPageView`` and ``OnboardingSlideshow``.
+OnboardingKit has powerful view components like ``OnboardingPageView`` and ``OnboardingSlideshow``, as well as an ``OnboardingScreen`` container that can present any onboarding flow with additional controls.
 
 
 
@@ -35,41 +35,31 @@ https://github.com/danielsaidi/OnboardingKit.git
 ```
 
 
+## Support My Work
+
+By [becoming a sponsor][Sponsors], you directly support the development & improvement of my various [open-source projects][OpenSource]. 
+
+
 
 ## Getting started
 
-In OnboardingKit, an `Onboarding` determines the state and behavior of an onboarding experience. You can use various onboarding types to get different behaviors. 
+OnboardingKit has various onboarding types and views that can be used to tailor an app's onboarding behavior. 
 
-The code below shows how to use a standard onboarding to present a first launch onboarding sheet:
+The various ``Onboarding`` types defines unique onboarding experience behaviors, for instance: 
 
-```swift
-import OnboardingKit
-import SwiftUI
+* ``Onboarding`` is presented right away, and only once.
+* ``ConditionalOnboarding`` is presented when a certain condition returns `true`.
+* ``CorrectBehaviorOnboarding`` is presented when a user is not behaving as intended.
+* ``DelayedOnboarding`` is presented after a certain number of presentation attempts.
 
-struct ContentView: View {
+OnboardingKit has views that can be used to present onboarding flows, as well as ways to handle page state.
 
-    @State
-    private var isOnboardingPresented: Bool
-    
-    private let onboarding = Onboarding(id: "welcome") 
+* An ``OnboardingPageView`` can be used to show a set of pages in a horizontal page view. 
+* An ``OnboardingSlideshow`` can be used to show a set of pages in a slideshow that auto-slides forward.
+* An ``OnboardingScreen`` can be used to wrap any onboarding flow in a frame with additional controls.
+* An ``OnboardingPageState`` can be used to manage page state for all views. 
 
-    var body: some View {
-        Text("Hello, world")
-            .task(tryPresentOnboarding)
-            .sheet(isPresented: $isOnboardingPresented) {
-                ...
-            }
-    }
-    
-    func tryPresentOnboarding() {
-        onboarding.tryPresent { 
-            isOnboardingPresented = true
-        }
-    }
-}
-```
-
-The onboarding will honor its own rules and remember any previous presentation, so `tryPresent` will only trigger when it makes sense for the onboarding.
+All views support all major Apple platforms (iOS, macOS, tvOS, watchOS & visionOS).
 
 See the online [getting started guide][Getting-Started] for more information.
 
@@ -84,14 +74,6 @@ The online [documentation][Documentation] has more information, articles, code e
 ## Demo Application
 
 The `Demo` folder has an app that lets you explore the library.
-
-
-
-## Support my work 
-
-You can [sponsor me][Sponsors] on GitHub Sponsors or [reach out][Email] for paid support, to help support my [open-source projects][OpenSource].
-
-Your support makes it possible for me to put more work into these projects and make them the best they can be.
 
 
 

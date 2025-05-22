@@ -22,9 +22,7 @@ OnboardingKit has various ``Onboarding`` types that can be used to tailor an onb
 
 ## Onboarding Types
 
-An ``Onboarding`` determines the state and behavior of an onboarding experience. 
-
-You can use different types for different behaviors, like these built-in ones: 
+An ``Onboarding`` type determines the behavior of an onboarding experience. Use different types for different behaviors, for instance: 
 
 * ``Onboarding`` is presented right away, and only once.
 * ``ConditionalOnboarding`` is presented when a certain condition returns `true`.
@@ -32,10 +30,6 @@ You can use different types for different behaviors, like these built-in ones:
 * ``DelayedOnboarding`` is presented after a certain number of presentation attempts.
 
 You can create your own onboarding types by inheriting and customizing any of these classes.
-
-
-
-## How to trigger an onboarding
 
 The code below shows how we can use a standard ``Onboarding`` to present an onboarding sheet the very first time the app launches:
 
@@ -71,7 +65,7 @@ An onboarding will honor its rules and state, so ``Onboarding/tryPresent(after:a
 
 
 
-## Views
+## Onboarding Views
 
 OnboardingKit has a couple of views that can be used to present complex onboarding flows, as well as many ways to handle page state.
 
