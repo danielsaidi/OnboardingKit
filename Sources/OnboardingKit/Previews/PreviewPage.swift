@@ -3,7 +3,7 @@
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2024-05-28.
-//  Copyright © 2024 Daniel Saidi. All rights reserved.
+//  Copyright © 2024-2025 Daniel Saidi. All rights reserved.
 //
 
 import SwiftUI
@@ -32,7 +32,9 @@ struct PreviewPage: View {
                 if info.isLastPage {
                     print("Done")
                 } else {
-                    index += 1
+                    withAnimation {
+                        index += 1
+                    }
                 }
             }
             .shadow(radius: 1, y: 2)
