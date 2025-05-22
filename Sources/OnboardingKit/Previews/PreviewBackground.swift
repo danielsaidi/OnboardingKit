@@ -15,8 +15,8 @@ struct PreviewBackground: View {
     var body: some View {
         LinearGradient(
             colors: [
-                backgroundColor(for: index).opacity(0.8),
-                backgroundColor(for: index)
+                color(at: index).opacity(0.8),
+                color(at: index)
             ],
             startPoint: .top,
             endPoint: .bottom
@@ -24,15 +24,16 @@ struct PreviewBackground: View {
         .animation(.default, value: index)
         .ignoresSafeArea()
     }
+}
 
-    func backgroundColor(
-        for index: Int
-    ) -> Color {
+private extension PreviewBackground {
+
+    func color(at index: Int) -> Color {
         switch index {
         case 0: .red
         case 1: .green
         case 2: .blue
-        default: .gray
+        default: .yellow
         }
     }
 }

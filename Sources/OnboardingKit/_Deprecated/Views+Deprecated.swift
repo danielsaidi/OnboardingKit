@@ -9,7 +9,7 @@ public extension OnboardingSlideshow {
         config: OnboardingSlideshowConfiguration = .standard,
         onStoryCompleted: @escaping () -> Void,
         @ViewBuilder background: @escaping (PageInfo) -> Background,
-        @ViewBuilder content: @escaping ContentBuilder
+        @ViewBuilder content: @escaping PageBuilder
     ) {
         self.init(
             pages: pages,

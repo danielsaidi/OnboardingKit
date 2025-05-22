@@ -33,13 +33,13 @@ public struct OnboardingPrimaryButton<Label: View>: View {
     /// Create a primary onboarding button.
     ///
     /// - Parameters:
-    ///   - title: The page title.
     ///   - type: The button type, by default `.primary`.
     ///   - action: The button action.
+    ///   - label: The button label.
     public init(
         _ type: OnboardingPrimaryButtonType = .primary,
-        label: @escaping () -> Label,
-        action: @escaping () -> Void
+        action: @escaping () -> Void,
+        label: @escaping () -> Label
     ) {
         self.label = label()
         self.type = type
@@ -104,9 +104,9 @@ private extension View {
                 type: .secondary,
                 action: {}
             )
-            OnboardingPrimaryButton(.primary) {
+            OnboardingPrimaryButton(.primary, action: {}) {
                 Text("Test")
-            } action: {}
+            }
         }
     }
     .padding()

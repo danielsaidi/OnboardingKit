@@ -17,8 +17,10 @@ extension Image {
     static var delayed = symbol("hand.raised")
     static var hint = symbol("heart.text")
     static var incorrectBehavior = symbol("hand.thumbsdown")
+    static var pageView = symbol("book.pages")
     static var reset = symbol("multiply")
     static var sheet = symbol("rectangle.bottomhalf.inset.filled")
+    static var slideshow = symbol("arrow.right.page.on.clipboard")
     static var tutorial = symbol("square.stack")
 }
 

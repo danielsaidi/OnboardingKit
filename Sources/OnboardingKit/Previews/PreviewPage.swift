@@ -10,8 +10,6 @@ import SwiftUI
 
 struct PreviewPage: View {
 
-    @Binding var index: Int
-
     let info: OnboardingPageInfo<Int>
 
     var body: some View {
@@ -25,19 +23,26 @@ struct PreviewPage: View {
         }
         .padding()
         .background(.background, in: .rect(cornerRadius: 10))
-        .scaleEffect(info.isCurrentPage ? 1 : 0.4)
-        .animation(.bouncy, value: index)
     }
 }
 
 #Preview {
-    PreviewPage(
-        index: .constant(1),
-        info: .init(
-            page: 1,
-            pageIndex: 0,
-            currentPageIndex: .constant(0),
-            totalPageCount: 2
-        )
-    )
+
+    struct Preview: View {
+
+        @State var isFirstPage = true
+
+        var body: some View {
+            PreviewPage(
+                info: .init(
+                    page: 1,
+                    pageIndex: 0,
+                    currentPageIndex: .constant(0),
+                    totalPageCount: 1
+                )
+            )
+        }
+    }
+
+    return Preview()
 }

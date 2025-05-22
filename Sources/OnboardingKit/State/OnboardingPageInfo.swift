@@ -12,8 +12,7 @@ import SwiftUI
 /// This type can provide page info in an onboarding context.
 ///
 /// The type implements ``OnboardingPageManager`` which adds
-/// a bunch of additional capabilities to it. Have a look at
-/// the protocol for a more information.
+/// a bunch of additional capabilities. 
 public struct OnboardingPageInfo<PageModel>: OnboardingPageManager {
 
     /// Create a page info value.

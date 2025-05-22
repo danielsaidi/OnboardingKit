@@ -16,7 +16,7 @@ import SwiftUI
 ///
 /// This view has support for navigating with the arrow keys,
 /// as well as with background swipes and edge taps.
-public struct OnboardingSlideshow<PageModel, Content: View>: View {
+public struct OnboardingSlideshow<PageModel, Page: View>: View {
 
     /// Create an onboarding slideshow.
     ///
@@ -30,7 +30,7 @@ public struct OnboardingSlideshow<PageModel, Content: View>: View {
         pages: [PageModel],
         pageIndex: Binding<Int>,
         onStoryCompleted: @escaping () -> Void,
-        @ViewBuilder content: @escaping ContentBuilder
+        @ViewBuilder content: @escaping PageBuilder
     ) {
         self.pages = pages
         self._pageIndex = pageIndex
@@ -39,11 +39,11 @@ public struct OnboardingSlideshow<PageModel, Content: View>: View {
     }
 
     public typealias PageInfo = OnboardingPageInfo<PageModel>
-    public typealias ContentBuilder = (PageInfo) -> Content
+    public typealias PageBuilder = (PageInfo) -> Page
 
     private let pages: [PageModel]
     private let onStoryCompleted: () -> Void
-    private let content: ContentBuilder
+    private let content: PageBuilder
 
     @Binding private var pageIndex: Int
 
@@ -279,7 +279,7 @@ private extension _OnboardingSlideshow {
                 pageIndex: $pageIndex,
                 onStoryCompleted: handleStoryCompleted,
                 content: {
-                    PreviewPage(index: $pageIndex, info: $0)
+                    PreviewPage(info: $0)
                 }
             )
             .onboardingSlideshowConfiguration(.init(

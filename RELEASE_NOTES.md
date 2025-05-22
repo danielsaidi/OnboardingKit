@@ -24,7 +24,8 @@ These release notes only cover the current major version.
 * `OnboardingPageView` & `OnboardingSlideshow` now supports arrow keys on macOS & tvOS.
 * `OnboardingPrimaryButton` is a new button view that can be used in an onboarding flow.
 * `OnboardingScreen` is a new container view that can be used to wrap any onboarding flow.  
-* `OnboardingScreenCenteredContent` is a new container view that can be used to center a page view.  
+* `OnboardingScreenCenteredContent` is a new container view that can be used to center a page view.
+* `View` has new `onboardingPopover` modifiers that makes it easy to present a popover from any view.  
 
 ### 💡 Adjustments
 

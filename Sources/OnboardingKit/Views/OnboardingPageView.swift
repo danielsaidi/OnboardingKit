@@ -20,18 +20,18 @@ import UIKit
 ///
 /// This view has support for navigating with the arrow keys,
 /// as well as with background swipes and edge taps.
-public struct OnboardingPageView<PageModel, Content: View>: View {
+public struct OnboardingPageView<PageModel, Page: View>: View {
 
     /// Create an onboarding page view.
     ///
     /// - Parameters:
     ///   - pages: The pages to present.
     ///   - pageIndex: The current page index.
-    ///   - content: A page content builder function.
+    ///   - content: A page builder function.
     public init(
         pages: [PageModel],
         pageIndex: Binding<Int>,
-        @ViewBuilder content: @escaping ContentBuilder
+        @ViewBuilder content: @escaping PageBuilder
     ) {
         self.pages = pages
         self._pageIndex = pageIndex
@@ -39,10 +39,10 @@ public struct OnboardingPageView<PageModel, Content: View>: View {
     }
 
     public typealias PageInfo = OnboardingPageInfo<PageModel>
-    public typealias ContentBuilder = (PageInfo) -> Content
+    public typealias PageBuilder = (PageInfo) -> Page
 
     private let pages: [PageModel]
-    private let content: ContentBuilder
+    private let content: PageBuilder
 
     @Binding
     private var pageIndex: Int
@@ -119,11 +119,8 @@ private extension OnboardingPageView {
                 pages: state.pages,
                 pageIndex: $state.currentPageIndex,
                 content: {
-                    PreviewPage(
-                        index: $state.currentPageIndex,
-                        info: $0
-                    )
-                    .frame(maxHeight: .infinity)
+                    PreviewPage(info: $0)
+                        .frame(maxHeight: .infinity)
                 }
             )
             .onboardingPageViewStyle(
@@ -139,7 +136,9 @@ private extension OnboardingPageView {
             )
             .safeAreaInset(edge: .bottom) {
                 OnboardingPrimaryButton("HEJ") {
-                    state.showNextPage()
+                    withAnimation {
+                        state.showNextPage()
+                    }
                 }
                 .padding([.horizontal, .bottom])
             }

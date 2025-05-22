@@ -13,8 +13,7 @@ import SwiftUI
 /// page state object can be used to manage both.
 ///
 /// The type implements ``OnboardingPageManager`` which adds
-/// a bunch of additional capabilities to it. Have a look at
-/// the protocol for a more information.
+/// a bunch of additional capabilities.
 public class OnboardingPageState<PageModel>: ObservableObject, OnboardingPageManager {
 
     /// Create an onboarding page state.
@@ -36,6 +35,9 @@ public class OnboardingPageState<PageModel>: ObservableObject, OnboardingPageMan
 }
 
 public extension OnboardingPageState {
+
+    /// The current page.
+    var currentPage: PageModel { pages[currentPageIndex] }
 
     /// The total number of pages.
     var totalPageCount: Int { pages.count }
@@ -63,7 +65,7 @@ public extension OnboardingPageState {
     /// if the current page is the last page.
     @MainActor
     func showNextPage(
-        or dismiss: DismissAction
+        orDismiss dismiss: DismissAction
     ) {
         if isCurrentPageLast { return dismiss.callAsFunction() }
         showNextPage()
