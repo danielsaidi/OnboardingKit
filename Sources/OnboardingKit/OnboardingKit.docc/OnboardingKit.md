@@ -68,6 +68,8 @@ OnboardingKit is available under the MIT license.
 - ``OnboardingPageViewStyle``
 - ``OnboardingPrimaryButton``
 - ``OnboardingPrimaryButtonType``
+- ``OnboardingScreen``
+- ``OnboardingScreenCenteredContent``
 - ``OnboardingSlideshow``
 - ``OnboardingSlideshowConfiguration``
 - ``OnboardingSlideshowProgressView``

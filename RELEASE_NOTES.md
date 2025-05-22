@@ -12,7 +12,9 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 
 * `OnboardingPageView` & `OnboardingSlideshow` now supports edge taps on all platforms.
 * `OnboardingPageView` & `OnboardingSlideshow` now supports arrow keys on macOS & tvOS.
-* `OnboardingPrimaryButton` is a new button view that can be used in an onboarding flow.  
+* `OnboardingPrimaryButton` is a new button view that can be used in an onboarding flow.
+* `OnboardingScreen` is a new container view that can be used to wrap any onboarding flow.  
+* `OnboardingScreenCenteredContent` is a new container view that can be used to center a page view.  
 
 ### 🐛 Bug Fixes
 
