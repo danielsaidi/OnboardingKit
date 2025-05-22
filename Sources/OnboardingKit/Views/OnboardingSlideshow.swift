@@ -11,18 +11,11 @@ import SwiftUI
 
 /// This slideshow slides through a set of slide views.
 ///
-/// Since this view adds full content buttons to navigate to
-/// the previous and next slide, you must specify background
-/// content separately from the page content. Any background
-/// added to the content will block out these touches.
-///
 /// Apply a ``SwiftUI/View/onboardingSlideshowStyle(_:)`` to 
 /// customize the visual style of a slideshow.
 ///
-/// > Important: This view currently uses a custom page view
-/// on `macOS`, `tvOS` and `watchOS`, and a `TabView` with a
-/// `.page` style on `iOS` and `visionOS`. The page view has
-/// support for arrow, swipe and edge tap navigation.
+/// This view has support for navigating with the arrow keys,
+/// as well as with background swipes and edge taps.
 public struct OnboardingSlideshow<Page, Content: View>: View {
 
     /// Create an onboarding slideshow.
@@ -71,7 +64,7 @@ public struct OnboardingSlideshow<Page, Content: View>: View {
     @State private var isTimerRunning = true
 
     public var body: some View {
-        VStack {
+        ZStack(alignment: .top) {
             progressViews
             slideshow
         }
@@ -242,8 +235,7 @@ private extension OnboardingSlideshow {
 
     struct Preview: View {
 
-        @State
-        private var pageIndex = 0
+        @State var pageIndex = 0
 
         var body: some View {
             OnboardingSlideshow(
@@ -254,11 +246,18 @@ private extension OnboardingSlideshow {
                     PreviewPage(index: $pageIndex, info: $0)
                 }
             )
-            .background(PreviewBackground(index: pageIndex))
+            .onboardingSlideshowStyle(.init(
+                progressBarBackgroundColor: .green,
+                progressBarForegroundColor: .blue
+            ))
+            .background(
+                PreviewBackground(index: pageIndex)
+            )
             .safeAreaInset(edge: .bottom) {
                 OnboardingPrimaryButton("HEJ") {
                     pageIndex += 1
-                }.padding()
+                }
+                .padding([.horizontal, .bottom])
             }
         }
 

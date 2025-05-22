@@ -15,18 +15,11 @@ import UIKit
 /// This view can be used to show a collection of pages that
 /// can be swiped through horizontally.
 ///
-/// This view uses a regular SwiftUI `TabView` on iOS, and a
-/// custom, internal `PageView` implementation for all other
-/// platforms where the paged tab view style isn't available.
+/// Apply an ``SwiftUI/View/onboardingPageViewStyle(_:)`` to
+/// customize the visual style of the page view.
 ///
-/// You can apply ``SwiftUI/View/onboardingPageViewStyle(_:)``
-/// to customize the visual style of an onboarding page view,
-/// regardless of which underlying implementation is uses.
-///
-/// > Important: This view currently uses a custom page view
-/// on `macOS`, `tvOS` and `watchOS`, and a `TabView` with a
-/// `.page` style on `iOS` and `visionOS`. The page view has
-/// support for arrow, swipe and edge tap navigation.
+/// This view has support for navigating with the arrow keys,
+/// as well as with background swipes and edge taps.
 public struct OnboardingPageView<Page, Content: View>: View {
 
     /// Create an onboarding page view.
@@ -117,31 +110,32 @@ private extension OnboardingPageView {
     
     struct Preview: View {
         
-        @State
-        private var currentPageIndex = 0
-
-        var pages = Array(1...3)
+        @State var pageIndex = 0
 
         var body: some View {
             OnboardingPageView(
-                pages: pages,
-                pageIndex: $currentPageIndex
-            ) { pageInfo in
-                PreviewPage(
-                    index: $currentPageIndex,
-                    info: pageInfo
-                )
-                .padding(.bottom, 50)
-            }
+                pages: Array(1...3),
+                pageIndex: $pageIndex,
+                content: {
+                    PreviewPage(index: $pageIndex, info: $0)
+                        .frame(maxHeight: .infinity)
+                }
+            )
             .onboardingPageViewStyle(
                 .init(
-                    pageIndicatorTintColor: .yellow.opacity(0.5),
+                    pageIndicatorTintColor: .blue,
                     currentPageIndicatorTintColor: .yellow
                 )
             )
             .background(
-                PreviewBackground(index: currentPageIndex)
+                PreviewBackground(index: pageIndex)
             )
+            .safeAreaInset(edge: .bottom) {
+                OnboardingPrimaryButton("HEJ") {
+                    pageIndex += 1
+                }
+                .padding([.horizontal, .bottom])
+            }
         }
     }
     
