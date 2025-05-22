@@ -1,8 +1,15 @@
-# Release Notes
+# Release notes
 
-OnboardingKit tried to honors semantic versioning.
+This project honors semantic versioning, with the following strategy:
 
-Breaking changes can still occur in minor updates, if there's a strong reason for it.
+* Deprecations can happen at any time.
+* Deprecations are removed in `major` updates.
+* Breaking changes should only occur in `major` updates.
+* Breaking changes *can* occur in `minor` and `patch` updates, if the alternative is worse.
+
+Beta version tags are removed after the next minor or major version. 
+
+These release notes only cover the current major version.
 
 
 
@@ -29,6 +36,7 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 
 ### 🗑️ Deprecated
 
+* `LocalizedOnboarding` has been deprecated.
 * `OnboardingSlideshow` no longer takes a background view builder.
 * `OnboardingSlideshowConfiguration` no longer has an `isAnimated` property.
 

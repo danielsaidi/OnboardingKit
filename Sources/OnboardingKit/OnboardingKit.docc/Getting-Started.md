@@ -17,7 +17,14 @@ This article describes how to get started with OnboardingKit.
 
 ## Overview
 
-In OnboardingKit, an ``Onboarding`` determines the state and behavior of an onboarding experience. You can use various onboarding types to get different behaviors, like these build-in ones: 
+OnboardingKit has various ``Onboarding`` types that can be used to tailor an onboarding experience behavior, as well as various views.
+
+
+## Onboarding Types
+
+An ``Onboarding`` determines the state and behavior of an onboarding experience. 
+
+You can use different types for different behaviors, like these built-in ones: 
 
 * ``Onboarding`` is presented right away, and only once.
 * ``ConditionalOnboarding`` is presented when a certain condition returns `true`.
@@ -30,7 +37,7 @@ You can create your own onboarding types by inheriting and customizing any of th
 
 ## How to trigger an onboarding
 
-The code below shows how to use a standard ``Onboarding`` to present an onboarding sheet the first time an app launches:
+The code below shows how we can use a standard ``Onboarding`` to present an onboarding sheet the very first time the app launches:
 
 ```swift
 import OnboardingKit
@@ -38,16 +45,15 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State
-    private var isOnboardingPresented: Bool
+    @State var isOnboardingPresented: Bool
     
-    private let onboarding = Onboarding(id: "welcome") 
+    let onboarding = Onboarding(id: "welcome") 
 
     var body: some View {
         Text("Hello, world")
             .task(tryPresentOnboarding)
             .sheet(isPresented: $isOnboardingPresented) {
-                ... show your onboarding content here
+                Text("Onboarding...")
             }
     }
     
@@ -67,15 +73,10 @@ An onboarding will honor its rules and state, so ``Onboarding/tryPresent(after:a
 
 ## Views
 
-OnboardingKit comes with a set of UI components that you can use to present more complex onboarding flows, like a multi-page one that is shown when the app is first launched.   
+OnboardingKit has a couple of views that can be used to present complex onboarding flows, as well as many ways to handle page state.
 
-An ``OnboardingPageView`` can be used to render a set of pages in a horizontal page view that works on all platforms. You just have to pass in a set of pages of any type, then provide the view with a page view builder. 
+An ``OnboardingPageView`` can be used to render a set of pages in a horizontal page view that works on all platforms. 
 
-An ``OnboardingSlideshow`` can be used to render a set of pages in a slideshow that automatically slides through the pages. You just have to pass in a set of pages of any type, then provide the view with a page view builder.
+An ``OnboardingSlideshow`` can be used to render a set of pages in a slideshow that automatically slides through the pages. 
 
-Both views can be styled by applying a style view modifier to the view hierarchy.
-
-
-## Localization
-
-You can use a ``LocalizedOnboarding`` to automatically generate pages from the localized strings in your project. This makes it easy to manage your onboarding with just text and assets, without writing any code.
+You can use an ``OnboardingPageState`` instance to manage page state for both views, then provide them with a page view builder that builds a page view for each page. Both views can be styled by applying a style view modifier to the view hierarchy.
