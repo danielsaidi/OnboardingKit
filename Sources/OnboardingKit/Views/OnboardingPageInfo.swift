@@ -9,14 +9,14 @@
 import Foundation
 import SwiftUI
 
-/// This type can provide onboarding page information.
+/// This type can provide page info in an onboarding context.
 public struct OnboardingPageInfo<Page> {
 
     /// Create a page info value.
     ///
     /// - Parameters:
     ///   - page: The page value.
-    ///   - pageIndex: The page index.
+    ///   - pageIndex: The page's page index.
     ///   - currentPageIndex: The current page index.
     ///   - totalPageCount: The total number of pages.
     public init(
@@ -34,7 +34,7 @@ public struct OnboardingPageInfo<Page> {
     /// The page value.
     public let page: Page
 
-    /// The page index.
+    /// The page's page index.
     public let pageIndex: Int
 
     /// The current page index.

@@ -20,20 +20,17 @@ import SwiftUI
 /// customize the visual style of a slideshow.
 ///
 /// > Important: This view currently uses a custom page view
-/// on `macOS`, `tvOS` & `watchOS` that overlays its content
-/// with a scroll blocking gesture overlay. This is to avoid
-/// that swipe gestures would cause non-paged offset changes.
-/// As such, it currently blocks all buttons and gestures in
-/// the provided `content` view builder. If you use the view
-/// on `macOS`, `tvOS` & `watchOS`, make sure to add buttons
-/// and interactive elements on top of the view for now.
+/// on `macOS`, `tvOS` and `watchOS`, and a `TabView` with a
+/// `.page` style on `iOS` and `visionOS`. The page view has
+/// support for arrow, swipe and edge tap navigation.
 public struct OnboardingSlideshow<Page, Background: View, Content: View>: View {
 
-    /// Create a story slideshow.
+    /// Create an onboarding slideshow.
     ///
     /// - Parameters:
     ///   - pages: The pages to present.
     ///   - pageIndex: The current page index.
+    ///   - config: The configuration to use, by default `.standard`.
     ///   - onStoryCompleted: The action to trigger at the end.
     ///   - background: A page content builder function.
     ///   - content: A page content builder function.
@@ -70,18 +67,14 @@ public struct OnboardingSlideshow<Page, Background: View, Content: View>: View {
     private let background: BackgroundBuilder
     private let content: ContentBuilder
 
-    @Binding
-    private var pageIndex: Int
+    @Binding private var pageIndex: Int
 
     @Environment(\.onboardingSlideshowStyle)
     private var style
     
-    @State
-    private var currentProgress = 0.0
+    @State private var currentProgress = 0.0
+    @State private var isTimerRunning = true
 
-    @State
-    private var isTimerRunning = true
-    
     public var body: some View {
         ZStack {
             backgroundView
@@ -277,21 +270,13 @@ private extension OnboardingSlideshow {
                 pages: Array(0...2),
                 pageIndex: $index,
                 onStoryCompleted: handleStoryCompleted,
-                background: background,
-                content: content
+                background: { info in
+                    PreviewBackground(index: info.pageIndex)
+                },
+                content: { info in
+                    PreviewPage(index: $index, info: info)
+                }
             )
-        }
-
-        func background(
-            for info: OnboardingPageInfo<Int>
-        ) -> some View {
-            PreviewBackground(index: info.pageIndex)
-        }
-
-        func content(
-            for info: OnboardingPageInfo<Int>
-        ) -> some View {
-            PreviewPage(index: $index, info: info)
         }
 
         func handleStoryCompleted() {

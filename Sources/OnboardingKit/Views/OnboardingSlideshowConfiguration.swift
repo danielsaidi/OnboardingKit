@@ -8,10 +8,13 @@
 
 import SwiftUI
 
-/// This struct can be used to config ``OnboardingSlideshow``.
+/// This type can configure ``OnboardingSlideshow`` views.
+///
+/// This type is not applied with a view modifier, since the
+/// slideshow timer must be created in the initializer.
 public struct OnboardingSlideshowConfiguration {
 
-    /// Create a slideshow configuration.
+    /// Create an onboarding slideshow configuration.
     ///
     /// - Parameters:
     ///   - isAnimated: Whether or not the slideshow should animates the slide, by default `true`.
@@ -55,4 +58,19 @@ public extension OnboardingSlideshowConfiguration {
     static var standard: Self {
         .init()
     }
+}
+
+public extension View {
+
+    /// Apply a slideshow style to the view hierarchy.
+    func onboardingSlideshowConfiguration(
+        _ value: OnboardingSlideshowConfiguration
+    ) -> some View {
+        self.environment(\.onboardingSlideshowConfiguration, value)
+    }
+}
+
+public extension EnvironmentValues {
+
+    @Entry var onboardingSlideshowConfiguration = OnboardingSlideshowConfiguration.standard
 }

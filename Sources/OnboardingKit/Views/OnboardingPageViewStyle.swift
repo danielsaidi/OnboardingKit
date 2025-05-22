@@ -8,20 +8,16 @@
 
 import SwiftUI
 
-/// This style can be used to style ``OnboardingPageView``.
+/// This style can style ``OnboardingPageView`` views.
 ///
-/// You can apply the style with a view modifier:
-///
-/// ```swift
-/// OnboardingPageView(...)
-///     .onboardingPageViewStyle(...)
-/// ```
+/// Use the ``SwiftUICore/View/onboardingPageViewStyle(_:)``
+/// view modifier to apply this style.
 public struct OnboardingPageViewStyle {
 
     /// Create an onboarding page view style.
     ///
     /// - Parameters:
-    ///   - pageIndicatorTintColor: The page indicator color to use, by default `.primary` with opacity.
+    ///   - pageIndicatorTintColor: The page indicator color to use, by default `.primary` with `0.3` opacity.
     ///   - currentPageIndicatorTintColor: The color of the current page indicator, by default `.primary`.
     public init(
         pageIndicatorTintColor: Color = .primary.opacity(0.3),

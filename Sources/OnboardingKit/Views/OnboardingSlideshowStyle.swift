@@ -8,13 +8,16 @@
 
 import SwiftUI
 
-/// This style can be used to style ``OnboardingSlideshow``.
+/// This style can style ``OnboardingSlideshow`` views.
+///
+/// Use the ``SwiftUICore/View/onboardingSlideshowStyle(_:)``
+/// view modifier to apply this style.
 public struct OnboardingSlideshowStyle {
 
     /// Create an onboarding slideshow style.
     ///
     /// - Parameters:
-    ///   - progressBarBackgroundColor: The color to use below the progress bar, by default `.primary` with opacity.
+    ///   - progressBarBackgroundColor: The color to use below the progress bar, by default `.primary` with `0.2` opacity.
     ///   - progressBarForegroundColor: The color to use for the progress bar, by default `.primary`.
     ///   - progressBarHeight: The height of the progress bar, by default `3.0`.
     public init(
@@ -49,9 +52,9 @@ public extension View {
 
     /// Apply a slideshow style to the view hierarchy.
     func onboardingSlideshowStyle(
-        _ style: OnboardingSlideshowStyle
+        _ value: OnboardingSlideshowStyle
     ) -> some View {
-        self.environment(\.onboardingSlideshowStyle, style)
+        self.environment(\.onboardingSlideshowStyle, value)
     }
 }
 

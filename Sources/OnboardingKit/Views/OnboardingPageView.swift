@@ -29,7 +29,7 @@ import UIKit
 /// support for arrow, swipe and edge tap navigation.
 public struct OnboardingPageView<Page, Content: View>: View {
 
-    /// Create a tutorial page view.
+    /// Create an onboarding page view.
     ///
     /// - Parameters:
     ///   - pages: The pages to present.
