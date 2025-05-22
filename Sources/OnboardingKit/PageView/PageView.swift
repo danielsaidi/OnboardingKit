@@ -219,7 +219,10 @@ private extension PageView {
         @State var pageIndex = 0
 
         var body: some View {
-            PageView(pages: Array(1...10), currentPageIndex: $pageIndex) { page in
+            PageView(
+                pages: Array(1...10),
+                currentPageIndex: $pageIndex
+            ) { page in
                 VStack {
                     Text("\(page)")
                     HStack {

@@ -16,31 +16,17 @@ struct PreviewPage: View {
 
     var body: some View {
         VStack(spacing: 30) {
-            Spacer()
             Image(systemName: "\(info.pageIndex+1).circle")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: 150)
                 .shadow(radius: 1, y: 1)
             Text("This is page \(info.pageIndex+1) of \(info.totalPageCount).")
-            Spacer()
         }
+        .padding()
+        .background(.background, in: .rect(cornerRadius: 10))
         .scaleEffect(info.isCurrentPage ? 1 : 0.4)
         .animation(.bouncy, value: index)
-        .safeAreaInset(edge: .bottom) {
-            OnboardingPrimaryButton(info.isLastPage ? "Done" : "Next") {
-                if info.isLastPage {
-                    print("Done")
-                } else {
-                    withAnimation {
-                        index += 1
-                    }
-                }
-            }
-            .shadow(radius: 1, y: 2)
-            .buttonStyle(.borderedProminent)
-            .padding()
-        }
     }
 }
 

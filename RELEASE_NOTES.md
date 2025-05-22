@@ -16,6 +16,10 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 * `OnboardingScreen` is a new container view that can be used to wrap any onboarding flow.  
 * `OnboardingScreenCenteredContent` is a new container view that can be used to center a page view.  
 
+### 💡 Adjustments
+
+* `OnboardingSlideshow` no longer requires a background view builder.
+
 ### 🐛 Bug Fixes
 
 * `OnboardingPageView` & `OnboardingSlideshow` no longer blocks user interaction.

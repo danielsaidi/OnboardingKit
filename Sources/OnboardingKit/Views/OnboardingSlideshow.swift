@@ -23,7 +23,7 @@ import SwiftUI
 /// on `macOS`, `tvOS` and `watchOS`, and a `TabView` with a
 /// `.page` style on `iOS` and `visionOS`. The page view has
 /// support for arrow, swipe and edge tap navigation.
-public struct OnboardingSlideshow<Page, Background: View, Content: View>: View {
+public struct OnboardingSlideshow<Page, Content: View>: View {
 
     /// Create an onboarding slideshow.
     ///
@@ -32,21 +32,18 @@ public struct OnboardingSlideshow<Page, Background: View, Content: View>: View {
     ///   - pageIndex: The current page index.
     ///   - config: The configuration to use, by default `.standard`.
     ///   - onStoryCompleted: The action to trigger at the end.
-    ///   - background: A page content builder function.
     ///   - content: A page content builder function.
     public init(
         pages: [Page],
         pageIndex: Binding<Int>,
         config: OnboardingSlideshowConfiguration = .standard,
         onStoryCompleted: @escaping () -> Void,
-        @ViewBuilder background: @escaping BackgroundBuilder,
         @ViewBuilder content: @escaping ContentBuilder
     ) {
         self.pages = pages
         self._pageIndex = pageIndex
         self.config = config
         self.onStoryCompleted = onStoryCompleted
-        self.background = background
         self.content = content
         self.timer = Timer.publish(
             every: config.slideDuration * config.timerTickIncrement,
@@ -57,31 +54,26 @@ public struct OnboardingSlideshow<Page, Background: View, Content: View>: View {
     }
 
     public typealias PageInfo = OnboardingPageInfo<Page>
-    public typealias BackgroundBuilder = (PageInfo) -> Background
     public typealias ContentBuilder = (PageInfo) -> Content
 
     private let pages: [Page]
     private let config: OnboardingSlideshowConfiguration
     private let timer: Publishers.Autoconnect<Timer.TimerPublisher>
     private let onStoryCompleted: () -> Void
-    private let background: BackgroundBuilder
     private let content: ContentBuilder
 
     @Binding private var pageIndex: Int
 
     @Environment(\.onboardingSlideshowStyle)
     private var style
-    
+
     @State private var currentProgress = 0.0
     @State private var isTimerRunning = true
 
     public var body: some View {
-        ZStack {
-            backgroundView
-            VStack {
-                progressViews
-                slideshow
-            }
+        VStack {
+            progressViews
+            slideshow
         }
         .onReceive(timer) { _ in
             guard isTimerRunning else { return }
@@ -93,18 +85,6 @@ public struct OnboardingSlideshow<Page, Background: View, Content: View>: View {
 // MARK: - Views
 
 private extension OnboardingSlideshow {
-
-    var backgroundView: some View {
-        background(
-            .init(
-                page: pages[pageIndex],
-                pageIndex: pageIndex,
-                currentPageIndex: pageIndex,
-                totalPageCount: pages.count
-            )
-        )
-        .ignoresSafeArea()
-    }
     
     var progressViews: some View {
         #if os(tvOS)
@@ -263,20 +243,23 @@ private extension OnboardingSlideshow {
     struct Preview: View {
 
         @State
-        private var index = 0
+        private var pageIndex = 0
 
         var body: some View {
             OnboardingSlideshow(
                 pages: Array(0...2),
-                pageIndex: $index,
+                pageIndex: $pageIndex,
                 onStoryCompleted: handleStoryCompleted,
-                background: { info in
-                    PreviewBackground(index: info.pageIndex)
-                },
-                content: { info in
-                    PreviewPage(index: $index, info: info)
+                content: {
+                    PreviewPage(index: $pageIndex, info: $0)
                 }
             )
+            .background(PreviewBackground(index: pageIndex))
+            .safeAreaInset(edge: .bottom) {
+                OnboardingPrimaryButton("HEJ") {
+                    pageIndex += 1
+                }.padding()
+            }
         }
 
         func handleStoryCompleted() {
