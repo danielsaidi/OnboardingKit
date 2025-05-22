@@ -144,7 +144,7 @@ private extension OnboardingSlideshow {
             .init(
                 page: info.element,
                 pageIndex: info.offset,
-                currentPageIndex: pageIndex,
+                currentPageIndex: $pageIndex,
                 totalPageCount: pages.count
             )
         )

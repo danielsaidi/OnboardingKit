@@ -36,7 +36,7 @@ struct PreviewPage: View {
         info: .init(
             page: 1,
             pageIndex: 0,
-            currentPageIndex: 0,
+            currentPageIndex: .constant(0),
             totalPageCount: 2
         )
     )

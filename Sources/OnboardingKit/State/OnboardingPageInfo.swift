@@ -3,14 +3,14 @@
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2022-09-05.
-//  Copyright © 2022-2024 Daniel Saidi. All rights reserved.
+//  Copyright © 2022-2025 Daniel Saidi. All rights reserved.
 //
 
 import Foundation
 import SwiftUI
 
 /// This type can provide page info in an onboarding context.
-public struct OnboardingPageInfo<Page> {
+public struct OnboardingPageInfo<Page>: OnboardingPageManager {
 
     /// Create a page info value.
     ///
@@ -22,12 +22,12 @@ public struct OnboardingPageInfo<Page> {
     public init(
         page: Page,
         pageIndex: Int,
-        currentPageIndex: Int,
+        currentPageIndex: Binding<Int>,
         totalPageCount: Int
     ) {
         self.page = page
         self.pageIndex = pageIndex
-        self.currentPageIndex = currentPageIndex
+        self.currentPageIndexBinding = currentPageIndex
         self.totalPageCount = totalPageCount
     }
 
@@ -38,25 +38,31 @@ public struct OnboardingPageInfo<Page> {
     public let pageIndex: Int
 
     /// The current page index.
-    public let currentPageIndex: Int
-    
+    public var currentPageIndex: Int {
+        get { currentPageIndexBinding.wrappedValue }
+        set { currentPageIndexBinding.wrappedValue = newValue }
+    }
+
+    /// The current page index.
+    public let currentPageIndexBinding: Binding<Int>
+
     /// The total number of pages.
     public let totalPageCount: Int
 }
 
 public extension OnboardingPageInfo {
 
-    /// Whether or not this is the first page.
+    /// Whether the ``page`` is the first page.
     var isFirstPage: Bool {
-        pageIndex <= 0
+        isFirstPage(pageIndex)
     }
 
-    /// Whether or not this is the last page.
+    /// Whether the ``page`` is the last page.
     var isLastPage: Bool {
-        pageIndex >= totalPageCount - 1
+        isLastPage(pageIndex)
     }
 
-    /// Whether or not the provided page is the current page.
+    /// Whether the provided page is the current page.
     var isCurrentPage: Bool {
         pageIndex == currentPageIndex
     }

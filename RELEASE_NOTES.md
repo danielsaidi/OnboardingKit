@@ -10,6 +10,9 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 
 ### ✨ New features
 
+* `OnboardingPageInfo` `currentPageIndex` is now mutable.
+* `OnboardingPageManager` is a new page manager protocol.
+* `OnboardingPageState` is a new observable page state class.
 * `OnboardingPageView` & `OnboardingSlideshow` now supports edge taps on all platforms.
 * `OnboardingPageView` & `OnboardingSlideshow` now supports arrow keys on macOS & tvOS.
 * `OnboardingPrimaryButton` is a new button view that can be used in an onboarding flow.

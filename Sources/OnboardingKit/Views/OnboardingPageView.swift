@@ -3,7 +3,7 @@
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2022-09-04.
-//  Copyright © 2022-2024 Daniel Saidi. All rights reserved.
+//  Copyright © 2022-2025 Daniel Saidi. All rights reserved.
 //
 
 import SwiftUI
@@ -96,7 +96,7 @@ private extension OnboardingPageView {
             .init(
                 page: info.element,
                 pageIndex: info.offset,
-                currentPageIndex: pageIndex,
+                currentPageIndex: $pageIndex,
                 totalPageCount: pages.count
             )
         )

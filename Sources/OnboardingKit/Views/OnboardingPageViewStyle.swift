@@ -3,7 +3,7 @@
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2022-09-04.
-//  Copyright © 2022-2024 Daniel Saidi. All rights reserved.
+//  Copyright © 2022-2025 Daniel Saidi. All rights reserved.
 //
 
 import SwiftUI
@@ -36,15 +36,13 @@ public struct OnboardingPageViewStyle {
 
 public extension OnboardingPageViewStyle {
 
-    /// The standard onboarding page view style.
-    static var standard: Self {
-        .init()
-    }
+    /// A standard onboarding page view style.
+    static var standard: Self { .init() }
 }
 
 public extension View {
 
-    /// Apply a page view style to the view hierarchy.
+    /// Apply a page view style environment value.
     func onboardingPageViewStyle(
         _ style: OnboardingPageViewStyle
     ) -> some View {
@@ -53,6 +51,7 @@ public extension View {
 }
 
 public extension EnvironmentValues {
-    
+
+    /// An onboarding page view style value.
     @Entry var onboardingPageViewStyle = OnboardingPageViewStyle.standard
 }

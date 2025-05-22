@@ -42,15 +42,13 @@ public struct OnboardingSlideshowStyle {
 
 public extension OnboardingSlideshowStyle {
 
-    /// The standard onboarding slideshow style.
-    static var standard: Self {
-        .init()
-    }
+    /// A standard onboarding slideshow style.
+    static var standard: Self { .init() }
 }
 
 public extension View {
 
-    /// Apply a slideshow style to the view hierarchy.
+    /// Apply an onboarding slideshow style value.
     func onboardingSlideshowStyle(
         _ value: OnboardingSlideshowStyle
     ) -> some View {
@@ -59,6 +57,7 @@ public extension View {
 }
 
 public extension EnvironmentValues {
-    
+
+    /// An onboarding slideshow style value.
     @Entry var onboardingSlideshowStyle = OnboardingSlideshowStyle.standard
 }
