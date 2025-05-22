@@ -16,7 +16,7 @@ import SwiftUI
 ///
 /// This view has support for navigating with the arrow keys,
 /// as well as with background swipes and edge taps.
-public struct OnboardingSlideshow<Page, Content: View>: View {
+public struct OnboardingSlideshow<PageModel, Content: View>: View {
 
     /// Create an onboarding slideshow.
     ///
@@ -27,7 +27,7 @@ public struct OnboardingSlideshow<Page, Content: View>: View {
     ///   - onStoryCompleted: The action to trigger at the end.
     ///   - content: A page content builder function.
     public init(
-        pages: [Page],
+        pages: [PageModel],
         pageIndex: Binding<Int>,
         config: OnboardingSlideshowConfiguration = .standard,
         onStoryCompleted: @escaping () -> Void,
@@ -46,10 +46,10 @@ public struct OnboardingSlideshow<Page, Content: View>: View {
         .autoconnect()
     }
 
-    public typealias PageInfo = OnboardingPageInfo<Page>
+    public typealias PageInfo = OnboardingPageInfo<PageModel>
     public typealias ContentBuilder = (PageInfo) -> Content
 
-    private let pages: [Page]
+    private let pages: [PageModel]
     private let config: OnboardingSlideshowConfiguration
     private let timer: Publishers.Autoconnect<Timer.TimerPublisher>
     private let onStoryCompleted: () -> Void
@@ -131,7 +131,7 @@ private extension OnboardingSlideshow {
     }
 
     func content(
-        for info: EnumeratedSequence<[Page]>.Element
+        for info: EnumeratedSequence<[PageModel]>.Element
     ) -> some View {
         content(
             .init(

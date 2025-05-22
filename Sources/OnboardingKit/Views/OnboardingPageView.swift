@@ -20,7 +20,7 @@ import UIKit
 ///
 /// This view has support for navigating with the arrow keys,
 /// as well as with background swipes and edge taps.
-public struct OnboardingPageView<Page, Content: View>: View {
+public struct OnboardingPageView<PageModel, Content: View>: View {
 
     /// Create an onboarding page view.
     ///
@@ -29,7 +29,7 @@ public struct OnboardingPageView<Page, Content: View>: View {
     ///   - pageIndex: The current page index.
     ///   - content: A page content builder function.
     public init(
-        pages: [Page],
+        pages: [PageModel],
         pageIndex: Binding<Int>,
         @ViewBuilder content: @escaping ContentBuilder
     ) {
@@ -38,10 +38,10 @@ public struct OnboardingPageView<Page, Content: View>: View {
         self.content = content
     }
 
-    public typealias PageInfo = OnboardingPageInfo<Page>
+    public typealias PageInfo = OnboardingPageInfo<PageModel>
     public typealias ContentBuilder = (PageInfo) -> Content
 
-    private let pages: [Page]
+    private let pages: [PageModel]
     private let content: ContentBuilder
 
     @Binding
@@ -83,7 +83,7 @@ private extension OnboardingPageView {
     }
 
     func content(
-        for info: EnumeratedSequence<[Page]>.Element
+        for info: EnumeratedSequence<[PageModel]>.Element
     ) -> some View {
         content(
             .init(
@@ -109,16 +109,21 @@ private extension OnboardingPageView {
 #Preview {
     
     struct Preview: View {
-        
-        @State var pageIndex = 0
+
+        @StateObject var state = OnboardingPageState(
+            pages: Array(0...3)
+        )
 
         var body: some View {
             OnboardingPageView(
-                pages: Array(1...3),
-                pageIndex: $pageIndex,
+                pages: state.pages,
+                pageIndex: $state.currentPageIndex,
                 content: {
-                    PreviewPage(index: $pageIndex, info: $0)
-                        .frame(maxHeight: .infinity)
+                    PreviewPage(
+                        index: $state.currentPageIndex,
+                        info: $0
+                    )
+                    .frame(maxHeight: .infinity)
                 }
             )
             .onboardingPageViewStyle(
@@ -128,11 +133,13 @@ private extension OnboardingPageView {
                 )
             )
             .background(
-                PreviewBackground(index: pageIndex)
+                PreviewBackground(
+                    index: state.currentPageIndex
+                )
             )
             .safeAreaInset(edge: .bottom) {
                 OnboardingPrimaryButton("HEJ") {
-                    pageIndex += 1
+                    state.showNextPage()
                 }
                 .padding([.horizontal, .bottom])
             }

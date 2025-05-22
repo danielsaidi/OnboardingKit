@@ -6,6 +6,8 @@
 //  Copyright © 2025 Daniel Saidi. All rights reserved.
 //
 
+import SwiftUI
+
 /// This protocol can be implemented by any type that can be
 /// used to manage onboarding flow pages.
 ///
