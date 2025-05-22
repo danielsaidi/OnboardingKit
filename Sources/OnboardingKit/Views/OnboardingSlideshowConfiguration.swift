@@ -17,27 +17,21 @@ public struct OnboardingSlideshowConfiguration {
     /// Create an onboarding slideshow configuration.
     ///
     /// - Parameters:
-    ///   - isAnimated: Whether or not the slideshow should animates the slide, by default `true`.
     ///   - slideDuration: The duration of each slide, by default `5`.
     ///   - timeTickIncrement: The duration of each tick, by default `0.05`.
     ///   - nextAccessibilityLabel: The accessibility label for the next button overlay, by default "Next".
     ///   - previousAccessibilityLabel: The accessibility label for the previous button overlay, by default "Previous".
     public init(
-        isAnimated: Bool? = nil,
         slideDuration: TimeInterval? = nil,
         timeTickIncrement: TimeInterval? = nil,
         nextAccessibilityLabel: String? = nil,
         previousAccessibilityLabel: String? = nil
     ) {
-        self.isAnimated = isAnimated ?? true
         self.slideDuration = slideDuration ?? 5
         self.timerTickIncrement = timeTickIncrement ?? 0.05
         self.nextAccessibilityLabel = nextAccessibilityLabel ?? "Next"
         self.previousAccessibilityLabel = previousAccessibilityLabel ?? "Previous"
     }
-
-    /// Whether or not the slideshow animates the slide transitions.
-    public var isAnimated: Bool
 
     /// The duration of each slide.
     public var slideDuration: TimeInterval

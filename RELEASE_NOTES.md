@@ -21,11 +21,16 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 
 ### 💡 Adjustments
 
-* `OnboardingSlideshow` no longer requires a background view builder.
+* `OnboardingSlideshow` now takes a configuration as a view modifier.
 
 ### 🐛 Bug Fixes
 
-* `OnboardingPageView` & `OnboardingSlideshow` no longer blocks user interaction.
+* `OnboardingPageView` & `OnboardingSlideshow` no longer block interactions.
+
+### 🗑️ Deprecated
+
+* `OnboardingSlideshow` no longer takes a background view builder.
+* `OnboardingSlideshowConfiguration` no longer has an `isAnimated` property.
 
 
 

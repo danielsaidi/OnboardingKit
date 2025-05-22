@@ -2,7 +2,7 @@ import SwiftUI
 
 public extension OnboardingSlideshow {
 
-    @available(*, deprecated, message: "Apply a background to the view instead.")
+    @available(*, deprecated, message: "Apply a background and configuration to the view instead.")
     init<Background: View> (
         pages: [PageModel],
         pageIndex: Binding<Int>,
@@ -14,9 +14,27 @@ public extension OnboardingSlideshow {
         self.init(
             pages: pages,
             pageIndex: pageIndex,
-            config: config,
             onStoryCompleted: onStoryCompleted,
             content: content
+        )
+    }
+}
+
+public extension OnboardingSlideshowConfiguration {
+
+    @available(*, deprecated, message: "isAnimated is no longer supported.")
+    init(
+        isAnimated: Bool?,
+        slideDuration: TimeInterval? = nil,
+        timeTickIncrement: TimeInterval? = nil,
+        nextAccessibilityLabel: String? = nil,
+        previousAccessibilityLabel: String? = nil
+    ) {
+        self.init(
+            slideDuration: slideDuration,
+            timeTickIncrement: timeTickIncrement,
+            nextAccessibilityLabel: nextAccessibilityLabel,
+            previousAccessibilityLabel: previousAccessibilityLabel
         )
     }
 }

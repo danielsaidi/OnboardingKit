@@ -29,6 +29,51 @@ public struct OnboardingSlideshow<PageModel, Content: View>: View {
     public init(
         pages: [PageModel],
         pageIndex: Binding<Int>,
+        onStoryCompleted: @escaping () -> Void,
+        @ViewBuilder content: @escaping ContentBuilder
+    ) {
+        self.pages = pages
+        self._pageIndex = pageIndex
+        self.onStoryCompleted = onStoryCompleted
+        self.content = content
+    }
+
+    public typealias PageInfo = OnboardingPageInfo<PageModel>
+    public typealias ContentBuilder = (PageInfo) -> Content
+
+    private let pages: [PageModel]
+    private let onStoryCompleted: () -> Void
+    private let content: ContentBuilder
+
+    @Binding private var pageIndex: Int
+
+    @Environment(\.onboardingSlideshowConfiguration)
+    private var config
+
+    public var body: some View {
+        _OnboardingSlideshow(
+            pages: pages,
+            pageIndex: $pageIndex,
+            config: config,
+            onStoryCompleted: onStoryCompleted,
+            content: content
+        )
+    }
+}
+
+private struct _OnboardingSlideshow<PageModel, Content: View>: View {
+
+    /// Create an onboarding slideshow.
+    ///
+    /// - Parameters:
+    ///   - pages: The pages to present.
+    ///   - pageIndex: The current page index.
+    ///   - config: The configuration to use, by default `.standard`.
+    ///   - onStoryCompleted: The action to trigger at the end.
+    ///   - content: A page content builder function.
+    init(
+        pages: [PageModel],
+        pageIndex: Binding<Int>,
         config: OnboardingSlideshowConfiguration = .standard,
         onStoryCompleted: @escaping () -> Void,
         @ViewBuilder content: @escaping ContentBuilder
@@ -46,24 +91,23 @@ public struct OnboardingSlideshow<PageModel, Content: View>: View {
         .autoconnect()
     }
 
-    public typealias PageInfo = OnboardingPageInfo<PageModel>
-    public typealias ContentBuilder = (PageInfo) -> Content
+    typealias PageInfo = OnboardingPageInfo<PageModel>
+    typealias ContentBuilder = (PageInfo) -> Content
 
-    private let pages: [PageModel]
-    private let config: OnboardingSlideshowConfiguration
-    private let timer: Publishers.Autoconnect<Timer.TimerPublisher>
-    private let onStoryCompleted: () -> Void
-    private let content: ContentBuilder
+    let pages: [PageModel]
+    let config: OnboardingSlideshowConfiguration
+    let timer: Publishers.Autoconnect<Timer.TimerPublisher>
+    let onStoryCompleted: () -> Void
+    let content: ContentBuilder
 
-    @Binding private var pageIndex: Int
+    @Binding var pageIndex: Int
 
-    @Environment(\.onboardingSlideshowStyle)
-    private var style
+    @Environment(\.onboardingSlideshowStyle) var style
 
-    @State private var currentProgress = 0.0
-    @State private var isTimerRunning = true
+    @State var currentProgress = 0.0
+    @State var isTimerRunning = true
 
-    public var body: some View {
+    var body: some View {
         ZStack(alignment: .top) {
             progressViews
             slideshow
@@ -77,8 +121,8 @@ public struct OnboardingSlideshow<PageModel, Content: View>: View {
 
 // MARK: - Views
 
-private extension OnboardingSlideshow {
-    
+private extension _OnboardingSlideshow {
+
     var progressViews: some View {
         #if os(tvOS)
         progressViewsContent
@@ -179,8 +223,8 @@ private extension OnboardingSlideshow {
 
 // MARK: - Slide Controls
 
-private extension OnboardingSlideshow {
-    
+private extension _OnboardingSlideshow {
+
     var isFullProgress: Bool {
         currentProgress >= 1
     }
@@ -212,19 +256,11 @@ private extension OnboardingSlideshow {
     }
     
     func setNewIndex(_ index: Int) {
-        if config.isAnimated {
-            withAnimation {
-                setNewIndexPlain(index)
-            }
-        } else {
-            setNewIndexPlain(index)
+        withAnimation {
+            pageIndex = index
+            currentProgress = 0.0
+            isTimerRunning = true
         }
-    }
-    
-    func setNewIndexPlain(_ index: Int) {
-        pageIndex = index
-        currentProgress = 0.0
-        isTimerRunning = true
     }
 }
 
@@ -246,6 +282,9 @@ private extension OnboardingSlideshow {
                     PreviewPage(index: $pageIndex, info: $0)
                 }
             )
+            .onboardingSlideshowConfiguration(.init(
+                slideDuration: 5
+            ))
             .onboardingSlideshowStyle(.init(
                 progressBarBackgroundColor: .green,
                 progressBarForegroundColor: .blue
