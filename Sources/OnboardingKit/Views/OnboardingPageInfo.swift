@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// This type can provide onboarding page information.
 public struct OnboardingPageInfo<Page> {

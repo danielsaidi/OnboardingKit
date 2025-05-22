@@ -24,13 +24,9 @@ import UIKit
 /// regardless of which underlying implementation is uses.
 ///
 /// > Important: This view currently uses a custom page view
-/// on `macOS`, `tvOS` & `watchOS` that overlays its content
-/// with a scroll blocking gesture overlay. This is to avoid
-/// that swipe gestures would cause non-paged offset changes.
-/// As such, it currently blocks all buttons and gestures in
-/// the provided `content` view builder. If you use the view
-/// on `macOS`, `tvOS` & `watchOS`, make sure to add buttons
-/// and interactive elements on top of the view for now.
+/// on `macOS`, `tvOS` and `watchOS`, and a `TabView` with a
+/// `.page` style on `iOS` and `visionOS`. The page view has
+/// support for arrow, swipe and edge tap navigation.
 public struct OnboardingPageView<Page, Content: View>: View {
 
     /// Create a tutorial page view.
@@ -122,17 +118,20 @@ private extension OnboardingPageView {
     struct Preview: View {
         
         @State
-        private var index = 0
+        private var currentPageIndex = 0
 
         var pages = Array(1...3)
 
         var body: some View {
             OnboardingPageView(
                 pages: pages,
-                pageIndex: $index
-            ) {
-                PreviewPage(index: $index, info: $0)
-                    .padding(.bottom, 50)
+                pageIndex: $currentPageIndex
+            ) { pageInfo in
+                PreviewPage(
+                    index: $currentPageIndex,
+                    info: pageInfo
+                )
+                .padding(.bottom, 50)
             }
             .onboardingPageViewStyle(
                 .init(
@@ -141,7 +140,7 @@ private extension OnboardingPageView {
                 )
             )
             .background(
-                PreviewBackground(index: index)
+                PreviewBackground(index: currentPageIndex)
             )
         }
     }

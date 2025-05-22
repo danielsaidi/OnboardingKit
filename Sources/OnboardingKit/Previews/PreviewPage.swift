@@ -29,12 +29,10 @@ struct PreviewPage: View {
         .animation(.bouncy, value: index)
         .safeAreaInset(edge: .bottom) {
             Button(info.isLastPage ? "Done" : "Next") {
-                withAnimation {
-                    if info.isLastPage {
-                        print("Done")
-                    } else {
-                        index += 1
-                    }
+                if info.isLastPage {
+                    print("Done")
+                } else {
+                    index += 1
                 }
             }
             .shadow(radius: 1, y: 2)

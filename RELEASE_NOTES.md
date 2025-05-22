@@ -6,6 +6,18 @@ Breaking changes can still occur in minor updates, if there's a strong reason fo
 
 
 
+## 8.3
+
+### ✨ New features
+
+* The multi-platform `PageView` now supports arrow navigation and edge taps.
+
+### 🐛 Bug Fixes
+
+* The multi-platform `PageView` no longer blocks user interaction.
+
+
+
 ## 8.2
 
 ### ✨ New features
