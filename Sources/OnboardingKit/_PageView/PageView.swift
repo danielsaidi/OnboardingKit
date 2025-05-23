@@ -173,6 +173,7 @@ private extension PageView {
         #endif
     }
 
+    #if !os(tvOS)
     func gestureLayerView(
         onTap: @escaping () -> Void
     ) -> some View {
@@ -185,6 +186,7 @@ private extension PageView {
                 TapGesture().onEnded(onTap)
             )
     }
+    #endif
 }
 
 private extension PageView {
