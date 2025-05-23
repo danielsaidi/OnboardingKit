@@ -77,7 +77,7 @@ private extension View {
     }
 
     func onboardingButtonSize() -> some View {
-        #if os(tvOS)
+        #if os(tvOS) || os(watchOS)
         self
         #else
         self.controlSize(.large)

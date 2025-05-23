@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+#if !os(tvOS) && !os(watchOS)
 @available(iOS 16.4, *)
 public extension View {
 
@@ -39,3 +40,4 @@ public extension View {
         }
     }
 }
+#endif
