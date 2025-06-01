@@ -23,7 +23,7 @@ https://github.com/danielsaidi/OnboardingKit.git
 
 ## Support My Work
 
-By [becoming a sponsor][Sponsors], you directly support the development & improvement of my various [open-source projects][OpenSource].
+You can [become a sponsor][Sponsors] to help me dedicate more time on my various [open-source tools][OpenSource]. Every contribution, no matter the size, makes a real difference in keeping these tools free and actively developed.
 
 
 ## Getting started
