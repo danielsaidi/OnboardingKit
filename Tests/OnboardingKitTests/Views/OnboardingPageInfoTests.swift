@@ -14,9 +14,21 @@ final class InfoTests: XCTestCase {
     typealias Info = OnboardingPageInfo
 
     func test_isFirstPage_returnsCorrectResult() {
-        let obj1 = Info(page: -1, pageIndex: -1, currentPageIndex: 0, totalPageCount: 10)
-        let obj2 = Info(page: 0, pageIndex: 0, currentPageIndex: 0, totalPageCount: 10)
-        let obj3 = Info(page: 1, pageIndex: 1, currentPageIndex: 0, totalPageCount: 10)
+        let obj1 = Info(
+            page: -1,
+            pageIndex: -1
+            , currentPageIndex: .constant(0),
+            totalPageCount: 10)
+        let obj2 = Info(
+            page: 0,
+            pageIndex: 0,
+            currentPageIndex: .constant(0),
+            totalPageCount: 10)
+        let obj3 = Info(
+            page: 1,
+            pageIndex: 1,
+            currentPageIndex: .constant(1),
+            totalPageCount: 10)
 
         XCTAssertTrue(obj1.isFirstPage)
         XCTAssertTrue(obj2.isFirstPage)
@@ -24,9 +36,21 @@ final class InfoTests: XCTestCase {
     }
 
     func test_isLastPage_returnsCorrectResult() {
-        let obj1 = Info(page: 0, pageIndex: 0, currentPageIndex: 0, totalPageCount: 10)
-        let obj2 = Info(page: 10, pageIndex: 10, currentPageIndex: 0, totalPageCount: 10)
-        let obj3 = Info(page: 11, pageIndex: 11, currentPageIndex: 0, totalPageCount: 10)
+        let obj1 = Info(
+            page: 0,
+            pageIndex: 0,
+            currentPageIndex: .constant(0),
+            totalPageCount: 10)
+        let obj2 = Info(
+            page: 10,
+            pageIndex: 10,
+            currentPageIndex: .constant(0),
+            totalPageCount: 10)
+        let obj3 = Info(
+            page: 11,
+            pageIndex: 11,
+            currentPageIndex: .constant(0),
+            totalPageCount: 10)
 
         XCTAssertFalse(obj1.isLastPage)
         XCTAssertTrue(obj2.isLastPage)
@@ -34,8 +58,16 @@ final class InfoTests: XCTestCase {
     }
 
     func test_isCurrentPage_returnsCorrectResult() {
-        let obj1 = Info(page: 0, pageIndex: 0, currentPageIndex: 5, totalPageCount: 10)
-        let obj2 = Info(page: 10, pageIndex: 10, currentPageIndex: 10, totalPageCount: 10)
+        let obj1 = Info(
+            page: 0,
+            pageIndex: 0,
+            currentPageIndex: .constant(5),
+            totalPageCount: 10)
+        let obj2 = Info(
+            page: 10,
+            pageIndex: 10,
+            currentPageIndex: .constant(10),
+            totalPageCount: 10)
 
         XCTAssertFalse(obj1.isCurrentPage)
         XCTAssertTrue(obj2.isCurrentPage)

@@ -13,6 +13,14 @@ These release notes only cover the current major version.
 
 
 
+## 8.3.1
+
+### 🐛 Bug Fixes
+
+* This version fixes multi-platform builds.
+
+
+
 ## 8.3
 
 ### ✨ New features

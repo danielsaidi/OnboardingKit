@@ -89,7 +89,7 @@ private extension View {
         showPrevious: @escaping () -> Void,
         showNext: @escaping () -> Void
     ) -> some View {
-        #if os(iOS) || os(watchOS)
+        #if os(iOS) || os(watchOS) || os(visionOS)
         if #available(iOS 16.0, watchOS 9.0, *) {
             self.scrollDisabled(true)
         } else {
