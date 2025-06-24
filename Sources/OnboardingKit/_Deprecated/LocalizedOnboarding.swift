@@ -74,11 +74,21 @@ open class LocalizedOnboarding {
     public let pages: [Page]
     
     public typealias PageIndex = Int
-    public typealias PageResolver = (Onboarding.ID, PageIndex, Bundle, ResourceNameResolver, ResourceKeySeparator) -> Page
+    public typealias PageResolver = (
+        Onboarding.ID,
+        PageIndex, Bundle,
+        ResourceNameResolver,
+        ResourceKeySeparator
+    ) -> Page
     public typealias ResourceKey = String
     public typealias ResourceKeySeparator = String
     public typealias ResourceName = String
-    public typealias ResourceNameResolver = (Onboarding.ID, PageIndex, ResourceKey, ResourceKeySeparator) -> ResourceName
+    public typealias ResourceNameResolver = (
+        Onboarding.ID,
+        PageIndex,
+        ResourceKey,
+        ResourceKeySeparator
+    ) -> ResourceName
     public typealias Translator = (String) -> String
 
     /// This function generates resource names, by using the

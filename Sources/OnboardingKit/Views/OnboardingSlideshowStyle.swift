@@ -17,8 +17,8 @@ public struct OnboardingSlideshowStyle {
     /// Create an onboarding slideshow style.
     ///
     /// - Parameters:
-    ///   - progressBarBackgroundColor: The color to use below the progress bar, by default `.primary` with `0.2` opacity.
-    ///   - progressBarForegroundColor: The color to use for the progress bar, by default `.primary`.
+    ///   - progressBarBackgroundColor: The progress bar background, by default transparent `.primary`.
+    ///   - progressBarForegroundColor: The progress bar foreground, by default `.primary`.
     ///   - progressBarHeight: The height of the progress bar, by default `3.0`.
     public init(
         progressBarBackgroundColor: Color? = nil,

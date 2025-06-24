@@ -104,9 +104,11 @@ private extension View {
                 type: .secondary,
                 action: {}
             )
-            OnboardingPrimaryButton(.primary, action: {}) {
-                Text("Test")
-            }
+            OnboardingPrimaryButton(
+                .primary,
+                action: {},
+                label: { Text("Test") }
+            )
         }
     }
     .padding()

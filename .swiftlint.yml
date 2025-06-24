@@ -1,11 +1,6 @@
 disabled_rules:
-  - file_length
-  - function_body_length
-  - line_length
-  - nesting
-  - todo
+  - large_tuple
   - trailing_whitespace
-  - type_body_length
   - vertical_whitespace
 
 excluded:
