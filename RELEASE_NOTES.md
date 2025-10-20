@@ -13,6 +13,14 @@ These release notes only cover the current major version.
 
 
 
+## 8.4
+
+This version makes the SDK use Swift 6.1.
+
+Since this is the only change, it's made with a minor version bump.
+
+
+
 ## 8.3.1
 
 ### 🐛 Bug Fixes
