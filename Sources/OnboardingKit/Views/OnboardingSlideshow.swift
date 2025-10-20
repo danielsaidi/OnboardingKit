@@ -9,13 +9,10 @@
 import Combine
 import SwiftUI
 
-/// This slideshow slides through a set of slide views.
+/// This slideshow slides through a set of onboarding slide views, with support for
+/// navigating with swipes, arrow keys, and edge taps.
 ///
-/// Apply a ``SwiftUI/View/onboardingSlideshowStyle(_:)`` to 
-/// customize the visual style of a slideshow.
-///
-/// This view has support for navigating with the arrow keys,
-/// as well as with background swipes and edge taps.
+/// This view can be styled with ``SwiftUI/View/onboardingSlideshowStyle(_:)``.
 public struct OnboardingSlideshow<PageModel, Page: View>: View {
 
     /// Create an onboarding slideshow.

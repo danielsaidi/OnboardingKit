@@ -12,14 +12,10 @@ import SwiftUI
 import UIKit
 #endif
 
-/// This view can be used to show a collection of pages that
-/// can be swiped through horizontally.
+/// This view can be used to show a collection of onboarding pages, with support
+/// for navigating with swipes, arrow keys, and edge taps.
 ///
-/// Apply an ``SwiftUI/View/onboardingPageViewStyle(_:)`` to
-/// customize the visual style of the page view.
-///
-/// This view has support for navigating with the arrow keys,
-/// as well as with background swipes and edge taps.
+/// This view can be styled with ``SwiftUI/View/onboardingPageViewStyle(_:)``.
 public struct OnboardingPageView<PageModel, Page: View>: View {
 
     /// Create an onboarding page view.

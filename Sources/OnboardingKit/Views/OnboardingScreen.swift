@@ -8,8 +8,7 @@
 
 import SwiftUI
 
-/// This screen can render a custom onboarding flow, with an
-/// optional button container in the lower safe area.
+/// This screen can render a custom onboarding flow with optional buttons.
 ///
 /// You can for instance present an ``OnboardingSlideshow`` or
 public struct OnboardingScreen<Page, Content: View, Buttons: View>: View {
@@ -140,6 +139,7 @@ private extension OnboardingScreen {
                     OnboardingScreen(
                         pages: pages,
                         pageIndex: $pageIndex,
+                        addDoneButton: false,
                         content: {
                             OnboardingPageView(
                                 pages: pages,

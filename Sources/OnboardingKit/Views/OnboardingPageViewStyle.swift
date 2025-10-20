@@ -10,8 +10,7 @@ import SwiftUI
 
 /// This style can style ``OnboardingPageView`` views.
 ///
-/// Use the ``SwiftUICore/View/onboardingPageViewStyle(_:)``
-/// view modifier to apply this style.
+/// This style can be applied with ``SwiftUI/View/onboardingPageViewStyle(_:)``.
 public struct OnboardingPageViewStyle {
 
     /// Create an onboarding page view style.

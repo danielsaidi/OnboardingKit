@@ -8,11 +8,8 @@
 
 import SwiftUI
 
-/// This protocol can be implemented by any type that can be
-/// used to manage onboarding flow pages.
-///
-/// The protocol is implemented by both ``OnboardingPageInfo``
-/// and ``OnboardingPageState``, to share state logic.
+/// This protocol can be implemented by any type that can be used to manage the
+/// pages of a multi-page onboarding.
 public protocol OnboardingPageManager {
 
     /// The current page index.

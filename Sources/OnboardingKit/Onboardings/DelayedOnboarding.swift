@@ -8,14 +8,13 @@
 
 import Foundation
 
-/// This onboarding type is only be presented after a couple
-/// of presentation attempts.
+/// This onboarding type is only presented after a couple of presentation attempts.
 ///
-/// Delayed onboardings are convenient when you use multiple
-/// onboardings as once, to schedule how they are presented.
+/// Delayed onboardings are convenient when you use multiple onboarding types,
+/// to schedule how they are presented.
 ///
-/// Other than this, the onboarding behaves just like a base
-/// ``Onboarding`` and is only presented once.
+/// Other than this, this onboarding type behaves like the base ``Onboarding``,
+/// and is only presented once.
 open class DelayedOnboarding: Onboarding {
     
     /// Create a delayed onboarding.

@@ -10,21 +10,19 @@ import Foundation
 
 /// This is a base class for different onboarding types.
 ///
-/// This class can be used as is, but can also be subclassed
-/// to create different kind of onboarding experiences.
+/// This class can be used as a regular onboarding, which is only presended once,
+/// but can also be subclassed to create other onboarding experiences.
 ///
-/// The default state is that ``shouldBePresented`` is `true`
-/// until a first presentation is registered, after which it
-/// becomes `false`. Other onboarding types will however use
-/// different rules to provide a different experience.
+/// The default behavior is that ``shouldBePresented`` is `true` until the
+/// first presentation has been registered, after which it becomes `false`. Other
+/// onboarding types can use different rules to provide a different experience.
 ///
-/// Using the onboarding is easy. Just create an instance of
-/// the specific onboarding type you want to use and trigger
-/// ``tryPresent(after:action:)`` to try to present it. This
-/// will inspect the internal onboarding rules and will only
-/// perform the presentation action if needed.
+/// Using this onboarding model is easy. Just create an instance of the onboarding
+/// type that you want to use, then trigger ``tryPresent(after:action:)``
+/// whenever you want to present it. This will inspect the internal onboarding rules
+/// and will only perform the presentation action if needed.
 ///
-/// Call ``reset()`` to reset the onboarding state.
+/// You can call ``reset()`` to reset the current state for a certain onboarding.
 open class Onboarding: Identifiable {
     
     /// Create a standard onboarding.

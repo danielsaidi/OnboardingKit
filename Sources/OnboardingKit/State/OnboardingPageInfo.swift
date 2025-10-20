@@ -9,10 +9,10 @@
 import Foundation
 import SwiftUI
 
-/// This type can provide page info in an onboarding context.
+/// This type defines page info for an onboarding context.
 ///
-/// The type implements ``OnboardingPageManager`` which adds
-/// a bunch of additional capabilities. 
+/// This type implements ``OnboardingPageManager``, which adds a bunch
+/// of additional capabilities to it.
 public struct OnboardingPageInfo<PageModel>: OnboardingPageManager {
 
     /// Create a page info value.

@@ -10,8 +10,7 @@ import SwiftUI
 
 /// This type can configure ``OnboardingSlideshow`` views.
 ///
-/// This type is not applied with a view modifier, since the
-/// slideshow timer must be created in the initializer.
+/// This type can be applied with ``SwiftUI/View/onboardingSlideshowConfiguration(_:)``.
 public struct OnboardingSlideshowConfiguration {
 
     /// Create an onboarding slideshow configuration.

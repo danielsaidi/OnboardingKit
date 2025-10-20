@@ -12,10 +12,8 @@ public extension View {
 
     /// Present an onboarding, with an optional delay.
     ///
-    /// This is a convenience shorthand for the onboarding's
-    /// ``Onboarding/tryPresent(after:action:)``, which will
-    /// result in cleaner code when calling it with a static
-    /// onboarding value, for instance:
+    /// This is a shorthand for the onboarding presentation, which will result in a
+    /// cleaner call site:
     ///
     /// ```swift
     /// struct MyView: View {

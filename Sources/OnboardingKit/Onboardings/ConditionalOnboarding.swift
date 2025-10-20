@@ -8,14 +8,13 @@
 
 import Foundation
 
-/// This onboarding type is only presented if bool condition
-/// returns `true`.
+/// This onboarding type is only presented if bool condition returns `true`.
 ///
-/// An example could be a premium feature onboarding that is
-/// only shown after signing up for a premium subscription.
+/// One example could be a premium feature onboarding that is only shown after
+/// signing up for a premium subscription.
 ///
-/// Other than this, the onboarding behaves just like a base
-/// ``Onboarding`` and is only presented once.
+/// Other than this, this onboarding type behaves like the base ``Onboarding``,
+/// and is only presented once.
 open class ConditionalOnboarding: Onboarding {
     
     /// Create a conditional onboarding.

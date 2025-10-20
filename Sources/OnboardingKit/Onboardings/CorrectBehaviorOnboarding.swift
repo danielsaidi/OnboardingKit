@@ -8,20 +8,21 @@
 
 import Foundation
 
-/// This onboarding type is presented after a certain number
-/// of incorrect behaviors, to help users behave as intended.
-/// 
-/// An example could be a puzzle game for kids, where pieces
-/// animate to their correct position to show what to do.
+/// This onboarding type is presented after a number of "incorrect behaviors", with
+/// the goal to help users behave as intended.
 ///
-/// Use ``Onboarding/tryPresent(after:action:)`` when a user
-/// behaves incorrectly, or not as intended. The action will
-/// only be triggered after the provided number of incorrect
-/// attempts. Call ``registerCorrectBehavior()`` when a user
-/// behaves as intended, to reset the onboarding state.
+/// An example could be a puzzle game for kids, where the onboarding could then
+/// trigger the pieces animate to their correct position to show what to do.
 ///
-/// Unlike ``DelayedOnboarding``, this onboarding will reset
-/// itself each time it's presented.
+/// You should use ``Onboarding/registerIncorrectBehavior`` when
+/// the user behaves incorrectly (or not as intended) to automatically present your
+/// onboarding after ``requiredIncorrectAttempts`` number of attempts.
+///
+/// You should call ``registerCorrectBehavior()`` when a user behaves
+/// as intended, to reset the onboarding state.
+///
+/// Unlike ``DelayedOnboarding``, this onboarding will reset itself each time
+/// it's presented.
 open class CorrectBehaviorOnboarding: DelayedOnboarding {
     
     /// Create a correct behavior onboarding.
@@ -42,13 +43,19 @@ open class CorrectBehaviorOnboarding: DelayedOnboarding {
     public var requiredIncorrectAttempts: Int {
         super.requiredPresentationAttempts
     }
-    
-    /// Call this function when the user behaves as intended,
-    /// to reset the onboarding state.
-    public func registerCorrectBehavior() {
-        reset()
-    }
-    
+
+  /// Call this function when the user behaves as intended,
+  /// to reset the onboarding state.
+  public func registerCorrectBehavior() {
+      reset()
+  }
+
+  /// Call this function when the user behaves as intended,
+  /// to reset the onboarding state.
+  public func registerIncorrectBehavior() {
+      reset()
+  }
+
     /// Present the onboarding with the provided action then
     /// reset the onboarding state.
     open override func present(

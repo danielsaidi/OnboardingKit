@@ -8,8 +8,7 @@
 
 import Foundation
 
-/// This extension defines shorthands to built-in onboarding
-/// types, which is more convenient.
+/// This extension defines shorthands to built-in onboarding types.
 public extension Onboarding {
     
     /// Create a standard ``Onboarding``.

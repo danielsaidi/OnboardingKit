@@ -9,14 +9,11 @@
 import SwiftUI
 import Combine
 
-/// This view wraps its pages in a `ScrollView` that applies
-/// overlays and gestures to mimic a `.page` `TabView`.
+/// This view wraps its page views in a `ScrollView` that applies overlays and
+/// gestures to mimic a `.page`-styled `TabView`.
 ///
-/// You can set it up with a fixed set of `pages`, or with a
-/// set of `items` and a page view builder.
-///
-/// The view supports arrow navigation and tapping the edges
-/// to navigate between pages.
+/// The view supports arrow and edge tap navigation. You can set it up with a set
+/// of `pages`, or with a set of `items` and a page view builder.
 struct PageView<PageViewType: View>: View {
     
     /// Create a page view with a list of page views.
