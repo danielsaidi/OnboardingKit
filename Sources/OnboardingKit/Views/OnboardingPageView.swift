@@ -106,7 +106,7 @@ private extension OnboardingPageView {
     
     struct Preview: View {
 
-        @StateObject var state = OnboardingPageState(
+        @State var state = OnboardingPageState(
             pages: Array(0...3)
         )
 

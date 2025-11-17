@@ -17,6 +17,10 @@ These release notes only cover the current major version.
 
 This version makes the SDK target iOS 17 and aligned versions.
 
+### 💡 Changes
+
+* `OnboardingPageState` now implements `@Observable`.
+
 ### 🐛 Bug Fixes
 
 * This version fixes a bug in `CorrectOnboardingBehavior`.

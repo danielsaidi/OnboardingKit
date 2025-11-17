@@ -13,8 +13,9 @@ import SwiftUI
 /// be used to manage both.
 ///
 /// This type implements ``OnboardingPageManager``, which adds a bunch
-/// of additional capabilities to it. 
-public class OnboardingPageState<PageModel>: ObservableObject, OnboardingPageManager {
+/// of additional capabilities to it.
+@Observable
+public class OnboardingPageState<PageModel>: OnboardingPageManager {
 
     /// Create an onboarding page state.
     ///
@@ -30,7 +31,6 @@ public class OnboardingPageState<PageModel>: ObservableObject, OnboardingPageMan
     public let pages: [PageModel]
 
     /// The current page index.
-    @Published
     public var currentPageIndex: Int = 0
 }
 
