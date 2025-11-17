@@ -5,10 +5,10 @@ import PackageDescription
 let package = Package(
     name: "OnboardingKit",
     platforms: [
-        .iOS(.v15),
-        .macOS(.v12),
-        .tvOS(.v15),
-        .watchOS(.v8),
+        .iOS(.v17),
+        .macOS(.v14),
+        .tvOS(.v17),
+        .watchOS(.v10),
         .visionOS(.v1)
     ],
     products: [
@@ -17,9 +17,13 @@ let package = Package(
             targets: ["OnboardingKit"]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/danielsaidi/PageView.git", .upToNextMajor(from: "0.2.0"))
+    ],
     targets: [
         .target(
-            name: "OnboardingKit"
+            name: "OnboardingKit",
+            dependencies: ["PageView"]
         ),
         .testTarget(
             name: "OnboardingKitTests",

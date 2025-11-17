@@ -13,6 +13,20 @@ These release notes only cover the current major version.
 
 
 
+## 9.0
+
+This version makes the SDK target iOS 17 and aligned versions.
+
+### 🐛 Bug Fixes
+
+* This version fixes a bug in `CorrectOnboardingBehavior`.
+
+### 💥 Breaking Changes
+
+* This version makes the SDK target iOS 17 and aligned versions.
+
+
+
 ## 8.4
 
 This version makes the SDK use Swift 6.1.
