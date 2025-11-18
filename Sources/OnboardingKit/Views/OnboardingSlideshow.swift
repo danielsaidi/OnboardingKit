@@ -1,13 +1,17 @@
 //
 //  OnboardingSlideshow.swift
-//  KankodaKit
+//  OnboardingKit
 //
 //  Created by Daniel Saidi on 2022-09-04.
-//  Copyright © 2022-2024 Kankoda. All rights reserved.
+//  Copyright © 2022-2025 Daniel Saidi. All rights reserved.
 //
 
 import Combine
 import SwiftUI
+
+#if !os(iOS) && !os(visionOS)
+import PageView
+#endif
 
 /// This slideshow slides through a set of onboarding slide views, with support for
 /// navigating with swipes, arrow keys, and edge taps.
@@ -162,12 +166,11 @@ private extension _OnboardingSlideshow {
         #else
         PageView(
             pages: Array(pages.enumerated()),
-            currentPageIndex: $pageIndex,
-            pageIndicatorDisplayMode: .never,
-            pageIndicatorStyle: .standard
-        ) { page in
-            content(for: page)
-        }
+            pageIndex: $pageIndex,
+            pageBuilder: { page in content(for: page) }
+        )
+        .pageViewIndicatorStyle(.standard)
+        .pageViewIndicatorDisplayMode(.never)
         #endif
     }
 

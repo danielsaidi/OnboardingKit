@@ -23,12 +23,6 @@ https://github.com/danielsaidi/OnboardingKit.git
 
 
 
-## Support My Work
-
-You can [become a sponsor][Sponsors] to help me dedicate more time on my various [open-source tools][OpenSource]. Every contribution, no matter the size, makes a real difference in keeping these tools free and actively developed.
-
-
-
 ## Getting started
 
 The <doc:Getting-Started> article helps you get started with OnboardingKit.
@@ -72,6 +66,8 @@ OnboardingKit is available under the MIT license.
 
 ### Onboarding Views
 
+- ``OnboardingIntroScreen``
+- ``OnboardingIntroScreenStyle``
 - ``OnboardingPageView``
 - ``OnboardingPageViewStyle``
 - ``OnboardingPrimaryButton``

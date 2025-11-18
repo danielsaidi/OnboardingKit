@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-#if os(iOS)
-import UIKit
+#if !os(iOS) && !os(visionOS)
+import PageView
 #endif
 
 /// This view can be used to show a collection of onboarding pages, with support
@@ -67,14 +67,14 @@ private extension OnboardingPageView {
         #else
         PageView(
             pages: Array(pages.enumerated()),
-            currentPageIndex: $pageIndex,
-            pageIndicatorDisplayMode: .always,
-            pageIndicatorStyle: .init(
-                dotColor: style.pageIndicatorTintColor,
-                currentDotColor: style.currentPageIndicatorTintColor
-            ),
+            pageIndex: $pageIndex,
             pageBuilder: content
         )
+        .pageViewIndicatorStyle(.init(
+            dotColor: style.pageIndicatorTintColor,
+            currentDotColor: style.currentPageIndicatorTintColor
+        ))
+        .pageViewIndicatorDisplayMode(.always)
         #endif
     }
 

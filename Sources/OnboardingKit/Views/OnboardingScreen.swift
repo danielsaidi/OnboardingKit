@@ -1,16 +1,15 @@
 //
 //  OnboardingScreen.swift
-//  KankodaKit
+//  OnboardingKit
 //
 //  Created by Daniel Saidi on 2023-08-25.
-//  Copyright © 2023-2025 Kankoda. All rights reserved.
+//  Copyright © 2023-2025 Daniel Saidi. All rights reserved.
 //
 
 import SwiftUI
 
-/// This screen can render a custom onboarding flow with optional buttons.
-///
-/// You can for instance present an ``OnboardingSlideshow`` or
+/// This screen can render a custom onboarding page view with custom screens
+/// and optional buttons.
 public struct OnboardingScreen<Page, Content: View, Buttons: View>: View {
 
     public init(
