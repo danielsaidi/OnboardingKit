@@ -1,5 +1,5 @@
 //
-//  ConditionalOnboarding.swift
+//  Onboarding+Conditional.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2020-09-09.

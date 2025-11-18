@@ -1,5 +1,5 @@
 //
-//  DelayedOnboarding.swift
+//  Onboarding+Delayed.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2020-09-06.
@@ -16,7 +16,7 @@ extension Onboarding {
     /// onboardings, to schedule how they are presented.
     ///
     /// Other than this, this onboarding behaves like a base ``Onboarding``,
-    /// and is only presented once. 
+    /// and is only presented once.
     open class Delayed: Onboarding {
 
         /// Create a delayed onboarding.

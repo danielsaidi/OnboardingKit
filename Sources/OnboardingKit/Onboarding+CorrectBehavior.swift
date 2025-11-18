@@ -1,5 +1,5 @@
 //
-//  CorrectBehaviorOnboarding.swift
+//  Onboarding+CorrectBehavior.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2020-09-06.

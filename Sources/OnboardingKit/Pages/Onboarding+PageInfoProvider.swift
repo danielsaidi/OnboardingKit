@@ -1,5 +1,5 @@
 //
-//  OnboardingPageManager.swift
+//  Onboarding+PageInfoProvider.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2025-05-22.
@@ -8,18 +8,21 @@
 
 import SwiftUI
 
-/// This protocol can be implemented by any type that can be used to manage the
-/// pages of a multi-page onboarding.
-public protocol OnboardingPageManager {
+public extension Onboarding {
 
-    /// The current page index.
-    var currentPageIndex: Int { get set }
+    /// This protocol can be implemented by types that can be used to manage
+    /// the page information of a multi-page onboarding.
+    protocol PageInfoProvider {
 
-    /// The total number of pages.
-    var totalPageCount: Int { get }
+        /// The current page index.
+        var currentPageIndex: Int { get set }
+
+        /// The total number of pages.
+        var totalPageCount: Int { get }
+    }
 }
 
-public extension OnboardingPageManager {
+public extension Onboarding.PageInfoProvider {
 
     /// Whether the current page is the first page.
     var isCurrentPageFirst: Bool {

@@ -51,12 +51,6 @@ OnboardingKit is available under the MIT license.
 
 - ``Onboarding``
 
-### Onboarding State
-
-- ``OnboardingPageInfo``
-- ``OnboardingPageManager``
-- ``OnboardingPageState``
-
 ### Onboarding Views
 
 - ``OnboardingIntroScreen``
