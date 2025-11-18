@@ -51,13 +51,6 @@ OnboardingKit is available under the MIT license.
 
 - ``Onboarding``
 
-### Onboarding Types
-
-- ``ConditionalOnboarding``
-- ``CorrectBehaviorOnboarding``
-- ``DelayedOnboarding``
-- ``LocalizedOnboarding``
-
 ### Onboarding State
 
 - ``OnboardingPageInfo``

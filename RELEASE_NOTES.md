@@ -17,6 +17,10 @@ These release notes only cover the current major version.
 
 This version makes the SDK target iOS 17 and aligned versions.
 
+### ✨ New features
+
+* `OnboardingIntroScreen` is a new template view. 
+
 ### 💡 Changes
 
 * `OnboardingPageState` now implements `@Observable`.
@@ -28,6 +32,8 @@ This version makes the SDK target iOS 17 and aligned versions.
 ### 💥 Breaking Changes
 
 * This version makes the SDK target iOS 17 and aligned versions.
+* The various onboarding types are now nested under `Onboarding`.
+* The `Onboarding` type builder functions have been removed.
 
 
 
