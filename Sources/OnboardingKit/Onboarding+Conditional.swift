@@ -23,19 +23,28 @@ extension Onboarding {
         public init(
             id: String,
             store: UserDefaults = .standard,
-            condition: @escaping Condition
+            condition: @escaping () -> Bool
         ) {
             self.condition = condition
             super.init(id: id, store: store)
         }
 
-        public typealias Condition = () -> Bool
-
-        public let condition: Condition
+        public let condition: () -> Bool
 
         /// Whether or not the onboarding should be presented.
         open override var shouldBePresented: Bool {
             condition() && super.shouldBePresented
         }
+    }
+}
+
+public extension Onboarding {
+
+    static func conditional(
+        id: String,
+        store: UserDefaults = .standard,
+        condition: @escaping () -> Bool
+    ) -> Conditional {
+        .init(id: id, store: store, condition: condition)
     }
 }

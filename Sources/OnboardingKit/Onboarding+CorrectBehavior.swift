@@ -68,3 +68,14 @@ extension Onboarding {
         }
     }
 }
+
+public extension Onboarding {
+
+    static func correctBehavior(
+        id: String,
+        store: UserDefaults = .standard,
+        requiredIncorrectAttempts attempts: Int
+    ) -> CorrectBehavior {
+        .init(id: id, store: store, requiredIncorrectAttempts: attempts)
+    }
+}

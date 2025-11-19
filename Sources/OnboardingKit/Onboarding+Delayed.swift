@@ -73,3 +73,15 @@ private extension Onboarding.Delayed {
         persistencyKey(for: "presentationAttemptCount")
     }
 }
+
+
+public extension Onboarding {
+
+    static func delayed(
+        id: String,
+        store: UserDefaults = .standard,
+        requiredPresentationAttempts attempts: Int
+    ) -> Delayed {
+        .init(id: id, store: store, requiredPresentationAttempts: attempts)
+    }
+}
