@@ -31,6 +31,7 @@ This version makes the SDK target iOS 17 and aligned versions.
 
 ### 💥 Breaking Changes
 
+* `OnboardingScreen` is renamed to `OnboardingFlowContainer`.
 * This version makes the SDK target iOS 17 and aligned versions.
 * The various onboarding types are now nested under `Onboarding`.
 * The `Onboarding` type builder functions have been removed.

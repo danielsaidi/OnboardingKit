@@ -1,5 +1,5 @@
 //
-//  OnboardingScreen.swift
+//  OnboardingFlowContainer.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2023-08-25.
@@ -8,9 +8,15 @@
 
 import SwiftUI
 
-/// This screen can render a custom onboarding page view with custom screens
-/// and optional buttons.
-public struct OnboardingScreen<Page, Content: View, Buttons: View>: View {
+/// This view can be used to wrap an onboarding flow with buttons.
+///
+/// You can add ``OnboardingPageView``, ``OnboardingSlideshow``,
+/// or any custom flow view to this view, and control them with the same `page`
+/// binging as you pass into the container.
+///
+/// The view will add a top trailing done toolbar button if requested, and a set of
+/// bottom buttons that is created with the provided `buttons` builder.
+public struct OnboardingFlowContainer<Page, Content: View, Buttons: View>: View {
 
     public init(
         pages: [Page],
@@ -59,9 +65,8 @@ public struct OnboardingScreen<Page, Content: View, Buttons: View>: View {
     }
 }
 
-/// This view can be used to wrap any content view and apply
-/// a center alignment and a max width to it.
-public struct OnboardingScreenCenteredContent<Content: View>: View {
+/// This view can wrap any content view and applies an alignment and max width.
+public struct OnboardingFlowContainerCenteredContent<Content: View>: View {
 
     /// Create a centered onboarding screen content view.
     ///
@@ -89,7 +94,7 @@ public struct OnboardingScreenCenteredContent<Content: View>: View {
 
 }
 
-private extension OnboardingScreen {
+private extension OnboardingFlowContainer {
 
     var buttonParams: ButtonParams {
         ButtonParams(
@@ -135,7 +140,7 @@ private extension OnboardingScreen {
                     #if os(macOS)
                     Color.primary
                     #endif
-                    OnboardingScreen(
+                    OnboardingFlowContainer(
                         pages: pages,
                         pageIndex: $pageIndex,
                         addDoneButton: false,
@@ -144,7 +149,7 @@ private extension OnboardingScreen {
                                 pages: pages,
                                 pageIndex: $pageIndex
                             ) { info in
-                                OnboardingScreenCenteredContent {
+                                OnboardingFlowContainerCenteredContent {
                                     Text("Page \(info.pageIndex)")
                                 }
                             }
