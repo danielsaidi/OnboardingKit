@@ -38,6 +38,7 @@ struct ContentView: View {
                     slideshowLink
                 }
             }
+            .tint(.primary)
             .navigationTitle("OnboardingKit")
             .onAppear(perform: presentToolbarPopover)
             .safeAreaInset(edge: .bottom) {

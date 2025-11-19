@@ -40,7 +40,7 @@ enum DemoOnboardingPage: Int, CaseIterable, Identifiable {
 
 struct DemoOnboardingPageContent: View {
 
-    let pageInfo: OnboardingPageInfo<DemoOnboardingPage>
+    let pageInfo: OnboardingFlowPage<DemoOnboardingPage>
 
     var body: some View {
         VStack(alignment: .leading, spacing: 50) {
@@ -98,7 +98,7 @@ private extension DemoOnboardingPageContent {
 
     struct Preview: View {
 
-        @StateObject var state = OnboardingPageState(
+        @State var state = OnboardingFlowState(
             pages: DemoOnboardingPage.allCases
         )
 

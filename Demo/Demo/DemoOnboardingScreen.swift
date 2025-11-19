@@ -17,10 +17,10 @@ struct DemoOnboardingScreen: View {
 
     @Environment(\.dismiss) var dismiss
 
-    @StateObject var state = OnboardingPageState(pages: DemoOnboardingPage.allCases)
+    @State var state = OnboardingFlowState(pages: DemoOnboardingPage.allCases)
 
     var body: some View {
-        OnboardingScreen(
+        OnboardingFlowContainer(
             pages: state.pages,
             pageIndex: $state.currentPageIndex,
             content: {

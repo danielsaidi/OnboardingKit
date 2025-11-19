@@ -23,7 +23,7 @@ This version makes the SDK target iOS 17 and aligned versions.
 
 ### 💡 Changes
 
-* `OnboardingPageState` now implements `@Observable`.
+* `OnboardingFlowState` now implements `@Observable`.
 
 ### 🐛 Bug Fixes
 
@@ -31,6 +31,8 @@ This version makes the SDK target iOS 17 and aligned versions.
 
 ### 💥 Breaking Changes
 
+* `OnboardingPageInfo` is renamed to `OnboardingFlowPage`.
+* `OnboardingPageState` is renamed to `OnboardingFlowState`.
 * `OnboardingScreen` is renamed to `OnboardingFlowContainer`.
 * This version makes the SDK target iOS 17 and aligned versions.
 * The various onboarding types are now nested under `Onboarding`.

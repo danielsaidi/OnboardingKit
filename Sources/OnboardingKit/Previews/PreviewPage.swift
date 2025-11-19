@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PreviewPage: View {
 
-    let info: OnboardingFlow.PageInfo<Int>
+    let info: OnboardingFlowPage<Int>
 
     var body: some View {
         VStack(spacing: 30) {

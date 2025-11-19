@@ -9,11 +9,7 @@ import SwiftUI
 
 /// This type can be used as page state for a specific onboarding.
 ///
-/// Instead of creating pages and a page index separately, a page state can
-/// be used to manage both.
-///
-/// This type implements ``Onboarding/PageInfoProvider``, which
-/// adds a bunch of additional capabilities to it.
+/// Instead of creating pages and bindings separately, this state manages both.
 @Observable
 public class OnboardingFlowState<PageModel>: OnboardingFlow.PageInfoProvider {
 

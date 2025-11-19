@@ -1,0 +1,15 @@
+{
+  "originHash" : "da0ee3300f0342bab82de19faab26f7dbf9d6d43c905152cc7ba44dc16c170ca",
+  "pins" : [
+    {
+      "identity" : "pageview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielsaidi/PageView.git",
+      "state" : {
+        "revision" : "b60c9ced36242eae0eb81ab0a8e7273386fdbb9b",
+        "version" : "0.2.0"
+      }
+    }
+  ],
+  "version" : 3
+}

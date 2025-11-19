@@ -22,16 +22,16 @@ extension Onboarding {
     
     static func demoConditional(
         _ condition: @escaping () -> Bool = { true }
-    ) -> ConditionalOnboarding {
-        .init(id: "demo.list.conditional", condition: condition)
+    ) -> Onboarding {
+        Onboarding.Conditional(id: "demo.list.conditional", condition: condition)
     }
     
-    static let demoCorrectBehavior = CorrectBehaviorOnboarding(
+    static let demoCorrectBehavior = Onboarding.CorrectBehavior(
         id: "demo.list.correctbehavior",
         requiredIncorrectAttempts: 3
     )
         
-    static let demoDelayed = DelayedOnboarding(
+    static let demoDelayed = Onboarding.Delayed(
         id: "demo.list.delayed",
         requiredPresentationAttempts: 3
     )
