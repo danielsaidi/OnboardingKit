@@ -39,7 +39,7 @@ public struct OnboardingSlideshow<PageModel, Page: View>: View {
         self.content = content
     }
 
-    public typealias PageInfo = Onboarding.PageInfo<PageModel>
+    public typealias PageInfo = OnboardingFlow.PageInfo<PageModel>
     public typealias PageBuilder = (PageInfo) -> Page
 
     private let pages: [PageModel]
@@ -92,7 +92,7 @@ private struct _OnboardingSlideshow<PageModel, Content: View>: View {
         .autoconnect()
     }
 
-    typealias PageInfo = Onboarding.PageInfo<PageModel>
+    typealias PageInfo = OnboardingFlow.PageInfo<PageModel>
     typealias ContentBuilder = (PageInfo) -> Content
 
     let pages: [PageModel]

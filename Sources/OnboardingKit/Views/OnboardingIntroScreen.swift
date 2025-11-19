@@ -10,9 +10,11 @@ import SwiftUI
 
 /// This screen can be used as an intro screen when onboarding new users.
 ///
-/// This is a one-page screen that welcomes the user, shows a summary text
-/// of what the app does, and lists a few high-level USPs. It's not wrapped in a
-/// scroll view, to allow you to control padding, max width, etc.
+/// This is a one-page screen that welcomes the user, shows a summary text of
+/// what the app does, and lists high-level USPs.
+///
+/// This view is not wrapped in a scroll view, to allow you to control its spacing,
+/// padding, placement, etc.
 ///
 /// This view can be styled with``SwiftUICore/View/onboardingIntroScreenStyle(_:)`.
 public struct OnboardingIntroScreen: View {

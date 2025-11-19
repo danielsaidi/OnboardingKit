@@ -1,5 +1,5 @@
 //
-//  Onboarding+PageState.swift
+//  OnboardingFlowState.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2025-05-22.
@@ -7,37 +7,34 @@
 
 import SwiftUI
 
-public extension Onboarding {
+/// This type can be used as page state for a specific onboarding.
+///
+/// Instead of creating pages and a page index separately, a page state can
+/// be used to manage both.
+///
+/// This type implements ``Onboarding/PageInfoProvider``, which
+/// adds a bunch of additional capabilities to it.
+@Observable
+public class OnboardingFlowState<PageModel>: OnboardingFlow.PageInfoProvider {
 
-    /// This type can be used as page state for a specific onboarding.
+    /// Create an onboarding page state.
     ///
-    /// Instead of creating pages and a page index separately, a page state can
-    /// be used to manage both.
-    ///
-    /// This type implements ``Onboarding/PageInfoProvider``, which
-    /// adds a bunch of additional capabilities to it.
-    @Observable
-    class PageState<PageModel>: PageInfoProvider {
-
-        /// Create an onboarding page state.
-        ///
-        /// - Parameters:
-        ///   - pages: The pages to display in the onboarding.
-        public init(
-            pages: [PageModel]
-        ) {
-            self.pages = pages
-        }
-
-        /// The pages to display in the onboarding.
-        public let pages: [PageModel]
-
-        /// The current page index.
-        public var currentPageIndex: Int = 0
+    /// - Parameters:
+    ///   - pages: The pages to display in the onboarding.
+    public init(
+        pages: [PageModel]
+    ) {
+        self.pages = pages
     }
+
+    /// The pages to display in the onboarding.
+    public let pages: [PageModel]
+
+    /// The current page index.
+    public var currentPageIndex: Int = 0
 }
 
-public extension Onboarding.PageState {
+public extension OnboardingFlowState {
 
     /// The current page.
     var currentPage: PageModel {

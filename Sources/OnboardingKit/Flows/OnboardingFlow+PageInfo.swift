@@ -1,5 +1,5 @@
 //
-//  Onboarding+PageInfo.swift
+//  OnboardingFlow+PageInfo.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2022-09-05.
@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-public extension Onboarding {
+public extension OnboardingFlow {
 
     /// This type defines page info for an onboarding page.
     ///
@@ -56,7 +56,7 @@ public extension Onboarding {
     }
 }
 
-public extension Onboarding.PageInfo {
+public extension OnboardingFlow.PageInfo {
 
     /// Whether this page is the first page.
     var isFirstPage: Bool {

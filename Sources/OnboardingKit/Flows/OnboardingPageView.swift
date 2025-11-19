@@ -34,7 +34,7 @@ public struct OnboardingPageView<PageModel, Page: View>: View {
         self.content = content
     }
 
-    public typealias PageInfo = Onboarding.PageInfo<PageModel>
+    public typealias PageInfo = OnboardingFlow.PageInfo<PageModel>
     public typealias PageBuilder = (PageInfo) -> Page
 
     private let pages: [PageModel]
@@ -106,7 +106,7 @@ private extension OnboardingPageView {
     
     struct Preview: View {
 
-        @State var state = Onboarding.PageState(
+        @State var state = OnboardingFlowState(
             pages: Array(0...3)
         )
 
