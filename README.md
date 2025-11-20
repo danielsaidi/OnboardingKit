@@ -46,18 +46,14 @@ OnboardingKit has various onboarding types and views that can be used to tailor 
 The various ``Onboarding`` types defines unique onboarding experience behaviors, for instance: 
 
 * ``Onboarding`` is presented right away, and only once.
-* ``ConditionalOnboarding`` is presented when a certain condition returns `true`.
-* ``CorrectBehaviorOnboarding`` is presented when a user is not behaving as intended.
-* ``DelayedOnboarding`` is presented after a certain number of presentation attempts.
+* ``Onboarding.Conditional`` is presented when a certain condition returns `true`.
+* ``Onboarding.CorrectBehavior`` is presented when a user is not behaving as intended.
+* ``Onboarding.Delayed`` is presented after a certain number of presentation attempts.
 
-OnboardingKit has views that can be used to present onboarding flows, as well as ways to handle page state.
+OnboardingKit has various onboarding flows, and convenient ways to handle page state.
 
-* An ``OnboardingPageView`` can be used to show a set of pages in a horizontal page view. 
-* An ``OnboardingSlideshow`` can be used to show a set of pages in a slideshow that auto-slides forward.
-* An ``OnboardingScreen`` can be used to wrap any onboarding flow in a frame with additional controls.
-* An ``OnboardingPageState`` can be used to manage page state for all views. 
-
-All views support all major Apple platforms (iOS, macOS, tvOS, watchOS & visionOS).
+* An ``OnboardingPageView`` can be used to present manually scrolling pages. 
+* An ``OnboardingSlideshow`` can be used to present an automatically progressing slideshow.
 
 See the online [getting started guide][Getting-Started] for more information.
 

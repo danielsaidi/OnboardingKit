@@ -29,50 +29,23 @@ An ``Onboarding`` determines the behavior of an onboarding experience. There are
 * ``Onboarding``.``Onboarding/CorrectBehavior`` is presented when a user is not behaving as intended.
 * ``Onboarding``.``Onboarding/Delayed`` is presented after a certain number of presentation attempts.
 
-You can create your own onboarding type by inheriting and customizing any of these classes.
+You can also create a custom onboarding type by inheriting and customizing any of these classes and overriding its various functions.
 
-
-### How to use an onboarding
-
-The code below shows how we can use a standard ``Onboarding`` to present an onboarding sheet the very first time the app launches:
+To use an onboarding, just create a type based on the behavior you want, and call ``Onboarding/tryPresent(after:action:)`` to present it:
 
 ```swift
-import OnboardingKit
-import SwiftUI
-
-struct ContentView: View {
-
-    @State var isSheetPresented: Bool
-    
-    let onboarding = Onboarding(id: "welcome") 
-
-    var body: some View {
-        Text("Hello, world")
-            .task(tryPresentOnboarding)
-            .sheet(isPresented: $isSheetPresented) {
-                Text("Onboarding...")
-            }
-    }
-    
-    func tryPresentOnboarding() {
-        onboarding.tryPresent { 
-            isSheetPresented = true
-        }
-    }
+Onboarding(id: "welcome").tryPresent { 
+    // Show a shet, modal, popover, or anything you want
 }
 ```
 
-An onboarding only cares about its state and behavior, not how it's presented. You can present the content above in a full screen modal, popover from any view, by pushing a new view onto the navigation stack, etc.
-
-An onboarding will honor its rules and state, so ``Onboarding/tryPresent(after:action:)`` will only trigger when it makes sense for it to show.
+The onboarding will honor it's behavior and only call the presentation block when it makes sense to the onboarding. For instance, a base onboarding is only presented once.
 
 
 
 ## Onboarding Flows
 
-An onboarding flow is a set of pages that can be presented in any sequential way that makes sense for that onboarding. It can be a set of manually scrolling pages, a slideshow, a sequence of popovers, etc.
-
-You can use ``OnboardingPageView`` to present a set of pages in a manually scrolling onboarding, and ``OnboardingSlideshow`` to present the same pages in an automatically scrolling slideshow.
+An onboarding flow is a collection of pages that can be presented in sequence. It can be a manually scrolling ``OnboardingPageView``, an automatically progressing ``OnboardingSlideshow``, a sequence of popovers, etc.
 
 You can wrap any flow control in an ``OnboardingFlowContainer`` to add toolbar and bottom buttons around the flow. You can use a ``OnboardingFlowState`` to control the flow state, instead of just using a plain integer binding.
 
