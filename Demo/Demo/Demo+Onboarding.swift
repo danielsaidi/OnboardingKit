@@ -10,35 +10,36 @@ import Foundation
 import OnboardingKit
 
 extension Onboarding {
-    
+
+    // This lets us reset all onboardings with a single call.
     static var demoOnboardings: [Onboarding] = [
         demoConditional(),
         demoCorrectBehavior,
         demoDelayed,
         demoPopover,
         demoSheet,
-        demoToolbarPopover
+        demoToolbarPopover,
+        demoWelcomeScreen
     ]
     
     static func demoConditional(
         _ condition: @escaping () -> Bool = { true }
     ) -> Onboarding {
-        Onboarding.Conditional(id: "demo.list.conditional", condition: condition)
+        Onboarding.Conditional(id: "onboarding.conditional", condition: condition)
     }
     
     static let demoCorrectBehavior = Onboarding.CorrectBehavior(
-        id: "demo.list.correctbehavior",
+        id: "onboarding.correctbehavior",
         requiredIncorrectAttempts: 3
     )
         
     static let demoDelayed = Onboarding.Delayed(
-        id: "demo.list.delayed",
+        id: "onboarding.delayed",
         requiredPresentationAttempts: 3
     )
     
-    static let demoPopover = Onboarding(id: "demo.list.popover")
-    
-    static let demoSheet = Onboarding(id: "demo.list.sheet")
-
-    static let demoToolbarPopover = Onboarding(id: "demo.toolbar.popover")
+    static let demoPopover = Onboarding(id: "onboarding.popover")
+    static let demoSheet = Onboarding(id: "onboarding.sheet")
+    static let demoToolbarPopover = Onboarding(id: "onboarding.toolbarpopover")
+    static let demoWelcomeScreen = Onboarding(id: "demo.welcomeScreen")
 }

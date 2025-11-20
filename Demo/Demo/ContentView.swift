@@ -10,7 +10,8 @@ import SwiftUI
 import OnboardingKit
 
 struct ContentView: View {
-    
+
+    @State var isAppWelcomeScreenPresented = false
     @State var isConditionalEnabled = false
     @State var isConditionalPresented = false
     @State var isCorrectBehaviorPresented = false
@@ -18,13 +19,16 @@ struct ContentView: View {
     @State var isPopoverPresented = false
     @State var isSheetPresented = false
     @State var isToolbarPopoverPresented = false
-    
+
     @State var pageViewPageIndex = 0
     @State var slideshowPageIndex = 0
 
     var body: some View {
         NavigationStack {
             List {
+                Section("Welcome Screen") {
+                    appWelcomeScreenButton
+                }
                 Section("Onboardings") {
                     popoverButton
                     sheetButton
@@ -32,15 +36,14 @@ struct ContentView: View {
                     delayedButton
                     behaviorButton
                 }
-
                 Section("Flows") {
                     pageViewLink
                     slideshowLink
                 }
             }
+            .task { presentAppWelcomeScreen() }
             .tint(.primary)
             .navigationTitle("OnboardingKit")
-            .onAppear(perform: presentToolbarPopover)
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 0) {
                     Divider()
@@ -58,12 +61,25 @@ struct ContentView: View {
                 }
             }
         }
+        .sheet(isPresented: $isAppWelcomeScreenPresented) {
+            WelcomeScreen()
+        }
     }
 }
 
 // MARK: - Buttons
 
 private extension ContentView {
+
+    var appWelcomeScreenButton: some View {
+        Button(action: presentAppWelcomeScreen) {
+            listLabel(
+                .sheet,
+                "Welcome Screen",
+                "This will only be presented once."
+            )
+        }
+    }
 
     var behaviorButton: some View {
         Button(action: presentCorrectBehavior) {
@@ -217,6 +233,12 @@ private extension View {
 @MainActor
 private extension ContentView {
 
+    func presentAppWelcomeScreen() {
+        Onboarding.demoWelcomeScreen.tryPresent {
+            isAppWelcomeScreenPresented = true
+        }
+    }
+
     func presentConditional() {
         Onboarding.demoConditional { isConditionalEnabled }
             .tryPresent { isConditionalPresented = true }
@@ -248,7 +270,7 @@ private extension ContentView {
             isToolbarPopoverPresented = true
         }
     }
-    
+
     func reset() {
         Onboarding.demoOnboardings.forEach { $0.reset() }
     }
