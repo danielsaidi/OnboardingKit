@@ -12,7 +12,8 @@ show_usage() {
     echo "Usage: $0 [TARGET] [-p|--platforms <PLATFORM1> <PLATFORM2> ...]"
     echo "  [TARGET]              Optional. The target to validate (defaults to package name)"
     echo "  -p, --platforms       Optional. List of platforms (default: iOS macOS tvOS watchOS xrOS)"
-    
+    echo "  --swiftlint           Optional. Run SwiftLint (1) or skip it (0) (default: 1)"
+
     echo
     echo "This script will:"
     echo "  * Validate that swiftlint passes"
@@ -23,7 +24,7 @@ show_usage() {
     echo "  $0"
     echo "  $0 MyTarget"
     echo "  $0 -p iOS macOS"
-    echo "  $0 MyTarget -p iOS macOS"
+    echo "  $0 MyTarget -p iOS macOS --swiftlint 0"
     echo "  $0 MyTarget --platforms iOS macOS tvOS watchOS xrOS"
     echo
 }
@@ -49,6 +50,7 @@ show_error_and_exit() {
 # Define argument variables
 TARGET=""
 PLATFORMS="iOS macOS tvOS watchOS xrOS"  # Default platforms
+SWIFTLINT=1  # Default to running SwiftLint
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -68,6 +70,14 @@ while [[ $# -gt 0 ]]; do
             if [ -z "$PLATFORMS" ]; then
                 show_usage_error_and_exit "--platforms requires at least one platform"
             fi
+            ;;
+        --swiftlint)
+            shift
+            if [[ "$1" != "0" && "$1" != "1" ]]; then
+                show_usage_error_and_exit "--swiftlint requires 0 or 1"
+            fi
+            SWIFTLINT="$1"
+            shift
             ;;
         -h|--help)
             show_usage; exit 0 ;;
@@ -136,11 +146,15 @@ echo
 echo "Validating project for target '$TARGET' with platforms [$PLATFORMS]..."
 
 # Run SwiftLint
-echo "Running SwiftLint..."
-if ! swiftlint --strict; then
-    show_error_and_exit "SwiftLint failed"
+if [ "$SWIFTLINT" = "1" ]; then
+    echo "Running SwiftLint..."
+    if ! swiftlint --strict; then
+        show_error_and_exit "SwiftLint failed"
+    fi
+    echo "SwiftLint passed"
+else
+    echo "Skipping SwiftLint (disabled)"
 fi
-echo "SwiftLint passed"
 
 # Validate git
 echo "Validating git..."
@@ -148,7 +162,7 @@ run_script "$SCRIPT_VALIDATE_GIT"
 
 # Run unit tests
 echo "Running unit tests..."
-run_script "$SCRIPT_TEST" "$TARGET" -p $PLATFORMS
+run_script $SCRIPT_TEST $TARGET -p $PLATFORMS
 
 # Complete successfully
 echo
