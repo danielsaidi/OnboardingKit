@@ -47,6 +47,17 @@ The onboarding will honor it's behavior and only call the presentation block whe
 
 An onboarding flow is a collection of pages that can be presented in sequence. It can be a manually scrolling ``OnboardingPageView``, an automatically progressing ``OnboardingSlideshow``, a sequence of popovers, etc.
 
+@Row {
+    @Column {}
+    @Column {
+        ![A PageView screenshot](PageView)
+    }
+    @Column {
+        ![A Slideshow screenshot](Slideshow)
+    }
+    @Column {}
+}
+
 You can wrap any flow control in an ``OnboardingFlowContainer`` to add toolbar and bottom buttons around the flow. You can use a ``OnboardingFlowState`` to control the flow state, instead of just using a plain integer binding.
 
 
@@ -54,3 +65,15 @@ You can wrap any flow control in an ``OnboardingFlowContainer`` to add toolbar a
 ## Onboarding Views
 
 OnboardingKit has a set of standalone views, such as ``OnboardingIntroScreen`` and  ``OnboardingPrimaryButton``. The views can be used as standalone views, and don't require any integration with the rest of the library.
+
+@Row {
+    @Column {}
+    @Column {}
+    @Column {
+        ![An IntroScreen screenshot](IntroScreen)
+    }
+    @Column {}
+    @Column {}
+}
+
+Views can be styled and configured with view modifiers that have the same prefix as the view. For instance, the ``OnboardingIntroScreen`` can be styled with ``SwiftUICore/View/onboardingIntroScreenStyle(_:)``

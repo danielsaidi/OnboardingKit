@@ -1,5 +1,5 @@
 //
-//  OnboardingPageInfo.swift
+//  OnboardingFlowPageTests.swift
 //  OnboardingKitTests
 //
 //  Created by Daniel Saidi on 2018-06-18.
@@ -9,22 +9,22 @@
 import OnboardingKit
 import XCTest
 
-final class InfoTests: XCTestCase {
-    
-    typealias Info = OnboardingPageInfo
+final class OnboardingFlowPageTests: XCTestCase {
+
+    typealias Page = OnboardingFlowPage
 
     func test_isFirstPage_returnsCorrectResult() {
-        let obj1 = Info(
+        let obj1 = Page(
             page: -1,
             pageIndex: -1
             , currentPageIndex: .constant(0),
             totalPageCount: 10)
-        let obj2 = Info(
+        let obj2 = Page(
             page: 0,
             pageIndex: 0,
             currentPageIndex: .constant(0),
             totalPageCount: 10)
-        let obj3 = Info(
+        let obj3 = Page(
             page: 1,
             pageIndex: 1,
             currentPageIndex: .constant(1),
@@ -36,17 +36,17 @@ final class InfoTests: XCTestCase {
     }
 
     func test_isLastPage_returnsCorrectResult() {
-        let obj1 = Info(
+        let obj1 = Page(
             page: 0,
             pageIndex: 0,
             currentPageIndex: .constant(0),
             totalPageCount: 10)
-        let obj2 = Info(
+        let obj2 = Page(
             page: 10,
             pageIndex: 10,
             currentPageIndex: .constant(0),
             totalPageCount: 10)
-        let obj3 = Info(
+        let obj3 = Page(
             page: 11,
             pageIndex: 11,
             currentPageIndex: .constant(0),
@@ -58,12 +58,12 @@ final class InfoTests: XCTestCase {
     }
 
     func test_isCurrentPage_returnsCorrectResult() {
-        let obj1 = Info(
+        let obj1 = Page(
             page: 0,
             pageIndex: 0,
             currentPageIndex: .constant(5),
             totalPageCount: 10)
-        let obj2 = Info(
+        let obj2 = Page(
             page: 10,
             pageIndex: 10,
             currentPageIndex: .constant(10),
