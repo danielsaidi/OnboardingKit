@@ -17,6 +17,15 @@ These release notes only cover the current major version.
 
 This patch renames a few things for ease of use.
 
+It also extracts separate types for a few nested types that can be standalone. 
+
+### ✨ New features
+
+* `OnboardingIntroScreen` now supports custom USP icons.
+* `OnboardingUsp` is a new model. 
+* `OnboardingUspListItem` is a new view. 
+* `OnboardingUspListItemStyle` is a new style. 
+
 
 
 ## 9.0

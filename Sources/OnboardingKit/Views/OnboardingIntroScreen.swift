@@ -10,54 +10,58 @@ import SwiftUI
 
 /// This screen can be used as an intro screen when onboarding new users.
 ///
-/// This is a one-page screen that welcomes the user, shows a summary text of
-/// what the app does, and lists high-level USPs.
-///
-/// This view is not wrapped in a scroll view, to allow you to control its spacing,
-/// padding, placement, etc.
+/// This screen can be used to welcome users, show a summary of what the app
+/// does, and list high-level USPs.
 ///
 /// This view can be styled with``SwiftUICore/View/onboardingIntroScreenStyle(_:)`.
-public struct OnboardingIntroScreen: View {
+public struct OnboardingIntroScreen<UspIcon: View>: View {
 
     public init(
         icon: Image,
         welcomeTitle: LocalizedStringKey?,
         title: LocalizedStringKey,
         text: LocalizedStringKey,
+        bundle: Bundle? = nil,
         usps: [Usp],
-        bundle: Bundle? = nil
+        uspIcon: @escaping (Usp) -> UspIcon
     ) {
         self.icon = icon
         self.welcomeTitle = welcomeTitle
         self.title = title
         self.text = text
         self.usps = usps
-        self.bundle = bundle
+        self.bundle = bundle ?? .module
+        self.uspIcon = uspIcon
     }
 
-    public struct Usp {
-
-        public init(
-            title: LocalizedStringKey? = nil,
-            icon: Image,
-            text: LocalizedStringKey
-        ) {
-            self.title = title
-            self.icon = icon
-            self.text = text
-        }
-
-        public let title: LocalizedStringKey?
-        public let icon: Image
-        public let text: LocalizedStringKey
+    public init(
+        icon: Image,
+        welcomeTitle: LocalizedStringKey?,
+        title: LocalizedStringKey,
+        text: LocalizedStringKey,
+        bundle: Bundle? = nil,
+        usps: [Usp],
+    ) where UspIcon == Image {
+        self.init(
+            icon: icon,
+            welcomeTitle: welcomeTitle,
+            title: title,
+            text: text,
+            bundle: bundle,
+            usps: usps,
+            uspIcon: { $0.icon }
+        )
     }
+
+    public typealias Usp = OnboardingUsp<UspIcon>
 
     private let icon: Image
     private let welcomeTitle: LocalizedStringKey?
     private let title: LocalizedStringKey
     private let text: LocalizedStringKey
+    private let bundle: Bundle
     private let usps: [Usp]
-    private let bundle: Bundle?
+    private let uspIcon: (Usp) -> UspIcon
 
     @Environment(\.onboardingIntroScreenStyle) var style
 
@@ -77,8 +81,8 @@ public struct OnboardingIntroScreen: View {
             uspVisibility = Array(repeating: false, count: usps.count)
             for index in usps.indices {
                 withAnimation(
-                    .easeInOut(duration: style.uspPresentationDuration)
-                    .delay(Double(index) * style.uspPresentationDelay)
+                    .easeInOut(duration: style.uspListPresentationDuration)
+                    .delay(Double(index) * style.uspListPresentationDelay)
                 ) {
                     uspVisibility[index] = true
                 }
@@ -116,84 +120,26 @@ private extension OnboardingIntroScreen {
     }
 
     var uspList: some View {
-        VStack(alignment: .leading, spacing: 30) {
+        VStack(alignment: .leading, spacing: style.uspListSpacing) {
             ForEach(Array(usps.enumerated()), id: \.offset) { item in
                 uspListItem(for: item.element, at: item.offset)
             }
         }
-        .padding(.horizontal, 0)
+        .padding(.horizontal, style.uspListPadding)
     }
 
     func uspListItem(for usp: Usp, at index: Int) -> some View {
         let isVisible = index < uspVisibility.count && uspVisibility[index]
-        return HStack(alignment: .top, spacing: 20) {
-            usp.icon
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxHeight: style.uspIconSize)
-                .frame(maxWidth: style.uspIconSize)
-
-            VStack(alignment: .leading) {
-                if let title = usp.title {
-                    text(title)
-                        .font(.headline)
-                }
-                text(usp.text).discrete()
-            }
-            .multilineTextAlignment(.leading)
-        }
+        return OnboardingUspListItem(
+            usp: usp,
+            bundle: bundle
+        )
         .opacity(isVisible ? 1 : 0)
         .offset(y: isVisible ? 0 : 20)
     }
 }
 
-/// This style can be used with ``OnboardingIntroScreen``.
-///
-/// This style can be applied with``SwiftUICore/View/onboardingIntroScreenStyle(_:)`.
-public struct OnboardingIntroScreenStyle {
-
-    public init(
-        iconSize: Double = 100,
-        uspIconSize: Double = 45,
-        uspPadding: Double = 0,
-        uspPresentationDuration: Double = 0.5,
-        uspPresentationDelay: Double = 0.2
-    ) {
-        self.iconSize = iconSize
-        self.uspIconSize = uspIconSize
-        self.uspPadding = uspPadding
-        self.uspPresentationDuration = uspPresentationDuration
-        self.uspPresentationDelay = uspPresentationDelay
-    }
-
-    public let iconSize: Double
-    public let uspIconSize: Double
-    public let uspPadding: Double
-    public let uspPresentationDuration: Double
-    public let uspPresentationDelay: Double
-}
-
-public extension OnboardingIntroScreenStyle {
-
-    /// The standard intro screen style.
-    static var standard: Self { .init() }
-}
-
-public extension EnvironmentValues {
-
-    @Entry var onboardingIntroScreenStyle = OnboardingIntroScreenStyle()
-}
-
-public extension View {
-
-    func onboardingIntroScreenStyle(
-        _ style: OnboardingIntroScreenStyle
-    ) -> some View {
-        self.environment(\.onboardingIntroScreenStyle, style)
-    }
-}
-
-private extension View {
+extension View {
 
     func discrete() -> some View {
         self.opacity(0.7)
@@ -212,34 +158,34 @@ private extension View {
                 usps: [
                     .init(
                         title: "Onboarding",
-                        icon: .init(systemName: "lightbulb"),
-                        text: "Design great onboardings with various **onboarding types**."
+                        text: "Design great onboardings with various **onboarding types**.",
+                        icon: .init(systemName: "lightbulb")
                     ),
                     .init(
                         title: "Flows",
-                        icon: .init(systemName: "appwindow.swipe.rectangle"),
-                        text: "Sophisticated **page views** and **slideshows**."
+                        text: "Sophisticated **page views** and **slideshows**.",
+                        icon: .init(systemName: "appwindow.swipe.rectangle")
                     ),
                     .init(
                         title: "Views",
-                        icon: .init(systemName: "square"),
-                        text: "Reduce implementation time with screen templates, buttons, etc."
+                        text: "Reduce implementation time with screen templates, buttons, etc.",
+                        icon: .init(systemName: "square")
                     ),
                     .init(
                         title: "Flows",
-                        icon: .init(systemName: "appwindow.swipe.rectangle"),
-                        text: "Sophisticated **page views** and **slideshows**."
+                        text: "Sophisticated **page views** and **slideshows**.",
+                        icon: .init(systemName: "appwindow.swipe.rectangle")
                     ),
                     .init(
                         title: "Views",
-                        icon: .init(systemName: "square"),
-                        text: "Reduce implementation time with screen templates, buttons, etc."
+                        text: "Reduce implementation time with screen templates, buttons, etc.",
+                        icon: .init(systemName: "square")
                     )
                 ]
             )
         }
     }
     .onboardingIntroScreenStyle(.init(
-        uspPresentationDelay: 0.1
+        uspListPresentationDelay: 0.1
     ))
 }

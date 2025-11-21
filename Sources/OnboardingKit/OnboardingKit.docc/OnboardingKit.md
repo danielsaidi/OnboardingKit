@@ -50,6 +50,8 @@ OnboardingKit is available under the MIT license.
 ### Essentials
 
 - ``Onboarding``
+- ``OnboardingPage``
+- ``OnboardingUsp``
 
 ### Flows
 
@@ -60,7 +62,6 @@ OnboardingKit is available under the MIT license.
 
 ### Pages
 
-- ``OnboardingPage``
 - ``OnboardingPageView``
 - ``OnboardingPageViewStyle``
 
@@ -77,6 +78,8 @@ OnboardingKit is available under the MIT license.
 - ``OnboardingIntroScreenStyle``
 - ``OnboardingPrimaryButton``
 - ``OnboardingPrimaryButtonType``
+- ``OnboardingUspListItem``
+- ``OnboardingUspListItemStyle``
 
 
 [Email]: mailto:daniel.saidi@gmail.com
