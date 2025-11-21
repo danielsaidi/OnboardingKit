@@ -24,18 +24,18 @@ struct WelcomeScreen: View {
                     usps: [
                         .init(
                             title: "Onboarding",
-                            icon: .init(systemName: "lightbulb"),
-                            text: "Design great onboardings with various **onboarding types**."
+                            text: "Design great onboardings with various **onboarding types**.",
+                            icon: .init(systemName: "lightbulb")
                         ),
                         .init(
                             title: "Flows",
-                            icon: .init(systemName: "appwindow.swipe.rectangle"),
-                            text: "Sophisticated **page views** and **slideshows**."
+                            text: "Sophisticated **page views** and **slideshows**.",
+                            icon: .init(systemName: "appwindow.swipe.rectangle")
                         ),
                         .init(
                             title: "Views",
-                            icon: .init(systemName: "square"),
-                            text: "Reduce implementation time with screen templates, buttons, etc."
+                            text: "Reduce implementation time with screen templates, buttons, etc.",
+                            icon: .init(systemName: "square")
                         )
                     ]
                 )
