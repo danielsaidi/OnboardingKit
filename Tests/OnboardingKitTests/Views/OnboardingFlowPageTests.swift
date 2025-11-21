@@ -1,5 +1,5 @@
 //
-//  OnboardingFlowPageTests.swift
+//  OnboardingPageTests.swift
 //  OnboardingKitTests
 //
 //  Created by Daniel Saidi on 2018-06-18.
@@ -9,9 +9,9 @@
 import OnboardingKit
 import XCTest
 
-final class OnboardingFlowPageTests: XCTestCase {
+final class OnboardingPageTests: XCTestCase {
 
-    typealias Page = OnboardingFlowPage
+    typealias Page = OnboardingPage
 
     func test_isFirstPage_returnsCorrectResult() {
         let obj1 = Page(

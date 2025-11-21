@@ -16,15 +16,14 @@ import PageView
 /// This slideshow slides through a set of onboarding slide views, with support for
 /// navigating with swipes, arrow keys, and edge taps.
 ///
-/// This view can be styled with ``SwiftUI/View/onboardingSlideshowStyle(_:)``.
-public struct OnboardingSlideshow<PageModel, Page: View>: View {
+/// This view can be styled with ``SwiftUICore/View/onboardingSlideshowStyle(_:)``.
+public struct OnboardingSlideshow<PageModel, PageView: View>: View {
 
     /// Create an onboarding slideshow.
     ///
     /// - Parameters:
     ///   - pages: The pages to present.
     ///   - pageIndex: The current page index.
-    ///   - config: The configuration to use, by default `.standard`.
     ///   - onStoryCompleted: The action to trigger at the end.
     ///   - content: A page content builder function.
     public init(
@@ -39,8 +38,8 @@ public struct OnboardingSlideshow<PageModel, Page: View>: View {
         self.content = content
     }
 
-    public typealias PageInfo = OnboardingFlowPage<PageModel>
-    public typealias PageBuilder = (PageInfo) -> Page
+    public typealias Page = OnboardingPage<PageModel>
+    public typealias PageBuilder = (Page) -> PageView
 
     private let pages: [PageModel]
     private let onStoryCompleted: () -> Void
@@ -92,7 +91,7 @@ private struct _OnboardingSlideshow<PageModel, Content: View>: View {
         .autoconnect()
     }
 
-    typealias PageInfo = OnboardingFlowPage<PageModel>
+    typealias PageInfo = OnboardingPage<PageModel>
     typealias ContentBuilder = (PageInfo) -> Content
 
     let pages: [PageModel]

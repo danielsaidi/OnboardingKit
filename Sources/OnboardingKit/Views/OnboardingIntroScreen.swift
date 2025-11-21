@@ -203,30 +203,41 @@ private extension View {
 #Preview {
 
     ScrollView(.vertical) {
-        OnboardingIntroScreen(
-            icon: Image("Icon", bundle: .module),
-            welcomeTitle: "Welcome to",
-            title: "OnboardingKit",
-            text: "This SDK lets you create a great onboarding experience for your users.",
-            usps: [
-                .init(
-                    title: "Onboarding",
-                    icon: .init(systemName: "lightbulb"),
-                    text: "Design great onboardings with various **onboarding types**."
-                ),
-                .init(
-                    title: "Flows",
-                    icon: .init(systemName: "appwindow.swipe.rectangle"),
-                    text: "Sophisticated **page views** and **slideshows**."
-                ),
-                .init(
-                    title: "Views",
-                    icon: .init(systemName: "square"),
-                    text: "Reduce implementation time with screen templates, buttons, etc."
-                )
-            ]
-        )
-        .padding()
+        OnboardingFlowCenteredContent {
+            OnboardingIntroScreen(
+                icon: Image("Icon", bundle: .module),
+                welcomeTitle: "Welcome to",
+                title: "OnboardingKit",
+                text: "This SDK lets you create a great onboarding experience for your users.",
+                usps: [
+                    .init(
+                        title: "Onboarding",
+                        icon: .init(systemName: "lightbulb"),
+                        text: "Design great onboardings with various **onboarding types**."
+                    ),
+                    .init(
+                        title: "Flows",
+                        icon: .init(systemName: "appwindow.swipe.rectangle"),
+                        text: "Sophisticated **page views** and **slideshows**."
+                    ),
+                    .init(
+                        title: "Views",
+                        icon: .init(systemName: "square"),
+                        text: "Reduce implementation time with screen templates, buttons, etc."
+                    ),
+                    .init(
+                        title: "Flows",
+                        icon: .init(systemName: "appwindow.swipe.rectangle"),
+                        text: "Sophisticated **page views** and **slideshows**."
+                    ),
+                    .init(
+                        title: "Views",
+                        icon: .init(systemName: "square"),
+                        text: "Reduce implementation time with screen templates, buttons, etc."
+                    )
+                ]
+            )
+        }
     }
     .onboardingIntroScreenStyle(.init(
         uspPresentationDelay: 0.1

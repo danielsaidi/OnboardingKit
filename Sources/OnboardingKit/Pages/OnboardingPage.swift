@@ -1,5 +1,5 @@
 //
-//  OnboardingFlow+PageInfo.swift
+//  OnboardingPage.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2022-09-05.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 /// This type defines page info for an onboarding page.
-public struct OnboardingFlowPage<PageModel>: OnboardingFlow.PageInfoProvider {
+public struct OnboardingPage<PageModel>: OnboardingFlow.PageInfoProvider {
 
     /// Create a page info value.
     ///
@@ -50,7 +50,7 @@ public struct OnboardingFlowPage<PageModel>: OnboardingFlow.PageInfoProvider {
     public let totalPageCount: Int
 }
 
-public extension OnboardingFlowPage {
+public extension OnboardingPage {
 
 /// Whether this page is the first page.
 var isFirstPage: Bool {

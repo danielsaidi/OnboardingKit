@@ -65,8 +65,10 @@ public struct OnboardingFlowContainer<Page, Content: View, Buttons: View>: View 
     }
 }
 
-/// This view can wrap any content view and applies an alignment and max width.
-public struct OnboardingFlowContainerCenteredContent<Content: View>: View {
+/// This view can wrap any view that is presented in an onboarding flow.
+///
+/// This container will apply a padding, center the content, and apply a max width.
+public struct OnboardingFlowCenteredContent<Content: View>: View {
 
     /// Create a centered onboarding screen content view.
     ///
@@ -149,7 +151,7 @@ private extension OnboardingFlowContainer {
                                 pages: pages,
                                 pageIndex: $pageIndex
                             ) { info in
-                                OnboardingFlowContainerCenteredContent {
+                                OnboardingFlowCenteredContent {
                                     Text("Page \(info.pageIndex)")
                                 }
                             }

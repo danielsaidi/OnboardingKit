@@ -55,13 +55,17 @@ OnboardingKit is available under the MIT license.
 
 - ``OnboardingFlow``
 - ``OnboardingFlowContainer``
-- ``OnboardingFlowContainerCenteredContent``
+- ``OnboardingFlowCenteredContent``
 - ``OnboardingFlowState``
 
-### Flow Views
+### Pages
 
+- ``OnboardingPage``
 - ``OnboardingPageView``
 - ``OnboardingPageViewStyle``
+
+### Slideshows
+
 - ``OnboardingSlideshow``
 - ``OnboardingSlideshowConfiguration``
 - ``OnboardingSlideshowProgressView`` 

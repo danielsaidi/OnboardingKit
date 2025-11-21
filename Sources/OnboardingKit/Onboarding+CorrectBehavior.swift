@@ -16,13 +16,13 @@ extension Onboarding {
     /// An example could be a puzzle game for kids, where an onboarding could
     /// trigger the pieces animate to their correct positions.
     ///
-    /// Call ``registerIncorrectBehavior()`` when the user does not
-    /// behave as intended, to present an onboarding after a certain number of
-    /// attempts, then call ``registerCorrectBehavior()`` when the user
-    /// behaves as intended, to reset the attempt count.
+    /// Call ``registerIncorrectBehavior(presentAfterSeconds:action:)``
+    /// when a user doesn't behave as intended, to automatically present a help
+    /// after a number of attempts. Call ``registerCorrectBehavior()``
+    /// when the user then behaves as intended, to reset the attempt count. The
+    /// onboarding can keep being used in case the user forgets.
     ///
-    /// Unlike ``Onboarding``, this onboarding will reset itself each time it's
-    /// presented.
+    /// Unlike ``Onboarding``, this will reset itself each time it's presented.
     open class CorrectBehavior: Delayed {
 
         /// Create a correct behavior onboarding.

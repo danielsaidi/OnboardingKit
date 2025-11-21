@@ -40,7 +40,7 @@ enum DemoOnboardingPage: Int, CaseIterable, Identifiable {
 
 struct DemoOnboardingPageContent: View {
 
-    let pageInfo: OnboardingFlowPage<DemoOnboardingPage>
+    let pageInfo: OnboardingPage<DemoOnboardingPage>
 
     var body: some View {
         VStack(alignment: .leading, spacing: 50) {

@@ -13,6 +13,12 @@ These release notes only cover the current major version.
 
 
 
+## 9.0.1
+
+This patch renames a few things for ease of use.
+
+
+
 ## 9.0
 
 This version makes the SDK target iOS 17 and aligned versions.
@@ -31,7 +37,7 @@ This version makes the SDK target iOS 17 and aligned versions.
 
 ### 💥 Breaking Changes
 
-* `OnboardingPageInfo` is renamed to `OnboardingFlowPage`.
+* `OnboardingPageInfo` is renamed to `OnboardingPage`.
 * `OnboardingPageState` is renamed to `OnboardingFlowState`.
 * `OnboardingScreen` is renamed to `OnboardingFlowContainer`.
 * This version makes the SDK target iOS 17 and aligned versions.

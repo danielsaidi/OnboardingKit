@@ -10,7 +10,7 @@ import SwiftUI
 
 /// This style can style ``OnboardingSlideshow`` views.
 ///
-/// This style can be applied with ``SwiftUI/View/onboardingSlideshowStyle(_:)``.
+/// This style can be applied with ``SwiftUICore/View/onboardingSlideshowStyle(_:)``.
 public struct OnboardingSlideshowStyle {
 
     /// Create an onboarding slideshow style.

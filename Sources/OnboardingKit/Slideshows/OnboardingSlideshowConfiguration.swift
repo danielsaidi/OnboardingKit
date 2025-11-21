@@ -10,7 +10,7 @@ import SwiftUI
 
 /// This type can configure ``OnboardingSlideshow`` views.
 ///
-/// This type can be applied with ``SwiftUI/View/onboardingSlideshowConfiguration(_:)``.
+/// This type can be applied with ``SwiftUICore/View/onboardingSlideshowConfiguration(_:)``.
 public struct OnboardingSlideshowConfiguration {
 
     /// Create an onboarding slideshow configuration.

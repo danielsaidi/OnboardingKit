@@ -15,8 +15,8 @@ import PageView
 /// This view can be used to show a collection of onboarding pages, with support
 /// for navigating with swipes, arrow keys, and edge taps.
 ///
-/// This view can be styled with ``SwiftUI/View/onboardingPageViewStyle(_:)``.
-public struct OnboardingPageView<PageModel, Page: View>: View {
+/// This view can be styled with ``SwiftUICore/View/onboardingPageViewStyle(_:)``.
+public struct OnboardingPageView<Model, Page: View>: View {
 
     /// Create an onboarding page view.
     ///
@@ -25,7 +25,7 @@ public struct OnboardingPageView<PageModel, Page: View>: View {
     ///   - pageIndex: The current page index.
     ///   - content: A page builder function.
     public init(
-        pages: [PageModel],
+        pages: [Model],
         pageIndex: Binding<Int>,
         @ViewBuilder content: @escaping PageBuilder
     ) {
@@ -34,10 +34,10 @@ public struct OnboardingPageView<PageModel, Page: View>: View {
         self.content = content
     }
 
-    public typealias PageInfo = OnboardingFlowPage<PageModel>
+    public typealias PageInfo = OnboardingPage<Model>
     public typealias PageBuilder = (PageInfo) -> Page
 
-    private let pages: [PageModel]
+    private let pages: [Model]
     private let content: PageBuilder
 
     @Binding
@@ -79,7 +79,7 @@ private extension OnboardingPageView {
     }
 
     func content(
-        for info: EnumeratedSequence<[PageModel]>.Element
+        for info: EnumeratedSequence<[Model]>.Element
     ) -> some View {
         content(
             .init(
