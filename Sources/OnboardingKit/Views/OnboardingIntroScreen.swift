@@ -65,29 +65,16 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
 
     @Environment(\.onboardingIntroScreenStyle) var style
 
-    @State private var uspVisibility: [Bool] = []
-
     public var body: some View {
         VStack(spacing: 45) {
             titleStack
             text(text)
                 .discrete()
                 .font(.title3)
-            uspList
+            OnboardingUspList(usps: usps, bundle: bundle)
         }
         .padding(.horizontal)
         .multilineTextAlignment(.center)
-        .onAppear {
-            uspVisibility = Array(repeating: false, count: usps.count)
-            for index in usps.indices {
-                withAnimation(
-                    .easeInOut(duration: style.uspListPresentationDuration)
-                    .delay(Double(index) * style.uspListPresentationDelay)
-                ) {
-                    uspVisibility[index] = true
-                }
-            }
-        }
     }
 }
 
@@ -117,25 +104,6 @@ private extension OnboardingIntroScreen {
                     .foregroundStyle(.primary)
             }
         }
-    }
-
-    var uspList: some View {
-        VStack(alignment: .leading, spacing: style.uspListSpacing) {
-            ForEach(Array(usps.enumerated()), id: \.offset) { item in
-                uspListItem(for: item.element, at: item.offset)
-            }
-        }
-        .padding(.horizontal, style.uspListPadding)
-    }
-
-    func uspListItem(for usp: Usp, at index: Int) -> some View {
-        let isVisible = index < uspVisibility.count && uspVisibility[index]
-        return OnboardingUspListItem(
-            usp: usp,
-            bundle: bundle
-        )
-        .opacity(isVisible ? 1 : 0)
-        .offset(y: isVisible ? 0 : 20)
     }
 }
 

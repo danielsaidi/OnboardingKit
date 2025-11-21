@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-/// This style can be used with ``OnboardingIntroScreen``.
+/// This style can be used to style a ``OnboardingUspListItem``.
 ///
-/// This style can be applied with``SwiftUICore/View/OnboardingUspListItemStyle(_:)`.
+/// This style can be applied with``SwiftUICore/View/onboardingUspListItemStyle(_:)`.
 public struct OnboardingUspListItemStyle {
 
     public init(

@@ -13,6 +13,22 @@ These release notes only cover the current major version.
 
 
 
+## 9.1
+
+This version adds new views.
+
+### ✨ New features
+
+* `OnboardingUspList` is a new view. 
+* `OnboardingUspListStyle` is a new style.
+
+### 💡 Changes
+
+* `OnboardingUspListItem` now applied a multiline mode to the text.
+
+
+
+
 ## 9.0
 
 This version makes the SDK target iOS 17 and aligned versions.

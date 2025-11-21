@@ -1,5 +1,5 @@
 //
-//  OnboardingUspListitem.swift
+//  OnboardingUspListItem.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2025-11-21.
@@ -37,7 +37,9 @@ public struct OnboardingUspListItem<UspIcon: View>: View {
                     text(title)
                         .font(.headline)
                 }
-                text(usp.text).discrete()
+                text(usp.text)
+                    .discrete()
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .multilineTextAlignment(.leading)
         }
@@ -49,4 +51,16 @@ private extension OnboardingUspListItem {
     func text(_ text: LocalizedStringKey) -> some View {
         Text(text, bundle: bundle)
     }
+}
+
+#Preview {
+
+    OnboardingUspListItem(
+        usp: .init(
+            title: "Foo",
+            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            image: .init(systemName: "checkmark.circle")
+        )
+    )
+    .background(Color.red)
 }
