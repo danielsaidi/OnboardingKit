@@ -13,21 +13,6 @@ These release notes only cover the current major version.
 
 
 
-## 9.0.1
-
-This patch renames a few things for ease of use.
-
-It also extracts separate types for a few nested types that can be standalone. 
-
-### ✨ New features
-
-* `OnboardingIntroScreen` now supports custom USP icons.
-* `OnboardingUsp` is a new model. 
-* `OnboardingUspListItem` is a new view. 
-* `OnboardingUspListItemStyle` is a new style. 
-
-
-
 ## 9.0
 
 This version makes the SDK target iOS 17 and aligned versions.
@@ -35,6 +20,9 @@ This version makes the SDK target iOS 17 and aligned versions.
 ### ✨ New features
 
 * `OnboardingIntroScreen` is a new template view. 
+* `OnboardingUsp` is a new model. 
+* `OnboardingUspListItem` is a new view. 
+* `OnboardingUspListItemStyle` is a new style. 
 
 ### 💡 Changes
 
