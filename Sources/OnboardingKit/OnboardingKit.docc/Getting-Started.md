@@ -45,35 +45,29 @@ The onboarding will honor it's behavior and only call the presentation block whe
 
 ## Onboarding Flows
 
-An onboarding flow is a collection of pages that can be presented in sequence. It can be a manually scrolling ``OnboardingPageView``, an automatically progressing ``OnboardingSlideshow``, a sequence of popovers, etc.
+An onboarding flow is a collection of pages that can be presented in sequence. You can wrap any flow control in an ``OnboardingFlowContainer`` to add toolbar and bottom buttons around it, and use an ``OnboardingFlowState`` to control the flow state.
+
+
+
+## Views
+
+OnboardingKit has flow views like ``OnboardingPageView`` and ``OnboardingSlideshow``, screen template views like ``OnboardingIntroScreen``, and smaller components like ``OnboardingPrimaryButton``, ``OnboardingVerticalProgressList``, etc.
 
 @Row {
-    @Column {}
     @Column {
         ![A PageView screenshot](PageView)
     }
     @Column {
         ![A Slideshow screenshot](Slideshow)
     }
-    @Column {}
-}
-
-You can wrap any flow control in an ``OnboardingFlowContainer`` to add toolbar and bottom buttons around the flow. You can use a ``OnboardingFlowState`` to control the flow state, instead of just using a plain integer binding.
-
-
-
-## Onboarding Views
-
-OnboardingKit has a set of standalone views, such as ``OnboardingIntroScreen`` and  ``OnboardingPrimaryButton``. The views can be used as standalone views, and don't require any integration with the rest of the library.
-
-@Row {
-    @Column {}
-    @Column {}
     @Column {
         ![An IntroScreen screenshot](IntroScreen)
     }
-    @Column {}
-    @Column {}
 }
 
-Views can be styled and configured with view modifiers that have the same prefix as the view. For instance, the ``OnboardingIntroScreen`` can be styled with ``SwiftUICore/View/onboardingIntroScreenStyle(_:)``
+You can use the smaller components in the larger ones, and style each component to great extent. For instance an ``OnboardingPageViewStyle`` can be applied with ``SwiftUICore/View/onboardingPageViewStyle(_:)`` to style an ``OnboardingPageView``.
+
+
+## Demo Application
+
+Check out the demo application for examples on how these views can be used.

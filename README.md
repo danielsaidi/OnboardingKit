@@ -50,10 +50,11 @@ The various ``Onboarding`` types defines unique onboarding experience behaviors,
 * ``Onboarding.CorrectBehavior`` is presented when a user is not behaving as intended.
 * ``Onboarding.Delayed`` is presented after a certain number of presentation attempts.
 
-OnboardingKit has various onboarding flows, and convenient ways to handle page state.
+OnboardingKit has various onboarding flows, and convenient ways to handle page state, for instance:
 
 * An ``OnboardingPageView`` can be used to present manually scrolling pages. 
 * An ``OnboardingSlideshow`` can be used to present an automatically progressing slideshow.
+* An ``OnboardingIntroScreen`` can be used to present a welcome screen on first app launch.
 
 See the online [getting started guide][Getting-Started] for more information.
 

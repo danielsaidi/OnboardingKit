@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-/// This style can be used to style a ``OnboardingUspList``.
+/// This style can be used to style an ``OnboardingUspList``.
 ///
 /// This style can be applied with``SwiftUICore/View/onboardingUspListStyle(_:)`.
 public struct OnboardingUspListStyle {
