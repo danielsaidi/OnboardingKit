@@ -14,31 +14,51 @@ import SwiftUI
 public struct OnboardingVerticalProgressListStyle {
 
     public init(
-        stepSpacing: Double = 20,
-        circleSize: Double = 25,
-        circleTextSpacing: Double = 20,
-        circleColor: Color = .primary,
-        circleActiveColor: Color = .blue,
-        titleColor: Color = .primary,
-        titleActiveColor: Color = .blue,
-        lineWidth: Double = 5
+        stepSpacing: Double? = nil,
+        circleSize: Double? = nil,
+        circleLineWidth: Double = 5,
+        circleTextSpacing: Double? = nil,
+        circleColor: Color? = nil,
+        circleActiveColor: Color? = nil,
+        titleColor: Color? = nil,
+        titleActiveColor: Color? = nil
     ) {
-        self.stepSpacing = stepSpacing
-        self.circleSize = circleSize
-        self.circleTextSpacing = circleTextSpacing
-        self.circleColor = circleColor
-        self.circleActiveColor = circleActiveColor
-        self.lineWidth = lineWidth
-        self.titleColor = titleColor
-        self.titleActiveColor = titleActiveColor
+        self.stepSpacing = stepSpacing ?? 20
+        self.circleSize = circleSize ?? 25
+        self.circleLineWidth = circleLineWidth
+        self.circleTextSpacing = circleTextSpacing ?? 20
+        self.circleColor = circleColor ?? .primary
+        self.circleActiveColor = circleActiveColor ?? .blue
+        self.titleColor = titleColor ?? .primary
+        self.titleActiveColor = titleActiveColor ?? .blue
+    }
+
+    public init(
+        stepSpacing: Double? = nil,
+        circleSize: Double? = nil,
+        circleLineWidth: Double = 5,
+        circleTextSpacing: Double? = nil,
+        accentColor: Color? = nil,
+        activeAccentColor: Color? = nil
+    ) {
+        self.init(
+            stepSpacing: stepSpacing,
+            circleSize: circleSize,
+            circleLineWidth: circleLineWidth,
+            circleTextSpacing: circleTextSpacing,
+            circleColor: accentColor,
+            circleActiveColor: activeAccentColor,
+            titleColor: accentColor,
+            titleActiveColor: activeAccentColor
+        )
     }
 
     public let stepSpacing: Double
     public let circleSize: Double
+    public let circleLineWidth: Double
     public let circleTextSpacing: Double
     public let circleColor: Color
     public let circleActiveColor: Color
-    public let lineWidth: Double
     public let titleColor: Color
     public let titleActiveColor: Color
 }

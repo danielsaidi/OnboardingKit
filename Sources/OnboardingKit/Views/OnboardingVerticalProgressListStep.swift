@@ -1,5 +1,5 @@
 //
-//  OnboardingVerticalProgressStep.swift
+//  OnboardingVerticalProgressListStep.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2025-11-22.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 /// This model represents a step in a vertical progress list.
-public struct OnboardingVerticalProgressStep {
+public struct OnboardingVerticalProgressListStep {
 
     public init(
         title: LocalizedStringKey,

@@ -15,7 +15,7 @@ import SwiftUI
 public struct OnboardingVerticalProgressList: View {
 
     public init(
-        steps: [OnboardingVerticalProgressStep],
+        steps: [OnboardingVerticalProgressListStep],
         stepIndex: Int,
         bundle: Bundle? = nil
     ) {
@@ -24,7 +24,7 @@ public struct OnboardingVerticalProgressList: View {
         self.bundle = bundle ?? .module
     }
 
-    public typealias Step = OnboardingVerticalProgressStep
+    public typealias Step = OnboardingVerticalProgressListStep
 
     private let steps: [Step]
     private let currentStepIndex: Int
@@ -58,7 +58,7 @@ private extension OnboardingVerticalProgressList {
         return ZStack(alignment: .top) {
             if !isLast(index) {
                 Rectangle()
-                    .frame(width: style.lineWidth)
+                    .frame(width: style.circleLineWidth)
                     .frame(maxHeight: .infinity)
             }
             Image(systemName: "\(index+1).circle.fill")

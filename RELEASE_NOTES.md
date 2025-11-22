@@ -21,11 +21,15 @@ This version adds new views.
 
 * `OnboardingUspList` is a new view. 
 * `OnboardingUspListStyle` is a new style.
+* `OnboardingUspListItem` is a new view. 
+* `OnboardingUspListItemStyle` is a new style.
+* `OnboardingVerticalProgressList` is a new view. 
+* `OnboardingVerticalProgressListStyle` is a new style.
+* `OnboardingVerticalProgressListStep` is a new style.
 
 ### 💡 Changes
 
 * `OnboardingUspListItem` now applied a multiline mode to the text.
-
 
 
 
