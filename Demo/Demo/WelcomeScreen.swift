@@ -25,17 +25,17 @@ struct WelcomeScreen: View {
                         .init(
                             title: "Onboarding",
                             text: "Design great onboardings with various **onboarding types**.",
-                            icon: .init(systemName: "lightbulb")
+                            image: .init(systemName: "lightbulb")
                         ),
                         .init(
                             title: "Flows",
                             text: "Sophisticated **page views** and **slideshows**.",
-                            icon: .init(systemName: "appwindow.swipe.rectangle")
+                            image: .init(systemName: "appwindow.swipe.rectangle")
                         ),
                         .init(
                             title: "Views",
                             text: "Reduce implementation time with screen templates, buttons, etc.",
-                            icon: .init(systemName: "square")
+                            image: .init(systemName: "square")
                         )
                     ]
                 )

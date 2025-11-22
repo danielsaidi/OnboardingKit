@@ -30,7 +30,7 @@ public struct OnboardingUspListItem<UspIcon: View>: View {
 
     public var body: some View {
         HStack(alignment: .top, spacing: 20) {
-            usp.icon
+            iconView
                 .frame(maxHeight: style.iconSize)
                 .frame(maxWidth: style.iconSize)
 
@@ -49,6 +49,15 @@ public struct OnboardingUspListItem<UspIcon: View>: View {
 }
 
 private extension OnboardingUspListItem {
+
+    @ViewBuilder
+    var iconView: some View {
+        if let image = usp.image {
+            image.resizable().aspectRatio(contentMode: .fit)
+        } else {
+            usp.icon
+        }
+    }
 
     func text(_ text: LocalizedStringKey) -> some View {
         Text(text, bundle: bundle)

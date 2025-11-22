@@ -26,6 +26,7 @@ public struct OnboardingUsp<Icon: View> {
         self.title = title
         self.text = text
         self.icon = icon
+        self.image = nil
     }
 
     /// Create a USP value.
@@ -38,15 +39,11 @@ public struct OnboardingUsp<Icon: View> {
         title: LocalizedStringKey? = nil,
         text: LocalizedStringKey,
         image: Image
-    ) where Icon == AnyView {
-        self.init(
-            title: title,
-            text: text,
-            icon: AnyView(image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            )
-        )
+    ) where Icon == Image {
+        self.title = title
+        self.text = text
+        self.icon = image
+        self.image = image
     }
 
     /// An optional localized USP title.
@@ -55,6 +52,9 @@ public struct OnboardingUsp<Icon: View> {
     /// A localized USP text.
     public let text: LocalizedStringKey
 
-    /// A USP icon image.
+    /// A USP icon view.
     public let icon: Icon
+
+    /// An optional USP icon image.
+    public let image: Image?
 }

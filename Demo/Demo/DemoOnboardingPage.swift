@@ -16,7 +16,6 @@ enum DemoOnboardingPage: Int, CaseIterable, Identifiable {
     var id: Int { rawValue }
     var pageIndex: Int { rawValue }
     var pageNumber: Int { pageIndex+1 }
-    var icon: Image { Image(systemName: "\(pageNumber).circle.fill") }
     var title: String { "Step \(pageNumber)" }
 
     var text: String {
@@ -42,55 +41,28 @@ struct DemoOnboardingPageContent: View {
 
     let pageInfo: OnboardingPage<DemoOnboardingPage>
 
+    var steps: [OnboardingVerticalProgressListStep] {
+        DemoOnboardingPage.allCases.map {
+            .init(
+                title: .init(stringLiteral: $0.title),
+                text: .init(stringLiteral: $0.text)
+            )
+        }
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 50) {
             Text(pageInfo.page.title)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            VStack(spacing: 0) {
-                ForEach(DemoOnboardingPage.allCases) {
-                    listItem(for: $0)
-                }
-            }
+            OnboardingVerticalProgressList(
+                steps: steps,
+                stepIndex: pageInfo.currentPageIndex
+            )
             Spacer()
         }
         .padding()
-    }
-}
-
-private extension DemoOnboardingPageContent {
-
-    @ViewBuilder
-    func listItem(
-        for page: DemoOnboardingPage
-    ) -> some View {
-        let activeColor = pageInfo.page.accentColor
-        let inactiveColor = Color.gray
-        let isLast = page.pageIndex == pageInfo.totalPageCount - 1
-        let isActive = page.pageIndex <= pageInfo.currentPageIndex
-        let foregroundColor = isActive ? activeColor : inactiveColor
-        HStack(alignment: .top) {
-            ZStack(alignment: .top) {
-                if !isLast {
-                    Rectangle()
-                        .frame(width: 5, height: 60)
-                }
-                page.icon
-                    .font(.largeTitle)
-                    .symbolRenderingMode(.multicolor)
-                    .padding(.top, -5)
-            }
-            .foregroundStyle(foregroundColor)
-            VStack(alignment: .leading) {
-                Text(page.title)
-                    .font(.body.bold())
-                Text(page.text)
-                    .font(.callout)
-                    .foregroundStyle(.secondary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
-        }
     }
 }
 
