@@ -18,7 +18,7 @@ public struct OnboardingUspListItem<UspIcon: View>: View {
         bundle: Bundle? = nil
     ) {
         self.usp = usp
-        self.bundle = bundle ?? .module
+        self.bundle = bundle ?? .main
     }
 
     public typealias Usp = OnboardingUsp<UspIcon>

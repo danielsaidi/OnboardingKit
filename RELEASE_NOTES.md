@@ -13,6 +13,16 @@ These release notes only cover the current major version.
 
 
 
+## 9.1.1
+
+This version fixes a localization bug.
+
+### 🐛 Bug Fixes
+
+* This version uses the `.main` bundle by default, instead of `.module`.
+
+
+
 ## 9.1
 
 This version adds new views.

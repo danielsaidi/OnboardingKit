@@ -21,7 +21,7 @@ public struct OnboardingVerticalProgressList: View {
     ) {
         self.steps = steps
         self.currentStepIndex = stepIndex
-        self.bundle = bundle ?? .module
+        self.bundle = bundle ?? .main
     }
 
     public typealias Step = OnboardingVerticalProgressListStep

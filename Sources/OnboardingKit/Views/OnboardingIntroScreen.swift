@@ -30,7 +30,7 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
         self.title = title
         self.text = text
         self.usps = usps
-        self.bundle = bundle ?? .module
+        self.bundle = bundle ?? .main
         self.uspIcon = uspIcon
     }
 
