@@ -7,9 +7,7 @@
     <img src="https://img.shields.io/badge/Swift-6.1-orange.svg" alt="Swift 6.1" />
     <a href="https://danielsaidi.github.io/OnboardingKit"><img src="https://img.shields.io/badge/documentation-web-blue.svg" alt="Documentation" /></a>
     <a href="https://github.com/danielsaidi/OnboardingKit/blob/master/LICENSE"><img src="https://img.shields.io/github/license/danielsaidi/OnboardingKit" alt="MIT License" /></a>
-    <a href="https://github.com/sponsors/danielsaidi"><img src="https://img.shields.io/badge/sponsor-GitHub-red.svg" alt="Sponsor my work" /></a>
 </p>
-
 
 
 # OnboardingKit
@@ -23,7 +21,6 @@ OnboardingKit is SwiftUI SDK that helps you create amazing onboarding experience
 OnboardingKit has different `Onboarding` types, powerful onboarding view components like ``OnboardingPageView`` and ``OnboardingSlideshow``, an ``OnboardingScreen`` that can wrap any onboarding flow, and much more.
 
 
-
 ## Installation
 
 OnboardingKit can be installed with the Swift Package Manager:
@@ -31,12 +28,6 @@ OnboardingKit can be installed with the Swift Package Manager:
 ```
 https://github.com/danielsaidi/OnboardingKit.git
 ```
-
-
-## Support My Work
-
-You can [become a sponsor][Sponsors] to help me dedicate more time on my various [open-source tools][OpenSource]. Every contribution, no matter the size, makes a real difference in keeping these tools free and actively developed.
-
 
 
 ## Getting started
@@ -59,17 +50,19 @@ OnboardingKit has various onboarding flows, and convenient ways to handle page s
 See the online [getting started guide][Getting-Started] for more information.
 
 
-
 ## Documentation
 
 The online [documentation][Documentation] has more information, articles, code examples, etc.
-
 
 
 ## Demo Application
 
 The `Demo` folder has an app that lets you explore the library.
 
+
+## Support My Work
+
+You can [become a sponsor][Sponsors] to help me dedicate more time on my various [open-source tools][OpenSource]. Every contribution, no matter the size, makes a real difference in keeping these tools free and actively developed.
 
 
 ## Contact
@@ -82,11 +75,9 @@ Feel free to reach out if you have questions or if you want to contribute in any
 * Mastodon: [@danielsaidi@mastodon.social][Mastodon]
 
 
-
 ## License
 
 OnboardingKit is available under the MIT license. See the [LICENSE][License] file for more info.
-
 
 
 [Email]: mailto:daniel.saidi@gmail.com
