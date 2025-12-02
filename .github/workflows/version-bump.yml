@@ -34,6 +34,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   bump:
     runs-on: ubuntu-latest
@@ -56,7 +60,7 @@ jobs:
               echo "Error: Custom version not provided"
               exit 1
             fi
-            ./scripts/version_bump.sh --version "${{ inputs.custom_version }}"
+            ./scripts/version-bump.sh --version "${{ inputs.custom_version }}"
           else
-            ./scripts/version_bump.sh --type "${{ inputs.bump_type }}"
+            ./scripts/version-bump.sh --type "${{ inputs.bump_type }}"
           fi
