@@ -13,6 +13,17 @@ These release notes only cover the current major version.
 
 
 
+## 9.1.2
+
+This version fixes a localization bug.
+
+### ✨ Features
+
+* `OnboardingIntroScreenStyle` has new styles. 
+* `OnboardingUsp` has new `iconView` and `image` builders. 
+
+
+
 ## 9.1.1
 
 This version fixes a localization bug.

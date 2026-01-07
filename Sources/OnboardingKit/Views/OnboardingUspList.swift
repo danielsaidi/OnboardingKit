@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+// MARK: - View
+
 /// This view can be used to list a collection of ``OnboardingUsp`` items.
 ///
 /// This view can be styled with``SwiftUICore/View/onboardingUspListStyle(_:)`.
@@ -64,4 +66,80 @@ private extension OnboardingUspList {
             }
         }
     }
+}
+
+
+// MARK: - Style
+
+/// This style can be used with ``OnboardingUspList``.
+///
+/// This style can be applied with``SwiftUICore/View/onboardingUspListStyle(_:)`.
+public struct OnboardingUspListStyle {
+
+    public init(
+        padding: Double = 0,
+        itemSpacing: Double = 30,
+        itemPresentationDuration: Double = 0.5,
+        itemPresentationDelay: Double = 0.2
+    ) {
+        self.padding = padding
+        self.itemSpacing = itemSpacing
+        self.itemPresentationDuration = itemPresentationDuration
+        self.itemPresentationDelay = itemPresentationDelay
+    }
+
+    public let padding: Double
+    public let itemSpacing: Double
+    public let itemPresentationDuration: Double
+    public let itemPresentationDelay: Double
+}
+
+public extension OnboardingUspListStyle {
+
+    /// The standard intro screen style.
+    static var standard: Self { .init() }
+}
+
+public extension EnvironmentValues {
+
+    @Entry var onboardingUspListStyle = OnboardingUspListStyle()
+}
+
+public extension View {
+
+    func onboardingUspListStyle(
+        _ style: OnboardingUspListStyle
+    ) -> some View {
+        self.environment(\.onboardingUspListStyle, style)
+    }
+}
+
+
+// MARK: - Preview
+
+#Preview {
+
+    OnboardingUspList<Image>(
+        usps: [
+            .image(
+                title: "Foo",
+                text: "Lorem Ipsum is simply dummy text of the printing and typesetting.",
+                image: .init(systemName: "checkmark.circle")
+            ),
+            .image(
+                title: "Bar",
+                text: "Lorem Ipsum is simply dummy text of the printing and typesetting.",
+                image: .init(systemName: "checkmark.circle")
+            ),
+            .image(
+                title: "Baz",
+                text: "Lorem Ipsum is simply dummy text of the printing and typesetting.",
+                image: .init(systemName: "checkmark.circle")
+            )
+        ]
+    )
+    .background(Color.red)
+    .onboardingUspListStyle(.init(
+        itemSpacing: 40
+    ))
 }

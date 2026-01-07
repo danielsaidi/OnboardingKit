@@ -12,7 +12,7 @@ import SwiftUI
 /// This model represents a unique selling point in an oboarding context.
 public struct OnboardingUsp<Icon: View> {
 
-    /// Create a USP value.
+    /// Create a USP value with a custom icon.
     ///
     /// - Parameters:
     ///   - title: An optional localized USP title.
@@ -29,7 +29,24 @@ public struct OnboardingUsp<Icon: View> {
         self.image = nil
     }
 
-    /// Create a USP value.
+    /// Create a USP value with a custom icon.
+    ///
+    /// - Parameters:
+    ///   - title: An optional localized USP title.
+    ///   - text: A localized USP text.
+    ///   - icon: A USP icon view builder.
+    public init(
+        title: LocalizedStringKey? = nil,
+        text: LocalizedStringKey,
+        @ViewBuilder icon: @escaping () -> Icon
+    ) {
+        self.title = title
+        self.text = text
+        self.icon = icon()
+        self.image = nil
+    }
+
+    /// Create an image-based USP value.
     ///
     /// - Parameters:
     ///   - title: An optional localized USP title.
@@ -57,4 +74,52 @@ public struct OnboardingUsp<Icon: View> {
 
     /// An optional USP icon image.
     public let image: Image?
+}
+
+public extension OnboardingUsp {
+
+    /// Create an image-based USP value.
+    ///
+    /// - Parameters:
+    ///   - title: An optional localized USP title.
+    ///   - text: A localized USP text.
+    ///   - image: A USP icon image.
+    static func iconView(
+        title: LocalizedStringKey? = nil,
+        text: LocalizedStringKey,
+        icon: Icon
+    ) -> Self {
+        self.init(title: title, text: text, icon: icon)
+    }
+
+    /// Create an image-based USP value.
+    ///
+    /// - Parameters:
+    ///   - title: An optional localized USP title.
+    ///   - text: A localized USP text.
+    ///   - image: A USP icon image builder.
+    static func iconView(
+        title: LocalizedStringKey? = nil,
+        text: LocalizedStringKey,
+        @ViewBuilder icon: @escaping () -> Icon
+    ) -> Self {
+        self.init(title: title, text: text, icon: icon)
+    }
+}
+
+public extension OnboardingUsp where Icon == Image {
+
+    /// Create an image-based USP value.
+    ///
+    /// - Parameters:
+    ///   - title: An optional localized USP title.
+    ///   - text: A localized USP text.
+    ///   - image: A USP icon image.
+    static func image(
+        title: LocalizedStringKey? = nil,
+        text: LocalizedStringKey,
+        image: Image
+    ) -> Self {
+        self.init(title: title, text: text, image: image)
+    }
 }

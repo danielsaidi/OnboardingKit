@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+// MARK: - View
+
 /// This view can be used to render an ``OnboardingUsp``.
 ///
 /// This view can be styled with``SwiftUICore/View/onboardingUspListItemStyle(_:)`.
@@ -64,6 +66,45 @@ private extension OnboardingUspListItem {
     }
 }
 
+// MARK: - Style
+
+/// This style can be used with ``OnboardingUspListItem``.
+///
+/// This style can be applied with``SwiftUICore/View/onboardingUspListItemStyle(_:)`.
+public struct OnboardingUspListItemStyle {
+
+    public init(
+        iconSize: Double = 35
+    ) {
+        self.iconSize = iconSize
+    }
+
+    public let iconSize: Double
+}
+
+public extension OnboardingUspListItemStyle {
+
+    /// The standard intro screen style.
+    static var standard: Self { .init() }
+}
+
+public extension EnvironmentValues {
+
+    @Entry var onboardingUspListItemStyle = OnboardingUspListItemStyle()
+}
+
+public extension View {
+
+    func onboardingUspListItemStyle(
+        _ style: OnboardingUspListItemStyle
+    ) -> some View {
+        self.environment(\.onboardingUspListItemStyle, style)
+    }
+}
+
+
+// MARK: - Preview
+
 #Preview {
 
     OnboardingUspListItem(
@@ -74,4 +115,7 @@ private extension OnboardingUspListItem {
         )
     )
     .background(Color.red)
+    .onboardingUspListItemStyle(.init(
+        iconSize: 100)
+    )
 }

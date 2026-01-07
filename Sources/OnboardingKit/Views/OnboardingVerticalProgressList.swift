@@ -139,4 +139,5 @@ enum DemoOnboardingPage: Int, CaseIterable, Identifiable {
         ],
         stepIndex: index
     )
+    .padding()
 }

@@ -8,12 +8,17 @@
 
 import SwiftUI
 
-/// This screen can be used as an intro screen when onboarding new users.
+// MARK: - View
+
+/// This screen can be used to onboard new users.
 ///
-/// This screen can be used to welcome users, show a summary of what the app
-/// does, and list high-level USPs.
+/// This screen can be used to welcome users, show a summary
+/// of what the app does, and list high-level USPs.
 ///
-/// This view can be styled with``SwiftUICore/View/onboardingIntroScreenStyle(_:)`.
+/// This view can be styled with ``SwiftUICore/View/onboardingIntroScreenStyle(_:)``
+/// and uses views that can be styled using their own styles,
+/// like ``SwiftUICore/View/onboardingUspListStyle(_:)`` and
+/// ``SwiftUICore/View/onboardingUspListItemStyle(_:)``.
 public struct OnboardingIntroScreen<UspIcon: View>: View {
 
     public init(
@@ -66,7 +71,7 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
     @Environment(\.onboardingIntroScreenStyle) var style
 
     public var body: some View {
-        VStack(spacing: 45) {
+        VStack(spacing: style.sectionSpacing) {
             titleStack
             text(text)
                 .discrete()
@@ -87,7 +92,7 @@ private extension OnboardingIntroScreen {
     }
 
     var titleStack: some View {
-        VStack(spacing: 25) {
+        VStack(spacing: style.titleSpacing) {
             icon
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -114,6 +119,53 @@ extension View {
     }
 }
 
+
+// MARK: - Style
+
+/// This style can be used with ``OnboardingIntroScreen``.
+///
+/// This style can be applied with``SwiftUICore/View/onboardingIntroScreenStyle(_:)`.
+public struct OnboardingIntroScreenStyle {
+
+    public init(
+        iconSize: Double = 100,
+        titleSpacing: Double = 25,
+        sectionSpacing: Double = 45
+    ) {
+        self.iconSize = iconSize
+        self.titleSpacing = titleSpacing
+        self.sectionSpacing = sectionSpacing
+    }
+
+    public let iconSize: Double
+    public let titleSpacing: Double
+    public let sectionSpacing: Double
+}
+
+public extension OnboardingIntroScreenStyle {
+
+    /// The standard intro screen style.
+    static var standard: Self { .init() }
+}
+
+public extension EnvironmentValues {
+
+    @Entry var onboardingIntroScreenStyle = OnboardingIntroScreenStyle()
+}
+
+public extension View {
+
+    func onboardingIntroScreenStyle(
+        _ style: OnboardingIntroScreenStyle
+    ) -> some View {
+        self.environment(\.onboardingIntroScreenStyle, style)
+    }
+}
+
+
+
+// MARK: - Preview
+
 #Preview {
 
     ScrollView(.vertical) {
@@ -127,33 +179,40 @@ extension View {
                     .init(
                         title: "Onboarding",
                         text: "Design great onboardings with various **onboarding types**.",
-                        icon: .init(systemName: "lightbulb")
+                        image: .init(systemName: "lightbulb")
                     ),
                     .init(
                         title: "Flows",
                         text: "Sophisticated **page views** and **slideshows**.",
-                        icon: .init(systemName: "appwindow.swipe.rectangle")
+                        image: .init(systemName: "appwindow.swipe.rectangle")
                     ),
                     .init(
                         title: "Views",
                         text: "Reduce implementation time with screen templates, buttons, etc.",
-                        icon: .init(systemName: "square")
+                        image: .init(systemName: "square")
                     ),
                     .init(
                         title: "Flows",
                         text: "Sophisticated **page views** and **slideshows**.",
-                        icon: .init(systemName: "appwindow.swipe.rectangle")
+                        image: .init(systemName: "appwindow.swipe.rectangle")
                     ),
                     .init(
                         title: "Views",
                         text: "Reduce implementation time with screen templates, buttons, etc.",
-                        icon: .init(systemName: "square")
+                        image: .init(systemName: "square")
                     )
                 ]
             )
         }
     }
     .onboardingIntroScreenStyle(.init(
-        uspListPresentationDelay: 0.1
+        iconSize: 30,
+        sectionSpacing: 35
+    ))
+    .onboardingUspListStyle(.init(
+        itemSpacing: 15
+    ))
+    .onboardingUspListItemStyle(.init(
+        iconSize: 30
     ))
 }
