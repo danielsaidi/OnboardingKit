@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-/// This view defines a primary onboarding page.
+/// This view defines a primary onboarding button.
 public struct OnboardingPrimaryButton<Label: View>: View {
 
     /// Create a primary onboarding button with a text title.
@@ -60,8 +60,13 @@ public struct OnboardingPrimaryButton<Label: View>: View {
 }
 
 /// This enum defines various primary button types.
+///
+/// > Note: The glass variants will only render as glass for
+/// platforms where the glass effect is available.
 public enum OnboardingPrimaryButtonType {
+
     case primary, secondary
+    case primaryGlass, secondaryGlass
 }
 
 private extension View {
@@ -71,8 +76,29 @@ private extension View {
         _ type: OnboardingPrimaryButtonType
     ) -> some View {
         switch type {
-        case .primary: self.buttonStyle(.borderedProminent)
+        case .primary:
+            self.buttonStyle(.borderedProminent)
+        case .primaryGlass:
+            #if os(visionOS)
+            self.buttonStyle(.borderedProminent)
+            #else
+            if #available(iOS 26.0, macOS 26.0, tvOS 26.0, watchOS 26.0, visionOS 26.0, *) {
+                self.buttonStyle(.glassProminent)
+            } else {
+                self.buttonStyle(.borderedProminent)
+            }
+            #endif
         case .secondary: self.buttonStyle(.bordered)
+        case .secondaryGlass:
+            #if os(visionOS)
+            self.buttonStyle(.bordered)
+            #else
+            if #available(iOS 26.0, macOS 26.0, tvOS 26.0, watchOS 26.0, visionOS 26.0, *) {
+                self.buttonStyle(.glass)
+            } else {
+                self.buttonStyle(.bordered)
+            }
+            #endif
         }
     }
 
@@ -101,6 +127,18 @@ private extension View {
         HStack {
             OnboardingPrimaryButton(
                 "Preview.Title",
+                type: .secondaryGlass,
+                action: {}
+            )
+            OnboardingPrimaryButton(
+                .primaryGlass,
+                action: {},
+                label: { Text("Test") }
+            )
+        }
+        HStack {
+            OnboardingPrimaryButton(
+                "Preview.Title",
                 type: .secondary,
                 action: {}
             )
@@ -112,4 +150,6 @@ private extension View {
         }
     }
     .padding()
+    .background(.red)
+    .tint(.orange)
 }

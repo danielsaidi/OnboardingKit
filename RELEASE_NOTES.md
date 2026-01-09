@@ -13,6 +13,16 @@ These release notes only cover the current major version.
 
 
 
+## 9.1.3
+
+This version adds support for glass buttons.
+
+### ✨ Features
+
+* `OnboardingPrimaryButton` has new glass-based styles. 
+
+
+
 ## 9.1.2
 
 This version fixes a localization bug.
