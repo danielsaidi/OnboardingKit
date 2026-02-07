@@ -1,20 +1,9 @@
 disabled_rules:
   - large_tuple
+  - todo
   - trailing_whitespace
   - vertical_whitespace
-
-excluded:
-  - Sources/Tutti/UIKit/Hints/CalloutView.swift
 
 included:
   - Sources
   - Tests
-
-identifier_name:
-  excluded:
-    - id
-    - ok
-    - up
-    - vc
-    - x
-    - y
