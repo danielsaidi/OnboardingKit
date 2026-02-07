@@ -10,20 +10,24 @@ import SwiftUI
 
 // MARK: - View
 
-/// This screen can be used to onboard new users.
+/// This screen can be used to onboard new users and quickly
+/// describe the essentials of the app.
 ///
-/// This screen can be used to welcome users, show a summary
-/// of what the app does, and list high-level USPs.
+/// This screen can show a summary of what the app does, and
+/// a list of high-level USPs. You can use a custom `uspIcon`
+/// builder to customize the original USP icons.
 ///
 /// This view can be styled with ``SwiftUICore/View/onboardingIntroScreenStyle(_:)``
 /// and uses views that can be styled using their own styles,
 /// like ``SwiftUICore/View/onboardingUspListStyle(_:)`` and
 /// ``SwiftUICore/View/onboardingUspListItemStyle(_:)``.
+///
+/// `TODO` This will use `LocalizedStringResource` in 10.0.
 public struct OnboardingIntroScreen<UspIcon: View>: View {
 
     public init(
         icon: Image,
-        welcomeTitle: LocalizedStringKey?,
+        welcomeTitle: LocalizedStringKey? = nil,
         title: LocalizedStringKey,
         text: LocalizedStringKey,
         bundle: Bundle? = nil,
@@ -41,11 +45,30 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
 
     public init(
         icon: Image,
-        welcomeTitle: LocalizedStringKey?,
+        welcomeTitle: LocalizedStringKey? = nil,
         title: LocalizedStringKey,
         text: LocalizedStringKey,
         bundle: Bundle? = nil,
-        usps: [Usp],
+        usps: [OnboardingUsp<UspIcon>]
+    ) {
+        self.init(
+            icon: icon,
+            welcomeTitle: welcomeTitle,
+            title: title,
+            text: text,
+            bundle: bundle,
+            usps: usps,
+            uspIcon: { $0.icon }
+        )
+    }
+
+    public init(
+        icon: Image,
+        welcomeTitle: LocalizedStringKey? = nil,
+        title: LocalizedStringKey,
+        text: LocalizedStringKey,
+        bundle: Bundle? = nil,
+        usps: [OnboardingUsp<Image>]
     ) where UspIcon == Image {
         self.init(
             icon: icon,
@@ -74,8 +97,9 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
         VStack(spacing: style.sectionSpacing) {
             titleStack
             text(text)
-                .discrete()
                 .font(.title3)
+                .foregroundStyle(style.secondaryColor)
+                .padding(.bottom, 10)   // Visual balance
             OnboardingUspList(usps: usps, bundle: bundle)
         }
         .padding(.horizontal)
@@ -97,16 +121,16 @@ private extension OnboardingIntroScreen {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: style.iconSize)
-            VStack(spacing: 3) {
+            VStack(spacing: 5) {
                 if let welcomeTitle {
                     text(welcomeTitle)
                         .font(.title3)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(style.secondaryColor)
                 }
                 text(title)
                     .font(.largeTitle)
                     .fontWeight(.medium)
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(style.primaryColor)
             }
         }
     }
@@ -130,16 +154,22 @@ public struct OnboardingIntroScreenStyle {
     public init(
         iconSize: Double = 100,
         titleSpacing: Double = 25,
-        sectionSpacing: Double = 45
+        sectionSpacing: Double = 30,
+        primaryColor: Color = .primary,
+        secondaryColor: Color = .secondaryOnboarding
     ) {
         self.iconSize = iconSize
         self.titleSpacing = titleSpacing
         self.sectionSpacing = sectionSpacing
+        self.primaryColor = primaryColor
+        self.secondaryColor = secondaryColor
     }
 
     public let iconSize: Double
     public let titleSpacing: Double
     public let sectionSpacing: Double
+    public let primaryColor: Color
+    public let secondaryColor: Color
 }
 
 public extension OnboardingIntroScreenStyle {
@@ -168,51 +198,59 @@ public extension View {
 
 #Preview {
 
-    ScrollView(.vertical) {
-        OnboardingFlowCenteredContent {
-            OnboardingIntroScreen(
-                icon: Image("Icon", bundle: .module),
-                welcomeTitle: "Welcome to",
-                title: "OnboardingKit",
-                text: "This SDK lets you create a great onboarding experience for your users.",
-                usps: [
-                    .init(
-                        title: "Onboarding",
-                        text: "Design great onboardings with various **onboarding types**.",
-                        image: .init(systemName: "lightbulb")
-                    ),
-                    .init(
-                        title: "Flows",
-                        text: "Sophisticated **page views** and **slideshows**.",
-                        image: .init(systemName: "appwindow.swipe.rectangle")
-                    ),
-                    .init(
-                        title: "Views",
-                        text: "Reduce implementation time with screen templates, buttons, etc.",
-                        image: .init(systemName: "square")
-                    ),
-                    .init(
-                        title: "Flows",
-                        text: "Sophisticated **page views** and **slideshows**.",
-                        image: .init(systemName: "appwindow.swipe.rectangle")
-                    ),
-                    .init(
-                        title: "Views",
-                        text: "Reduce implementation time with screen templates, buttons, etc.",
-                        image: .init(systemName: "square")
-                    )
-                ]
-            )
+    let usps: [OnboardingUsp<Image>] = [
+        .init(
+            title: "Onboarding",
+            text: "Design great onboardings with various **onboarding types**.",
+            image: .init(systemName: "lightbulb")
+        ),
+        .init(
+            title: "Flows",
+            text: "Sophisticated **page views** and **slideshows**.",
+            image: .init(systemName: "appwindow.swipe.rectangle")
+        ),
+        .init(
+            title: "Views",
+            text: "Reduce implementation time with screen templates, buttons, etc.",
+            image: .init(systemName: "square")
+        ),
+        .init(
+            title: "Flows",
+            text: "Sophisticated **page views** and **slideshows**.",
+            image: .init(systemName: "appwindow.swipe.rectangle")
+        ),
+        .init(
+            title: "Views",
+            text: "Reduce implementation time with screen templates, buttons, etc.",
+            image: .init(systemName: "square")
+        )
+    ]
+
+    NavigationStack {
+        ScrollView(.vertical) {
+            OnboardingFlowCenteredContent {
+                OnboardingIntroScreen(
+                    icon: Image("Icon", bundle: .module),
+                    welcomeTitle: "Welcome to",
+                    title: "OnboardingKit",
+                    text: "This SDK lets you create a great onboarding experience for your users.",
+                    usps: usps
+                )
+            }
         }
+        .navigationTitle("Welcome")
+        #if os(iOS)
+        .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
-    .onboardingIntroScreenStyle(.init(
-        iconSize: 30,
-        sectionSpacing: 35
-    ))
-    .onboardingUspListStyle(.init(
-        itemSpacing: 15
-    ))
-    .onboardingUspListItemStyle(.init(
-        iconSize: 30
-    ))
+//    .onboardingIntroScreenStyle(.init(
+//        iconSize: 30,
+//        sectionSpacing: 35
+//    ))
+//    .onboardingUspListStyle(.init(
+//        itemSpacing: 15
+//    ))
+//    .onboardingUspListItemStyle(.init(
+//        iconSize: 30
+//    ))
 }

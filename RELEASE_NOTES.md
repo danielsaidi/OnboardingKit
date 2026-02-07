@@ -13,6 +13,21 @@ These release notes only cover the current major version.
 
 
 
+## 9.2
+
+This version adds more styling options to the onboarding intro screen and USP items.
+
+### ✨ Features
+
+* `OnboardingUspListItem.Style` has new styling properties. 
+
+### 💡 Changes
+
+* `OnboardingUspList` now applies slightly different default styles.
+* `OnboardingUspListItem` now applies slightly different default styles.
+
+
+
 ## 9.1.3
 
 This version adds support for glass buttons.

@@ -10,7 +10,8 @@ import SwiftUI
 
 // MARK: - View
 
-/// This view can be used to list a collection of ``OnboardingUsp`` items.
+/// This view can be used to list a collection of onboarding
+/// USP items.
 ///
 /// This view can be styled with``SwiftUICore/View/onboardingUspListStyle(_:)`.
 public struct OnboardingUspList<UspIcon: View>: View {
@@ -45,7 +46,10 @@ public struct OnboardingUspList<UspIcon: View>: View {
 
 private extension OnboardingUspList {
 
-    func listItem(for usp: Usp, at index: Int) -> some View {
+    func listItem(
+        for usp: Usp,
+        at index: Int
+    ) -> some View {
         let isVisible = index < uspVisibility.count && uspVisibility[index]
         return OnboardingUspListItem(
             usp: usp,
@@ -78,7 +82,7 @@ public struct OnboardingUspListStyle {
 
     public init(
         padding: Double = 0,
-        itemSpacing: Double = 30,
+        itemSpacing: Double = 20,
         itemPresentationDuration: Double = 0.5,
         itemPresentationDelay: Double = 0.2
     ) {
@@ -140,6 +144,6 @@ public extension View {
     )
     .background(Color.red)
     .onboardingUspListStyle(.init(
-        itemSpacing: 40
+        // itemSpacing: 40
     ))
 }

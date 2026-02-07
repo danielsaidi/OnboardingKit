@@ -33,16 +33,19 @@ public struct OnboardingUspListItem<UspIcon: View>: View {
     public var body: some View {
         HStack(alignment: .top, spacing: 20) {
             iconView
+                .foregroundStyle(style.iconColor ?? .accentColor)
                 .frame(maxHeight: style.iconSize)
                 .frame(maxWidth: style.iconSize)
 
             VStack(alignment: .leading) {
                 if let title = usp.title {
                     text(title)
-                        .font(.headline)
+                        .font(style.titleFont)
+                        .foregroundStyle(style.titleColor)
                 }
                 text(usp.text)
-                    .discrete()
+                    .font(style.textFont)
+                    .foregroundStyle(style.textColor)
                     .fixedSize(horizontal: false, vertical: true)
             }
             .multilineTextAlignment(.leading)
@@ -70,16 +73,34 @@ private extension OnboardingUspListItem {
 
 /// This style can be used with ``OnboardingUspListItem``.
 ///
+/// The style can define a custom icon color. If no color is
+/// defined, icons will be tinted with the accent color.
+///
 /// This style can be applied with``SwiftUICore/View/onboardingUspListItemStyle(_:)`.
 public struct OnboardingUspListItemStyle {
 
     public init(
-        iconSize: Double = 35
+        iconColor: Color? = nil,
+        iconSize: Double = 30,
+        titleColor: Color = .primary,
+        titleFont: Font = .headline,
+        textColor: Color = .secondaryOnboarding,
+        textFont: Font = .callout
     ) {
+        self.iconColor = iconColor
         self.iconSize = iconSize
+        self.titleColor = titleColor
+        self.titleFont = titleFont
+        self.textColor = textColor
+        self.textFont = textFont
     }
 
-    public let iconSize: Double
+    public var iconColor: Color?
+    public var iconSize: Double
+    public var titleColor: Color
+    public var titleFont: Font
+    public var textColor: Color
+    public var textFont: Font
 }
 
 public extension OnboardingUspListItemStyle {
@@ -115,7 +136,9 @@ public extension View {
         )
     )
     .background(Color.red)
+    .accentColor(.orange)
     .onboardingUspListItemStyle(.init(
-        iconSize: 100)
-    )
+        iconColor: .purple,
+        iconSize: 100
+    ))
 }
