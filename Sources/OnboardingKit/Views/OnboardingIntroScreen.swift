@@ -99,8 +99,10 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
             text(text)
                 .font(.title3)
                 .foregroundStyle(style.secondaryColor)
-                .padding(.bottom, 10)   // Visual balance
+                .padding(.bottom, style.additionalUspSpacing)
             OnboardingUspList(usps: usps, bundle: bundle)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, style.uspPadding)
         }
         .padding(.horizontal)
         .multilineTextAlignment(.center)
@@ -121,7 +123,7 @@ private extension OnboardingIntroScreen {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: style.iconSize)
-            VStack(spacing: 5) {
+            VStack(spacing: 0) {
                 if let welcomeTitle {
                     text(welcomeTitle)
                         .font(.title3)
@@ -154,13 +156,17 @@ public struct OnboardingIntroScreenStyle {
     public init(
         iconSize: Double = 100,
         titleSpacing: Double = 25,
-        sectionSpacing: Double = 30,
+        sectionSpacing: Double = 35,
+        additionalUspSpacing: Double = 10,
+        uspPadding: Double = 0,
         primaryColor: Color = .primary,
         secondaryColor: Color = .secondaryOnboarding
     ) {
         self.iconSize = iconSize
         self.titleSpacing = titleSpacing
         self.sectionSpacing = sectionSpacing
+        self.additionalUspSpacing = additionalUspSpacing
+        self.uspPadding = uspPadding
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
     }
@@ -168,6 +174,8 @@ public struct OnboardingIntroScreenStyle {
     public let iconSize: Double
     public let titleSpacing: Double
     public let sectionSpacing: Double
+    public let additionalUspSpacing: Double
+    public let uspPadding: Double
     public let primaryColor: Color
     public let secondaryColor: Color
 }
@@ -201,27 +209,27 @@ public extension View {
     let usps: [OnboardingUsp<Image>] = [
         .init(
             title: "Onboarding",
-            text: "Design great onboardings with various **onboarding types**.",
+            text: "Design",// great onboardings with various **onboarding types**.",
             image: .init(systemName: "lightbulb")
         ),
         .init(
             title: "Flows",
-            text: "Sophisticated **page views** and **slideshows**.",
+            text: "Sophisticated",// **page views** and **slideshows**.",
             image: .init(systemName: "appwindow.swipe.rectangle")
         ),
         .init(
             title: "Views",
-            text: "Reduce implementation time with screen templates, buttons, etc.",
+            text: "Reduce",// implementation time with screen templates, buttons, etc.",
             image: .init(systemName: "square")
         ),
         .init(
             title: "Flows",
-            text: "Sophisticated **page views** and **slideshows**.",
+            text: "Sophisticated",// **page views** and **slideshows**.",
             image: .init(systemName: "appwindow.swipe.rectangle")
         ),
         .init(
             title: "Views",
-            text: "Reduce implementation time with screen templates, buttons, etc.",
+            text: "Reduce",// implementation time with screen templates, buttons, etc.",
             image: .init(systemName: "square")
         )
     ]

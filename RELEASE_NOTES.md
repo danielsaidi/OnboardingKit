@@ -13,6 +13,16 @@ These release notes only cover the current major version.
 
 
 
+## 9.2.1
+
+This version tweaks the design of the onboarding intro screen.
+
+### 💡 Changes
+
+* `OnboardingIntroScreen` now left-aligns the USP list and adds more styling options.
+
+
+
 ## 9.2
 
 This version adds more styling options to the onboarding intro screen and USP items.
