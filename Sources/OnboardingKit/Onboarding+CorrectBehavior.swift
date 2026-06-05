@@ -10,19 +10,24 @@ import Foundation
 
 extension Onboarding {
 
-    /// This onboarding type is presented after a number of "incorrect behaviors",
-    /// with the goal to help users behave as intended.
+    /// This onboarding type is presented after the user has
+    /// performed a a number of "incorrect behaviors".
     ///
-    /// An example could be a puzzle game for kids, where an onboarding could
-    /// trigger the pieces animate to their correct positions.
+    /// This can be used to help the user behave as intended,
+    /// for instance by showing a child how a game is played.
     ///
     /// Call ``registerIncorrectBehavior(presentAfterSeconds:action:)``
-    /// when a user doesn't behave as intended, to automatically present a help
-    /// after a number of attempts. Call ``registerCorrectBehavior()``
-    /// when the user then behaves as intended, to reset the attempt count. The
-    /// onboarding can keep being used in case the user forgets.
+    /// when the user behaves incorrectly. This will present
+    /// the onboarding after a certain number of attempts to
+    /// show the user how to behave.
     ///
-    /// Unlike ``Onboarding``, this will reset itself each time it's presented.
+    /// Call ``registerCorrectBehavior()`` when the user has
+    /// behaved as intended, to reset the attempt count. The
+    /// onboarding will keep listening to incorrect attempts,
+    /// to present the onboarding again, if needed.
+    ///
+    /// Unlike a standard ``Onboarding`` this type will keep
+    /// presenting itself if users keep behaving incorrectly.
     open class CorrectBehavior: Delayed {
 
         /// Create a correct behavior onboarding.
@@ -38,17 +43,23 @@ extension Onboarding {
             )
         }
 
-        /// The number of incorrect attempts before this onboarding should be presented.
+        /// The number of required incorrect attempts before
+        /// the onboarding is presented.
         open var requiredIncorrectAttempts: Int {
             super.requiredPresentationAttempts
         }
 
-        /// Call this function when the user behaves correctly, to reset the state.
+        /// Register a correct user behavior.
+        ///
+        /// This will reset the behavior counter and restart.
         open func registerCorrectBehavior() {
             reset()
         }
 
-        /// Call this function when the user behaves incorrectly, to increase the counter.
+        /// Register an incorrect user behavior.
+        ///
+        /// This will increment the behavior counter and use
+        /// the `action` to present an onboarding, if needed.
         @MainActor
         open func registerIncorrectBehavior(
             presentAfterSeconds seconds: TimeInterval = 0,
@@ -57,8 +68,7 @@ extension Onboarding {
             tryPresent(after: seconds, action: action)
         }
 
-        /// Present the onboarding with the provided action then
-        /// reset the onboarding state.
+        /// Present the onboarding with the provided `action`.
         open override func present(
             after seconds: TimeInterval = 0,
             action: @escaping () -> Void

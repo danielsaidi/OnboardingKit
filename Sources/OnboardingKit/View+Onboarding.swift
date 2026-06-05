@@ -11,19 +11,6 @@ import SwiftUI
 public extension View {
 
     /// Present an onboarding, with an optional delay.
-    ///
-    /// This is a shorthand for the onboarding presentation, which will result in a
-    /// cleaner call site:
-    ///
-    /// ```swift
-    /// struct MyView: View {
-    ///
-    ///     var body: some View { ... }
-    ///
-    ///     func presentOnboarding() {
-    ///         tryPresent(.welcome) { ... }
-    ///     }
-    /// ```
     func tryPresentOnboarding(
         _ onboarding: Onboarding,
         after delay: TimeInterval = 1,

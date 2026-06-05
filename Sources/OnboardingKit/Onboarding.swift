@@ -10,19 +10,23 @@ import Foundation
 
 /// This is a base class for different onboarding types.
 ///
-/// This class can be used as a regular onboarding, which is only presended once,
-/// but can also be subclassed to create other onboarding experiences.
+/// This class can be used as a regular onboarding, which is
+/// only presended once, but it can be inherited to create a
+/// custom experiences, like ``Delayed`` and ``Conditional``.
 ///
-/// The default behavior is that ``shouldBePresented`` is `true` until the
-/// first presentation has been registered, after which it becomes `false`. Other
-/// onboarding types can use different rules to provide a different experience.
+/// The ``shouldBePresented`` is `true` by default until the
+/// first presentation has been registered, after which this
+/// value becomes `false`. Custom onboarding types can apply
+/// different rules to provide custom behaviors.
 ///
-/// Using this onboarding model is easy. Just create an instance of the onboarding
-/// type that you want to use, then trigger ``tryPresent(after:action:)``
-/// whenever you want to present it. This will inspect the internal onboarding rules
-/// and will only perform the presentation action if needed.
+/// Using this model is easy. Just create an instance of the
+/// onboarding type that you want to use, and simply trigger
+/// ``tryPresent(after:action:)`` to present it. This causes
+/// the app to check the internal onboarding rules, and only
+/// performs the presentation action if needed.
 ///
-/// You can call ``reset()`` to reset the current state for a certain onboarding.
+/// You can call ``reset()`` to reset the current state of a
+/// certain onboarding.
 open class Onboarding: Identifiable {
     
     /// Create a standard onboarding.
@@ -42,7 +46,7 @@ open class Onboarding: Identifiable {
     public let store: UserDefaults
     
     
-    /// Whether or not the onboarding should be presented.
+    /// Whether the onboarding should be presented.
     open var shouldBePresented: Bool {
         presentationCount == 0
     }

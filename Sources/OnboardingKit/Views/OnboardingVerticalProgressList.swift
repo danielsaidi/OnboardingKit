@@ -11,7 +11,8 @@ import SwiftUI
 
 /// This view can be used to list steps in a vertical list.
 ///
-/// This view can be styled with``SwiftUICore/View/onboardingVerticalProgressListStyle(_:)`.
+/// This view can be styled and customized with the modifier
+/// ``SwiftUICore/View/onboardingVerticalProgressListStyle(_:)`.
 public struct OnboardingVerticalProgressList: View {
 
     public init(

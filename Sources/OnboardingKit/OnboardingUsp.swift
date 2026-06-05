@@ -9,7 +9,8 @@
 import Foundation
 import SwiftUI
 
-/// This model represents a unique selling point in an oboarding context.
+/// This type can be used to define a "unique selling point"
+/// in an oboarding context.
 public struct OnboardingUsp<Icon: View> {
 
     /// Create a USP value with a custom icon.

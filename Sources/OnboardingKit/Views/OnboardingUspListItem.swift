@@ -12,7 +12,8 @@ import SwiftUI
 
 /// This view can be used to render an ``OnboardingUsp``.
 ///
-/// This view can be styled with``SwiftUICore/View/onboardingUspListItemStyle(_:)`.
+/// This view can be styled and customized with the modifier
+/// ``SwiftUICore/View/onboardingUspListItemStyle(_:)`.
 public struct OnboardingUspListItem<UspIcon: View>: View {
 
     public init(

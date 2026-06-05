@@ -8,14 +8,11 @@
 
 import SwiftUI
 
-/// This view can be used to wrap an onboarding flow with buttons.
+/// This container view can wrap an onboarding flow like the
+/// ``OnboardingPageView`` and ``OnboardingSlideshow``.
 ///
-/// You can add ``OnboardingPageView``, ``OnboardingSlideshow``,
-/// or any custom flow view to this view, and control them with the same `page`
-/// binging as you pass into the container.
-///
-/// The view will add a top trailing done toolbar button if requested, and a set of
-/// bottom buttons that is created with the provided `buttons` builder.
+/// The view will add a top-trailing done button, and custom
+/// bottom buttons that can control the onboarding.
 public struct OnboardingFlowContainer<Page, Content: View, Buttons: View>: View {
 
     public init(
@@ -63,37 +60,6 @@ public struct OnboardingFlowContainer<Page, Content: View, Buttons: View>: View 
                 }
             }
     }
-}
-
-/// This view can wrap any view that is presented in an onboarding flow.
-///
-/// This container will apply a padding, center the content, and apply a max width.
-public struct OnboardingFlowCenteredContent<Content: View>: View {
-
-    /// Create a centered onboarding screen content view.
-    ///
-    /// - Parameters:
-    ///   - maxWidth: The max content width, by default `500`.
-    ///   - content: The content to wrap.
-    public init(
-        maxWidth: Double = 500,
-        content: @escaping () -> Content
-    ) {
-        self.maxWidth = maxWidth
-        self.content = content
-    }
-
-    private var maxWidth: Double
-    private var content: () -> Content
-
-    public var body: some View {
-        content()
-            .padding()
-            .multilineTextAlignment(.center)
-            .frame(maxWidth: maxWidth)
-            .frame(maxHeight: .infinity, alignment: .center)
-    }
-
 }
 
 private extension OnboardingFlowContainer {

@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-/// This type can be used as page state for a specific onboarding.
-///
-/// Instead of creating pages and bindings separately, this state manages both.
+/// This observable class can be used to manage the state of
+/// an onboarding flow.
 @Observable
 public class OnboardingFlowState<PageModel>: OnboardingFlow.PageInfoProvider {
 
@@ -50,7 +49,8 @@ public extension OnboardingFlowState {
 
     /// Try to show the next page, if one exists.
     ///
-    /// This function will call the provided `action` if the current page is last.
+    /// This function will try to show the next page, if one
+    /// exists, else call the provided `action`.
     func showNextPage(
         else action: () -> Void = {}
     ) {
@@ -59,8 +59,9 @@ public extension OnboardingFlowState {
     }
 
     /// Try to show the next page, if one exists.
-  ///
-  /// /// This function will call the provided `dismiss` if the current page is last.
+    ///
+    /// This function will try to show the next page, if one
+    /// exists, else call the provided `dismiss` action.
     @MainActor
     func showNextPage(
         orDismiss dismiss: DismissAction

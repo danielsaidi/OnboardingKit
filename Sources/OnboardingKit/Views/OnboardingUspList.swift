@@ -13,7 +13,8 @@ import SwiftUI
 /// This view can be used to list a collection of onboarding
 /// USP items.
 ///
-/// This view can be styled with``SwiftUICore/View/onboardingUspListStyle(_:)`.
+/// This view can be styled and customized with the modifier
+/// ``SwiftUICore/View/onboardingUspListStyle(_:)`.
 public struct OnboardingUspList<UspIcon: View>: View {
 
     public init(

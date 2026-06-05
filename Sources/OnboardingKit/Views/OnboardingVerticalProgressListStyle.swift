@@ -10,7 +10,8 @@ import SwiftUI
 
 /// This style can be used to style an ``OnboardingVerticalProgressList`.
 ///
-/// This style can be applied with``SwiftUICore/View/onboardingVerticalProgressListStyle(_:)`.
+/// This style can be applied with the view modifier
+/// ``SwiftUICore/View/onboardingVerticalProgressListStyle(_:)`.
 public struct OnboardingVerticalProgressListStyle {
 
     public init(

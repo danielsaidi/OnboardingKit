@@ -10,8 +10,8 @@ import SwiftUI
 
 public extension OnboardingFlow {
 
-    /// This protocol can be implemented by types that can be used to manage
-    /// the page information of a multi-page onboarding.
+    /// This protocol can be used to manage page information
+    /// of a multi-page onboarding.
     protocol PageInfoProvider {
 
         /// The current page index.

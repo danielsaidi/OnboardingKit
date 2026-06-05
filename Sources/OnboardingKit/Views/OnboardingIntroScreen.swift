@@ -17,8 +17,9 @@ import SwiftUI
 /// a list of high-level USPs. You can use a custom `uspIcon`
 /// builder to customize the original USP icons.
 ///
-/// This view can be styled with ``SwiftUICore/View/onboardingIntroScreenStyle(_:)``
-/// and uses views that can be styled using their own styles,
+/// This view can be styled and customized with the modifier
+/// ``SwiftUICore/View/onboardingIntroScreenStyle(_:)``, and
+/// will use views that can be styled using their own styles,
 /// like ``SwiftUICore/View/onboardingUspListStyle(_:)`` and
 /// ``SwiftUICore/View/onboardingUspListItemStyle(_:)``.
 ///

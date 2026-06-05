@@ -10,13 +10,15 @@ import Foundation
 
 extension Onboarding {
 
-    /// This onboarding type is only presented after a couple of attempts.
+    /// This onboarding type is delayed, and only triggers a
+    /// presentation after a few attempts.
     ///
-    /// Delayed onboardings are convenient when you have to coordinate many
-    /// onboardings, to schedule how they are presented.
+    /// Delayed onboardings are convenient when coordinating
+    /// many onboardings, and can be scheduled with a custom
+    /// ``requiredPresentationAttempts`` per onboarding.
     ///
-    /// Other than this, this onboarding behaves like a base ``Onboarding``,
-    /// and is only presented once.
+    /// Like a standard ``Onboarding``, this onboarding type
+    /// is only presented once.
     open class Delayed: Onboarding {
 
         /// Create a delayed onboarding.

@@ -15,10 +15,12 @@ import PageView
 
 // MARK: - View
 
-/// This view can be used to show a collection of onboarding pages, with support
-/// for navigating with swipes, arrow keys, and edge taps.
+/// This view can be used to show a collection of onboarding
+/// pages that can be navigated with swipes, arrow keys, and
+/// edge taps.
 ///
-/// This view can be styled with ``SwiftUICore/View/onboardingPageViewStyle(_:)``.
+/// This view can be styled and customized with the modifier
+/// ``SwiftUICore/View/onboardingPageViewStyle(_:)``.
 public struct OnboardingPageView<Model, Page: View>: View {
 
     /// Create an onboarding page view.

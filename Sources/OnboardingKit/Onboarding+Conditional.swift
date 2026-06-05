@@ -10,13 +10,15 @@ import Foundation
 
 extension Onboarding {
 
-    /// This onboarding type is only presented if bool condition returns `true`.
+    /// This onboarding type is only presented if `condition`
+    /// returns `true`.
     ///
-    /// One example could be a premium feature onboarding that is only shown
-    /// after the user signs up for a premium subscription.
+    /// An example could be a premium feature that will only
+    /// show its onboarding after the user has signed up for
+    /// a premium subscription.
     ///
-    /// Other than this, this onboarding behaves like a base ``Onboarding``,
-    /// and is only presented once.
+    /// Like a standard ``Onboarding``, this onboarding type
+    /// is only presented once.
     open class Conditional: Onboarding {
 
         /// Create a conditional onboarding.
@@ -31,7 +33,7 @@ extension Onboarding {
 
         public let condition: () -> Bool
 
-        /// Whether or not the onboarding should be presented.
+        /// Whether the onboarding should be presented.
         open override var shouldBePresented: Bool {
             condition() && super.shouldBePresented
         }
