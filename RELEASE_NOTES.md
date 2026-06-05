@@ -1,6 +1,6 @@
 # Release notes
 
-This project honors semantic versioning, with the following strategy:
+[OnboardingKit](https://github.com/danielsaidi/OnboardingKit) honors semantic versioning, with the following strategy:
 
 * Deprecations can happen at any time.
 * Deprecations are removed in `major` updates.
