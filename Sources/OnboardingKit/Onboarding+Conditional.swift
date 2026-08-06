@@ -10,6 +10,11 @@ import Foundation
 
 extension Onboarding {
 
+    /// A conditional onboarding type is only presented when
+    /// a condition returns `true`.
+    ///
+    /// Other than this, this onboarding behaves like a base
+    /// ``Onboarding``, and is only presented once.
     /// This onboarding type is only presented if `condition`
     /// returns `true`.
     ///
