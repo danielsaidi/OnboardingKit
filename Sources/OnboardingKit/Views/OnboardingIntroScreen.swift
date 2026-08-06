@@ -17,21 +17,18 @@ import SwiftUI
 /// a list of high-level USPs. You can use a custom `uspIcon`
 /// builder to customize the original USP icons.
 ///
-/// This view can be styled and customized with the modifier
-/// ``SwiftUICore/View/onboardingIntroScreenStyle(_:)``, and
-/// will use views that can be styled using their own styles,
-/// like ``SwiftUICore/View/onboardingUspListStyle(_:)`` and
-/// ``SwiftUICore/View/onboardingUspListItemStyle(_:)``.
+/// The view can be styled with the following view modifiers:
 ///
-/// `TODO` This will use `LocalizedStringResource` in 10.0.
+/// * ``SwiftUICore/View/onboardingIntroScreenStyle(_:)``
+/// * ``SwiftUICore/View/onboardingUspListStyle(_:)``
+/// * ``SwiftUICore/View/onboardingUspListItemStyle(_:)``.
 public struct OnboardingIntroScreen<UspIcon: View>: View {
 
     public init(
         icon: Image,
-        welcomeTitle: LocalizedStringKey? = nil,
-        title: LocalizedStringKey,
-        text: LocalizedStringKey,
-        bundle: Bundle? = nil,
+        welcomeTitle: LocalizedStringResource? = nil,
+        title: LocalizedStringResource,
+        text: LocalizedStringResource,
         usps: [Usp],
         uspIcon: @escaping (Usp) -> UspIcon
     ) {
@@ -40,16 +37,14 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
         self.title = title
         self.text = text
         self.usps = usps
-        self.bundle = bundle ?? .main
         self.uspIcon = uspIcon
     }
 
     public init(
         icon: Image,
-        welcomeTitle: LocalizedStringKey? = nil,
-        title: LocalizedStringKey,
-        text: LocalizedStringKey,
-        bundle: Bundle? = nil,
+        welcomeTitle: LocalizedStringResource? = nil,
+        title: LocalizedStringResource,
+        text: LocalizedStringResource,
         usps: [OnboardingUsp<UspIcon>]
     ) {
         self.init(
@@ -57,7 +52,6 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
             welcomeTitle: welcomeTitle,
             title: title,
             text: text,
-            bundle: bundle,
             usps: usps,
             uspIcon: { $0.icon }
         )
@@ -65,10 +59,9 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
 
     public init(
         icon: Image,
-        welcomeTitle: LocalizedStringKey? = nil,
-        title: LocalizedStringKey,
-        text: LocalizedStringKey,
-        bundle: Bundle? = nil,
+        welcomeTitle: LocalizedStringResource? = nil,
+        title: LocalizedStringResource,
+        text: LocalizedStringResource,
         usps: [OnboardingUsp<Image>]
     ) where UspIcon == Image {
         self.init(
@@ -76,7 +69,6 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
             welcomeTitle: welcomeTitle,
             title: title,
             text: text,
-            bundle: bundle,
             usps: usps,
             uspIcon: { $0.icon }
         )
@@ -85,10 +77,9 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
     public typealias Usp = OnboardingUsp<UspIcon>
 
     private let icon: Image
-    private let welcomeTitle: LocalizedStringKey?
-    private let title: LocalizedStringKey
-    private let text: LocalizedStringKey
-    private let bundle: Bundle
+    private let welcomeTitle: LocalizedStringResource?
+    private let title: LocalizedStringResource
+    private let text: LocalizedStringResource
     private let usps: [Usp]
     private let uspIcon: (Usp) -> UspIcon
 
@@ -97,11 +88,11 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
     public var body: some View {
         VStack(spacing: style.sectionSpacing) {
             titleStack
-            text(text)
+            Text(text)
                 .font(.title3)
                 .foregroundStyle(style.secondaryColor)
                 .padding(.bottom, style.additionalUspSpacing)
-            OnboardingUspList(usps: usps, bundle: bundle)
+            OnboardingUspList(usps: usps)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, style.uspPadding)
         }
@@ -112,12 +103,6 @@ public struct OnboardingIntroScreen<UspIcon: View>: View {
 
 private extension OnboardingIntroScreen {
 
-    func text(
-        _ text: LocalizedStringKey
-    ) -> some View {
-        Text(text, bundle: bundle)
-    }
-
     var titleStack: some View {
         VStack(spacing: style.titleSpacing) {
             icon
@@ -126,11 +111,11 @@ private extension OnboardingIntroScreen {
                 .frame(maxWidth: style.iconSize)
             VStack(spacing: 0) {
                 if let welcomeTitle {
-                    text(welcomeTitle)
+                    Text(welcomeTitle)
                         .font(.title3)
                         .foregroundStyle(style.secondaryColor)
                 }
-                text(title)
+                Text(title)
                     .font(.largeTitle)
                     .fontWeight(.medium)
                     .foregroundStyle(style.primaryColor)
@@ -151,7 +136,7 @@ extension View {
 
 /// This style can be used with ``OnboardingIntroScreen``.
 ///
-/// This style can be applied with``SwiftUICore/View/onboardingIntroScreenStyle(_:)`.
+/// This style can be applied with ``SwiftUICore/View/onboardingIntroScreenStyle(_:)`.
 public struct OnboardingIntroScreenStyle {
 
     public init(

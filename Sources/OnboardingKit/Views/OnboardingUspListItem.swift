@@ -12,22 +12,20 @@ import SwiftUI
 
 /// This view can be used to render an ``OnboardingUsp``.
 ///
-/// This view can be styled and customized with the modifier
-/// ``SwiftUICore/View/onboardingUspListItemStyle(_:)`.
+/// This view can be customized with the following modifiers:
+///
+/// *``SwiftUICore/View/onboardingUspListItemStyle(_:)`.
 public struct OnboardingUspListItem<UspIcon: View>: View {
 
     public init(
-        usp: Usp,
-        bundle: Bundle? = nil
+        usp: Usp
     ) {
         self.usp = usp
-        self.bundle = bundle ?? .main
     }
 
     public typealias Usp = OnboardingUsp<UspIcon>
 
     private let usp: Usp
-    private let bundle: Bundle
 
     @Environment(\.onboardingUspListItemStyle) var style
 
@@ -40,11 +38,11 @@ public struct OnboardingUspListItem<UspIcon: View>: View {
 
             VStack(alignment: .leading) {
                 if let title = usp.title {
-                    text(title)
+                    Text(title)
                         .font(style.titleFont)
                         .foregroundStyle(style.titleColor)
                 }
-                text(usp.text)
+                Text(usp.text)
                     .font(style.textFont)
                     .foregroundStyle(style.textColor)
                     .fixedSize(horizontal: false, vertical: true)
@@ -63,10 +61,6 @@ private extension OnboardingUspListItem {
         } else {
             usp.icon
         }
-    }
-
-    func text(_ text: LocalizedStringKey) -> some View {
-        Text(text, bundle: bundle)
     }
 }
 

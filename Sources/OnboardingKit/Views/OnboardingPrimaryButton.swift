@@ -16,16 +16,14 @@ public struct OnboardingPrimaryButton<Label: View>: View {
     ///
     /// - Parameters:
     ///   - title: The page title.
-    ///   - bundle: The bundle of the localized string.
     ///   - type: The button type, by default `.primary`.
     ///   - action: The button action.
     public init(
-        _ title: LocalizedStringKey,
-        bundle: Bundle? = nil,
+        _ title: LocalizedStringResource,
         type: OnboardingPrimaryButtonType = .primary,
         action: @escaping () -> Void
     ) where Label == Text {
-        self.label = Text(title, bundle: bundle)
+        self.label = Text(title)
         self.type = type
         self.action = action
     }
@@ -121,12 +119,12 @@ private extension View {
 
     VStack {
         OnboardingPrimaryButton(
-            "Preview.Title",
+            "Title",
             action: {}
         )
         HStack {
             OnboardingPrimaryButton(
-                "Preview.Title",
+                "Title",
                 type: .secondaryGlass,
                 action: {}
             )
@@ -138,7 +136,7 @@ private extension View {
         }
         HStack {
             OnboardingPrimaryButton(
-                "Preview.Title",
+                "Title",
                 type: .secondary,
                 action: {}
             )

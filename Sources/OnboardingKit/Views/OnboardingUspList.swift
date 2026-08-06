@@ -13,22 +13,20 @@ import SwiftUI
 /// This view can be used to list a collection of onboarding
 /// USP items.
 ///
-/// This view can be styled and customized with the modifier
-/// ``SwiftUICore/View/onboardingUspListStyle(_:)`.
+/// This view can be customized with the following modifiers:
+/// 
+/// * ``SwiftUICore/View/onboardingUspListStyle(_:)`.
 public struct OnboardingUspList<UspIcon: View>: View {
 
     public init(
-        usps: [Usp],
-        bundle: Bundle? = nil
+        usps: [Usp]
     ) {
         self.usps = usps
-        self.bundle = bundle ?? .main
     }
 
     public typealias Usp = OnboardingUsp<UspIcon>
 
     private let usps: [Usp]
-    private let bundle: Bundle
 
     @Environment(\.onboardingUspListStyle) var style
 
@@ -52,12 +50,9 @@ private extension OnboardingUspList {
         at index: Int
     ) -> some View {
         let isVisible = index < uspVisibility.count && uspVisibility[index]
-        return OnboardingUspListItem(
-            usp: usp,
-            bundle: bundle
-        )
-        .opacity(isVisible ? 1 : 0)
-        .offset(y: isVisible ? 0 : 20)
+        return OnboardingUspListItem(usp: usp)
+            .opacity(isVisible ? 1 : 0)
+            .offset(y: isVisible ? 0 : 20)
     }
 
     func presentItems() {

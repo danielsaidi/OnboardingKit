@@ -20,8 +20,8 @@ public struct OnboardingUsp<Icon: View> {
     ///   - text: A localized USP text.
     ///   - icon: A USP icon view.
     public init(
-        title: LocalizedStringKey? = nil,
-        text: LocalizedStringKey,
+        title: LocalizedStringResource? = nil,
+        text: LocalizedStringResource,
         icon: Icon
     ) {
         self.title = title
@@ -37,8 +37,8 @@ public struct OnboardingUsp<Icon: View> {
     ///   - text: A localized USP text.
     ///   - icon: A USP icon view builder.
     public init(
-        title: LocalizedStringKey? = nil,
-        text: LocalizedStringKey,
+        title: LocalizedStringResource? = nil,
+        text: LocalizedStringResource,
         @ViewBuilder icon: @escaping () -> Icon
     ) {
         self.title = title
@@ -54,8 +54,8 @@ public struct OnboardingUsp<Icon: View> {
     ///   - text: A localized USP text.
     ///   - image: A USP icon image.
     public init(
-        title: LocalizedStringKey? = nil,
-        text: LocalizedStringKey,
+        title: LocalizedStringResource? = nil,
+        text: LocalizedStringResource,
         image: Image
     ) where Icon == Image {
         self.title = title
@@ -65,10 +65,10 @@ public struct OnboardingUsp<Icon: View> {
     }
 
     /// An optional localized USP title.
-    public let title: LocalizedStringKey?
+    public let title: LocalizedStringResource?
 
     /// A localized USP text.
-    public let text: LocalizedStringKey
+    public let text: LocalizedStringResource
 
     /// A USP icon view.
     public let icon: Icon
@@ -86,8 +86,8 @@ public extension OnboardingUsp {
     ///   - text: A localized USP text.
     ///   - image: A USP icon image.
     static func iconView(
-        title: LocalizedStringKey? = nil,
-        text: LocalizedStringKey,
+        title: LocalizedStringResource? = nil,
+        text: LocalizedStringResource,
         icon: Icon
     ) -> Self {
         self.init(title: title, text: text, icon: icon)
@@ -100,8 +100,8 @@ public extension OnboardingUsp {
     ///   - text: A localized USP text.
     ///   - image: A USP icon image builder.
     static func iconView(
-        title: LocalizedStringKey? = nil,
-        text: LocalizedStringKey,
+        title: LocalizedStringResource? = nil,
+        text: LocalizedStringResource,
         @ViewBuilder icon: @escaping () -> Icon
     ) -> Self {
         self.init(title: title, text: text, icon: icon)
@@ -117,8 +117,8 @@ public extension OnboardingUsp where Icon == Image {
     ///   - text: A localized USP text.
     ///   - image: A USP icon image.
     static func image(
-        title: LocalizedStringKey? = nil,
-        text: LocalizedStringKey,
+        title: LocalizedStringResource? = nil,
+        text: LocalizedStringResource,
         image: Image
     ) -> Self {
         self.init(title: title, text: text, image: image)

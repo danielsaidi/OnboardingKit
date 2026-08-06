@@ -15,10 +15,11 @@ These release notes only cover the current major version.
 
 ## 10.0
 
-This version bumps deployment targets and starts using LocalizedStringResource.
+This version bumps deployment targets.
 
 ### 💡 Changes
 
+* All localized views now uses `LocalizedStringResource`.
 * `OnboardingFlowContainer` no longer has a done button.
 
 

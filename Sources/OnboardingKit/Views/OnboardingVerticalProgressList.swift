@@ -11,25 +11,23 @@ import SwiftUI
 
 /// This view can be used to list steps in a vertical list.
 ///
-/// This view can be styled and customized with the modifier
-/// ``SwiftUICore/View/onboardingVerticalProgressListStyle(_:)`.
+/// This view can be customized with the following modifiers:
+///
+/// * ``SwiftUICore/View/onboardingVerticalProgressListStyle(_:)`.
 public struct OnboardingVerticalProgressList: View {
 
     public init(
         steps: [OnboardingVerticalProgressListStep],
-        stepIndex: Int,
-        bundle: Bundle? = nil
+        stepIndex: Int
     ) {
         self.steps = steps
         self.currentStepIndex = stepIndex
-        self.bundle = bundle ?? .main
     }
 
     public typealias Step = OnboardingVerticalProgressListStep
 
     private let steps: [Step]
     private let currentStepIndex: Int
-    private let bundle: Bundle
 
     @Environment(\.onboardingVerticalProgressListStyle) var style
 
@@ -41,6 +39,22 @@ public struct OnboardingVerticalProgressList: View {
         }
     }
 }
+
+/// This model represents a step in a vertical progress list.
+public struct OnboardingVerticalProgressListStep {
+
+    public init(
+        title: LocalizedStringResource,
+        text: LocalizedStringResource
+    ) {
+        self.title = title
+        self.text = text
+    }
+
+    public let title: LocalizedStringResource
+    public let text: LocalizedStringResource
+}
+
 
 private extension OnboardingVerticalProgressList {
 
@@ -76,10 +90,10 @@ private extension OnboardingVerticalProgressList {
         let activeColor = style.titleActiveColor
         let color = isActive(index) ? activeColor : baseColor
         return VStack(alignment: .leading) {
-            Text(step.title, bundle: bundle)
+            Text(step.title)
                 .bold()
                 .foregroundStyle(color)
-            Text(step.text, bundle: bundle)
+            Text(step.text)
                 .discrete()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, style.stepSpacing)
