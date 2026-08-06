@@ -4,7 +4,7 @@
 
 <p align="center">
     <img src="https://img.shields.io/github/v/release/danielsaidi/OnboardingKit?color=%2300550&sort=semver" alt="Version" />
-    <img src="https://img.shields.io/badge/Swift-6.1-orange.svg" alt="Swift 6.1" />
+    <img src="https://img.shields.io/badge/Swift-6.2-orange.svg" alt="Swift 6.2" />
     <a href="https://danielsaidi.github.io/OnboardingKit"><img src="https://img.shields.io/badge/documentation-web-blue.svg" alt="Documentation" /></a>
     <a href="https://github.com/danielsaidi/OnboardingKit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/danielsaidi/OnboardingKit" alt="MIT License" /></a>
 </p>
@@ -28,6 +28,11 @@ OnboardingKit can be installed with the Swift Package Manager:
 ```
 https://github.com/danielsaidi/OnboardingKit.git
 ```
+
+
+## Supported Platforms
+
+OnboardingKit supports iOS 17, macOS 15, tvOS 17, watchOS 10, and visionOS 1.
 
 
 ## Getting started

@@ -13,6 +13,16 @@ These release notes only cover the current major version.
 
 
 
+## 10.0
+
+This version bumps deployment targets and starts using LocalizedStringResource.
+
+### 💡 Changes
+
+* `OnboardingFlowContainer` no longer has a done button.
+
+
+
 ## 9.2.1
 
 This version tweaks the design of the onboarding intro screen.

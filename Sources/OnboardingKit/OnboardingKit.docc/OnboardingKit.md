@@ -22,6 +22,11 @@ https://github.com/danielsaidi/OnboardingKit.git
 ```
 
 
+## Supported Platforms
+
+OnboardingKit supports iOS 17, macOS 15, tvOS 17, watchOS 10, and visionOS 1.
+
+
 
 ## Getting started
 
