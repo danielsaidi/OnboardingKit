@@ -8,29 +8,29 @@
 
 import SwiftUI
 
-/// This container view can wrap an onboarding flow like the
-/// ``OnboardingPageView`` and ``OnboardingSlideshow``.
+/// This view can be used to wrap an onboarding flow and add
+/// contextual buttons to any content view.
 ///
-/// The view will add a top-trailing done button, and custom
-/// bottom buttons that can control the onboarding.
+/// This view will center the provided content (which can be
+/// a ``OnboardingPageView``, ``OnboardingSlideshow`` or any
+/// custom view) inside a container view that has a max size,
+/// then uses the bottom safe area as a container for custom
+/// buttons that you can provide using the `buttons` builder.
 public struct OnboardingFlowContainer<Page, Content: View, Buttons: View>: View {
 
     public init(
         pages: [Page],
         pageIndex: Binding<Int>,
-        addDoneButton: Bool = true,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder buttons: @escaping (ButtonParams) -> Buttons
     ) {
         self.pages = pages
         self._pageIndex = pageIndex
-        self.addDoneButton = addDoneButton
         self.content = content
         self.buttons = buttons
     }
 
     private let pages: [Page]
-    private let addDoneButton: Bool
     private let content: () -> Content
     private let buttons: (ButtonParams) -> Buttons
 
@@ -52,12 +52,6 @@ public struct OnboardingFlowContainer<Page, Content: View, Buttons: View>: View 
                 buttons(buttonParams)
                     .padding([.horizontal, .bottom])
                     .animation(.default, value: pageIndex)
-            }
-            .toolbar {
-                if addDoneButton {
-                    Button("Done", action: dismiss.callAsFunction)
-                        .labelStyle(.titleOnly)
-                }
             }
     }
 }
@@ -111,7 +105,6 @@ private extension OnboardingFlowContainer {
                     OnboardingFlowContainer(
                         pages: pages,
                         pageIndex: $pageIndex,
-                        addDoneButton: false,
                         content: {
                             OnboardingPageView(
                                 pages: pages,

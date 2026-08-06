@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 /// This type defines page info for an onboarding page.
-public struct OnboardingPage<PageModel>: OnboardingFlow.PageInfoProvider {
+public struct OnboardingPage<PageModel>: OnboardingFlowPageInfo {
 
     /// Create a page info value.
     ///

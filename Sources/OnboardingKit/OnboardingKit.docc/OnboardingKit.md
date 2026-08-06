@@ -60,9 +60,9 @@ OnboardingKit is available under the MIT license.
 
 ### Flows
 
-- ``OnboardingFlow``
 - ``OnboardingFlowContainer``
 - ``OnboardingFlowCenteredContent``
+- ``OnboardingFlowPageInfo``
 - ``OnboardingFlowState``
 
 ### Pages

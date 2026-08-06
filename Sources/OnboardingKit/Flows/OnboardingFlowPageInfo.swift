@@ -1,5 +1,5 @@
 //
-//  OnboardingFlow+PageInfoProvider.swift
+//  OnboardingFlowPageInfo.swift
 //  OnboardingKit
 //
 //  Created by Daniel Saidi on 2025-05-22.
@@ -8,21 +8,18 @@
 
 import SwiftUI
 
-public extension OnboardingFlow {
+/// This protocol can be implemented by any type that can be
+/// used to provide page information to an onboarding flow.
+public protocol OnboardingFlowPageInfo {
 
-    /// This protocol can be used to manage page information
-    /// of a multi-page onboarding.
-    protocol PageInfoProvider {
+    /// The current page index.
+    var currentPageIndex: Int { get set }
 
-        /// The current page index.
-        var currentPageIndex: Int { get set }
-
-        /// The total number of pages.
-        var totalPageCount: Int { get }
-    }
+    /// The total number of pages.
+    var totalPageCount: Int { get }
 }
 
-public extension OnboardingFlow.PageInfoProvider {
+public extension OnboardingFlowPageInfo {
 
     /// Whether the current page is the first page.
     var isCurrentPageFirst: Bool {

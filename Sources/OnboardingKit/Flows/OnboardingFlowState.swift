@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-/// This observable class can be used to manage the state of
-/// an onboarding flow.
+/// This type can be used as state for a specific onboarding.
+///
+/// Instead of creating custom pages and bindings separately,
+/// this state can be used to manage both.
 @Observable
-public class OnboardingFlowState<PageModel>: OnboardingFlow.PageInfoProvider {
+public class OnboardingFlowState<PageModel>: OnboardingFlowPageInfo {
 
     /// Create an onboarding page state.
     ///
