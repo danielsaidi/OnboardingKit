@@ -10,64 +10,11 @@
 </p>
 
 
-# OnboardingKit
+# OnboardingKit has moved...and changed!
 
-OnboardingKit is SwiftUI SDK that helps you create amazing onboarding experiences on all major Apple platforms.
+After 10 versions, OnboardingKit has moved to a [new repository](https://github.com/kankoda/onboardingkit) and been converted to a closed-source project. The new SDK has more features with higher quality, so feel free to check it out.
 
-<p align="center">
-    <img src="https://github.com/danielsaidi/OnboardingKit/releases/download/8.2.0/OnboardingKit-Demo.gif" width=350 />
-</p>
-
-OnboardingKit has different `Onboarding` types, powerful onboarding view components like ``OnboardingPageView`` and ``OnboardingSlideshow``, an ``OnboardingScreen`` that can wrap any onboarding flow, and much more.
-
-
-## Installation
-
-OnboardingKit can be installed with the Swift Package Manager:
-
-```
-https://github.com/danielsaidi/OnboardingKit.git
-```
-
-
-## Supported Platforms
-
-OnboardingKit supports iOS 17, macOS 15, tvOS 17, watchOS 10, and visionOS 1.
-
-
-## Getting started
-
-OnboardingKit has various onboarding types and views that can be used to tailor an app's onboarding behavior. 
-
-The various ``Onboarding`` types defines unique onboarding experience behaviors, for instance: 
-
-* ``Onboarding`` is presented right away, and only once.
-* ``Onboarding.Conditional`` is presented when a certain condition returns `true`.
-* ``Onboarding.CorrectBehavior`` is presented when a user is not behaving as intended.
-* ``Onboarding.Delayed`` is presented after a certain number of presentation attempts.
-
-OnboardingKit has various onboarding flows, and convenient ways to handle page state, for instance:
-
-* An ``OnboardingPageView`` can be used to present manually scrolling pages. 
-* An ``OnboardingSlideshow`` can be used to present an automatically progressing slideshow.
-* An ``OnboardingIntroScreen`` can be used to present a welcome screen on first app launch.
-
-See the online [getting started guide][Getting-Started] for more information.
-
-
-## Documentation
-
-The online [documentation][Documentation] has more information, articles, code examples, etc.
-
-
-## Demo Application
-
-The `Demo` folder has an app that lets you explore the library.
-
-
-## Support My Work
-
-You can [become a sponsor][Sponsors] to help me dedicate more time on my various [open-source tools][OpenSource]. Every contribution, no matter the size, makes a real difference in keeping these tools free and actively developed.
+This repository will remain as a public archive, but it will no longer be updated.
 
 
 ## Contact
@@ -78,11 +25,6 @@ Feel free to reach out if you have questions or if you want to contribute in any
 * E-mail: [daniel.saidi@gmail.com][Email]
 * Bluesky: [@danielsaidi@bsky.social][Bluesky]
 * Mastodon: [@danielsaidi@mastodon.social][Mastodon]
-
-
-## License
-
-OnboardingKit is available under the MIT license. See the [LICENSE][License] file for more info.
 
 
 [Email]: mailto:daniel.saidi@gmail.com
